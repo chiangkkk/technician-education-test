@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.system.mapper.Gc60Mapper">
+    
+    <resultMap type="Gc60" id="Gc60Result">
+        <result property="age548"    column="AGE548"    />
+        <result property="agc156"    column="AGC156"    />
+        <result property="age760"    column="AGE760"    />
+        <result property="age790"    column="AGE790"    />
+        <result property="age746"    column="AGE746"    />
+        <result property="age792"    column="AGE792"    />
+        <result property="aae100"    column="AAE100"    />
+        <result property="age622"    column="AGE622"    />
+        <result property="aae011"    column="AAE011"    />
+        <result property="aae036"    column="AAE036"    />
+    </resultMap>
+
+    <sql id="selectGc60Vo">
+        select AGE548, AGC156, AGE760, AGE790, AGE746, AGE792, AAE100, AGE622, AAE011, AAE036 from gc60
+    </sql>
+
+    <select id="selectGc60List" parameterType="Gc60" resultMap="Gc60Result">
+        <include refid="selectGc60Vo"/>
+        <where>  
+            <if test="agc156 != null  and agc156 != ''"> and AGC156 = #{agc156}</if>
+            <if test="age760 != null  and age760 != ''"> and AGE760 = #{age760}</if>
+            <if test="age790 != null  and age790 != ''"> and AGE790 = #{age790}</if>
+            <if test="age746 != null  and age746 != ''"> and AGE746 = #{age746}</if>
+            <if test="age792 != null  and age792 != ''"> and AGE792 = #{age792}</if>
+            <if test="aae100 != null  and aae100 != ''"> and AAE100 = #{aae100}</if>
+            <if test="age622 != null  and age622 != ''"> and AGE622 = #{age622}</if>
+            <if test="aae011 != null  and aae011 != ''"> and AAE011 = #{aae011}</if>
+            <if test="aae036 != null "> and AAE036 = #{aae036}</if>
+        </where>
+    </select>
+    
+    <select id="selectGc60ByAge548" parameterType="String" resultMap="Gc60Result">
+        <include refid="selectGc60Vo"/>
+        where AGE548 = #{age548}
+    </select>
+        
+    <insert id="insertGc60" parameterType="Gc60">
+        insert into gc60
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="age548 != null">AGE548,</if>
+            <if test="agc156 != null">AGC156,</if>
+            <if test="age760 != null">AGE760,</if>
+            <if test="age790 != null">AGE790,</if>
+            <if test="age746 != null">AGE746,</if>
+            <if test="age792 != null">AGE792,</if>
+            <if test="aae100 != null">AAE100,</if>
+            <if test="age622 != null">AGE622,</if>
+            <if test="aae011 != null">AAE011,</if>
+            <if test="aae036 != null">AAE036,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="age548 != null">#{age548},</if>
+            <if test="agc156 != null">#{agc156},</if>
+            <if test="age760 != null">#{age760},</if>
+            <if test="age790 != null">#{age790},</if>
+            <if test="age746 != null">#{age746},</if>
+            <if test="age792 != null">#{age792},</if>
+            <if test="aae100 != null">#{aae100},</if>
+            <if test="age622 != null">#{age622},</if>
+            <if test="aae011 != null">#{aae011},</if>
+            <if test="aae036 != null">#{aae036},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGc60" parameterType="Gc60">
+        update gc60
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="agc156 != null">AGC156 = #{agc156},</if>
+            <if test="age760 != null">AGE760 = #{age760},</if>
+            <if test="age790 != null">AGE790 = #{age790},</if>
+            <if test="age746 != null">AGE746 = #{age746},</if>
+            <if test="age792 != null">AGE792 = #{age792},</if>
+            <if test="aae100 != null">AAE100 = #{aae100},</if>
+            <if test="age622 != null">AGE622 = #{age622},</if>
+            <if test="aae011 != null">AAE011 = #{aae011},</if>
+            <if test="aae036 != null">AAE036 = #{aae036},</if>
+        </trim>
+        where AGE548 = #{age548}
+    </update>
+
+    <delete id="deleteGc60ByAge548" parameterType="String">
+        delete from gc60 where AGE548 = #{age548}
+    </delete>
+
+    <delete id="deleteGc60ByAge548s" parameterType="String">
+        delete from gc60 where AGE548 in 
+        <foreach item="age548" collection="array" open="(" separator="," close=")">
+            #{age548}
+        </foreach>
+    </delete>
+
+    <delete id="deleteAllGc60" parameterType="String">
+        delete from gc60
+    </delete>
+
+    <insert id="insertBatchGc60" parameterType="List">
+        insert into gc60 values
+        <foreach collection="list" separator="," item="item" >
+            (
+            #{item.age548},#{item.agc156},#{item.age760},#{item.age790},#{item.age746},#{item.age792},#{item.aae100},#{item.age622},#{item.aae011},#{item.aae036}
+            )
+        </foreach>
+    </insert>
+</mapper>

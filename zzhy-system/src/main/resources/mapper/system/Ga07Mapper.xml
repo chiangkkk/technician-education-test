@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.system.mapper.Ga07Mapper">
+    
+    <resultMap type="Ga07" id="Ga07Result">
+        <result property="age661"    column="AGE661"    />
+        <result property="aab001"    column="AAB001"    />
+        <result property="age560"    column="AGE560"    />
+        <result property="age655"    column="AGE655"    />
+        <result property="aae100"    column="AAE100"    />
+        <result property="age659"    column="AGE659"    />
+        <result property="age646"    column="AGE646"    />
+        <result property="age601"    column="AGE601"    />
+        <result property="age656"    column="AGE656"    />
+        <result property="age658"    column="AGE658"    />
+        <result property="age657"    column="AGE657"    />
+    </resultMap>
+
+    <sql id="selectGa07Vo">
+        select AGE661, AAB001, AGE560, AGE655, AAE100, AGE659, AGE646, AGE601, AGE656, AGE658, AGE657 from ga07
+    </sql>
+
+    <select id="selectGa07List" parameterType="Ga07" resultMap="Ga07Result">
+        <include refid="selectGa07Vo"/>
+        <where>  
+            <if test="aab001 != null  and aab001 != ''"> and AAB001 = #{aab001}</if>
+            <if test="age560 != null  and age560 != ''"> and AGE560 = #{age560}</if>
+            <if test="age655 != null  and age655 != ''"> and AGE655 = #{age655}</if>
+            <if test="aae100 != null  and aae100 != ''"> and AAE100 = #{aae100}</if>
+            <if test="age659 != null  and age659 != ''"> and AGE659 = #{age659}</if>
+            <if test="age646 != null "> and AGE646 = #{age646}</if>
+            <if test="age601 != null  and age601 != ''"> and AGE601 = #{age601}</if>
+            <if test="age656 != null  and age656 != ''"> and AGE656 = #{age656}</if>
+            <if test="age658 != null "> and AGE658 = #{age658}</if>
+            <if test="age657 != null  and age657 != ''"> and AGE657 = #{age657}</if>
+        </where>
+    </select>
+    
+    <select id="selectGa07ByAge661" parameterType="String" resultMap="Ga07Result">
+        <include refid="selectGa07Vo"/>
+        where AGE661 = #{age661}
+    </select>
+        
+    <insert id="insertGa07" parameterType="Ga07">
+        insert into ga07
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="age661 != null">AGE661,</if>
+            <if test="aab001 != null">AAB001,</if>
+            <if test="age560 != null">AGE560,</if>
+            <if test="age655 != null">AGE655,</if>
+            <if test="aae100 != null">AAE100,</if>
+            <if test="age659 != null">AGE659,</if>
+            <if test="age646 != null">AGE646,</if>
+            <if test="age601 != null">AGE601,</if>
+            <if test="age656 != null">AGE656,</if>
+            <if test="age658 != null">AGE658,</if>
+            <if test="age657 != null">AGE657,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="age661 != null">#{age661},</if>
+            <if test="aab001 != null">#{aab001},</if>
+            <if test="age560 != null">#{age560},</if>
+            <if test="age655 != null">#{age655},</if>
+            <if test="aae100 != null">#{aae100},</if>
+            <if test="age659 != null">#{age659},</if>
+            <if test="age646 != null">#{age646},</if>
+            <if test="age601 != null">#{age601},</if>
+            <if test="age656 != null">#{age656},</if>
+            <if test="age658 != null">#{age658},</if>
+            <if test="age657 != null">#{age657},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGa07" parameterType="Ga07">
+        update ga07
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="aab001 != null">AAB001 = #{aab001},</if>
+            <if test="age560 != null">AGE560 = #{age560},</if>
+            <if test="age655 != null">AGE655 = #{age655},</if>
+            <if test="aae100 != null">AAE100 = #{aae100},</if>
+            <if test="age659 != null">AGE659 = #{age659},</if>
+            <if test="age646 != null">AGE646 = #{age646},</if>
+            <if test="age601 != null">AGE601 = #{age601},</if>
+            <if test="age656 != null">AGE656 = #{age656},</if>
+            <if test="age658 != null">AGE658 = #{age658},</if>
+            <if test="age657 != null">AGE657 = #{age657},</if>
+        </trim>
+        where AGE661 = #{age661}
+    </update>
+
+    <delete id="deleteGa07ByAge661" parameterType="String">
+        delete from ga07 where AGE661 = #{age661}
+    </delete>
+
+    <delete id="deleteGa07ByAge661s" parameterType="String">
+        delete from ga07 where AGE661 in 
+        <foreach item="age661" collection="array" open="(" separator="," close=")">
+            #{age661}
+        </foreach>
+    </delete>
+
+    <delete id="deleteAllGa07" parameterType="String">
+        delete from ga07
+    </delete>
+
+    <insert id="insertBatchGa07" parameterType="List">
+        insert into ga07 values
+        <foreach collection="list" separator="," item="item" >
+            (
+            #{item.age661},#{item.aab001},#{item.age560},#{item.age655},#{item.aae100},#{item.age659},#{item.age646},#{item.age601},#{item.age656},#{item.age658},#{item.age657}
+            )
+        </foreach>
+    </insert>
+</mapper>

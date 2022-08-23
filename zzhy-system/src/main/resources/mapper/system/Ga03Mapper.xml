@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.system.mapper.Ga03Mapper">
+    
+    <resultMap type="Ga03" id="Ga03Result">
+        <result property="aae100"    column="AAE100"    />
+        <result property="age633"    column="AGE633"    />
+        <result property="age433"    column="AGE433"    />
+        <result property="age634"    column="AGE634"    />
+        <result property="age010"    column="AGE010"    />
+        <result property="age422"    column="AGE422"    />
+        <result property="age560"    column="AGE560"    />
+        <result property="age617"    column="AGE617"    />
+    </resultMap>
+
+    <sql id="selectGa03Vo">
+        select AAE100, AGE633, AGE433, AGE634, AGE010, AGE422, AGE560, AGE617 from ga03
+    </sql>
+
+    <select id="selectGa03List" parameterType="Ga03" resultMap="Ga03Result">
+        <include refid="selectGa03Vo"/>
+        <where>  
+            <if test="aae100 != null  and aae100 != ''"> and AAE100 = #{aae100}</if>
+            <if test="age633 != null  and age633 != ''"> and AGE633 = #{age633}</if>
+            <if test="age433 != null  and age433 != ''"> and AGE433 = #{age433}</if>
+            <if test="age634 != null  and age634 != ''"> and AGE634 = #{age634}</if>
+            <if test="age010 != null  and age010 != ''"> and AGE010 = #{age010}</if>
+            <if test="age422 != null  and age422 != ''"> and AGE422 = #{age422}</if>
+            <if test="age560 != null  and age560 != ''"> and AGE560 = #{age560}</if>
+            <if test="age617 != null  and age617 != ''"> and AGE617 = #{age617}</if>
+        </where>
+    </select>
+    
+    <select id="selectGa03ByAae100" parameterType="String" resultMap="Ga03Result">
+        <include refid="selectGa03Vo"/>
+        where AAE100 = #{aae100}
+    </select>
+        
+    <insert id="insertGa03" parameterType="Ga03">
+        insert into ga03
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="aae100 != null">AAE100,</if>
+            <if test="age633 != null">AGE633,</if>
+            <if test="age433 != null">AGE433,</if>
+            <if test="age634 != null">AGE634,</if>
+            <if test="age010 != null">AGE010,</if>
+            <if test="age422 != null">AGE422,</if>
+            <if test="age560 != null">AGE560,</if>
+            <if test="age617 != null">AGE617,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="aae100 != null">#{aae100},</if>
+            <if test="age633 != null">#{age633},</if>
+            <if test="age433 != null">#{age433},</if>
+            <if test="age634 != null">#{age634},</if>
+            <if test="age010 != null">#{age010},</if>
+            <if test="age422 != null">#{age422},</if>
+            <if test="age560 != null">#{age560},</if>
+            <if test="age617 != null">#{age617},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGa03" parameterType="Ga03">
+        update ga03
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="age633 != null">AGE633 = #{age633},</if>
+            <if test="age433 != null">AGE433 = #{age433},</if>
+            <if test="age634 != null">AGE634 = #{age634},</if>
+            <if test="age010 != null">AGE010 = #{age010},</if>
+            <if test="age422 != null">AGE422 = #{age422},</if>
+            <if test="age560 != null">AGE560 = #{age560},</if>
+            <if test="age617 != null">AGE617 = #{age617},</if>
+        </trim>
+        where AAE100 = #{aae100}
+    </update>
+
+    <delete id="deleteGa03ByAae100" parameterType="String">
+        delete from ga03 where AAE100 = #{aae100}
+    </delete>
+
+    <delete id="deleteGa03ByAae100s" parameterType="String">
+        delete from ga03 where AAE100 in 
+        <foreach item="aae100" collection="array" open="(" separator="," close=")">
+            #{aae100}
+        </foreach>
+    </delete>
+
+
+    <delete id="deleteAllGa03" parameterType="String">
+        delete from ga03
+    </delete>
+
+    <insert id="insertBatchGa03" parameterType="List">
+        insert into ga03 values
+        <foreach collection="list" separator="," item="item" >
+            (
+            #{item.aae100},#{item.age633},#{item.age433},#{item.age634},#{item.age010},#{item.age422},#{item.age560},#{item.age617}
+            )
+        </foreach>
+    </insert>
+</mapper>

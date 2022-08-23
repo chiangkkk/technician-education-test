@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.system.mapper.Gb11Mapper">
+    
+    <resultMap type="Gb11" id="Gb11Result">
+        <result property="agb020"    column="AGB020"    />
+        <result property="aae100"    column="AAE100"    />
+        <result property="age679"    column="AGE679"    />
+        <result property="age680"    column="AGE680"    />
+        <result property="age681"    column="AGE681"    />
+        <result property="age664"    column="AGE664"    />
+        <result property="agb024"    column="AGB024"    />
+        <result property="agb025"    column="AGB025"    />
+        <result property="age682"    column="AGE682"    />
+        <result property="aae051"    column="AAE051"    />
+        <result property="agb021"    column="AGB021"    />
+        <result property="agb087"    column="AGB087"    />
+        <result property="aab003"    column="AAB003"    />
+        <result property="age613"    column="AGE613"    />
+        <result property="agb012"    column="AGB012"    />
+        <result property="aae047"    column="AAE047"    />
+        <result property="agb082"    column="AGB082"    />
+        <result property="agb022"    column="AGB022"    />
+        <result property="agb023"    column="AGB023"    />
+        <result property="age666"    column="AGE666"    />
+        <result property="age667"    column="AGE667"    />
+        <result property="aab021"    column="AAB021"    />
+        <result property="agb084"    column="AGB084"    />
+        <result property="age668"    column="AGE668"    />
+        <result property="age669"    column="AGE669"    />
+        <result property="age670"    column="AGE670"    />
+        <result property="age671"    column="AGE671"    />
+        <result property="age672"    column="AGE672"    />
+        <result property="age702"    column="AGE702"    />
+        <result property="age703"    column="AGE703"    />
+        <result property="age675"    column="AGE675"    />
+        <result property="age676"    column="AGE676"    />
+        <result property="age677"    column="AGE677"    />
+        <result property="age678"    column="AGE678"    />
+        <result property="age686"    column="AGE686"    />
+        <result property="aae007"    column="AAE007"    />
+        <result property="agb088"    column="AGB088"    />
+        <result property="agb004"    column="AGB004"    />
+        <result property="aae004"    column="AAE004"    />
+        <result property="agb096"    column="AGB096"    />
+        <result property="age687"    column="AGE687"    />
+        <result property="age688"    column="AGE688"    />
+        <result property="age689"    column="AGE689"    />
+        <result property="age690"    column="AGE690"    />
+        <result property="age691"    column="AGE691"    />
+        <result property="age692"    column="AGE692"    />
+        <result property="age693"    column="AGE693"    />
+        <result property="age694"    column="AGE694"    />
+        <result property="age695"    column="AGE695"    />
+        <result property="age696"    column="AGE696"    />
+        <result property="age697"    column="AGE697"    />
+    </resultMap>
+
+    <sql id="selectGb11Vo">
+        select AGB020, AAE100, AGE679, AGE680, AGE681, AGE664, AGB024, AGB025, AGE682, AAE051, AGB021, AGB087, AAB003, AGE613, AGB012, AAE047, AGB082, AGB022, AGB023, AGE666, AGE667, AAB021, AGB084, AGE668, AGE669, AGE670, AGE671, AGE672, AGE702, AGE703, AGE675, AGE676, AGE677, AGE678, AGE686, AAE007, AGB088, AGB004, AAE004, AGB096, AGE687, AGE688, AGE689, AGE690, AGE691, AGE692, AGE693, AGE694, AGE695, AGE696, AGE697 from gb11
+    </sql>
+
+    <select id="selectGb11List" parameterType="Gb11" resultMap="Gb11Result">
+        <include refid="selectGb11Vo"/>
+        <where>  
+            <if test="aae100 != null  and aae100 != ''"> and AAE100 = #{aae100}</if>
+            <if test="age679 != null  and age679 != ''"> and AGE679 = #{age679}</if>
+            <if test="age680 != null  and age680 != ''"> and AGE680 = #{age680}</if>
+            <if test="age681 != null  and age681 != ''"> and AGE681 = #{age681}</if>
+            <if test="age664 != null  and age664 != ''"> and AGE664 = #{age664}</if>
+            <if test="agb024 != null  and agb024 != ''"> and AGB024 = #{agb024}</if>
+            <if test="agb025 != null  and agb025 != ''"> and AGB025 = #{agb025}</if>
+            <if test="age682 != null  and age682 != ''"> and AGE682 = #{age682}</if>
+            <if test="aae051 != null  and aae051 != ''"> and AAE051 = #{aae051}</if>
+            <if test="agb021 != null  and agb021 != ''"> and AGB021 = #{agb021}</if>
+            <if test="agb087 != null  and agb087 != ''"> and AGB087 = #{agb087}</if>
+            <if test="aab003 != null  and aab003 != ''"> and AAB003 = #{aab003}</if>
+            <if test="age613 != null  and age613 != ''"> and AGE613 = #{age613}</if>
+            <if test="agb012 != null  and agb012 != ''"> and AGB012 = #{agb012}</if>
+            <if test="aae047 != null "> and AAE047 = #{aae047}</if>
+            <if test="agb082 != null  and agb082 != ''"> and AGB082 = #{agb082}</if>
+            <if test="agb022 != null  and agb022 != ''"> and AGB022 = #{agb022}</if>
+            <if test="agb023 != null  and agb023 != ''"> and AGB023 = #{agb023}</if>
+            <if test="age666 != null  and age666 != ''"> and AGE666 = #{age666}</if>
+            <if test="age667 != null  and age667 != ''"> and AGE667 = #{age667}</if>
+            <if test="aab021 != null  and aab021 != ''"> and AAB021 = #{aab021}</if>
+            <if test="agb084 != null  and agb084 != ''"> and AGB084 = #{agb084}</if>
+            <if test="age668 != null "> and AGE668 = #{age668}</if>
+            <if test="age669 != null "> and AGE669 = #{age669}</if>
+            <if test="age670 != null "> and AGE670 = #{age670}</if>
+            <if test="age671 != null "> and AGE671 = #{age671}</if>
+            <if test="age672 != null "> and AGE672 = #{age672}</if>
+            <if test="age702 != null "> and AGE702 = #{age702}</if>
+            <if test="age703 != null "> and AGE703 = #{age703}</if>
+            <if test="age675 != null "> and AGE675 = #{age675}</if>
+            <if test="age676 != null "> and AGE676 = #{age676}</if>
+            <if test="age677 != null "> and AGE677 = #{age677}</if>
+            <if test="age678 != null "> and AGE678 = #{age678}</if>
+            <if test="age686 != null  and age686 != ''"> and AGE686 = #{age686}</if>
+            <if test="aae007 != null  and aae007 != ''"> and AAE007 = #{aae007}</if>
+            <if test="agb088 != null  and agb088 != ''"> and AGB088 = #{agb088}</if>
+            <if test="agb004 != null  and agb004 != ''"> and AGB004 = #{agb004}</if>
+            <if test="aae004 != null  and aae004 != ''"> and AAE004 = #{aae004}</if>
+            <if test="agb096 != null  and agb096 != ''"> and AGB096 = #{agb096}</if>
+            <if test="age687 != null  and age687 != ''"> and AGE687 = #{age687}</if>
+            <if test="age688 != null  and age688 != ''"> and AGE688 = #{age688}</if>
+            <if test="age689 != null  and age689 != ''"> and AGE689 = #{age689}</if>
+            <if test="age690 != null  and age690 != ''"> and AGE690 = #{age690}</if>
+            <if test="age691 != null  and age691 != ''"> and AGE691 = #{age691}</if>
+            <if test="age692 != null  and age692 != ''"> and AGE692 = #{age692}</if>
+            <if test="age693 != null  and age693 != ''"> and AGE693 = #{age693}</if>
+            <if test="age694 != null  and age694 != ''"> and AGE694 = #{age694}</if>
+            <if test="age695 != null  and age695 != ''"> and AGE695 = #{age695}</if>
+            <if test="age696 != null  and age696 != ''"> and AGE696 = #{age696}</if>
+            <if test="age697 != null  and age697 != ''"> and AGE697 = #{age697}</if>
+        </where>
+    </select>
+    
+    <select id="selectGb11ByAgb020" parameterType="String" resultMap="Gb11Result">
+        <include refid="selectGb11Vo"/>
+        where AGB020 = #{agb020}
+    </select>
+        
+    <insert id="insertGb11" parameterType="Gb11">
+        insert into gb11
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="agb020 != null">AGB020,</if>
+            <if test="aae100 != null">AAE100,</if>
+            <if test="age679 != null">AGE679,</if>
+            <if test="age680 != null">AGE680,</if>
+            <if test="age681 != null">AGE681,</if>
+            <if test="age664 != null">AGE664,</if>
+            <if test="agb024 != null">AGB024,</if>
+            <if test="agb025 != null">AGB025,</if>
+            <if test="age682 != null">AGE682,</if>
+            <if test="aae051 != null">AAE051,</if>
+            <if test="agb021 != null">AGB021,</if>
+            <if test="agb087 != null">AGB087,</if>
+            <if test="aab003 != null">AAB003,</if>
+            <if test="age613 != null">AGE613,</if>
+            <if test="agb012 != null">AGB012,</if>
+            <if test="aae047 != null">AAE047,</if>
+            <if test="agb082 != null">AGB082,</if>
+            <if test="agb022 != null">AGB022,</if>
+            <if test="agb023 != null">AGB023,</if>
+            <if test="age666 != null">AGE666,</if>
+            <if test="age667 != null">AGE667,</if>
+            <if test="aab021 != null">AAB021,</if>
+            <if test="agb084 != null">AGB084,</if>
+            <if test="age668 != null">AGE668,</if>
+            <if test="age669 != null">AGE669,</if>
+            <if test="age670 != null">AGE670,</if>
+            <if test="age671 != null">AGE671,</if>
+            <if test="age672 != null">AGE672,</if>
+            <if test="age702 != null">AGE702,</if>
+            <if test="age703 != null">AGE703,</if>
+            <if test="age675 != null">AGE675,</if>
+            <if test="age676 != null">AGE676,</if>
+            <if test="age677 != null">AGE677,</if>
+            <if test="age678 != null">AGE678,</if>
+            <if test="age686 != null">AGE686,</if>
+            <if test="aae007 != null">AAE007,</if>
+            <if test="agb088 != null">AGB088,</if>
+            <if test="agb004 != null">AGB004,</if>
+            <if test="aae004 != null">AAE004,</if>
+            <if test="agb096 != null">AGB096,</if>
+            <if test="age687 != null">AGE687,</if>
+            <if test="age688 != null">AGE688,</if>
+            <if test="age689 != null">AGE689,</if>
+            <if test="age690 != null">AGE690,</if>
+            <if test="age691 != null">AGE691,</if>
+            <if test="age692 != null">AGE692,</if>
+            <if test="age693 != null">AGE693,</if>
+            <if test="age694 != null">AGE694,</if>
+            <if test="age695 != null">AGE695,</if>
+            <if test="age696 != null">AGE696,</if>
+            <if test="age697 != null">AGE697,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="agb020 != null">#{agb020},</if>
+            <if test="aae100 != null">#{aae100},</if>
+            <if test="age679 != null">#{age679},</if>
+            <if test="age680 != null">#{age680},</if>
+            <if test="age681 != null">#{age681},</if>
+            <if test="age664 != null">#{age664},</if>
+            <if test="agb024 != null">#{agb024},</if>
+            <if test="agb025 != null">#{agb025},</if>
+            <if test="age682 != null">#{age682},</if>
+            <if test="aae051 != null">#{aae051},</if>
+            <if test="agb021 != null">#{agb021},</if>
+            <if test="agb087 != null">#{agb087},</if>
+            <if test="aab003 != null">#{aab003},</if>
+            <if test="age613 != null">#{age613},</if>
+            <if test="agb012 != null">#{agb012},</if>
+            <if test="aae047 != null">#{aae047},</if>
+            <if test="agb082 != null">#{agb082},</if>
+            <if test="agb022 != null">#{agb022},</if>
+            <if test="agb023 != null">#{agb023},</if>
+            <if test="age666 != null">#{age666},</if>
+            <if test="age667 != null">#{age667},</if>
+            <if test="aab021 != null">#{aab021},</if>
+            <if test="agb084 != null">#{agb084},</if>
+            <if test="age668 != null">#{age668},</if>
+            <if test="age669 != null">#{age669},</if>
+            <if test="age670 != null">#{age670},</if>
+            <if test="age671 != null">#{age671},</if>
+            <if test="age672 != null">#{age672},</if>
+            <if test="age702 != null">#{age702},</if>
+            <if test="age703 != null">#{age703},</if>
+            <if test="age675 != null">#{age675},</if>
+            <if test="age676 != null">#{age676},</if>
+            <if test="age677 != null">#{age677},</if>
+            <if test="age678 != null">#{age678},</if>
+            <if test="age686 != null">#{age686},</if>
+            <if test="aae007 != null">#{aae007},</if>
+            <if test="agb088 != null">#{agb088},</if>
+            <if test="agb004 != null">#{agb004},</if>
+            <if test="aae004 != null">#{aae004},</if>
+            <if test="agb096 != null">#{agb096},</if>
+            <if test="age687 != null">#{age687},</if>
+            <if test="age688 != null">#{age688},</if>
+            <if test="age689 != null">#{age689},</if>
+            <if test="age690 != null">#{age690},</if>
+            <if test="age691 != null">#{age691},</if>
+            <if test="age692 != null">#{age692},</if>
+            <if test="age693 != null">#{age693},</if>
+            <if test="age694 != null">#{age694},</if>
+            <if test="age695 != null">#{age695},</if>
+            <if test="age696 != null">#{age696},</if>
+            <if test="age697 != null">#{age697},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGb11" parameterType="Gb11">
+        update gb11
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="aae100 != null">AAE100 = #{aae100},</if>
+            <if test="age679 != null">AGE679 = #{age679},</if>
+            <if test="age680 != null">AGE680 = #{age680},</if>
+            <if test="age681 != null">AGE681 = #{age681},</if>
+            <if test="age664 != null">AGE664 = #{age664},</if>
+            <if test="agb024 != null">AGB024 = #{agb024},</if>
+            <if test="agb025 != null">AGB025 = #{agb025},</if>
+            <if test="age682 != null">AGE682 = #{age682},</if>
+            <if test="aae051 != null">AAE051 = #{aae051},</if>
+            <if test="agb021 != null">AGB021 = #{agb021},</if>
+            <if test="agb087 != null">AGB087 = #{agb087},</if>
+            <if test="aab003 != null">AAB003 = #{aab003},</if>
+            <if test="age613 != null">AGE613 = #{age613},</if>
+            <if test="agb012 != null">AGB012 = #{agb012},</if>
+            <if test="aae047 != null">AAE047 = #{aae047},</if>
+            <if test="agb082 != null">AGB082 = #{agb082},</if>
+            <if test="agb022 != null">AGB022 = #{agb022},</if>
+            <if test="agb023 != null">AGB023 = #{agb023},</if>
+            <if test="age666 != null">AGE666 = #{age666},</if>
+            <if test="age667 != null">AGE667 = #{age667},</if>
+            <if test="aab021 != null">AAB021 = #{aab021},</if>
+            <if test="agb084 != null">AGB084 = #{agb084},</if>
+            <if test="age668 != null">AGE668 = #{age668},</if>
+            <if test="age669 != null">AGE669 = #{age669},</if>
+            <if test="age670 != null">AGE670 = #{age670},</if>
+            <if test="age671 != null">AGE671 = #{age671},</if>
+            <if test="age672 != null">AGE672 = #{age672},</if>
+            <if test="age702 != null">AGE702 = #{age702},</if>
+            <if test="age703 != null">AGE703 = #{age703},</if>
+            <if test="age675 != null">AGE675 = #{age675},</if>
+            <if test="age676 != null">AGE676 = #{age676},</if>
+            <if test="age677 != null">AGE677 = #{age677},</if>
+            <if test="age678 != null">AGE678 = #{age678},</if>
+            <if test="age686 != null">AGE686 = #{age686},</if>
+            <if test="aae007 != null">AAE007 = #{aae007},</if>
+            <if test="agb088 != null">AGB088 = #{agb088},</if>
+            <if test="agb004 != null">AGB004 = #{agb004},</if>
+            <if test="aae004 != null">AAE004 = #{aae004},</if>
+            <if test="agb096 != null">AGB096 = #{agb096},</if>
+            <if test="age687 != null">AGE687 = #{age687},</if>
+            <if test="age688 != null">AGE688 = #{age688},</if>
+            <if test="age689 != null">AGE689 = #{age689},</if>
+            <if test="age690 != null">AGE690 = #{age690},</if>
+            <if test="age691 != null">AGE691 = #{age691},</if>
+            <if test="age692 != null">AGE692 = #{age692},</if>
+            <if test="age693 != null">AGE693 = #{age693},</if>
+            <if test="age694 != null">AGE694 = #{age694},</if>
+            <if test="age695 != null">AGE695 = #{age695},</if>
+            <if test="age696 != null">AGE696 = #{age696},</if>
+            <if test="age697 != null">AGE697 = #{age697},</if>
+        </trim>
+        where AGB020 = #{agb020}
+    </update>
+
+    <delete id="deleteGb11ByAgb020" parameterType="String">
+        delete from gb11 where AGB020 = #{agb020}
+    </delete>
+
+    <delete id="deleteGb11ByAgb020s" parameterType="String">
+        delete from gb11 where AGB020 in 
+        <foreach item="agb020" collection="array" open="(" separator="," close=")">
+            #{agb020}
+        </foreach>
+    </delete>
+
+    <delete id="deleteAllGb11" parameterType="String">
+        delete from gb11
+    </delete>
+
+    <insert id="insertBatchGb11" parameterType="List">
+        insert into gb11 values
+        <foreach collection="list" separator="," item="item" >
+            (
+            #{item.agb020},#{item.aae100},#{item.age679},#{item.age680},#{item.age681},#{item.age664},#{item.agb024},#{item.agb025},#{item.age682},#{item.aae051},#{item.agb021},#{item.agb087},#{item.aab003},#{item.age613},#{item.agb012},#{item.aae047},#{item.agb082},#{item.agb022},#{item.agb023},#{item.age666},#{item.age667},#{item.aab021},#{item.agb084},#{item.age668},#{item.age669},#{item.age670},#{item.age671},#{item.age672},#{item.age702},#{item.age703},#{item.age675},#{item.age676},#{item.age677},#{item.age678},#{item.age686},#{item.aae007},#{item.agb088},#{item.agb004},#{item.aae004},#{item.agb096},#{item.age687},#{item.age688},#{item.age689},#{item.age690},#{item.age691},#{item.age692},#{item.age693},#{item.age694},#{item.age695},#{item.age696},#{item.age697}
+            )
+        </foreach>
+    </insert>
+</mapper>

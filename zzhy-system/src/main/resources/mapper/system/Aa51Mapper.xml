@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.system.mapper.Aa51Mapper">
+    
+    <resultMap type="Aa51" id="Aa51Result">
+        <result property="aaa145"    column="AAA145"    />
+        <result property="aaa146"    column="AAA146"    />
+        <result property="aaa147"    column="AAA147"    />
+        <result property="aaa148"    column="AAA148"    />
+        <result property="aae383"    column="AAE383"    />
+        <result property="aae100"    column="AAE100"    />
+        <result property="aae013"    column="AAE013"    />
+    </resultMap>
+
+    <sql id="selectAa51Vo">
+        select AAA145, AAA146, AAA147, AAA148, AAE383, AAE100, AAE013 from aa51
+    </sql>
+
+    <select id="selectAa51List" parameterType="Aa51" resultMap="Aa51Result">
+        <include refid="selectAa51Vo"/>
+        <where>  
+            <if test="aaa145 != null  and aaa145 != ''"> and AAA145 = #{aaa145}</if>
+            <if test="aaa146 != null  and aaa146 != ''"> and AAA146 = #{aaa146}</if>
+            <if test="aaa147 != null  and aaa147 != ''"> and AAA147 = #{aaa147}</if>
+            <if test="aaa148 != null  and aaa148 != ''"> and AAA148 = #{aaa148}</if>
+            <if test="aae383 != null "> and AAE383 = #{aae383}</if>
+            <if test="aae100 != null  and aae100 != ''"> and AAE100 = #{aae100}</if>
+            <if test="aae013 != null  and aae013 != ''"> and AAE013 = #{aae013}</if>
+        </where>
+    </select>
+    
+    <select id="selectAa51ByAaa145" parameterType="String" resultMap="Aa51Result">
+        <include refid="selectAa51Vo"/>
+        where AAA145 = #{aaa145}
+    </select>
+        
+    <insert id="insertAa51" parameterType="Aa51">
+        insert into aa51
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="aaa145 != null and aaa145 != ''">AAA145,</if>
+            <if test="aaa146 != null and aaa146 != ''">AAA146,</if>
+            <if test="aaa147 != null and aaa147 != ''">AAA147,</if>
+            <if test="aaa148 != null and aaa148 != ''">AAA148,</if>
+            <if test="aae383 != null">AAE383,</if>
+            <if test="aae100 != null and aae100 != ''">AAE100,</if>
+            <if test="aae013 != null">AAE013,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="aaa145 != null and aaa145 != ''">#{aaa145},</if>
+            <if test="aaa146 != null and aaa146 != ''">#{aaa146},</if>
+            <if test="aaa147 != null and aaa147 != ''">#{aaa147},</if>
+            <if test="aaa148 != null and aaa148 != ''">#{aaa148},</if>
+            <if test="aae383 != null">#{aae383},</if>
+            <if test="aae100 != null and aae100 != ''">#{aae100},</if>
+            <if test="aae013 != null">#{aae013},</if>
+         </trim>
+    </insert>
+
+    <update id="updateAa51" parameterType="Aa51">
+        update aa51
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="aaa146 != null and aaa146 != ''">AAA146 = #{aaa146},</if>
+            <if test="aaa147 != null and aaa147 != ''">AAA147 = #{aaa147},</if>
+            <if test="aaa148 != null and aaa148 != ''">AAA148 = #{aaa148},</if>
+            <if test="aae383 != null">AAE383 = #{aae383},</if>
+            <if test="aae100 != null and aae100 != ''">AAE100 = #{aae100},</if>
+            <if test="aae013 != null">AAE013 = #{aae013},</if>
+        </trim>
+        where AAA145 = #{aaa145}
+    </update>
+
+    <delete id="deleteAa51ByAaa145" parameterType="String">
+        delete from aa51 where AAA145 = #{aaa145}
+    </delete>
+
+    <delete id="deleteAa51ByAaa145s" parameterType="String">
+        delete from aa51 where AAA145 in 
+        <foreach item="aaa145" collection="array" open="(" separator="," close=")">
+            #{aaa145}
+        </foreach>
+    </delete>
+
+
+
+    <delete id="deleteAllAa51" parameterType="String">
+        delete from aa51
+    </delete>
+
+    <insert id="insertBatchAa51" parameterType="List">
+        insert into aa51 values
+        <foreach collection="list" separator="," item="item" >
+            (
+            #{item.aaa145},#{item.aaa146},#{item.aaa147},#{item.aaa148},#{item.aae383},#{item.aae100},#{item.aae013}
+            )
+        </foreach>
+    </insert>
+</mapper>

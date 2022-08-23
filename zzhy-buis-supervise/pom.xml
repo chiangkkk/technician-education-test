@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>zzhy</artifactId>
+        <groupId>com.zzhy</groupId>
+        <version>3.8.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>zzhy-buis-supervise</artifactId>
+
+    <description>
+        监管端 业务入口
+    </description>
+
+    <dependencies>
+
+        <!-- 通用工具-->
+        <dependency>
+            <groupId>com.zzhy</groupId>
+            <artifactId>zzhy-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zzhy</groupId>
+            <artifactId>zzhy-system</artifactId>
+        </dependency>
+
+        <!-- 防止进入swagger页面报类型转换错误，排除3.0.0中的引用，手动增加1.6.2版本 -->
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-models</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zzhy</groupId>
+            <artifactId>zzhy-framework</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>

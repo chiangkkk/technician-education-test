@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.supervise.mapper.SchoolMapper">
+
+    <resultMap type="School" id="SchoolResult">
+        <result property="schoolId"    column="school_id"    />
+        <result property="schoolName"    column="school_name"    />
+        <result property="provinceAreaId"    column="province_area_id"    />
+        <result property="provinceAreaName" column="province_area_name"/>
+        <result property="cityAreaId"    column="city_area_id"    />
+        <result property="cityAreaName" column="city_area_name"/>
+        <result property="countryAreaId"    column="country_area_id"    />
+        <result property="countryAreaName" column="country_area_name"/>
+        <result property="schoolAddress"    column="school_address"    />
+        <result property="schoolCode"    column="school_code"    />
+        <result property="approvalNo"    column="approval_no"    />
+        <result property="schoolType"    column="school_type"    />
+        <result property="schoolNature"    column="school_nature"    />
+        <result property="schoolSubject" column="school_subject"/>
+        <result property="isNationImportant"    column="is_nation_important"    />
+        <result property="isProvinceImportant"    column="is_province_important"    />
+        <result property="schoolUnit"    column="school_unit"    />
+        <result property="schoolArea"    column="school_area"    />
+        <result property="instrumentUnitPrice"    column="instrument_unit_price"    />
+        <result property="buildingArea"    column="building_area"    />
+        <result property="establishedTime"    column="established_time"    />
+        <result property="studentNum"    column="student_num"    />
+        <result property="teacherNum"    column="teacher_num"    />
+        <result property="staffNum"    column="staff_num"    />
+        <result property="trainingRoomNum"    column="training_room_num"    />
+        <result property="trainingMoney"    column="training_money"    />
+        <result property="trainingDeviceNum"    column="training_device_num"    />
+        <result property="majorNum"    column="major_num"    />
+        <result property="enterpriseNum"    column="enterprise_num"    />
+        <result property="teachingPointNum"    column="teaching_point_num"    />
+        <result property="graduateUpNum"    column="graduate_up_num"    />
+        <result property="majorTeacherNum"    column="major_teacher_num"    />
+        <result property="undergraduateUpNum"    column="undergraduate_up_num"    />
+        <result property="doubleTeacherNum"    column="double_teacher_num"    />
+        <result property="schoolMainHonor"    column="school_main_honor"    />
+        <result property="schoolFeature"    column="school_feature"    />
+        <result property="postalAddress"    column="postal_address"    />
+        <result property="postalCode"    column="postal_code"    />
+        <result property="schoolWebsite"    column="school_website"    />
+        <result property="schoolEmail"    column="school_email"    />
+        <result property="schoolContacts"    column="school_contacts"    />
+        <result property="schoolTelephone"    column="school_telephone"    />
+        <result property="principal"    column="principal"    />
+        <result property="principalEmail"    column="principal_email"    />
+        <result property="principalTelephone"    column="principal_telephone"    />
+        <result property="studentStatusManager"    column="student_status_manager"    />
+        <result property="studentStatusTelephone"    column="student_status_telephone"    />
+        <result property="freeTuitionContacts"    column="free_tuition_contacts"    />
+        <result property="freeTuitionTelephone"    column="free_tuition_telephone"    />
+        <result property="stipendContacts"    column="stipend_contacts"    />
+        <result property="stipendTelephone"    column="stipend_telephone"    />
+        <result property="obtainEmploymentContacts"    column="obtain_employment_contacts"    />
+        <result property="obtainEmploymentTelephone"    column="obtain_employment_telephone"    />
+        <result property="deptId"    column="dept_id"    />
+        <result property="deptName"    column="dept_name"    />
+        <result property="hierarchy"    column="hierarchy"    />
+        <result property="isReporting"    column="is_reporting"    />
+        <result property="status"    column="status"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="remark"    column="remark"    />
+        <result property="disableFlag"    column="disable_flag"    />
+        <result property="deptSchoolCode"    column="dept_school_code"    />
+        <result property="hierarchy" column="hierarchy"/>
+        <result property="branchSchoolNum"    column="branch_school_num"    />
+        <result property="currentEnrollment"    column="current_enrollment"    />
+        <result property="isProfitSchool"    column="is_profit_school"    />
+        <result property="supportType"    column="support_type"    />
+    </resultMap>
+
+
+    <sql id="selectSchoolVo">
+        select school_id, school_name, province_area_id, city_area_id, country_area_id, province_area_name, school_address, school_code, city_area_name, approval_no, school_type, country_area_name, school_nature, is_nation_important, is_province_important, school_unit, school_area, school_subject, building_area, established_time, student_num, teacher_num, staff_num, training_room_num, instrument_unit_price, training_money, training_device_num, major_num, enterprise_num, teaching_point_num, postal_address, postal_code, school_website, school_email, school_contacts, school_telephone, graduate_up_num, principal, major_teacher_num, principal_email, undergraduate_up_num, principal_telephone, double_teacher_num, student_status_manager, school_main_honor, student_status_telephone, school_feature, free_tuition_contacts, free_tuition_telephone, stipend_contacts, stipend_telephone, obtain_employment_contacts, obtain_employment_telephone, dept_id, is_reporting, status, create_by, create_time, update_by, update_time, del_flag, remark, disable_flag, dept_school_code, hierarchy, branch_school_num, current_enrollment, school_no, is_profit_school,support_type from sch_school
+    </sql>
+
+    <select id="selectSchoolList" parameterType="School" resultMap="SchoolResult">
+        select ss.*,sd.ancestors,sd.dept_name
+        from sch_school as ss
+        left join sys_dept as sd on ss.dept_id = sd.dept_id
+        <where>
+            and ss.del_flag = 1
+            <if test="schoolName != null  and schoolName != ''"> and ss.school_name like concat('%', #{schoolName}, '%')</if>
+            <if test="provinceAreaId != null "> and ss.province_area_id = #{provinceAreaId}</if>
+            <if test="provinceAreaName != null">and ss.province_area_name= #{provinceAreaName}</if>
+            <if test="cityAreaId != null"> and ss.city_area_id = #{cityAreaId}</if>
+            <if test="cityAreaName != null">and ss.city_area_name = #{cityAreaName}</if>
+            <if test="countryAreaId != null "> and ss.country_area_id = #{countryAreaId}</if>
+            <if test="countryAreaName != null">and ss.country_area_name = #{countryAreaName}</if>
+            <if test="schoolAddress != null  and schoolAddress != ''"> and ss.school_address = #{schoolAddress}</if>
+            <if test="schoolCode != null  and schoolCode != ''"> and ss.school_code like concat('%', #{schoolCode}, '%')</if>
+            <if test="approvalNo != null  and approvalNo != ''"> and ss.approval_no = #{approvalNo}</if>
+            <if test="schoolType != null  and schoolType != ''"> and ss.school_type = #{schoolType}</if>
+            <if test="schoolNature != null  and schoolNature != ''"> and ss.school_nature = #{schoolNature}</if>
+            <if test="schoolSubject != null and schoolSubject != ''">and ss.school_subject =#{schoolSubject}</if>
+            <if test="isNationImportant != null  and isNationImportant != ''"> and ss.is_nation_important = #{isNationImportant}</if>
+            <if test="isProvinceImportant != null  and isProvinceImportant != ''"> and ss.is_province_important = #{isProvinceImportant}</if>
+            <if test="schoolUnit != null  and schoolUnit != ''"> and ss.school_unit = #{schoolUnit}</if>
+            <if test="schoolArea != null "> and ss.school_area = #{schoolArea}</if>
+            <if test="instrumentUnitPrice != null "> and ss.instrument_unit_price = #{instrumentUnitPrice}</if>
+            <if test="buildingArea != null "> and ss.building_area = #{buildingArea}</if>
+            <if test="establishedTime != null "> and ss.established_time = #{establishedTime}</if>
+            <if test="studentNum != null "> and ss.student_num = #{studentNum}</if>
+            <if test="teacherNum != null "> and ss.teacher_num = #{teacherNum}</if>
+            <if test="staffNum != null "> and ss.staff_num = #{staffNum}</if>
+            <if test="trainingRoomNum != null "> and ss.training_room_num = #{trainingRoomNum}</if>
+            <if test="trainingMoney != null "> and ss.training_money = #{trainingMoney}</if>
+            <if test="trainingDeviceNum != null "> and ss.training_device_num = #{trainingDeviceNum}</if>
+            <if test="majorNum != null "> and ss.major_num = #{majorNum}</if>
+            <if test="enterpriseNum != null "> and ss.enterprise_num = #{enterpriseNum}</if>
+            <if test="teachingPointNum != null "> and ss.teaching_point_num = #{teachingPointNum}</if>
+            <if test="graduateUpNum != null">and ss.graduate_up_num = #{graduateUpNum}</if>
+            <if test="majorTeacherNum != null">and ss.major_teacher_num = #{majorTeacherNum}</if>
+            <if test="undergraduateUpNum != null">and ss.undergraduate_up_num = #{undergraduateUpNum}</if>
+            <if test="doubleTeacherNum != null">and ss.double_teacher_num = #{doubleTeacherNum}</if>
+            <if test="schoolMainHonor != null">and ss.school_main_honor = #{schoolMainHonor}</if>
+            <if test="schoolFeature != null">and ss.school_feature = #{schoolFeature}</if>
+            <if test="postalAddress != null  and postalAddress != ''"> and ss.postal_address = #{postalAddress}</if>
+            <if test="postalCode != null  and postalCode != ''"> and ss.postal_code = #{postalCode}</if>
+            <if test="schoolWebsite != null  and schoolWebsite != ''"> and ss.school_website = #{schoolWebsite}</if>
+            <if test="schoolEmail != null  and schoolEmail != ''"> and ss.school_email = #{schoolEmail}</if>
+            <if test="schoolContacts != null  and schoolContacts != ''"> and ss.school_contacts = #{schoolContacts}</if>
+            <if test="schoolTelephone != null  and schoolTelephone != ''"> and ss.school_telephone = #{schoolTelephone}</if>
+            <if test="principal != null  and principal != ''"> and ss.principal = #{principal}</if>
+            <if test="principalEmail != null  and principalEmail != ''"> and ss.principal_email = #{principalEmail}</if>
+            <if test="principalTelephone != null  and principalTelephone != ''"> and ss.principal_telephone = #{principalTelephone}</if>
+            <if test="studentStatusManager != null  and studentStatusManager != ''"> and ss.student_status_manager = #{studentStatusManager}</if>
+            <if test="studentStatusTelephone != null  and studentStatusTelephone != ''"> and ss.student_status_telephone = #{studentStatusTelephone}</if>
+            <if test="freeTuitionContacts != null  and freeTuitionContacts != ''"> and ss.free_tuition_contacts = #{freeTuitionContacts}</if>
+            <if test="freeTuitionTelephone != null  and freeTuitionTelephone != ''"> and ss.free_tuition_telephone = #{freeTuitionTelephone}</if>
+            <if test="stipendContacts != null  and stipendContacts != ''"> and ss.stipend_contacts = #{stipendContacts}</if>
+            <if test="stipendTelephone != null  and stipendTelephone != ''"> and ss.stipend_telephone = #{stipendTelephone}</if>
+            <if test="obtainEmploymentContacts != null  and obtainEmploymentContacts != ''"> and ss.obtain_employment_contacts = #{obtainEmploymentContacts}</if>
+            <if test="obtainEmploymentTelephone != null  and obtainEmploymentTelephone != ''"> and ss.obtain_employment_telephone = #{obtainEmploymentTelephone}</if>
+            <if test="deptId != null and isFlag == 0"> and (ss.dept_id = #{deptId} or FIND_IN_SET(#{deptId},sd.ancestors))</if>
+            <if test="deptId != null and isFlag == 1"> and ss.dept_id = #{deptId}</if>
+            <if test="isReporting != null  and isReporting != ''"> and ss.is_reporting = #{isReporting}</if>
+            <if test="status != null  and status != ''"> and ss.status = #{status}</if>
+            <if test="delFlag != null  and delFlag != ''"> and ss.del_flag = #{delFlag}</if>
+            <if test="disableFlag != null "> and ss.disable_flag = #{disableFlag}</if>
+            <if test="deptSchoolCode != null and deptSchoolCode != '' "> and ss.dept_school_code = #{deptSchoolCode}</if>
+            <if test="hierarchy != null and hierarchy != '' "> and ss.hierarchy = #{hierarchy}</if>
+            <if test="branchSchoolNum != null "> and ss.branch_school_num = #{branchSchoolNum}</if>
+            <if test="currentEnrollment != null "> and ss.current_enrollment = #{currentEnrollment}</if>
+            <if test="isProfitSchool != null  and isProfitSchool != ''"> and is_profit_school = #{isProfitSchool}</if>
+            <if test="supportType != null "> and support_type = #{supportType}</if>
+        </where>
+    </select>
+
+    <select id="selectSchoolBySchoolId" parameterType="Long" resultMap="SchoolResult">
+        <include refid="selectSchoolVo"/>
+        where del_flag = 1
+        <if test="schoolId">and school_id = #{schoolId}</if>
+    </select>
+
+
+    <select id="selectSchoolBySchoolNameList"  parameterType="School" resultMap="SchoolResult">
+        <include refid="selectSchoolVo"/>
+        where del_flag = 1 and
+        school_name = #{schoolName}
+    </select>
+
+    <select id="queryBySchoolNameAndSchoolCodeAndStatus" resultMap="SchoolResult">
+        <include refid="selectSchoolVo"/>
+        where del_flag = 1
+        <if test="schoolName != null  and schoolName != ''">and school_name = #{schoolName}</if>
+        <if test="schoolCode != null  and schoolCode != ''">and school_code = #{schoolCode}</if>
+        <if test="status != null  and status != ''">and status = #{status}</if>
+    </select>
+
+    <insert id="insertSchool" parameterType="School" useGeneratedKeys="true" keyProperty="schoolId">
+        insert into sch_school
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="schoolName != null">school_name,</if>
+            <if test="provinceAreaId != null">province_area_id,</if>
+            <if test="cityAreaId != null">city_area_id,</if>
+            <if test="countryAreaId != null">country_area_id,</if>
+            <if test="provinceAreaName != null">province_area_name,</if>
+            <if test="schoolAddress != null">school_address,</if>
+            <if test="schoolCode != null">school_code,</if>
+            <if test="cityAreaName != null">city_area_name,</if>
+            <if test="approvalNo != null">approval_no,</if>
+            <if test="countryAreaName != null">country_area_name,</if>
+            <if test="schoolType != null">school_type,</if>
+            <if test="schoolNature != null">school_nature,</if>
+            <if test="isNationImportant != null">is_nation_important,</if>
+            <if test="isProvinceImportant != null">is_province_important,</if>
+            <if test="schoolUnit != null">school_unit,</if>
+            <if test="schoolSubject != null">school_subject,</if>
+            <if test="schoolArea != null">school_area,</if>
+            <if test="buildingArea != null">building_area,</if>
+            <if test="establishedTime != null">established_time,</if>
+            <if test="studentNum != null">student_num,</if>
+            <if test="teacherNum != null">teacher_num,</if>
+            <if test="staffNum != null">staff_num,</if>
+            <if test="instrumentUnitPrice != null">instrument_unit_price,</if>
+            <if test="trainingRoomNum != null">training_room_num,</if>
+            <if test="trainingMoney != null">training_money,</if>
+            <if test="trainingDeviceNum != null">training_device_num,</if>
+            <if test="majorNum != null">major_num,</if>
+            <if test="enterpriseNum != null">enterprise_num,</if>
+            <if test="teachingPointNum != null">teaching_point_num,</if>
+            <if test="postalAddress != null">postal_address,</if>
+            <if test="postalCode != null">postal_code,</if>
+            <if test="schoolWebsite != null">school_website,</if>
+            <if test="schoolEmail != null">school_email,</if>
+            <if test="schoolContacts != null">school_contacts,</if>
+            <if test="schoolTelephone != null">school_telephone,</if>
+            <if test="graduateUpNum != null">graduate_up_num,</if>
+            <if test="principal != null">principal,</if>
+            <if test="majorTeacherNum != null">major_teacher_num,</if>
+            <if test="principalEmail != null">principal_email,</if>
+            <if test="undergraduateUpNum != null">undergraduate_up_num,</if>
+            <if test="principalTelephone != null">principal_telephone,</if>
+            <if test="doubleTeacherNum != null">double_teacher_num,</if>
+            <if test="studentStatusManager != null">student_status_manager,</if>
+            <if test="schoolMainHonor != null">school_main_honor,</if>
+            <if test="schoolFeature != null">school_feature,</if>
+            <if test="studentStatusTelephone != null">student_status_telephone,</if>
+            <if test="freeTuitionContacts != null">free_tuition_contacts,</if>
+            <if test="freeTuitionTelephone != null">free_tuition_telephone,</if>
+            <if test="stipendContacts != null">stipend_contacts,</if>
+            <if test="stipendTelephone != null">stipend_telephone,</if>
+            <if test="obtainEmploymentContacts != null">obtain_employment_contacts,</if>
+            <if test="obtainEmploymentTelephone != null">obtain_employment_telephone,</if>
+            <if test="deptId != null">dept_id,</if>
+            <if test="isReporting != null">is_reporting,</if>
+            <if test="status != null">status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="remark != null">remark,</if>
+            <if test="disableFlag != null">disable_flag,</if>
+            <if test="deptSchoolCode != null">dept_school_code,</if>
+            <if test="hierarchy != null">hierarchy,</if>
+            <if test="branchSchoolNum != null">branch_school_num,</if>
+            <if test="currentEnrollment != null">current_enrollment,</if>
+            <if test="isProfitSchool != null">is_profit_school,</if>
+            <if test="supportType != null">support_type,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="schoolName != null">#{schoolName},</if>
+            <if test="provinceAreaId != null">#{provinceAreaId},</if>
+            <if test="cityAreaId != null">#{cityAreaId},</if>
+            <if test="countryAreaId != null">#{countryAreaId},</if>
+            <if test="provinceAreaName != null">#{provinceAreaName},</if>
+            <if test="schoolAddress != null">#{schoolAddress},</if>
+            <if test="schoolCode != null">#{schoolCode},</if>
+            <if test="cityAreaName != null">#{cityAreaName},</if>
+            <if test="approvalNo != null">#{approvalNo},</if>
+            <if test="countryAreaName != null">#{countryAreaName},</if>
+            <if test="schoolType != null">#{schoolType},</if>
+            <if test="schoolNature != null">#{schoolNature},</if>
+            <if test="isNationImportant != null">#{isNationImportant},</if>
+            <if test="isProvinceImportant != null">#{isProvinceImportant},</if>
+            <if test="schoolUnit != null">#{schoolUnit},</if>
+            <if test="schoolSubject != null">#{schoolSubject},</if>
+            <if test="schoolArea != null">#{schoolArea},</if>
+            <if test="buildingArea != null">#{buildingArea},</if>
+            <if test="establishedTime != null">#{establishedTime},</if>
+            <if test="studentNum != null">#{studentNum},</if>
+            <if test="teacherNum != null">#{teacherNum},</if>
+            <if test="staffNum != null">#{staffNum},</if>
+            <if test="instrumentUnitPrice != null">#{instrumentUnitPrice},</if>
+            <if test="trainingRoomNum != null">#{trainingRoomNum},</if>
+            <if test="trainingMoney != null">#{trainingMoney},</if>
+            <if test="trainingDeviceNum != null">#{trainingDeviceNum},</if>
+            <if test="majorNum != null">#{majorNum},</if>
+            <if test="enterpriseNum != null">#{enterpriseNum},</if>
+            <if test="teachingPointNum != null">#{teachingPointNum},</if>
+            <if test="postalAddress != null">#{postalAddress},</if>
+            <if test="postalCode != null">#{postalCode},</if>
+            <if test="schoolWebsite != null">#{schoolWebsite},</if>
+            <if test="schoolEmail != null">#{schoolEmail},</if>
+            <if test="schoolContacts != null">#{schoolContacts},</if>
+            <if test="schoolTelephone != null">#{schoolTelephone},</if>
+            <if test="graduateUpNum != null">#{graduateUpNum},</if>
+            <if test="principal != null">#{principal},</if>
+            <if test="majorTeacherNum != null">#{majorTeacherNum},</if>
+            <if test="principalEmail != null">#{principalEmail},</if>
+            <if test="undergraduateUpNum != null">#{undergraduateUpNum},</if>
+            <if test="principalTelephone != null">#{principalTelephone},</if>
+            <if test="doubleTeacherNum != null">#{doubleTeacherNum},</if>
+            <if test="studentStatusManager != null">#{studentStatusManager},</if>
+            <if test="schoolMainHonor != null">#{schoolMainHonor},</if>
+            <if test="schoolFeature != null">#{schoolFeature},</if>
+            <if test="studentStatusTelephone != null">#{studentStatusTelephone},</if>
+            <if test="freeTuitionContacts != null">#{freeTuitionContacts},</if>
+            <if test="freeTuitionTelephone != null">#{freeTuitionTelephone},</if>
+            <if test="stipendContacts != null">#{stipendContacts},</if>
+            <if test="stipendTelephone != null">#{stipendTelephone},</if>
+            <if test="obtainEmploymentContacts != null">#{obtainEmploymentContacts},</if>
+            <if test="obtainEmploymentTelephone != null">#{obtainEmploymentTelephone},</if>
+            <if test="deptId != null">#{deptId},</if>
+            <if test="isReporting != null">#{isReporting},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="disableFlag != null">#{disableFlag},</if>
+            <if test="deptSchoolCode != null">#{deptSchoolCode},</if>
+            <if test="hierarchy != null">#{hierarchy},</if>
+            <if test="branchSchoolNum != null">#{branchSchoolNum},</if>
+            <if test="currentEnrollment != null">#{currentEnrollment},</if>
+            <if test="isProfitSchool != null">#{isProfitSchool},</if>
+            <if test="supportType != null">#{supportType},</if>
+        </trim>
+    </insert>
+
+    <update id="updateSchool" parameterType="School">
+        update sch_school
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="schoolName != null">school_name = #{schoolName},</if>
+            <if test="provinceAreaId != null">province_area_id = #{provinceAreaId},</if>
+            <if test="cityAreaId != null">city_area_id = #{cityAreaId},</if>
+            <if test="countryAreaId != null">country_area_id = #{countryAreaId},</if>
+            <if test="provinceAreaName != null">province_area_name = #{provinceAreaName},</if>
+            <if test="schoolAddress != null">school_address = #{schoolAddress},</if>
+            <if test="schoolCode != null">school_code = #{schoolCode},</if>
+            <if test="cityAreaName != null">city_area_name = #{cityAreaName},</if>
+            <if test="approvalNo != null">approval_no = #{approvalNo},</if>
+            <if test="countryAreaName != null">country_area_name = #{countryAreaName},</if>
+            <if test="schoolType != null">school_type = #{schoolType},</if>
+            <if test="schoolNature != null">school_nature = #{schoolNature},</if>
+            <if test="isNationImportant != null">is_nation_important = #{isNationImportant},</if>
+            <if test="isProvinceImportant != null">is_province_important = #{isProvinceImportant},</if>
+            <if test="schoolUnit != null">school_unit = #{schoolUnit},</if>
+            <if test="schoolSubject != null">school_subject = #{schoolSubject},</if>
+            <if test="schoolArea != null">school_area = #{schoolArea},</if>
+            <if test="buildingArea != null">building_area = #{buildingArea},</if>
+            <if test="establishedTime != null">established_time = #{establishedTime},</if>
+            <if test="studentNum != null">student_num = #{studentNum},</if>
+            <if test="teacherNum != null">teacher_num = #{teacherNum},</if>
+            <if test="staffNum != null">staff_num = #{staffNum},</if>
+            <if test="instrumentUnitPrice != null">instrument_unit_price = #{instrumentUnitPrice},</if>
+            <if test="trainingRoomNum != null">training_room_num = #{trainingRoomNum},</if>
+            <if test="trainingMoney != null">training_money = #{trainingMoney},</if>
+            <if test="trainingDeviceNum != null">training_device_num = #{trainingDeviceNum},</if>
+            <if test="majorNum != null">major_num = #{majorNum},</if>
+            <if test="enterpriseNum != null">enterprise_num = #{enterpriseNum},</if>
+            <if test="teachingPointNum != null">teaching_point_num = #{teachingPointNum},</if>
+            <if test="postalAddress != null">postal_address = #{postalAddress},</if>
+            <if test="postalCode != null">postal_code = #{postalCode},</if>
+            <if test="schoolWebsite != null">school_website = #{schoolWebsite},</if>
+            <if test="schoolEmail != null">school_email = #{schoolEmail},</if>
+            <if test="schoolContacts != null">school_contacts = #{schoolContacts},</if>
+            <if test="schoolTelephone != null">school_telephone = #{schoolTelephone},</if>
+            <if test="graduateUpNum != null">graduate_up_num = #{graduateUpNum},</if>
+            <if test="principal != null">principal = #{principal},</if>
+            <if test="majorTeacherNum != null">major_teacher_num = #{majorTeacherNum},</if>
+            <if test="principalEmail != null">principal_email = #{principalEmail},</if>
+            <if test="undergraduateUpNum != null">undergraduate_up_num = #{undergraduateUpNum},</if>
+            <if test="principalTelephone != null">principal_telephone = #{principalTelephone},</if>
+            <if test="doubleTeacherNum != null">double_teacher_num = #{doubleTeacherNum},</if>
+            <if test="studentStatusManager != null">student_status_manager = #{studentStatusManager},</if>
+            <if test="schoolMainHonor != null">school_main_honor = #{schoolMainHonor},</if>
+            <if test="schoolFeature != null">school_feature = #{schoolFeature},</if>
+            <if test="studentStatusTelephone != null">student_status_telephone = #{studentStatusTelephone},</if>
+            <if test="freeTuitionContacts != null">free_tuition_contacts = #{freeTuitionContacts},</if>
+            <if test="freeTuitionTelephone != null">free_tuition_telephone = #{freeTuitionTelephone},</if>
+            <if test="stipendContacts != null">stipend_contacts = #{stipendContacts},</if>
+            <if test="stipendTelephone != null">stipend_telephone = #{stipendTelephone},</if>
+            <if test="obtainEmploymentContacts != null">obtain_employment_contacts = #{obtainEmploymentContacts},</if>
+            <if test="obtainEmploymentTelephone != null">obtain_employment_telephone = #{obtainEmploymentTelephone},</if>
+            <if test="deptId != null">dept_id = #{deptId},</if>
+            <if test="isReporting != null">is_reporting = #{isReporting},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="disableFlag != null">disable_flag = #{disableFlag},</if>
+            <if test="deptSchoolCode != null">dept_school_code = #{deptSchoolCode},</if>
+            <if test="hierarchy != null">hierarchy = #{hierarchy},</if>
+            <if test="branchSchoolNum != null">branch_school_num = #{branchSchoolNum},</if>
+            <if test="currentEnrollment != null">current_enrollment = #{currentEnrollment},</if>
+            <if test="isProfitSchool != null">is_profit_school = #{isProfitSchool},</if>
+            <if test="supportType != null">support_type = #{supportType},</if>
+        </trim>
+        where school_id = #{schoolId}
+    </update>
+
+    <update id="updateStatus" parameterType="School">
+        update sch_school set status = #{status}
+        where school_id = #{schoolId}
+    </update>
+
+    <delete id="deleteSchoolBySchoolId" parameterType="Long">
+        delete from sch_school where school_id = #{schoolId}
+    </delete>
+
+    <delete id="deleteSchoolBySchoolIds" parameterType="String">
+        update sch_school set del_flag = '2' where school_id in
+        <foreach item="schoolId" collection="array" open="(" separator="," close=")">
+            #{schoolId}
+        </foreach>
+    </delete>
+
+    <select id="querySchoolsByDepts" parameterType="List" resultMap="SchoolResult">
+        select * from sch_school where dept_id in
+        <foreach collection="list" open="(" close=")" separator=",">
+            #{depts}
+        </foreach>
+    </select>
+
+
+    <select id="querySchoolsIdsByDepts" resultType="Long">
+        select school_id from sch_school where dept_id in
+        <foreach collection="list" item="depts" open="(" close=")" separator=",">
+            #{depts}
+        </foreach>
+    </select>
+    <select id="queryBySchoolId" resultType="java.lang.Long">
+        select school_id
+        from sch_school
+        where school_name = #{schoolName} and
+              status = 1 and
+              del_flag = 1
+    </select>
+    <select id="selectOtherSchoolList" parameterType="School" resultMap="SchoolResult">
+        select ss.*,sd.ancestors,sd.dept_name
+        from sch_school as ss
+        left join sys_dept as sd on ss.dept_id = sd.dept_id
+        <where>
+            and ss.del_flag = 1
+            <if test="schoolId != null">and ss.school_id not in (#{schoolId})</if>
+            <if test="schoolName != null  and schoolName != ''"> and ss.school_name like concat('%', #{schoolName}, '%')</if>
+            <if test="provinceAreaId != null "> and ss.province_area_id = #{provinceAreaId}</if>
+            <if test="provinceAreaName != null">and ss.province_area_name= #{provinceAreaName}</if>
+            <if test="cityAreaId != null"> and ss.city_area_id = #{cityAreaId}</if>
+            <if test="cityAreaName != null">and ss.city_area_name = #{cityAreaName}</if>
+            <if test="countryAreaId != null "> and ss.country_area_id = #{countryAreaId}</if>
+            <if test="countryAreaName != null">and ss.country_area_name = #{countryAreaName}</if>
+            <if test="schoolAddress != null  and schoolAddress != ''"> and ss.school_address = #{schoolAddress}</if>
+            <if test="schoolCode != null  and schoolCode != ''"> and ss.school_code like concat('%', #{schoolCode}, '%')</if>
+            <if test="approvalNo != null  and approvalNo != ''"> and ss.approval_no = #{approvalNo}</if>
+            <if test="schoolType != null  and schoolType != ''"> and ss.school_type = #{schoolType}</if>
+            <if test="schoolNature != null  and schoolNature != ''"> and ss.school_nature = #{schoolNature}</if>
+            <if test="schoolSubject != null and schoolSubject != ''">and ss.school_subject =#{schoolSubject}</if>
+            <if test="isNationImportant != null  and isNationImportant != ''"> and ss.is_nation_important = #{isNationImportant}</if>
+            <if test="isProvinceImportant != null  and isProvinceImportant != ''"> and ss.is_province_important = #{isProvinceImportant}</if>
+            <if test="schoolUnit != null  and schoolUnit != ''"> and ss.school_unit = #{schoolUnit}</if>
+            <if test="schoolArea != null "> and ss.school_area = #{schoolArea}</if>
+            <if test="instrumentUnitPrice != null "> and ss.instrument_unit_price = #{instrumentUnitPrice}</if>
+            <if test="buildingArea != null "> and ss.building_area = #{buildingArea}</if>
+            <if test="establishedTime != null "> and ss.established_time = #{establishedTime}</if>
+            <if test="studentNum != null "> and ss.student_num = #{studentNum}</if>
+            <if test="teacherNum != null "> and ss.teacher_num = #{teacherNum}</if>
+            <if test="staffNum != null "> and ss.staff_num = #{staffNum}</if>
+            <if test="trainingRoomNum != null "> and ss.training_room_num = #{trainingRoomNum}</if>
+            <if test="trainingMoney != null "> and ss.training_money = #{trainingMoney}</if>
+            <if test="trainingDeviceNum != null "> and ss.training_device_num = #{trainingDeviceNum}</if>
+            <if test="majorNum != null "> and ss.major_num = #{majorNum}</if>
+            <if test="enterpriseNum != null "> and ss.enterprise_num = #{enterpriseNum}</if>
+            <if test="teachingPointNum != null "> and ss.teaching_point_num = #{teachingPointNum}</if>
+            <if test="graduateUpNum != null">and ss.graduate_up_num = #{graduateUpNum}</if>
+            <if test="majorTeacherNum != null">and ss.major_teacher_num = #{majorTeacherNum}</if>
+            <if test="undergraduateUpNum != null">and ss.undergraduate_up_num = #{undergraduateUpNum}</if>
+            <if test="doubleTeacherNum != null">and ss.double_teacher_num = #{doubleTeacherNum}</if>
+            <if test="schoolMainHonor != null">and ss.school_main_honor = #{schoolMainHonor}</if>
+            <if test="schoolFeature != null">and ss.school_feature = #{schoolFeature}</if>
+            <if test="postalAddress != null  and postalAddress != ''"> and ss.postal_address = #{postalAddress}</if>
+            <if test="postalCode != null  and postalCode != ''"> and ss.postal_code = #{postalCode}</if>
+            <if test="schoolWebsite != null  and schoolWebsite != ''"> and ss.school_website = #{schoolWebsite}</if>
+            <if test="schoolEmail != null  and schoolEmail != ''"> and ss.school_email = #{schoolEmail}</if>
+            <if test="schoolContacts != null  and schoolContacts != ''"> and ss.school_contacts = #{schoolContacts}</if>
+            <if test="schoolTelephone != null  and schoolTelephone != ''"> and ss.school_telephone = #{schoolTelephone}</if>
+            <if test="principal != null  and principal != ''"> and ss.principal = #{principal}</if>
+            <if test="principalEmail != null  and principalEmail != ''"> and ss.principal_email = #{principalEmail}</if>
+            <if test="principalTelephone != null  and principalTelephone != ''"> and ss.principal_telephone = #{principalTelephone}</if>
+            <if test="studentStatusManager != null  and studentStatusManager != ''"> and ss.student_status_manager = #{studentStatusManager}</if>
+            <if test="studentStatusTelephone != null  and studentStatusTelephone != ''"> and ss.student_status_telephone = #{studentStatusTelephone}</if>
+            <if test="freeTuitionContacts != null  and freeTuitionContacts != ''"> and ss.free_tuition_contacts = #{freeTuitionContacts}</if>
+            <if test="freeTuitionTelephone != null  and freeTuitionTelephone != ''"> and ss.free_tuition_telephone = #{freeTuitionTelephone}</if>
+            <if test="stipendContacts != null  and stipendContacts != ''"> and ss.stipend_contacts = #{stipendContacts}</if>
+            <if test="stipendTelephone != null  and stipendTelephone != ''"> and ss.stipend_telephone = #{stipendTelephone}</if>
+            <if test="obtainEmploymentContacts != null  and obtainEmploymentContacts != ''"> and ss.obtain_employment_contacts = #{obtainEmploymentContacts}</if>
+            <if test="obtainEmploymentTelephone != null  and obtainEmploymentTelephone != ''"> and ss.obtain_employment_telephone = #{obtainEmploymentTelephone}</if>
+            <if test="deptId != null and isFlag == 0"> and (ss.dept_id = #{deptId} or FIND_IN_SET(#{deptId},sd.ancestors))</if>
+            <if test="deptId != null and isFlag == 1"> and ss.dept_id = #{deptId}</if>
+            <if test="isReporting != null  and isReporting != ''"> and ss.is_reporting = #{isReporting}</if>
+            <if test="status != null  and status != ''"> and ss.status = #{status}</if>
+            <if test="delFlag != null  and delFlag != ''"> and ss.del_flag = #{delFlag}</if>
+            <if test="disableFlag != null "> and ss.disable_flag = #{disableFlag}</if>
+            <if test="deptSchoolCode != null and deptSchoolCode != '' "> and ss.dept_school_code = #{deptSchoolCode}</if>
+            <if test="hierarchy != null and hierarchy != '' "> and ss.hierarchy = #{hierarchy}</if>
+            <if test="branchSchoolNum != null "> and ss.branch_school_num = #{branchSchoolNum}</if>
+            <if test="currentEnrollment != null "> and ss.current_enrollment = #{currentEnrollment}</if>
+            <if test="isProfitSchool != null  and isProfitSchool != ''"> and is_profit_school = #{isProfitSchool}</if>
+            <if test="supportType != null "> and support_type = #{supportType}</if>
+        </where>
+    </select>
+    <select id="selectTransferInInfo" resultMap="SchoolResult">
+        SELECT
+            ss.school_code school_code,
+            ss.school_name school_name,
+            ss.school_nature school_nature,
+            ss.school_type school_type,
+            ss.hierarchy hierarchy,
+            ss.established_time established_time,
+            ss.approval_no approval_no,
+            sd.ancestors ancestors,
+            sd.dept_name dept_name
+        FROM
+            sch_school ss
+                JOIN sch_colleges_learn_roll_record rr ON rr.school_id = ss.school_id
+                <if test="schoolId != null">
+                    AND rr.new_school_id = #{schoolId}
+                </if>
+                AND rr.transfer = 1
+                AND rr.del_flag = 1
+                AND rr.type = 2
+        left join sys_dept as sd on ss.dept_id = sd.dept_id
+        <where>
+            <if test="schoolCode != null and schoolCode.trim() != ''">
+              and  ss.school_code like concat('%',#{schoolCode},'%')
+            </if>
+            <if test="schoolName != null and schoolName.trim() != ''">
+              and  ss.school_name like concat('%',#{schoolName},'%')
+            </if>
+        </where>
+    </select>
+    <select id="selectSchoolListByMajor" resultMap="SchoolResult">
+        select s.colleges_major_id, s.school_id, s.school_name, s.directionlevel_id, s.institution_id, s.item_id, s.major_name, s.admissions_apply, s.near_apply, s.admissions_record, s.school_major_classroom_total, s.school_major_tuition, s.school_major_student_total, s.school_major_integrated_total, s.school_major_training_total, s.school_major_equipment_total, s.school_major_training_price, s.school_major_continuity_year, s.remark, s.sort, s.status, s.create_by, s.create_time, s.update_by, s.update_time, s.del_flag
+        ,ss.school_code, ss.school_nature,ss.school_type, ss.established_time, ss.approval_no,ss.dept_id
+        from sch_colleges_major as s
+        left join sch_major_institution as i on s.institution_id = i.institution_id
+        left join sch_school as ss on s.school_id = ss.school_id
+        <where>
+            <if test="institutionId != null "> and i.institution_id = #{institutionId}</if>
+        </where>
+    </select>
+
+</mapper>

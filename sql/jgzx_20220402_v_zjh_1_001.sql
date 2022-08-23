@@ -1,0 +1,2 @@
+-- 批量更新困难类型（从旧的同步到新的）
+update sch_colleges_learn_roll b,temp_hh00 a set family_difficulty_type=(case when (a.CHH792='001' or a.CHH792='004') then 1 else (case when a.CHH792='003' then 2 else (case when a.CHH792='005' then 3 else (case when a.CHH792='007' then 5 else (case when a.CHH792='006' then 8 else (case when a.CHH792='008' then 7 else null end) end) end) end) end) end) where student_code = CHG052 and school_code=CHH002 and CHH792 is not null

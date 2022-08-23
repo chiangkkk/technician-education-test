@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.supervise.mapper.CollegesAttachmentMapper">
+    
+    <resultMap type="CollegesAttachment" id="CollegesAttachmentResult">
+        <result property="attachmentId"    column="attachment_id"    />
+        <result property="schProcessId"    column="sch_process_id"    />
+        <result property="schProcessName"    column="sch_process_name"    />
+        <result property="schoolId"    column="school_id"    />
+        <result property="schoolName"    column="school_name"    />
+        <result property="yearTime"    column="year_time"    />
+        <result property="season"    column="season"    />
+        <result property="seasonDesc"    column="season_desc"    />
+        <result property="sourceId"    column="source_id"    />
+        <result property="attachmentModelName"    column="attachment_model_name"    />
+        <result property="attachmentName"    column="attachment_name"    />
+        <result property="attachmentAddress"    column="attachment_address"    />
+        <result property="status"    column="status"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="remark"    column="remark"    />
+        <result property="attachmentModelId"    column="attachment_model_id"    />
+    </resultMap>
+
+    <sql id="selectCollegesAttachmentVo">
+        select attachment_id, sch_process_id, sch_process_name, school_id, school_name, year_time, season, season_desc, source_id, attachment_model_name, attachment_name, attachment_address, status, create_by, create_time, update_by, update_time, del_flag, remark, attachment_model_id from sch_colleges_attachment
+    </sql>
+
+    <select id="selectCollegesAttachmentList" parameterType="CollegesAttachment" resultMap="CollegesAttachmentResult">
+        <include refid="selectCollegesAttachmentVo"/>
+        <where>  
+            <if test="schProcessId != null "> and sch_process_id = #{schProcessId}</if>
+            <if test="schProcessName != null  and schProcessName != ''"> and sch_process_name like concat('%', #{schProcessName}, '%')</if>
+            <if test="schoolId != null "> and school_id = #{schoolId}</if>
+            <if test="schoolName != null  and schoolName != ''"> and school_name like concat('%', #{schoolName}, '%')</if>
+            <if test="yearTime != null  and yearTime != ''"> and year_time = #{yearTime}</if>
+            <if test="season != null  and season != ''"> and season = #{season}</if>
+            <if test="seasonDesc != null  and seasonDesc != ''"> and season_desc = #{seasonDesc}</if>
+            <if test="sourceId != null "> and source_id = #{sourceId}</if>
+            <if test="attachmentModelName != null  and attachmentModelName != ''"> and attachment_model_name like concat('%', #{attachmentModelName}, '%')</if>
+            <if test="attachmentName != null  and attachmentName != ''"> and attachment_name like concat('%', #{attachmentName}, '%')</if>
+            <if test="attachmentAddress != null  and attachmentAddress != ''"> and attachment_address = #{attachmentAddress}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="attachmentModelId != null "> and attachment_model_id = #{attachmentModelId}</if>
+        </where>
+    </select>
+    
+    <select id="selectCollegesAttachmentByAttachmentId" parameterType="Long" resultMap="CollegesAttachmentResult">
+        <include refid="selectCollegesAttachmentVo"/>
+        where attachment_id = #{attachmentId}
+    </select>
+        
+    <insert id="insertCollegesAttachment" parameterType="CollegesAttachment" useGeneratedKeys="true" keyProperty="attachmentId">
+        insert into sch_colleges_attachment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="schProcessId != null">sch_process_id,</if>
+            <if test="schProcessName != null">sch_process_name,</if>
+            <if test="schoolId != null">school_id,</if>
+            <if test="schoolName != null">school_name,</if>
+            <if test="yearTime != null">year_time,</if>
+            <if test="season != null">season,</if>
+            <if test="seasonDesc != null">season_desc,</if>
+            <if test="sourceId != null">source_id,</if>
+            <if test="attachmentModelName != null">attachment_model_name,</if>
+            <if test="attachmentName != null">attachment_name,</if>
+            <if test="attachmentAddress != null">attachment_address,</if>
+            <if test="status != null">status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="remark != null">remark,</if>
+            <if test="attachmentModelId != null">attachment_model_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="schProcessId != null">#{schProcessId},</if>
+            <if test="schProcessName != null">#{schProcessName},</if>
+            <if test="schoolId != null">#{schoolId},</if>
+            <if test="schoolName != null">#{schoolName},</if>
+            <if test="yearTime != null">#{yearTime},</if>
+            <if test="season != null">#{season},</if>
+            <if test="seasonDesc != null">#{seasonDesc},</if>
+            <if test="sourceId != null">#{sourceId},</if>
+            <if test="attachmentModelName != null">#{attachmentModelName},</if>
+            <if test="attachmentName != null">#{attachmentName},</if>
+            <if test="attachmentAddress != null">#{attachmentAddress},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="attachmentModelId != null">#{attachmentModelId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateCollegesAttachment" parameterType="CollegesAttachment">
+        update sch_colleges_attachment
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="schProcessId != null">sch_process_id = #{schProcessId},</if>
+            <if test="schProcessName != null">sch_process_name = #{schProcessName},</if>
+            <if test="schoolId != null">school_id = #{schoolId},</if>
+            <if test="schoolName != null">school_name = #{schoolName},</if>
+            <if test="yearTime != null">year_time = #{yearTime},</if>
+            <if test="season != null">season = #{season},</if>
+            <if test="seasonDesc != null">season_desc = #{seasonDesc},</if>
+            <if test="sourceId != null">source_id = #{sourceId},</if>
+            <if test="attachmentModelName != null">attachment_model_name = #{attachmentModelName},</if>
+            <if test="attachmentName != null">attachment_name = #{attachmentName},</if>
+            <if test="attachmentAddress != null">attachment_address = #{attachmentAddress},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="attachmentModelId != null">attachment_model_id = #{attachmentModelId},</if>
+        </trim>
+        where attachment_id = #{attachmentId}
+    </update>
+
+    <delete id="deleteCollegesAttachmentByAttachmentId" parameterType="Long">
+        delete from sch_colleges_attachment where attachment_id = #{attachmentId}
+    </delete>
+
+    <delete id="deleteCollegesAttachmentByAttachmentIds" parameterType="String">
+        delete from sch_colleges_attachment where attachment_id in 
+        <foreach item="attachmentId" collection="array" open="(" separator="," close=")">
+            #{attachmentId}
+        </foreach>
+    </delete>
+</mapper>

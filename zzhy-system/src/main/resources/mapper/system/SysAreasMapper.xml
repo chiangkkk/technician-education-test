@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.system.mapper.SysAreasMapper">
+    
+    <resultMap type="SysAreas" id="SysAreasResult">
+        <result property="areaId"    column="area_id"    />
+        <result property="parentId"    column="parent_id"    />
+        <result property="level"    column="level"    />
+        <result property="areaName"    column="area_name"    />
+        <result property="shortName"    column="short_name"    />
+        <result property="parentPath"    column="parent_path"    />
+        <result property="province"    column="province"    />
+        <result property="city"    column="city"    />
+        <result property="district"    column="district"    />
+        <result property="provinceShortName"    column="province_short_name"    />
+        <result property="cityShortName"    column="city_short_name"    />
+        <result property="districtShortName"    column="district_short_name"    />
+        <result property="provincePinYin"    column="province_pin_yin"    />
+        <result property="cityPinYin"    column="city_pin_yin"    />
+        <result property="districtPinYin"    column="district_pin_yin"    />
+        <result property="pinYin"    column="pin_yin"    />
+        <result property="jianPin"    column="jian_pin"    />
+        <result property="firstChar"    column="first_char"    />
+        <result property="cityCode"    column="city_code"    />
+        <result property="zipCode"    column="zip_code"    />
+        <result property="longitude"    column="longitude"    />
+        <result property="latitude"    column="latitude"    />
+    </resultMap>
+
+    <sql id="selectSysAreasVo">
+        select area_id, parent_id, level, area_name, short_name, parent_path, province, city, district, province_short_name, city_short_name, district_short_name, province_pin_yin, city_pin_yin, district_pin_yin, pin_yin, jian_pin, first_char, city_code, zip_code, longitude, latitude from sys_areas
+    </sql>
+
+    <select id="selectSysAreasList" parameterType="SysAreas" resultMap="SysAreasResult">
+        <include refid="selectSysAreasVo"/>
+
+        where 1 = 1
+        <if test="areaId != null  and areaId != 100000">
+            AND area_id = #{areaId} OR area_id IN ( SELECT area_id FROM sys_areas WHERE area_id = #{areaId} or find_in_set( #{areaId} , parent_path ) )
+        </if>
+        <if test="parentId != null  and parentId != 100000">
+            and parent_id = #{parentId} OR area_id IN ( SELECT area_id FROM sys_areas WHERE area_id = #{parentId} or find_in_set( #{parentId} , parent_path ) )
+        </if>
+        <if test="areaName != null  and areaName != ''">
+            and area_name like concat('%', #{areaName}, '%')
+        </if>
+        <!--<where>  -->
+            <!--<if test="parentId != null  and parentId != 100000"> and parent_id = #{parentId}</if>-->
+            <!--<if test="areaId != null  and areaId != 100000"> and area_id = #{areaId}</if>-->
+            <!--<if test="level != null "> and level = #{level}</if>-->
+            <!--<if test="areaName != null  and areaName != ''"> and area_name like concat('%', #{areaName}, '%')</if>-->
+            <!--<if test="shortName != null  and shortName != ''"> and short_name like concat('%', #{shortName}, '%')</if>-->
+            <!--<if test="parentPath != null  and parentPath != ''"> and parent_path = #{parentPath}</if>-->
+            <!--<if test="province != null  and province != ''"> and province = #{province}</if>-->
+            <!--<if test="city != null  and city != ''"> and city = #{city}</if>-->
+            <!--<if test="district != null  and district != ''"> and district = #{district}</if>-->
+            <!--<if test="provinceShortName != null  and provinceShortName != ''"> and province_short_name like concat('%', #{provinceShortName}, '%')</if>-->
+            <!--<if test="cityShortName != null  and cityShortName != ''"> and city_short_name like concat('%', #{cityShortName}, '%')</if>-->
+            <!--<if test="districtShortName != null  and districtShortName != ''"> and district_short_name like concat('%', #{districtShortName}, '%')</if>-->
+            <!--<if test="provincePinYin != null  and provincePinYin != ''"> and province_pin_yin = #{provincePinYin}</if>-->
+            <!--<if test="cityPinYin != null  and cityPinYin != ''"> and city_pin_yin = #{cityPinYin}</if>-->
+            <!--<if test="districtPinYin != null  and districtPinYin != ''"> and district_pin_yin = #{districtPinYin}</if>-->
+            <!--<if test="pinYin != null  and pinYin != ''"> and pin_yin = #{pinYin}</if>-->
+            <!--<if test="jianPin != null  and jianPin != ''"> and jian_pin = #{jianPin}</if>-->
+            <!--<if test="firstChar != null  and firstChar != ''"> and first_char = #{firstChar}</if>-->
+            <!--<if test="cityCode != null  and cityCode != ''"> and city_code = #{cityCode}</if>-->
+            <!--<if test="zipCode != null  and zipCode != ''"> and zip_code = #{zipCode}</if>-->
+            <!--<if test="longitude != null  and longitude != ''"> and longitude = #{longitude}</if>-->
+            <!--<if test="latitude != null  and latitude != ''"> and latitude = #{latitude}</if>-->
+
+            <!--&lt;!&ndash; 数据范围过滤 &ndash;&gt;-->
+
+            <!--${params.dataScope}-->
+        <!--</where>-->
+    </select>
+    
+    <select id="selectSysAreasByAreaId" parameterType="Long" resultMap="SysAreasResult">
+        <include refid="selectSysAreasVo"/>
+        where area_id = #{areaId}
+    </select>
+
+    <select id="findAll" resultMap="SysAreasResult">
+        <include refid="selectSysAreasVo"/>
+    </select>
+    <select id="selectAreaIdByName" resultType="java.lang.Long">
+        SELECT area_id FROM sys_areas
+        WHERE
+        <if test="provinceAreaName != null and cityAreaName == null and countryAreaName == null">
+            province = #{provinceAreaName} and level = 1
+        </if>
+        <if test="provinceAreaName != null and cityAreaName != null and countryAreaName == null">
+            province = #{provinceAreaName} and city = #{cityAreaName} and level = 2
+        </if>
+        <if test="provinceAreaName != null and cityAreaName != null and countryAreaName != null">
+            province = #{provinceAreaName} and city = #{cityAreaName} and district = #{countryAreaName} and level = 3
+        </if>
+    </select>
+
+    <insert id="insertSysAreas" parameterType="SysAreas">
+        insert into sys_areas
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="areaId != null">area_id,</if>
+            <if test="parentId != null">parent_id,</if>
+            <if test="level != null">level,</if>
+            <if test="areaName != null and areaName != ''">area_name,</if>
+            <if test="shortName != null and shortName != ''">short_name,</if>
+            <if test="parentPath != null and parentPath != ''">parent_path,</if>
+            <if test="province != null and province != ''">province,</if>
+            <if test="city != null and city != ''">city,</if>
+            <if test="district != null and district != ''">district,</if>
+            <if test="provinceShortName != null and provinceShortName != ''">province_short_name,</if>
+            <if test="cityShortName != null and cityShortName != ''">city_short_name,</if>
+            <if test="districtShortName != null and districtShortName != ''">district_short_name,</if>
+            <if test="provincePinYin != null and provincePinYin != ''">province_pin_yin,</if>
+            <if test="cityPinYin != null and cityPinYin != ''">city_pin_yin,</if>
+            <if test="districtPinYin != null and districtPinYin != ''">district_pin_yin,</if>
+            <if test="pinYin != null and pinYin != ''">pin_yin,</if>
+            <if test="jianPin != null and jianPin != ''">jian_pin,</if>
+            <if test="firstChar != null and firstChar != ''">first_char,</if>
+            <if test="cityCode != null and cityCode != ''">city_code,</if>
+            <if test="zipCode != null and zipCode != ''">zip_code,</if>
+            <if test="longitude != null and longitude != ''">longitude,</if>
+            <if test="latitude != null and latitude != ''">latitude,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="areaId != null">#{areaId},</if>
+            <if test="parentId != null">#{parentId},</if>
+            <if test="level != null">#{level},</if>
+            <if test="areaName != null and areaName != ''">#{areaName},</if>
+            <if test="shortName != null and shortName != ''">#{shortName},</if>
+            <if test="parentPath != null and parentPath != ''">#{parentPath},</if>
+            <if test="province != null and province != ''">#{province},</if>
+            <if test="city != null and city != ''">#{city},</if>
+            <if test="district != null and district != ''">#{district},</if>
+            <if test="provinceShortName != null and provinceShortName != ''">#{provinceShortName},</if>
+            <if test="cityShortName != null and cityShortName != ''">#{cityShortName},</if>
+            <if test="districtShortName != null and districtShortName != ''">#{districtShortName},</if>
+            <if test="provincePinYin != null and provincePinYin != ''">#{provincePinYin},</if>
+            <if test="cityPinYin != null and cityPinYin != ''">#{cityPinYin},</if>
+            <if test="districtPinYin != null and districtPinYin != ''">#{districtPinYin},</if>
+            <if test="pinYin != null and pinYin != ''">#{pinYin},</if>
+            <if test="jianPin != null and jianPin != ''">#{jianPin},</if>
+            <if test="firstChar != null and firstChar != ''">#{firstChar},</if>
+            <if test="cityCode != null and cityCode != ''">#{cityCode},</if>
+            <if test="zipCode != null and zipCode != ''">#{zipCode},</if>
+            <if test="longitude != null and longitude != ''">#{longitude},</if>
+            <if test="latitude != null and latitude != ''">#{latitude},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysAreas" parameterType="SysAreas">
+        update sys_areas
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="parentId != null">parent_id = #{parentId},</if>
+            <if test="level != null">level = #{level},</if>
+            <if test="areaName != null and areaName != ''">area_name = #{areaName},</if>
+            <if test="shortName != null and shortName != ''">short_name = #{shortName},</if>
+            <if test="parentPath != null and parentPath != ''">parent_path = #{parentPath},</if>
+            <if test="province != null and province != ''">province = #{province},</if>
+            <if test="city != null and city != ''">city = #{city},</if>
+            <if test="district != null and district != ''">district = #{district},</if>
+            <if test="provinceShortName != null and provinceShortName != ''">province_short_name = #{provinceShortName},</if>
+            <if test="cityShortName != null and cityShortName != ''">city_short_name = #{cityShortName},</if>
+            <if test="districtShortName != null and districtShortName != ''">district_short_name = #{districtShortName},</if>
+            <if test="provincePinYin != null and provincePinYin != ''">province_pin_yin = #{provincePinYin},</if>
+            <if test="cityPinYin != null and cityPinYin != ''">city_pin_yin = #{cityPinYin},</if>
+            <if test="districtPinYin != null and districtPinYin != ''">district_pin_yin = #{districtPinYin},</if>
+            <if test="pinYin != null and pinYin != ''">pin_yin = #{pinYin},</if>
+            <if test="jianPin != null and jianPin != ''">jian_pin = #{jianPin},</if>
+            <if test="firstChar != null and firstChar != ''">first_char = #{firstChar},</if>
+            <if test="cityCode != null and cityCode != ''">city_code = #{cityCode},</if>
+            <if test="zipCode != null and zipCode != ''">zip_code = #{zipCode},</if>
+            <if test="longitude != null and longitude != ''">longitude = #{longitude},</if>
+            <if test="latitude != null and latitude != ''">latitude = #{latitude},</if>
+        </trim>
+        where area_id = #{areaId}
+    </update>
+
+    <delete id="deleteSysAreasByAreaId" parameterType="Long">
+        delete from sys_areas where area_id = #{areaId}
+    </delete>
+
+    <delete id="deleteSysAreasByAreaIds" parameterType="String">
+        delete from sys_areas where area_id in 
+        <foreach item="areaId" collection="array" open="(" separator="," close=")">
+            #{areaId}
+        </foreach>
+    </delete>
+</mapper>

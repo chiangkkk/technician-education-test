@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.system.mapper.PubAuditMapper">
+    
+    <resultMap type="PubAudit" id="PubAuditResult">
+        <result property="id"    column="id"    />
+        <result property="auditLevel"    column="audit_level"    />
+        <result property="deptName"    column="dept_name"    />
+        <result property="roleName"    column="role_name"    />
+        <result property="auditStatus"    column="audit_status"    />
+        <result property="auditBy"    column="audit_by"    />
+        <result property="auditTime"    column="audit_time"    />
+        <result property="auditRemark"    column="audit_remark"    />
+        <result property="status"    column="status"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectPubAuditVo">
+        select id, audit_level, dept_name, role_name, audit_status, audit_by, audit_time, audit_remark, status, create_by, create_time, update_by, update_time, del_flag, remark from pub_audit
+    </sql>
+
+    <select id="selectPubAuditList" parameterType="PubAudit" resultMap="PubAuditResult">
+        <include refid="selectPubAuditVo"/>
+        <where>  
+            <if test="auditLevel != null  and auditLevel != ''"> and audit_level = #{auditLevel}</if>
+            <if test="deptName != null  and deptName != ''"> and dept_name like concat('%', #{deptName}, '%')</if>
+            <if test="roleName != null  and roleName != ''"> and role_name like concat('%', #{roleName}, '%')</if>
+            <if test="auditStatus != null  and auditStatus != ''"> and audit_status = #{auditStatus}</if>
+            <if test="auditBy != null "> and audit_by = #{auditBy}</if>
+            <if test="auditTime != null "> and audit_time = #{auditTime}</if>
+            <if test="auditRemark != null  and auditRemark != ''"> and audit_remark = #{auditRemark}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectPubAuditById" parameterType="Long" resultMap="PubAuditResult">
+        <include refid="selectPubAuditVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertPubAudit" parameterType="PubAudit" useGeneratedKeys="true" keyProperty="id">
+        insert into pub_audit
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="auditLevel != null and auditLevel != ''">audit_level,</if>
+            <if test="deptName != null and deptName != ''">dept_name,</if>
+            <if test="roleName != null and roleName != ''">role_name,</if>
+            <if test="auditStatus != null and auditStatus != ''">audit_status,</if>
+            <if test="auditBy != null">audit_by,</if>
+            <if test="auditTime != null">audit_time,</if>
+            <if test="auditRemark != null">audit_remark,</if>
+            <if test="status != null">status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="auditLevel != null and auditLevel != ''">#{auditLevel},</if>
+            <if test="deptName != null and deptName != ''">#{deptName},</if>
+            <if test="roleName != null and roleName != ''">#{roleName},</if>
+            <if test="auditStatus != null and auditStatus != ''">#{auditStatus},</if>
+            <if test="auditBy != null">#{auditBy},</if>
+            <if test="auditTime != null">#{auditTime},</if>
+            <if test="auditRemark != null">#{auditRemark},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updatePubAudit" parameterType="PubAudit">
+        update pub_audit
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="auditLevel != null and auditLevel != ''">audit_level = #{auditLevel},</if>
+            <if test="deptName != null and deptName != ''">dept_name = #{deptName},</if>
+            <if test="roleName != null and roleName != ''">role_name = #{roleName},</if>
+            <if test="auditStatus != null and auditStatus != ''">audit_status = #{auditStatus},</if>
+            <if test="auditBy != null">audit_by = #{auditBy},</if>
+            <if test="auditTime != null">audit_time = #{auditTime},</if>
+            <if test="auditRemark != null">audit_remark = #{auditRemark},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deletePubAuditById" parameterType="Long">
+        delete from pub_audit where id = #{id}
+    </delete>
+
+    <delete id="deletePubAuditByIds" parameterType="String">
+        delete from pub_audit where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

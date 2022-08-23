@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.system.mapper.Gc58Mapper">
+    
+    <resultMap type="Gc58" id="Gc58Result">
+        <result property="age732"    column="AGE732"    />
+        <result property="agc156"    column="AGC156"    />
+        <result property="age547"    column="AGE547"    />
+        <result property="agb020"    column="AGB020"    />
+        <result property="age655"    column="AGE655"    />
+        <result property="age623"    column="AGE623"    />
+        <result property="age611"    column="AGE611"    />
+        <result property="aae100"    column="AAE100"    />
+        <result property="aac058"    column="AAC058"    />
+        <result property="aac147"    column="AAC147"    />
+        <result property="aac003"    column="AAC003"    />
+        <result property="aac006"    column="AAC006"    />
+        <result property="aac004"    column="AAC004"    />
+        <result property="aac005"    column="AAC005"    />
+        <result property="aac024"    column="AAC024"    />
+        <result property="agc010"    column="AGC010"    />
+        <result property="age735"    column="AGE735"    />
+        <result property="age737"    column="AGE737"    />
+        <result property="age736"    column="AGE736"    />
+        <result property="age645"    column="AGE645"    />
+        <result property="age616"    column="AGE616"    />
+        <result property="aac136"    column="AAC136"    />
+        <result property="age101"    column="AGE101"    />
+        <result property="age628"    column="AGE628"    />
+        <result property="age739"    column="AGE739"    />
+        <result property="aac180"    column="AAC180"    />
+        <result property="aac010"    column="AAC010"    />
+        <result property="aac009"    column="AAC009"    />
+        <result property="age663"    column="AGE663"    />
+        <result property="age664"    column="AGE664"    />
+        <result property="age662"    column="AGE662"    />
+        <result property="agc152"    column="AGC152"    />
+        <result property="age619"    column="AGE619"    />
+        <result property="agc159"    column="AGC159"    />
+        <result property="agc161"    column="AGC161"    />
+        <result property="agc160"    column="AGC160"    />
+        <result property="agc162"    column="AGC162"    />
+        <result property="age764"    column="AGE764"    />
+        <result property="age765"    column="AGE765"    />
+        <result property="age766"    column="AGE766"    />
+        <result property="aae053"    column="AAE053"    />
+        <result property="age647"    column="AGE647"    />
+        <result property="age767"    column="AGE767"    />
+        <result property="age768"    column="AGE768"    />
+        <result property="age770"    column="AGE770"    />
+        <result property="age771"    column="AGE771"    />
+        <result property="age773"    column="AGE773"    />
+        <result property="age774"    column="AGE774"    />
+        <result property="age776"    column="AGE776"    />
+        <result property="age783"    column="AGE783"    />
+        <result property="age784"    column="AGE784"    />
+    </resultMap>
+
+    <sql id="selectGc58Vo">
+        select AGE732, AGC156, AGE547, AGB020, AGE655, AGE623, AGE611, AAE100, AAC058, AAC147, AAC003, AAC006, AAC004, AAC005, AAC024, AGC010, AGE735, AGE737, AGE736, AGE645, AGE616, AAC136, AGE101, AGE628, AGE739, AAC180, AAC010, AAC009, AGE663, AGE664, AGE662, AGC152, AGE619, AGC159, AGC161, AGC160, AGC162, AGE764, AGE765, AGE766, AAE053, AGE647, AGE767, AGE768, AGE770, AGE771, AGE773, AGE774, AGE776, AGE783, AGE784 from gc58
+    </sql>
+
+    <select id="selectGc58List" parameterType="Gc58" resultMap="Gc58Result">
+        <include refid="selectGc58Vo"/>
+        <where>  
+            <if test="agc156 != null  and agc156 != ''"> and AGC156 = #{agc156}</if>
+            <if test="age547 != null  and age547 != ''"> and AGE547 = #{age547}</if>
+            <if test="agb020 != null  and agb020 != ''"> and AGB020 = #{agb020}</if>
+            <if test="age655 != null  and age655 != ''"> and AGE655 = #{age655}</if>
+            <if test="age623 != null  and age623 != ''"> and AGE623 = #{age623}</if>
+            <if test="age611 != null  and age611 != ''"> and AGE611 = #{age611}</if>
+            <if test="aae100 != null  and aae100 != ''"> and AAE100 = #{aae100}</if>
+            <if test="aac058 != null  and aac058 != ''"> and AAC058 = #{aac058}</if>
+            <if test="aac147 != null  and aac147 != ''"> and AAC147 = #{aac147}</if>
+            <if test="aac003 != null  and aac003 != ''"> and AAC003 = #{aac003}</if>
+            <if test="aac006 != null "> and AAC006 = #{aac006}</if>
+            <if test="aac004 != null  and aac004 != ''"> and AAC004 = #{aac004}</if>
+            <if test="aac005 != null  and aac005 != ''"> and AAC005 = #{aac005}</if>
+            <if test="aac024 != null  and aac024 != ''"> and AAC024 = #{aac024}</if>
+            <if test="agc010 != null  and agc010 != ''"> and AGC010 = #{agc010}</if>
+            <if test="age735 != null  and age735 != ''"> and AGE735 = #{age735}</if>
+            <if test="age737 != null  and age737 != ''"> and AGE737 = #{age737}</if>
+            <if test="age736 != null "> and AGE736 = #{age736}</if>
+            <if test="age645 != null  and age645 != ''"> and AGE645 = #{age645}</if>
+            <if test="age616 != null  and age616 != ''"> and AGE616 = #{age616}</if>
+            <if test="aac136 != null  and aac136 != ''"> and AAC136 = #{aac136}</if>
+            <if test="age101 != null  and age101 != ''"> and AGE101 = #{age101}</if>
+            <if test="age628 != null  and age628 != ''"> and AGE628 = #{age628}</if>
+            <if test="age739 != null  and age739 != ''"> and AGE739 = #{age739}</if>
+            <if test="aac180 != null  and aac180 != ''"> and AAC180 = #{aac180}</if>
+            <if test="aac010 != null  and aac010 != ''"> and AAC010 = #{aac010}</if>
+            <if test="aac009 != null  and aac009 != ''"> and AAC009 = #{aac009}</if>
+            <if test="age663 != null  and age663 != ''"> and AGE663 = #{age663}</if>
+            <if test="age664 != null  and age664 != ''"> and AGE664 = #{age664}</if>
+            <if test="age662 != null  and age662 != ''"> and AGE662 = #{age662}</if>
+            <if test="agc152 != null  and agc152 != ''"> and AGC152 = #{agc152}</if>
+            <if test="age619 != null  and age619 != ''"> and AGE619 = #{age619}</if>
+            <if test="agc159 != null  and agc159 != ''"> and AGC159 = #{agc159}</if>
+            <if test="agc161 != null  and agc161 != ''"> and AGC161 = #{agc161}</if>
+            <if test="agc160 != null  and agc160 != ''"> and AGC160 = #{agc160}</if>
+            <if test="agc162 != null  and agc162 != ''"> and AGC162 = #{agc162}</if>
+            <if test="age764 != null "> and AGE764 = #{age764}</if>
+            <if test="age765 != null "> and AGE765 = #{age765}</if>
+            <if test="age766 != null  and age766 != ''"> and AGE766 = #{age766}</if>
+            <if test="aae053 != null  and aae053 != ''"> and AAE053 = #{aae053}</if>
+            <if test="age647 != null  and age647 != ''"> and AGE647 = #{age647}</if>
+            <if test="age767 != null  and age767 != ''"> and AGE767 = #{age767}</if>
+            <if test="age768 != null  and age768 != ''"> and AGE768 = #{age768}</if>
+            <if test="age770 != null  and age770 != ''"> and AGE770 = #{age770}</if>
+            <if test="age771 != null  and age771 != ''"> and AGE771 = #{age771}</if>
+            <if test="age773 != null  and age773 != ''"> and AGE773 = #{age773}</if>
+            <if test="age774 != null  and age774 != ''"> and AGE774 = #{age774}</if>
+            <if test="age776 != null  and age776 != ''"> and AGE776 = #{age776}</if>
+            <if test="age783 != null  and age783 != ''"> and AGE783 = #{age783}</if>
+            <if test="age784 != null  and age784 != ''"> and AGE784 = #{age784}</if>
+        </where>
+    </select>
+    
+    <select id="selectGc58ByAge732" parameterType="String" resultMap="Gc58Result">
+        <include refid="selectGc58Vo"/>
+        where AGE732 = #{age732}
+    </select>
+        
+    <insert id="insertGc58" parameterType="Gc58">
+        insert into gc58
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="age732 != null">AGE732,</if>
+            <if test="agc156 != null">AGC156,</if>
+            <if test="age547 != null">AGE547,</if>
+            <if test="agb020 != null">AGB020,</if>
+            <if test="age655 != null">AGE655,</if>
+            <if test="age623 != null">AGE623,</if>
+            <if test="age611 != null">AGE611,</if>
+            <if test="aae100 != null">AAE100,</if>
+            <if test="aac058 != null">AAC058,</if>
+            <if test="aac147 != null">AAC147,</if>
+            <if test="aac003 != null">AAC003,</if>
+            <if test="aac006 != null">AAC006,</if>
+            <if test="aac004 != null">AAC004,</if>
+            <if test="aac005 != null">AAC005,</if>
+            <if test="aac024 != null">AAC024,</if>
+            <if test="agc010 != null">AGC010,</if>
+            <if test="age735 != null">AGE735,</if>
+            <if test="age737 != null">AGE737,</if>
+            <if test="age736 != null">AGE736,</if>
+            <if test="age645 != null">AGE645,</if>
+            <if test="age616 != null">AGE616,</if>
+            <if test="aac136 != null">AAC136,</if>
+            <if test="age101 != null">AGE101,</if>
+            <if test="age628 != null">AGE628,</if>
+            <if test="age739 != null">AGE739,</if>
+            <if test="aac180 != null">AAC180,</if>
+            <if test="aac010 != null">AAC010,</if>
+            <if test="aac009 != null">AAC009,</if>
+            <if test="age663 != null">AGE663,</if>
+            <if test="age664 != null">AGE664,</if>
+            <if test="age662 != null">AGE662,</if>
+            <if test="agc152 != null">AGC152,</if>
+            <if test="age619 != null">AGE619,</if>
+            <if test="agc159 != null">AGC159,</if>
+            <if test="agc161 != null">AGC161,</if>
+            <if test="agc160 != null">AGC160,</if>
+            <if test="agc162 != null">AGC162,</if>
+            <if test="age764 != null">AGE764,</if>
+            <if test="age765 != null">AGE765,</if>
+            <if test="age766 != null">AGE766,</if>
+            <if test="aae053 != null">AAE053,</if>
+            <if test="age647 != null">AGE647,</if>
+            <if test="age767 != null">AGE767,</if>
+            <if test="age768 != null">AGE768,</if>
+            <if test="age770 != null">AGE770,</if>
+            <if test="age771 != null">AGE771,</if>
+            <if test="age773 != null">AGE773,</if>
+            <if test="age774 != null">AGE774,</if>
+            <if test="age776 != null">AGE776,</if>
+            <if test="age783 != null">AGE783,</if>
+            <if test="age784 != null">AGE784,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="age732 != null">#{age732},</if>
+            <if test="agc156 != null">#{agc156},</if>
+            <if test="age547 != null">#{age547},</if>
+            <if test="agb020 != null">#{agb020},</if>
+            <if test="age655 != null">#{age655},</if>
+            <if test="age623 != null">#{age623},</if>
+            <if test="age611 != null">#{age611},</if>
+            <if test="aae100 != null">#{aae100},</if>
+            <if test="aac058 != null">#{aac058},</if>
+            <if test="aac147 != null">#{aac147},</if>
+            <if test="aac003 != null">#{aac003},</if>
+            <if test="aac006 != null">#{aac006},</if>
+            <if test="aac004 != null">#{aac004},</if>
+            <if test="aac005 != null">#{aac005},</if>
+            <if test="aac024 != null">#{aac024},</if>
+            <if test="agc010 != null">#{agc010},</if>
+            <if test="age735 != null">#{age735},</if>
+            <if test="age737 != null">#{age737},</if>
+            <if test="age736 != null">#{age736},</if>
+            <if test="age645 != null">#{age645},</if>
+            <if test="age616 != null">#{age616},</if>
+            <if test="aac136 != null">#{aac136},</if>
+            <if test="age101 != null">#{age101},</if>
+            <if test="age628 != null">#{age628},</if>
+            <if test="age739 != null">#{age739},</if>
+            <if test="aac180 != null">#{aac180},</if>
+            <if test="aac010 != null">#{aac010},</if>
+            <if test="aac009 != null">#{aac009},</if>
+            <if test="age663 != null">#{age663},</if>
+            <if test="age664 != null">#{age664},</if>
+            <if test="age662 != null">#{age662},</if>
+            <if test="agc152 != null">#{agc152},</if>
+            <if test="age619 != null">#{age619},</if>
+            <if test="agc159 != null">#{agc159},</if>
+            <if test="agc161 != null">#{agc161},</if>
+            <if test="agc160 != null">#{agc160},</if>
+            <if test="agc162 != null">#{agc162},</if>
+            <if test="age764 != null">#{age764},</if>
+            <if test="age765 != null">#{age765},</if>
+            <if test="age766 != null">#{age766},</if>
+            <if test="aae053 != null">#{aae053},</if>
+            <if test="age647 != null">#{age647},</if>
+            <if test="age767 != null">#{age767},</if>
+            <if test="age768 != null">#{age768},</if>
+            <if test="age770 != null">#{age770},</if>
+            <if test="age771 != null">#{age771},</if>
+            <if test="age773 != null">#{age773},</if>
+            <if test="age774 != null">#{age774},</if>
+            <if test="age776 != null">#{age776},</if>
+            <if test="age783 != null">#{age783},</if>
+            <if test="age784 != null">#{age784},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGc58" parameterType="Gc58">
+        update gc58
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="agc156 != null">AGC156 = #{agc156},</if>
+            <if test="age547 != null">AGE547 = #{age547},</if>
+            <if test="agb020 != null">AGB020 = #{agb020},</if>
+            <if test="age655 != null">AGE655 = #{age655},</if>
+            <if test="age623 != null">AGE623 = #{age623},</if>
+            <if test="age611 != null">AGE611 = #{age611},</if>
+            <if test="aae100 != null">AAE100 = #{aae100},</if>
+            <if test="aac058 != null">AAC058 = #{aac058},</if>
+            <if test="aac147 != null">AAC147 = #{aac147},</if>
+            <if test="aac003 != null">AAC003 = #{aac003},</if>
+            <if test="aac006 != null">AAC006 = #{aac006},</if>
+            <if test="aac004 != null">AAC004 = #{aac004},</if>
+            <if test="aac005 != null">AAC005 = #{aac005},</if>
+            <if test="aac024 != null">AAC024 = #{aac024},</if>
+            <if test="agc010 != null">AGC010 = #{agc010},</if>
+            <if test="age735 != null">AGE735 = #{age735},</if>
+            <if test="age737 != null">AGE737 = #{age737},</if>
+            <if test="age736 != null">AGE736 = #{age736},</if>
+            <if test="age645 != null">AGE645 = #{age645},</if>
+            <if test="age616 != null">AGE616 = #{age616},</if>
+            <if test="aac136 != null">AAC136 = #{aac136},</if>
+            <if test="age101 != null">AGE101 = #{age101},</if>
+            <if test="age628 != null">AGE628 = #{age628},</if>
+            <if test="age739 != null">AGE739 = #{age739},</if>
+            <if test="aac180 != null">AAC180 = #{aac180},</if>
+            <if test="aac010 != null">AAC010 = #{aac010},</if>
+            <if test="aac009 != null">AAC009 = #{aac009},</if>
+            <if test="age663 != null">AGE663 = #{age663},</if>
+            <if test="age664 != null">AGE664 = #{age664},</if>
+            <if test="age662 != null">AGE662 = #{age662},</if>
+            <if test="agc152 != null">AGC152 = #{agc152},</if>
+            <if test="age619 != null">AGE619 = #{age619},</if>
+            <if test="agc159 != null">AGC159 = #{agc159},</if>
+            <if test="agc161 != null">AGC161 = #{agc161},</if>
+            <if test="agc160 != null">AGC160 = #{agc160},</if>
+            <if test="agc162 != null">AGC162 = #{agc162},</if>
+            <if test="age764 != null">AGE764 = #{age764},</if>
+            <if test="age765 != null">AGE765 = #{age765},</if>
+            <if test="age766 != null">AGE766 = #{age766},</if>
+            <if test="aae053 != null">AAE053 = #{aae053},</if>
+            <if test="age647 != null">AGE647 = #{age647},</if>
+            <if test="age767 != null">AGE767 = #{age767},</if>
+            <if test="age768 != null">AGE768 = #{age768},</if>
+            <if test="age770 != null">AGE770 = #{age770},</if>
+            <if test="age771 != null">AGE771 = #{age771},</if>
+            <if test="age773 != null">AGE773 = #{age773},</if>
+            <if test="age774 != null">AGE774 = #{age774},</if>
+            <if test="age776 != null">AGE776 = #{age776},</if>
+            <if test="age783 != null">AGE783 = #{age783},</if>
+            <if test="age784 != null">AGE784 = #{age784},</if>
+        </trim>
+        where AGE732 = #{age732}
+    </update>
+
+    <delete id="deleteGc58ByAge732" parameterType="String">
+        delete from gc58 where AGE732 = #{age732}
+    </delete>
+
+    <delete id="deleteGc58ByAge732s" parameterType="String">
+        delete from gc58 where AGE732 in 
+        <foreach item="age732" collection="array" open="(" separator="," close=")">
+            #{age732}
+        </foreach>
+    </delete>
+
+    <delete id="deleteAllGc58" parameterType="String">
+        delete from gc58
+    </delete>
+
+    <insert id="insertBatchGc58" parameterType="List">
+        insert into gc58 values
+        <foreach collection="list" separator="," item="item" >
+            (
+            #{item.age732},#{item.agc156},#{item.age547},#{item.agb020},#{item.age655},#{item.age623},#{item.age611},#{item.aae100},#{item.aac058},#{item.aac147},#{item.aac003},#{item.aac006},#{item.aac004},#{item.aac005},#{item.aac024},#{item.agc010},#{item.age735},#{item.age737},#{item.age736},#{item.age645},#{item.age616},#{item.aac136},#{item.age101},#{item.age628},#{item.age739},#{item.aac180},#{item.aac010},#{item.aac009},#{item.age663},#{item.age664},#{item.age662},#{item.agc152},#{item.age619},#{item.agc159},#{item.agc161},#{item.agc160},#{item.agc162},#{item.age764},#{item.age765},#{item.age766},#{item.aae053},#{item.age647},#{item.age767},#{item.age768},#{item.age770},#{item.age771},#{item.age773},#{item.age774},#{item.age776},#{item.age783},#{item.age784}
+            )
+        </foreach>
+    </insert>
+</mapper>

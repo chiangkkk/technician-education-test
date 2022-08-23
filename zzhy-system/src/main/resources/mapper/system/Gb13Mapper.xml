@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.system.mapper.Gb13Mapper">
+    
+    <resultMap type="Gb13" id="Gb13Result">
+        <result property="age655"    column="AGE655"    />
+        <result property="agb020"    column="AGB020"    />
+        <result property="aae100"    column="AAE100"    />
+        <result property="age633"    column="AGE633"    />
+        <result property="age433"    column="AGE433"    />
+        <result property="age634"    column="AGE634"    />
+        <result property="age010"    column="AGE010"    />
+        <result property="age422"    column="AGE422"    />
+        <result property="age645"    column="AGE645"    />
+        <result property="age671"    column="AGE671"    />
+        <result property="age705"    column="AGE705"    />
+        <result property="age706"    column="AGE706"    />
+    </resultMap>
+
+    <sql id="selectGb13Vo">
+        select AGE655, AGB020, AAE100, AGE633, AGE433, AGE634, AGE010, AGE422, AGE645, AGE671, AGE705, AGE706 from gb13
+    </sql>
+
+    <select id="selectGb13List" parameterType="Gb13" resultMap="Gb13Result">
+        <include refid="selectGb13Vo"/>
+        <where>  
+            <if test="agb020 != null  and agb020 != ''"> and AGB020 = #{agb020}</if>
+            <if test="aae100 != null  and aae100 != ''"> and AAE100 = #{aae100}</if>
+            <if test="age633 != null  and age633 != ''"> and AGE633 = #{age633}</if>
+            <if test="age433 != null  and age433 != ''"> and AGE433 = #{age433}</if>
+            <if test="age634 != null  and age634 != ''"> and AGE634 = #{age634}</if>
+            <if test="age010 != null  and age010 != ''"> and AGE010 = #{age010}</if>
+            <if test="age422 != null  and age422 != ''"> and AGE422 = #{age422}</if>
+            <if test="age645 != null  and age645 != ''"> and AGE645 = #{age645}</if>
+            <if test="age671 != null "> and AGE671 = #{age671}</if>
+            <if test="age705 != null "> and AGE705 = #{age705}</if>
+            <if test="age706 != null "> and AGE706 = #{age706}</if>
+        </where>
+    </select>
+    
+    <select id="selectGb13ByAge655" parameterType="String" resultMap="Gb13Result">
+        <include refid="selectGb13Vo"/>
+        where AGE655 = #{age655}
+    </select>
+        
+    <insert id="insertGb13" parameterType="Gb13">
+        insert into gb13
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="age655 != null">AGE655,</if>
+            <if test="agb020 != null and agb020 != ''">AGB020,</if>
+            <if test="aae100 != null">AAE100,</if>
+            <if test="age633 != null">AGE633,</if>
+            <if test="age433 != null">AGE433,</if>
+            <if test="age634 != null">AGE634,</if>
+            <if test="age010 != null">AGE010,</if>
+            <if test="age422 != null">AGE422,</if>
+            <if test="age645 != null">AGE645,</if>
+            <if test="age671 != null">AGE671,</if>
+            <if test="age705 != null">AGE705,</if>
+            <if test="age706 != null">AGE706,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="age655 != null">#{age655},</if>
+            <if test="agb020 != null and agb020 != ''">#{agb020},</if>
+            <if test="aae100 != null">#{aae100},</if>
+            <if test="age633 != null">#{age633},</if>
+            <if test="age433 != null">#{age433},</if>
+            <if test="age634 != null">#{age634},</if>
+            <if test="age010 != null">#{age010},</if>
+            <if test="age422 != null">#{age422},</if>
+            <if test="age645 != null">#{age645},</if>
+            <if test="age671 != null">#{age671},</if>
+            <if test="age705 != null">#{age705},</if>
+            <if test="age706 != null">#{age706},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGb13" parameterType="Gb13">
+        update gb13
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="agb020 != null and agb020 != ''">AGB020 = #{agb020},</if>
+            <if test="aae100 != null">AAE100 = #{aae100},</if>
+            <if test="age633 != null">AGE633 = #{age633},</if>
+            <if test="age433 != null">AGE433 = #{age433},</if>
+            <if test="age634 != null">AGE634 = #{age634},</if>
+            <if test="age010 != null">AGE010 = #{age010},</if>
+            <if test="age422 != null">AGE422 = #{age422},</if>
+            <if test="age645 != null">AGE645 = #{age645},</if>
+            <if test="age671 != null">AGE671 = #{age671},</if>
+            <if test="age705 != null">AGE705 = #{age705},</if>
+            <if test="age706 != null">AGE706 = #{age706},</if>
+        </trim>
+        where AGE655 = #{age655}
+    </update>
+
+    <delete id="deleteGb13ByAge655" parameterType="String">
+        delete from gb13 where AGE655 = #{age655}
+    </delete>
+
+    <delete id="deleteGb13ByAge655s" parameterType="String">
+        delete from gb13 where AGE655 in 
+        <foreach item="age655" collection="array" open="(" separator="," close=")">
+            #{age655}
+        </foreach>
+    </delete>
+
+
+    <delete id="deleteAllGb13" parameterType="String">
+        delete from gb13
+    </delete>
+
+    <insert id="insertBatchGb13" parameterType="List">
+        insert into gb13 values
+        <foreach collection="list" separator="," item="item" >
+            (
+            #{item.age655},#{item.agb020},#{item.aae100},#{item.age633},#{item.age433},#{item.age634},#{item.age010},#{item.age422},#{item.age645},#{item.age671},#{item.age705},#{item.age706}
+            )
+        </foreach>
+    </insert>
+</mapper>

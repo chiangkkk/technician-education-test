@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.system.mapper.Gc54Mapper">
+    
+    <resultMap type="Gc54" id="Gc54Result">
+        <result property="age529"    column="AGE529"    />
+        <result property="aae100"    column="AAE100"    />
+        <result property="agc054"    column="AGC054"    />
+        <result property="age635"    column="AGE635"    />
+        <result property="agc156"    column="AGC156"    />
+        <result property="aac003"    column="AAC003"    />
+        <result property="aac004"    column="AAC004"    />
+        <result property="aac147"    column="AAC147"    />
+        <result property="aac006"    column="AAC006"    />
+        <result property="age737"    column="AGE737"    />
+        <result property="age422"    column="AGE422"    />
+        <result property="age101"    column="AGE101"    />
+        <result property="age736"    column="AGE736"    />
+        <result property="age780"    column="AGE780"    />
+        <result property="age559"    column="AGE559"    />
+        <result property="age551"    column="AGE551"    />
+    </resultMap>
+
+    <sql id="selectGc54Vo">
+        select AGE529, AAE100, AGC054, AGE635, AGC156, AAC003, AAC004, AAC147, AAC006, AGE737, AGE422, AGE101, AGE736, AGE780, AGE559, AGE551 from gc54
+    </sql>
+
+    <select id="selectGc54List" parameterType="Gc54" resultMap="Gc54Result">
+        <include refid="selectGc54Vo"/>
+        <where>  
+            <if test="aae100 != null  and aae100 != ''"> and AAE100 = #{aae100}</if>
+            <if test="agc054 != null  and agc054 != ''"> and AGC054 = #{agc054}</if>
+            <if test="age635 != null  and age635 != ''"> and AGE635 = #{age635}</if>
+            <if test="agc156 != null  and agc156 != ''"> and AGC156 = #{agc156}</if>
+            <if test="aac003 != null  and aac003 != ''"> and AAC003 = #{aac003}</if>
+            <if test="aac004 != null  and aac004 != ''"> and AAC004 = #{aac004}</if>
+            <if test="aac147 != null  and aac147 != ''"> and AAC147 = #{aac147}</if>
+            <if test="aac006 != null "> and AAC006 = #{aac006}</if>
+            <if test="age737 != null  and age737 != ''"> and AGE737 = #{age737}</if>
+            <if test="age422 != null  and age422 != ''"> and AGE422 = #{age422}</if>
+            <if test="age101 != null  and age101 != ''"> and AGE101 = #{age101}</if>
+            <if test="age736 != null "> and AGE736 = #{age736}</if>
+            <if test="age780 != null "> and AGE780 = #{age780}</if>
+            <if test="age559 != null  and age559 != ''"> and AGE559 = #{age559}</if>
+            <if test="age551 != null "> and AGE551 = #{age551}</if>
+        </where>
+    </select>
+    
+    <select id="selectGc54ByAge529" parameterType="String" resultMap="Gc54Result">
+        <include refid="selectGc54Vo"/>
+        where AGE529 = #{age529}
+    </select>
+        
+    <insert id="insertGc54" parameterType="Gc54">
+        insert into gc54
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="age529 != null">AGE529,</if>
+            <if test="aae100 != null">AAE100,</if>
+            <if test="agc054 != null">AGC054,</if>
+            <if test="age635 != null">AGE635,</if>
+            <if test="agc156 != null">AGC156,</if>
+            <if test="aac003 != null">AAC003,</if>
+            <if test="aac004 != null">AAC004,</if>
+            <if test="aac147 != null">AAC147,</if>
+            <if test="aac006 != null">AAC006,</if>
+            <if test="age737 != null">AGE737,</if>
+            <if test="age422 != null">AGE422,</if>
+            <if test="age101 != null">AGE101,</if>
+            <if test="age736 != null">AGE736,</if>
+            <if test="age780 != null">AGE780,</if>
+            <if test="age559 != null">AGE559,</if>
+            <if test="age551 != null">AGE551,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="age529 != null">#{age529},</if>
+            <if test="aae100 != null">#{aae100},</if>
+            <if test="agc054 != null">#{agc054},</if>
+            <if test="age635 != null">#{age635},</if>
+            <if test="agc156 != null">#{agc156},</if>
+            <if test="aac003 != null">#{aac003},</if>
+            <if test="aac004 != null">#{aac004},</if>
+            <if test="aac147 != null">#{aac147},</if>
+            <if test="aac006 != null">#{aac006},</if>
+            <if test="age737 != null">#{age737},</if>
+            <if test="age422 != null">#{age422},</if>
+            <if test="age101 != null">#{age101},</if>
+            <if test="age736 != null">#{age736},</if>
+            <if test="age780 != null">#{age780},</if>
+            <if test="age559 != null">#{age559},</if>
+            <if test="age551 != null">#{age551},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGc54" parameterType="Gc54">
+        update gc54
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="aae100 != null">AAE100 = #{aae100},</if>
+            <if test="agc054 != null">AGC054 = #{agc054},</if>
+            <if test="age635 != null">AGE635 = #{age635},</if>
+            <if test="agc156 != null">AGC156 = #{agc156},</if>
+            <if test="aac003 != null">AAC003 = #{aac003},</if>
+            <if test="aac004 != null">AAC004 = #{aac004},</if>
+            <if test="aac147 != null">AAC147 = #{aac147},</if>
+            <if test="aac006 != null">AAC006 = #{aac006},</if>
+            <if test="age737 != null">AGE737 = #{age737},</if>
+            <if test="age422 != null">AGE422 = #{age422},</if>
+            <if test="age101 != null">AGE101 = #{age101},</if>
+            <if test="age736 != null">AGE736 = #{age736},</if>
+            <if test="age780 != null">AGE780 = #{age780},</if>
+            <if test="age559 != null">AGE559 = #{age559},</if>
+            <if test="age551 != null">AGE551 = #{age551},</if>
+        </trim>
+        where AGE529 = #{age529}
+    </update>
+
+    <delete id="deleteGc54ByAge529" parameterType="String">
+        delete from gc54 where AGE529 = #{age529}
+    </delete>
+
+    <delete id="deleteGc54ByAge529s" parameterType="String">
+        delete from gc54 where AGE529 in 
+        <foreach item="age529" collection="array" open="(" separator="," close=")">
+            #{age529}
+        </foreach>
+    </delete>
+
+    <delete id="deleteAllGc54" parameterType="String">
+        delete from gc54
+    </delete>
+
+    <insert id="insertBatchGc54" parameterType="List">
+        insert into gc54 values
+        <foreach collection="list" separator="," item="item" >
+            (
+            #{item.age529},#{item.aae100},#{item.agc054},#{item.age635},#{item.agc156},#{item.aac003},#{item.aac004},#{item.aac147},#{item.aac006},#{item.age737},#{item.age422},#{item.age101},#{item.age736},#{item.age780},#{item.age559},#{item.age551}            )
+        </foreach>
+    </insert>
+</mapper>

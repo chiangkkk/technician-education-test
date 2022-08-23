@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.system.mapper.Ge11Mapper">
+    
+    <resultMap type="Ge11" id="Ge11Result">
+        <result property="age514"    column="AGE514"    />
+        <result property="agc156"    column="AGC156"    />
+        <result property="aae053"    column="AAE053"    />
+        <result property="aac147"    column="AAC147"    />
+        <result property="aac003"    column="AAC003"    />
+        <result property="aae100"    column="AAE100"    />
+    </resultMap>
+
+    <sql id="selectGe11Vo">
+        select AGE514, AGC156, AAE053, AAC147, AAC003, AAE100 from ge11
+    </sql>
+
+    <select id="selectGe11List" parameterType="Ge11" resultMap="Ge11Result">
+        <include refid="selectGe11Vo"/>
+        <where>  
+            <if test="agc156 != null  and agc156 != ''"> and AGC156 = #{agc156}</if>
+            <if test="aae053 != null  and aae053 != ''"> and AAE053 = #{aae053}</if>
+            <if test="aac147 != null  and aac147 != ''"> and AAC147 = #{aac147}</if>
+            <if test="aac003 != null  and aac003 != ''"> and AAC003 = #{aac003}</if>
+            <if test="aae100 != null  and aae100 != ''"> and AAE100 = #{aae100}</if>
+        </where>
+    </select>
+    
+    <select id="selectGe11ByAge514" parameterType="String" resultMap="Ge11Result">
+        <include refid="selectGe11Vo"/>
+        where AGE514 = #{age514}
+    </select>
+        
+    <insert id="insertGe11" parameterType="Ge11">
+        insert into ge11
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="age514 != null">AGE514,</if>
+            <if test="agc156 != null">AGC156,</if>
+            <if test="aae053 != null">AAE053,</if>
+            <if test="aac147 != null">AAC147,</if>
+            <if test="aac003 != null">AAC003,</if>
+            <if test="aae100 != null">AAE100,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="age514 != null">#{age514},</if>
+            <if test="agc156 != null">#{agc156},</if>
+            <if test="aae053 != null">#{aae053},</if>
+            <if test="aac147 != null">#{aac147},</if>
+            <if test="aac003 != null">#{aac003},</if>
+            <if test="aae100 != null">#{aae100},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGe11" parameterType="Ge11">
+        update ge11
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="agc156 != null">AGC156 = #{agc156},</if>
+            <if test="aae053 != null">AAE053 = #{aae053},</if>
+            <if test="aac147 != null">AAC147 = #{aac147},</if>
+            <if test="aac003 != null">AAC003 = #{aac003},</if>
+            <if test="aae100 != null">AAE100 = #{aae100},</if>
+        </trim>
+        where AGE514 = #{age514}
+    </update>
+
+    <delete id="deleteGe11ByAge514" parameterType="String">
+        delete from ge11 where AGE514 = #{age514}
+    </delete>
+
+    <delete id="deleteGe11ByAge514s" parameterType="String">
+        delete from ge11 where AGE514 in 
+        <foreach item="age514" collection="array" open="(" separator="," close=")">
+            #{age514}
+        </foreach>
+    </delete>
+
+    <delete id="deleteAllGe11" parameterType="String">
+        delete from ge11
+    </delete>
+
+    <insert id="insertBatchGe11" parameterType="List">
+        insert into ge11 values
+        <foreach collection="list" separator="," item="item" >
+            (
+            #{item.age514},#{item.agc156},#{item.aae053},#{item.aac147},#{item.aac003},#{item.aae100}
+            )
+        </foreach>
+    </insert>
+</mapper>

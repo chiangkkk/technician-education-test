@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.system.mapper.TempSchCollegesMajorMapper">
+    
+    <resultMap type="TempSchCollegesMajor" id="TempSchCollegesMajorResult">
+        <result property="collegesMajorId"    column="colleges_major_id"    />
+        <result property="schoolId"    column="school_id"    />
+        <result property="schoolName"    column="school_name"    />
+        <result property="directionlevelId"    column="directionlevel_id"    />
+        <result property="institutionId"    column="institution_id"    />
+        <result property="itemId"    column="item_id"    />
+        <result property="majorName"    column="major_name"    />
+        <result property="admissionsApply"    column="admissions_apply"    />
+        <result property="nearApply"    column="near_apply"    />
+        <result property="admissionsRecord"    column="admissions_record"    />
+        <result property="schoolMajorClassroomTotal"    column="school_major_classroom_total"    />
+        <result property="schoolMajorTuition"    column="school_major_tuition"    />
+        <result property="schoolMajorStudentTotal"    column="school_major_student_total"    />
+        <result property="schoolMajorIntegratedTotal"    column="school_major_integrated_total"    />
+        <result property="schoolMajorTrainingTotal"    column="school_major_training_total"    />
+        <result property="schoolMajorEquipmentTotal"    column="school_major_equipment_total"    />
+        <result property="schoolMajorTrainingPrice"    column="school_major_training_price"    />
+        <result property="schoolMajorContinuityYear"    column="school_major_continuity_year"    />
+        <result property="remark"    column="remark"    />
+        <result property="sort"    column="sort"    />
+        <result property="status"    column="status"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="collegesMajorNo"    column="colleges_major_no"    />
+        <result property="deptCollegesMajorNo"    column="dept_colleges_major_no"    />
+        <result property="yearTime"    column="year_time"    />
+        <result property="season"    column="season"    />
+    </resultMap>
+
+    <sql id="selectTempSchCollegesMajorVo">
+        select colleges_major_id, school_id, school_name, directionlevel_id, institution_id, item_id, major_name, admissions_apply, near_apply, admissions_record, school_major_classroom_total, school_major_tuition, school_major_student_total, school_major_integrated_total, school_major_training_total, school_major_equipment_total, school_major_training_price, school_major_continuity_year, remark, sort, status, create_by, create_time, update_by, update_time, del_flag, colleges_major_no, dept_colleges_major_no, year_time, season from temp_sch_colleges_major
+    </sql>
+
+    <select id="selectTempSchCollegesMajorList" parameterType="TempSchCollegesMajor" resultMap="TempSchCollegesMajorResult">
+        <include refid="selectTempSchCollegesMajorVo"/>
+        <where>  
+            <if test="schoolId != null "> and school_id = #{schoolId}</if>
+            <if test="schoolName != null  and schoolName != ''"> and school_name like concat('%', #{schoolName}, '%')</if>
+            <if test="directionlevelId != null "> and directionlevel_id = #{directionlevelId}</if>
+            <if test="institutionId != null "> and institution_id = #{institutionId}</if>
+            <if test="itemId != null "> and item_id = #{itemId}</if>
+            <if test="majorName != null  and majorName != ''"> and major_name like concat('%', #{majorName}, '%')</if>
+            <if test="admissionsApply != null "> and admissions_apply = #{admissionsApply}</if>
+            <if test="nearApply != null "> and near_apply = #{nearApply}</if>
+            <if test="admissionsRecord != null  and admissionsRecord != ''"> and admissions_record = #{admissionsRecord}</if>
+            <if test="schoolMajorClassroomTotal != null "> and school_major_classroom_total = #{schoolMajorClassroomTotal}</if>
+            <if test="schoolMajorTuition != null "> and school_major_tuition = #{schoolMajorTuition}</if>
+            <if test="schoolMajorStudentTotal != null "> and school_major_student_total = #{schoolMajorStudentTotal}</if>
+            <if test="schoolMajorIntegratedTotal != null "> and school_major_integrated_total = #{schoolMajorIntegratedTotal}</if>
+            <if test="schoolMajorTrainingTotal != null "> and school_major_training_total = #{schoolMajorTrainingTotal}</if>
+            <if test="schoolMajorEquipmentTotal != null "> and school_major_equipment_total = #{schoolMajorEquipmentTotal}</if>
+            <if test="schoolMajorTrainingPrice != null "> and school_major_training_price = #{schoolMajorTrainingPrice}</if>
+            <if test="schoolMajorContinuityYear != null "> and school_major_continuity_year = #{schoolMajorContinuityYear}</if>
+            <if test="sort != null "> and sort = #{sort}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="collegesMajorNo != null  and collegesMajorNo != ''"> and colleges_major_no = #{collegesMajorNo}</if>
+            <if test="deptCollegesMajorNo != null  and deptCollegesMajorNo != ''"> and dept_colleges_major_no = #{deptCollegesMajorNo}</if>
+            <if test="yearTime != null  and yearTime != ''"> and year_time = #{yearTime}</if>
+            <if test="season != null  and season != ''"> and season = #{season}</if>
+        </where>
+    </select>
+    
+    <select id="selectTempSchCollegesMajorByCollegesMajorId" parameterType="Long" resultMap="TempSchCollegesMajorResult">
+        <include refid="selectTempSchCollegesMajorVo"/>
+        where colleges_major_id = #{collegesMajorId}
+    </select>
+        
+    <insert id="insertTempSchCollegesMajor" parameterType="TempSchCollegesMajor" useGeneratedKeys="true" keyProperty="collegesMajorId">
+        insert into temp_sch_colleges_major
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="schoolId != null">school_id,</if>
+            <if test="schoolName != null">school_name,</if>
+            <if test="directionlevelId != null">directionlevel_id,</if>
+            <if test="institutionId != null">institution_id,</if>
+            <if test="itemId != null">item_id,</if>
+            <if test="majorName != null">major_name,</if>
+            <if test="admissionsApply != null">admissions_apply,</if>
+            <if test="nearApply != null">near_apply,</if>
+            <if test="admissionsRecord != null">admissions_record,</if>
+            <if test="schoolMajorClassroomTotal != null">school_major_classroom_total,</if>
+            <if test="schoolMajorTuition != null">school_major_tuition,</if>
+            <if test="schoolMajorStudentTotal != null">school_major_student_total,</if>
+            <if test="schoolMajorIntegratedTotal != null">school_major_integrated_total,</if>
+            <if test="schoolMajorTrainingTotal != null">school_major_training_total,</if>
+            <if test="schoolMajorEquipmentTotal != null">school_major_equipment_total,</if>
+            <if test="schoolMajorTrainingPrice != null">school_major_training_price,</if>
+            <if test="schoolMajorContinuityYear != null">school_major_continuity_year,</if>
+            <if test="remark != null">remark,</if>
+            <if test="sort != null">sort,</if>
+            <if test="status != null">status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="collegesMajorNo != null">colleges_major_no,</if>
+            <if test="deptCollegesMajorNo != null">dept_colleges_major_no,</if>
+            <if test="yearTime != null">year_time,</if>
+            <if test="season != null">season,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="schoolId != null">#{schoolId},</if>
+            <if test="schoolName != null">#{schoolName},</if>
+            <if test="directionlevelId != null">#{directionlevelId},</if>
+            <if test="institutionId != null">#{institutionId},</if>
+            <if test="itemId != null">#{itemId},</if>
+            <if test="majorName != null">#{majorName},</if>
+            <if test="admissionsApply != null">#{admissionsApply},</if>
+            <if test="nearApply != null">#{nearApply},</if>
+            <if test="admissionsRecord != null">#{admissionsRecord},</if>
+            <if test="schoolMajorClassroomTotal != null">#{schoolMajorClassroomTotal},</if>
+            <if test="schoolMajorTuition != null">#{schoolMajorTuition},</if>
+            <if test="schoolMajorStudentTotal != null">#{schoolMajorStudentTotal},</if>
+            <if test="schoolMajorIntegratedTotal != null">#{schoolMajorIntegratedTotal},</if>
+            <if test="schoolMajorTrainingTotal != null">#{schoolMajorTrainingTotal},</if>
+            <if test="schoolMajorEquipmentTotal != null">#{schoolMajorEquipmentTotal},</if>
+            <if test="schoolMajorTrainingPrice != null">#{schoolMajorTrainingPrice},</if>
+            <if test="schoolMajorContinuityYear != null">#{schoolMajorContinuityYear},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="sort != null">#{sort},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="collegesMajorNo != null">#{collegesMajorNo},</if>
+            <if test="deptCollegesMajorNo != null">#{deptCollegesMajorNo},</if>
+            <if test="yearTime != null">#{yearTime},</if>
+            <if test="season != null">#{season},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTempSchCollegesMajor" parameterType="TempSchCollegesMajor">
+        update temp_sch_colleges_major
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="schoolId != null">school_id = #{schoolId},</if>
+            <if test="schoolName != null">school_name = #{schoolName},</if>
+            <if test="directionlevelId != null">directionlevel_id = #{directionlevelId},</if>
+            <if test="institutionId != null">institution_id = #{institutionId},</if>
+            <if test="itemId != null">item_id = #{itemId},</if>
+            <if test="majorName != null">major_name = #{majorName},</if>
+            <if test="admissionsApply != null">admissions_apply = #{admissionsApply},</if>
+            <if test="nearApply != null">near_apply = #{nearApply},</if>
+            <if test="admissionsRecord != null">admissions_record = #{admissionsRecord},</if>
+            <if test="schoolMajorClassroomTotal != null">school_major_classroom_total = #{schoolMajorClassroomTotal},</if>
+            <if test="schoolMajorTuition != null">school_major_tuition = #{schoolMajorTuition},</if>
+            <if test="schoolMajorStudentTotal != null">school_major_student_total = #{schoolMajorStudentTotal},</if>
+            <if test="schoolMajorIntegratedTotal != null">school_major_integrated_total = #{schoolMajorIntegratedTotal},</if>
+            <if test="schoolMajorTrainingTotal != null">school_major_training_total = #{schoolMajorTrainingTotal},</if>
+            <if test="schoolMajorEquipmentTotal != null">school_major_equipment_total = #{schoolMajorEquipmentTotal},</if>
+            <if test="schoolMajorTrainingPrice != null">school_major_training_price = #{schoolMajorTrainingPrice},</if>
+            <if test="schoolMajorContinuityYear != null">school_major_continuity_year = #{schoolMajorContinuityYear},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="sort != null">sort = #{sort},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="collegesMajorNo != null">colleges_major_no = #{collegesMajorNo},</if>
+            <if test="deptCollegesMajorNo != null">dept_colleges_major_no = #{deptCollegesMajorNo},</if>
+            <if test="yearTime != null">year_time = #{yearTime},</if>
+            <if test="season != null">season = #{season},</if>
+        </trim>
+        where colleges_major_id = #{collegesMajorId}
+    </update>
+
+    <delete id="deleteTempSchCollegesMajorByCollegesMajorId" parameterType="Long">
+        delete from temp_sch_colleges_major where colleges_major_id = #{collegesMajorId}
+    </delete>
+
+    <select id="testCollegesMajorList" resultMap="TempSchCollegesMajorResult">
+       SELECT school_id,school_name,item_id,major_name,admissions_apply
+  from temp_sch_colleges_major where admissions_apply=2
+  group by school_id,school_name,item_id,major_name order by school_name,major_name
+    </select>
+
+    <!-- 获取最新的一条数据 -->
+    <select id="collegesMajorGroupByLimitOne" parameterType="TempSchCollegesMajor" resultMap="TempSchCollegesMajorResult">
+       SELECT *
+  from temp_sch_colleges_major where admissions_apply=2
+        <if test="schoolId != null">
+            and  school_id = #{schoolId}
+        </if>
+        <if test="itemId != null">
+            and  item_id = #{itemId}
+        </if>
+        order by year_time desc,season desc LIMIT 1
+    </select>
+
+
+    <!-- 处理有效数据拼装成json格式 -->
+    <select id="collegesMajorGroupByList" parameterType="TempSchCollegesMajor" resultMap="TempSchCollegesMajorResult">
+       SELECT *
+  from temp_sch_colleges_major where admissions_apply=2
+        <if test="schoolId != null">
+            and  school_id = #{schoolId}
+        </if>
+        <if test="itemId != null">
+            and  item_id = #{itemId}
+        </if>
+        order by year_time ,season
+    </select>
+
+
+
+</mapper>

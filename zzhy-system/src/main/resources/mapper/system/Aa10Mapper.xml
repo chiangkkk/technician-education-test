@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.system.mapper.Aa10Mapper">
+    
+    <resultMap type="Aa10" id="Aa10Result">
+        <result property="aaa100"    column="AAA100"    />
+        <result property="aaa102"    column="AAA102"    />
+        <result property="aaa103"    column="AAA103"    />
+        <result property="aaa191"    column="AAA191"    />
+    </resultMap>
+
+    <sql id="selectAa10Vo">
+        select AAA100, AAA102, AAA103, AAA191 from aa10
+    </sql>
+
+    <select id="selectAa10List" parameterType="Aa10" resultMap="Aa10Result">
+        <include refid="selectAa10Vo"/>
+        <where>  
+            <if test="aaa100 != null  and aaa100 != ''"> and AAA100 = #{aaa100}</if>
+            <if test="aaa102 != null  and aaa102 != ''"> and AAA102 = #{aaa102}</if>
+            <if test="aaa103 != null  and aaa103 != ''"> and AAA103 = #{aaa103}</if>
+            <if test="aaa191 != null "> and AAA191 = #{aaa191}</if>
+        </where>
+    </select>
+    
+    <select id="selectAa10ByAaa100" parameterType="String" resultMap="Aa10Result">
+        <include refid="selectAa10Vo"/>
+        where AAA100 = #{aaa100}
+    </select>
+        
+    <insert id="insertAa10" parameterType="Aa10">
+        insert into aa10
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="aaa100 != null and aaa100 != ''">AAA100,</if>
+            <if test="aaa102 != null and aaa102 != ''">AAA102,</if>
+            <if test="aaa103 != null and aaa103 != ''">AAA103,</if>
+            <if test="aaa191 != null">AAA191,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="aaa100 != null and aaa100 != ''">#{aaa100},</if>
+            <if test="aaa102 != null and aaa102 != ''">#{aaa102},</if>
+            <if test="aaa103 != null and aaa103 != ''">#{aaa103},</if>
+            <if test="aaa191 != null">#{aaa191},</if>
+         </trim>
+    </insert>
+
+    <update id="updateAa10" parameterType="Aa10">
+        update aa10
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="aaa102 != null and aaa102 != ''">AAA102 = #{aaa102},</if>
+            <if test="aaa103 != null and aaa103 != ''">AAA103 = #{aaa103},</if>
+            <if test="aaa191 != null">AAA191 = #{aaa191},</if>
+        </trim>
+        where AAA100 = #{aaa100}
+    </update>
+
+    <delete id="deleteAa10ByAaa100" parameterType="String">
+        delete from aa10 where AAA100 = #{aaa100}
+    </delete>
+
+    <delete id="deleteAa10ByAaa100s" parameterType="String">
+        delete from aa10 where AAA100 in 
+        <foreach item="aaa100" collection="array" open="(" separator="," close=")">
+            #{aaa100}
+        </foreach>
+    </delete>
+
+    <delete id="deleteAllAa10" parameterType="String">
+        delete from aa10
+    </delete>
+
+    <insert id="insertBatchAa10" parameterType="List">
+        insert into aa10 values
+        <foreach collection="list" separator="," item="item" >
+            (
+            #{item.aaa100},#{item.aaa102},#{item.aaa103},#{item.aaa191}
+            )
+        </foreach>
+    </insert>
+</mapper>

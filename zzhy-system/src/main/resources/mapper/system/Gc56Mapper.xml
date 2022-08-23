@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.system.mapper.Gc56Mapper">
+    
+    <resultMap type="Gc56" id="Gc56Result">
+        <result property="agc163"    column="AGC163"    />
+        <result property="aae100"    column="AAE100"    />
+        <result property="aac147"    column="AAC147"    />
+        <result property="aac003"    column="AAC003"    />
+        <result property="agc164"    column="AGC164"    />
+        <result property="age618"    column="AGE618"    />
+        <result property="age553"    column="AGE553"    />
+        <result property="age654"    column="AGE654"    />
+        <result property="agc156"    column="AGC156"    />
+        <result property="aac058"    column="AAC058"    />
+        <result property="aae013"    column="AAE013"    />
+    </resultMap>
+
+    <sql id="selectGc56Vo">
+        select AGC163, AAE100, AAC147, AAC003, AGC164, AGE618, AGE553, AGE654, AGC156, AAC058, AAE013 from gc56
+    </sql>
+
+    <select id="selectGc56List" parameterType="Gc56" resultMap="Gc56Result">
+        <include refid="selectGc56Vo"/>
+        <where>  
+            <if test="aae100 != null  and aae100 != ''"> and AAE100 = #{aae100}</if>
+            <if test="aac147 != null  and aac147 != ''"> and AAC147 = #{aac147}</if>
+            <if test="aac003 != null  and aac003 != ''"> and AAC003 = #{aac003}</if>
+            <if test="agc164 != null  and agc164 != ''"> and AGC164 = #{agc164}</if>
+            <if test="age618 != null  and age618 != ''"> and AGE618 = #{age618}</if>
+            <if test="age553 != null  and age553 != ''"> and AGE553 = #{age553}</if>
+            <if test="age654 != null "> and AGE654 = #{age654}</if>
+            <if test="agc156 != null  and agc156 != ''"> and AGC156 = #{agc156}</if>
+            <if test="aac058 != null  and aac058 != ''"> and AAC058 = #{aac058}</if>
+            <if test="aae013 != null  and aae013 != ''"> and AAE013 = #{aae013}</if>
+        </where>
+    </select>
+    
+    <select id="selectGc56ByAgc163" parameterType="String" resultMap="Gc56Result">
+        <include refid="selectGc56Vo"/>
+        where AGC163 = #{agc163}
+    </select>
+        
+    <insert id="insertGc56" parameterType="Gc56">
+        insert into gc56
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="agc163 != null">AGC163,</if>
+            <if test="aae100 != null">AAE100,</if>
+            <if test="aac147 != null">AAC147,</if>
+            <if test="aac003 != null">AAC003,</if>
+            <if test="agc164 != null">AGC164,</if>
+            <if test="age618 != null">AGE618,</if>
+            <if test="age553 != null">AGE553,</if>
+            <if test="age654 != null">AGE654,</if>
+            <if test="agc156 != null">AGC156,</if>
+            <if test="aac058 != null">AAC058,</if>
+            <if test="aae013 != null">AAE013,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="agc163 != null">#{agc163},</if>
+            <if test="aae100 != null">#{aae100},</if>
+            <if test="aac147 != null">#{aac147},</if>
+            <if test="aac003 != null">#{aac003},</if>
+            <if test="agc164 != null">#{agc164},</if>
+            <if test="age618 != null">#{age618},</if>
+            <if test="age553 != null">#{age553},</if>
+            <if test="age654 != null">#{age654},</if>
+            <if test="agc156 != null">#{agc156},</if>
+            <if test="aac058 != null">#{aac058},</if>
+            <if test="aae013 != null">#{aae013},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGc56" parameterType="Gc56">
+        update gc56
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="aae100 != null">AAE100 = #{aae100},</if>
+            <if test="aac147 != null">AAC147 = #{aac147},</if>
+            <if test="aac003 != null">AAC003 = #{aac003},</if>
+            <if test="agc164 != null">AGC164 = #{agc164},</if>
+            <if test="age618 != null">AGE618 = #{age618},</if>
+            <if test="age553 != null">AGE553 = #{age553},</if>
+            <if test="age654 != null">AGE654 = #{age654},</if>
+            <if test="agc156 != null">AGC156 = #{agc156},</if>
+            <if test="aac058 != null">AAC058 = #{aac058},</if>
+            <if test="aae013 != null">AAE013 = #{aae013},</if>
+        </trim>
+        where AGC163 = #{agc163}
+    </update>
+
+    <delete id="deleteGc56ByAgc163" parameterType="String">
+        delete from gc56 where AGC163 = #{agc163}
+    </delete>
+
+    <delete id="deleteGc56ByAgc163s" parameterType="String">
+        delete from gc56 where AGC163 in 
+        <foreach item="agc163" collection="array" open="(" separator="," close=")">
+            #{agc163}
+        </foreach>
+    </delete>
+
+    <delete id="deleteAllGc56" parameterType="String">
+        delete from gc56
+    </delete>
+
+    <insert id="insertBatchGc56" parameterType="List">
+        insert into gc56 values
+        <foreach collection="list" separator="," item="item" >
+            (
+            #{item.agc163},#{item.aae100},#{item.aac147},#{item.aac003},#{item.agc164},#{item.age618},#{item.age553},#{item.age654},#{item.agc156},#{item.aac058},#{item.aae013}
+            )
+        </foreach>
+    </insert>
+</mapper>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.system.mapper.Gc52Mapper">
+    
+    <resultMap type="Gc52" id="Gc52Result">
+        <result property="age521"    column="AGE521"    />
+        <result property="agc156"    column="AGC156"    />
+        <result property="agb020"    column="AGB020"    />
+        <result property="age542"    column="AGE542"    />
+        <result property="age655"    column="AGE655"    />
+        <result property="aae100"    column="AAE100"    />
+        <result property="age525"    column="AGE525"    />
+        <result property="age522"    column="AGE522"    />
+        <result property="age523"    column="AGE523"    />
+        <result property="age101"    column="AGE101"    />
+        <result property="aac009"    column="AAC009"    />
+        <result property="age662"    column="AGE662"    />
+        <result property="age663"    column="AGE663"    />
+        <result property="agc152"    column="AGC152"    />
+        <result property="age619"    column="AGE619"    />
+    </resultMap>
+
+    <sql id="selectGc52Vo">
+        select AGE521, AGC156, AGB020, AGE542, AGE655, AAE100, AGE525, AGE522, AGE523, AGE101, AAC009, AGE662, AGE663, AGC152, AGE619 from gc52
+    </sql>
+
+    <select id="selectGc52List" parameterType="Gc52" resultMap="Gc52Result">
+        <include refid="selectGc52Vo"/>
+        <where>  
+            <if test="agc156 != null  and agc156 != ''"> and AGC156 = #{agc156}</if>
+            <if test="agb020 != null  and agb020 != ''"> and AGB020 = #{agb020}</if>
+            <if test="age542 != null  and age542 != ''"> and AGE542 = #{age542}</if>
+            <if test="age655 != null  and age655 != ''"> and AGE655 = #{age655}</if>
+            <if test="aae100 != null  and aae100 != ''"> and AAE100 = #{aae100}</if>
+            <if test="age525 != null  and age525 != ''"> and AGE525 = #{age525}</if>
+            <if test="age522 != null "> and AGE522 = #{age522}</if>
+            <if test="age523 != null "> and AGE523 = #{age523}</if>
+            <if test="age101 != null  and age101 != ''"> and AGE101 = #{age101}</if>
+            <if test="aac009 != null  and aac009 != ''"> and AAC009 = #{aac009}</if>
+            <if test="age662 != null  and age662 != ''"> and AGE662 = #{age662}</if>
+            <if test="age663 != null  and age663 != ''"> and AGE663 = #{age663}</if>
+            <if test="agc152 != null  and agc152 != ''"> and AGC152 = #{agc152}</if>
+            <if test="age619 != null  and age619 != ''"> and AGE619 = #{age619}</if>
+        </where>
+    </select>
+    
+    <select id="selectGc52ByAge521" parameterType="String" resultMap="Gc52Result">
+        <include refid="selectGc52Vo"/>
+        where AGE521 = #{age521}
+    </select>
+        
+    <insert id="insertGc52" parameterType="Gc52">
+        insert into gc52
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="age521 != null">AGE521,</if>
+            <if test="agc156 != null">AGC156,</if>
+            <if test="agb020 != null">AGB020,</if>
+            <if test="age542 != null">AGE542,</if>
+            <if test="age655 != null">AGE655,</if>
+            <if test="aae100 != null">AAE100,</if>
+            <if test="age525 != null">AGE525,</if>
+            <if test="age522 != null">AGE522,</if>
+            <if test="age523 != null">AGE523,</if>
+            <if test="age101 != null">AGE101,</if>
+            <if test="aac009 != null">AAC009,</if>
+            <if test="age662 != null">AGE662,</if>
+            <if test="age663 != null">AGE663,</if>
+            <if test="agc152 != null">AGC152,</if>
+            <if test="age619 != null">AGE619,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="age521 != null">#{age521},</if>
+            <if test="agc156 != null">#{agc156},</if>
+            <if test="agb020 != null">#{agb020},</if>
+            <if test="age542 != null">#{age542},</if>
+            <if test="age655 != null">#{age655},</if>
+            <if test="aae100 != null">#{aae100},</if>
+            <if test="age525 != null">#{age525},</if>
+            <if test="age522 != null">#{age522},</if>
+            <if test="age523 != null">#{age523},</if>
+            <if test="age101 != null">#{age101},</if>
+            <if test="aac009 != null">#{aac009},</if>
+            <if test="age662 != null">#{age662},</if>
+            <if test="age663 != null">#{age663},</if>
+            <if test="agc152 != null">#{agc152},</if>
+            <if test="age619 != null">#{age619},</if>
+         </trim>
+    </insert>
+
+    <update id="updateGc52" parameterType="Gc52">
+        update gc52
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="agc156 != null">AGC156 = #{agc156},</if>
+            <if test="agb020 != null">AGB020 = #{agb020},</if>
+            <if test="age542 != null">AGE542 = #{age542},</if>
+            <if test="age655 != null">AGE655 = #{age655},</if>
+            <if test="aae100 != null">AAE100 = #{aae100},</if>
+            <if test="age525 != null">AGE525 = #{age525},</if>
+            <if test="age522 != null">AGE522 = #{age522},</if>
+            <if test="age523 != null">AGE523 = #{age523},</if>
+            <if test="age101 != null">AGE101 = #{age101},</if>
+            <if test="aac009 != null">AAC009 = #{aac009},</if>
+            <if test="age662 != null">AGE662 = #{age662},</if>
+            <if test="age663 != null">AGE663 = #{age663},</if>
+            <if test="agc152 != null">AGC152 = #{agc152},</if>
+            <if test="age619 != null">AGE619 = #{age619},</if>
+        </trim>
+        where AGE521 = #{age521}
+    </update>
+
+    <delete id="deleteGc52ByAge521" parameterType="String">
+        delete from gc52 where AGE521 = #{age521}
+    </delete>
+
+    <delete id="deleteGc52ByAge521s" parameterType="String">
+        delete from gc52 where AGE521 in 
+        <foreach item="age521" collection="array" open="(" separator="," close=")">
+            #{age521}
+        </foreach>
+    </delete>
+
+    <delete id="deleteAllGc52" parameterType="String">
+        delete from gc52
+    </delete>
+
+    <insert id="insertBatchGc52" parameterType="List">
+        insert into gc52 values
+        <foreach collection="list" separator="," item="item" >
+            (
+            #{item.age521},#{item.agc156},#{item.agb020},#{item.age542},#{item.age655},#{item.aae100},#{item.age525},#{item.age522},#{item.age523},#{item.age101},#{item.aac009},#{item.age662},#{item.age663},#{item.agc152},#{item.age619}
+            )
+        </foreach>
+    </insert>
+</mapper>
