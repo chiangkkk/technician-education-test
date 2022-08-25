@@ -1,7 +1,11 @@
 package com.zzhy.supervise.service;
 
 import java.util.List;
+
+import com.zzhy.common.core.domain.entity.SysRole;
+import com.zzhy.supervise.domain.CollegesProcessAuditConfig;
 import com.zzhy.supervise.domain.CollegesProcessConfig;
+import com.zzhy.supervise.domain.CollegesProcessConfigWithAuditConfig;
 
 /**
  * 院校端申报流程配置Service接口
@@ -27,6 +31,7 @@ public interface ICollegesProcessConfigService
      */
     public List<CollegesProcessConfig> selectCollegesProcessConfigList(CollegesProcessConfig collegesProcessConfig);
 
+    public List<CollegesProcessConfigWithAuditConfig> selectCollegesProcessConfigWithAuditList(CollegesProcessConfig collegesProcessConfig);
     /**
      * 新增院校端申报流程配置
      * 
@@ -58,4 +63,10 @@ public interface ICollegesProcessConfigService
      * @return 结果
      */
     public int deleteCollegesProcessConfigBySchConfigId(Long schConfigId);
+
+    List<CollegesProcessAuditConfig> getByProcessConfigId(Integer id);
+
+    List<SysRole> getRoles(Long schoolId);
+
+    int ProcessAuditConfig(List<CollegesProcessAuditConfig> configList, Integer schConfigId, String operator,Long schoolId);
 }

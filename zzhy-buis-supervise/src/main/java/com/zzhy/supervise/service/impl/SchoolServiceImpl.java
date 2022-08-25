@@ -53,6 +53,7 @@ public class SchoolServiceImpl implements ISchoolService
     {
         SchoolVo schoolVo = new SchoolVo();
         BeanUtils.copyBeanProp(schoolVo, schoolMapper.selectSchoolBySchoolId(schoolId));
+//        BeanUtils.copyBeanProp(schoolVo, schoolMapper.selectSchoolBySchoolId( schoolMapper.selectRandomScoolId()));
 //        schoolVo.setAttachments( attachmentMapper.selectReportingAttachmentList(schoolId, ReportingEnum.SourceId.YXBB.value));
         return schoolVo;
     }

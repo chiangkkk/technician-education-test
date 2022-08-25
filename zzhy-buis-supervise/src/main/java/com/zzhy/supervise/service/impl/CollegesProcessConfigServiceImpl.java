@@ -1,13 +1,21 @@
 package com.zzhy.supervise.service.impl;
 
+import java.util.Date;
 import java.util.List;
+
+import com.zzhy.common.core.domain.entity.SysRole;
 import com.zzhy.common.utils.DateUtils;
-import com.zzhy.common.utils.ResultUtils;
+import com.zzhy.supervise.domain.CollegesProcessAuditConfig;
+import com.zzhy.supervise.domain.CollegesProcessConfigWithAuditConfig;
+import com.zzhy.supervise.mapper.CollegesProcessAuditConfigMapper;
+import com.zzhy.system.mapper.SysRoleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.zzhy.supervise.mapper.CollegesProcessConfigMapper;
 import com.zzhy.supervise.domain.CollegesProcessConfig;
 import com.zzhy.supervise.service.ICollegesProcessConfigService;
+
+import javax.annotation.Resource;
 
 /**
  * 院校端申报流程配置Service业务层处理
@@ -16,10 +24,14 @@ import com.zzhy.supervise.service.ICollegesProcessConfigService;
  * @date 2022-06-05
  */
 @Service
-public class CollegesProcessConfigServiceImpl implements ICollegesProcessConfigService
-{
+public class CollegesProcessConfigServiceImpl implements ICollegesProcessConfigService {
     @Autowired
     private CollegesProcessConfigMapper collegesProcessConfigMapper;
+
+    @Resource
+    private CollegesProcessAuditConfigMapper auditConfigMapper;
+    @Resource
+    private SysRoleMapper roleMapper;
 
     /**
      * 查询院校端申报流程配置
@@ -28,8 +40,7 @@ public class CollegesProcessConfigServiceImpl implements ICollegesProcessConfigS
      * @return 院校端申报流程配置
      */
     @Override
-    public CollegesProcessConfig selectCollegesProcessConfigBySchConfigId(Long schConfigId)
-    {
+    public CollegesProcessConfig selectCollegesProcessConfigBySchConfigId(Long schConfigId) {
         return collegesProcessConfigMapper.selectCollegesProcessConfigBySchConfigId(schConfigId);
     }
 
@@ -40,9 +51,13 @@ public class CollegesProcessConfigServiceImpl implements ICollegesProcessConfigS
      * @return 院校端申报流程配置
      */
     @Override
-    public List<CollegesProcessConfig> selectCollegesProcessConfigList(CollegesProcessConfig collegesProcessConfig)
-    {
+    public List<CollegesProcessConfig> selectCollegesProcessConfigList(CollegesProcessConfig collegesProcessConfig) {
         return collegesProcessConfigMapper.selectCollegesProcessConfigList(collegesProcessConfig);
+    }
+
+    @Override
+    public List<CollegesProcessConfigWithAuditConfig> selectCollegesProcessConfigWithAuditList(CollegesProcessConfig collegesProcessConfig) {
+        return collegesProcessConfigMapper.selectCollegesProcessConfigWithAuditList(collegesProcessConfig);
     }
 
     /**
@@ -52,8 +67,7 @@ public class CollegesProcessConfigServiceImpl implements ICollegesProcessConfigS
      * @return 结果
      */
     @Override
-    public int insertCollegesProcessConfig(CollegesProcessConfig collegesProcessConfig)
-    {
+    public int insertCollegesProcessConfig(CollegesProcessConfig collegesProcessConfig) {
         collegesProcessConfig.setCreateTime(DateUtils.getNowDate());
         return collegesProcessConfigMapper.insertCollegesProcessConfig(collegesProcessConfig);
     }
@@ -65,8 +79,7 @@ public class CollegesProcessConfigServiceImpl implements ICollegesProcessConfigS
      * @return 结果
      */
     @Override
-    public int updateCollegesProcessConfig(CollegesProcessConfig collegesProcessConfig)
-    {
+    public int updateCollegesProcessConfig(CollegesProcessConfig collegesProcessConfig) {
         collegesProcessConfig.setUpdateTime(DateUtils.getNowDate());
         return collegesProcessConfigMapper.updateCollegesProcessConfig(collegesProcessConfig);
     }
@@ -78,8 +91,7 @@ public class CollegesProcessConfigServiceImpl implements ICollegesProcessConfigS
      * @return 结果
      */
     @Override
-    public int deleteCollegesProcessConfigBySchConfigIds(Long[] schConfigIds)
-    {
+    public int deleteCollegesProcessConfigBySchConfigIds(Long[] schConfigIds) {
         return collegesProcessConfigMapper.deleteCollegesProcessConfigBySchConfigIds(schConfigIds);
     }
 
@@ -90,8 +102,35 @@ public class CollegesProcessConfigServiceImpl implements ICollegesProcessConfigS
      * @return 结果
      */
     @Override
-    public int deleteCollegesProcessConfigBySchConfigId(Long schConfigId)
-    {
+    public int deleteCollegesProcessConfigBySchConfigId(Long schConfigId) {
         return collegesProcessConfigMapper.deleteCollegesProcessConfigBySchConfigId(schConfigId);
     }
+
+    @Override
+    public List<CollegesProcessAuditConfig> getByProcessConfigId(Integer id) {
+        return auditConfigMapper.selectCollegesProcessAuditConfigListByConfigId(id.longValue());
+    }
+
+    @Override
+    public List<SysRole> getRoles(Long schoolId) {
+        return roleMapper.selectRolesBySchoolId(schoolId);
+    }
+
+    @Override
+    public int ProcessAuditConfig(List<CollegesProcessAuditConfig> configList, Integer schConfigId, String operator, Long schoolId) {
+        auditConfigMapper.deleteBySchConfigId(schConfigId, operator);
+        configList.forEach(item -> {
+            item.setSchoolId(schoolId);
+            Date now = new Date();
+            item.setCreateTime(now);
+            item.setUpdateTime(now);
+            item.setCreateBy(operator);
+            item.setUpdateBy(operator);
+            item.setDelFlag("1");
+            auditConfigMapper.insertCollegesProcessAuditConfig(item);
+        });
+
+        return 1;
+    }
+
 }

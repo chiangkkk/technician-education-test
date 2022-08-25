@@ -119,4 +119,11 @@ public interface SchoolMapper
 
     List<School> selectSchoolListByMajor(Long institutionId);
 
+    /**
+     * 随机获取一个学校ID
+     *
+     * @return
+     */
+    long selectRandomScoolId();
+
 }

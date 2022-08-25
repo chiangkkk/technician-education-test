@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.supervise.mapper.SupDeclareCollegesSchoolAuditMapper">
+  <resultMap id="BaseResultMap" type="com.zzhy.supervise.domain.SupDeclareCollegesSchoolAudit">
+    <!--@mbg.generated-->
+    <!--@Table sup_declare_colleges_school_audit-->
+    <id column="audit_id" jdbcType="BIGINT" property="auditId" />
+    <result column="dept_level" jdbcType="CHAR" property="deptLevel" />
+    <result column="audit_level" jdbcType="CHAR" property="auditLevel" />
+    <result column="appoint_status" jdbcType="CHAR" property="appointStatus" />
+    <result column="school_id" jdbcType="BIGINT" property="schoolId" />
+    <result column="audit_order" jdbcType="TINYINT" property="auditOrder" />
+    <result column="type" jdbcType="CHAR" property="type" />
+    <result column="source_id" jdbcType="BIGINT" property="sourceId" />
+    <result column="sup_process_config_id" jdbcType="BIGINT" property="supProcessConfigId" />
+    <result column="sch_process_config_id" jdbcType="BIGINT" property="schProcessConfigId" />
+    <result column="part_process_audit_id" jdbcType="BIGINT" property="partProcessAuditId" />
+    <result column="dept_id" jdbcType="BIGINT" property="deptId" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="role_id" jdbcType="BIGINT" property="roleId" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="audit_status" jdbcType="CHAR" property="auditStatus" />
+    <result column="audit_by" jdbcType="BIGINT" property="auditBy" />
+    <result column="audit_time" jdbcType="TIMESTAMP" property="auditTime" />
+    <result column="audit_remark" jdbcType="VARCHAR" property="auditRemark" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="show_type" jdbcType="CHAR" property="showType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    audit_id, dept_level, audit_level, appoint_status, school_id, audit_order, `type`, 
+    source_id, sup_process_config_id, sch_process_config_id, part_process_audit_id, dept_id, 
+    dept_name, role_id, role_name, audit_status, audit_by, audit_time, audit_remark, 
+    `status`, create_by, create_time, update_by, update_time, del_flag, remark, show_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sup_declare_colleges_school_audit
+    where audit_id = #{auditId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from sup_declare_colleges_school_audit
+    where audit_id = #{auditId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="audit_id" keyProperty="auditId" parameterType="com.zzhy.supervise.domain.SupDeclareCollegesSchoolAudit" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sup_declare_colleges_school_audit (dept_level, audit_level, appoint_status, 
+      school_id, audit_order, `type`, 
+      source_id, sup_process_config_id, sch_process_config_id, 
+      part_process_audit_id, dept_id, dept_name, 
+      role_id, role_name, audit_status, 
+      audit_by, audit_time, audit_remark, 
+      `status`, create_by, create_time, 
+      update_by, update_time, del_flag, 
+      remark, show_type)
+    values (#{deptLevel,jdbcType=CHAR}, #{auditLevel,jdbcType=CHAR}, #{appointStatus,jdbcType=CHAR}, 
+      #{schoolId,jdbcType=BIGINT}, #{auditOrder,jdbcType=TINYINT}, #{type,jdbcType=CHAR}, 
+      #{sourceId,jdbcType=BIGINT}, #{supProcessConfigId,jdbcType=BIGINT}, #{schProcessConfigId,jdbcType=BIGINT}, 
+      #{partProcessAuditId,jdbcType=BIGINT}, #{deptId,jdbcType=BIGINT}, #{deptName,jdbcType=VARCHAR}, 
+      #{roleId,jdbcType=BIGINT}, #{roleName,jdbcType=VARCHAR}, #{auditStatus,jdbcType=CHAR}, 
+      #{auditBy,jdbcType=BIGINT}, #{auditTime,jdbcType=TIMESTAMP}, #{auditRemark,jdbcType=VARCHAR}, 
+      #{status,jdbcType=CHAR}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=CHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{showType,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="audit_id" keyProperty="auditId" parameterType="com.zzhy.supervise.domain.SupDeclareCollegesSchoolAudit" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sup_declare_colleges_school_audit
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deptLevel != null">
+        dept_level,
+      </if>
+      <if test="auditLevel != null">
+        audit_level,
+      </if>
+      <if test="appointStatus != null">
+        appoint_status,
+      </if>
+      <if test="schoolId != null">
+        school_id,
+      </if>
+      <if test="auditOrder != null">
+        audit_order,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="sourceId != null">
+        source_id,
+      </if>
+      <if test="supProcessConfigId != null">
+        sup_process_config_id,
+      </if>
+      <if test="schProcessConfigId != null">
+        sch_process_config_id,
+      </if>
+      <if test="partProcessAuditId != null">
+        part_process_audit_id,
+      </if>
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="roleId != null">
+        role_id,
+      </if>
+      <if test="roleName != null">
+        role_name,
+      </if>
+      <if test="auditStatus != null">
+        audit_status,
+      </if>
+      <if test="auditBy != null">
+        audit_by,
+      </if>
+      <if test="auditTime != null">
+        audit_time,
+      </if>
+      <if test="auditRemark != null">
+        audit_remark,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="showType != null">
+        show_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deptLevel != null">
+        #{deptLevel,jdbcType=CHAR},
+      </if>
+      <if test="auditLevel != null">
+        #{auditLevel,jdbcType=CHAR},
+      </if>
+      <if test="appointStatus != null">
+        #{appointStatus,jdbcType=CHAR},
+      </if>
+      <if test="schoolId != null">
+        #{schoolId,jdbcType=BIGINT},
+      </if>
+      <if test="auditOrder != null">
+        #{auditOrder,jdbcType=TINYINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="sourceId != null">
+        #{sourceId,jdbcType=BIGINT},
+      </if>
+      <if test="supProcessConfigId != null">
+        #{supProcessConfigId,jdbcType=BIGINT},
+      </if>
+      <if test="schProcessConfigId != null">
+        #{schProcessConfigId,jdbcType=BIGINT},
+      </if>
+      <if test="partProcessAuditId != null">
+        #{partProcessAuditId,jdbcType=BIGINT},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=BIGINT},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="roleName != null">
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null">
+        #{auditStatus,jdbcType=CHAR},
+      </if>
+      <if test="auditBy != null">
+        #{auditBy,jdbcType=BIGINT},
+      </if>
+      <if test="auditTime != null">
+        #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditRemark != null">
+        #{auditRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="showType != null">
+        #{showType,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzhy.supervise.domain.SupDeclareCollegesSchoolAudit">
+    <!--@mbg.generated-->
+    update sup_declare_colleges_school_audit
+    <set>
+      <if test="deptLevel != null">
+        dept_level = #{deptLevel,jdbcType=CHAR},
+      </if>
+      <if test="auditLevel != null">
+        audit_level = #{auditLevel,jdbcType=CHAR},
+      </if>
+      <if test="appointStatus != null">
+        appoint_status = #{appointStatus,jdbcType=CHAR},
+      </if>
+      <if test="schoolId != null">
+        school_id = #{schoolId,jdbcType=BIGINT},
+      </if>
+      <if test="auditOrder != null">
+        audit_order = #{auditOrder,jdbcType=TINYINT},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=CHAR},
+      </if>
+      <if test="sourceId != null">
+        source_id = #{sourceId,jdbcType=BIGINT},
+      </if>
+      <if test="supProcessConfigId != null">
+        sup_process_config_id = #{supProcessConfigId,jdbcType=BIGINT},
+      </if>
+      <if test="schProcessConfigId != null">
+        sch_process_config_id = #{schProcessConfigId,jdbcType=BIGINT},
+      </if>
+      <if test="partProcessAuditId != null">
+        part_process_audit_id = #{partProcessAuditId,jdbcType=BIGINT},
+      </if>
+      <if test="deptId != null">
+        dept_id = #{deptId,jdbcType=BIGINT},
+      </if>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="roleName != null">
+        role_name = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null">
+        audit_status = #{auditStatus,jdbcType=CHAR},
+      </if>
+      <if test="auditBy != null">
+        audit_by = #{auditBy,jdbcType=BIGINT},
+      </if>
+      <if test="auditTime != null">
+        audit_time = #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditRemark != null">
+        audit_remark = #{auditRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="showType != null">
+        show_type = #{showType,jdbcType=CHAR},
+      </if>
+    </set>
+    where audit_id = #{auditId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzhy.supervise.domain.SupDeclareCollegesSchoolAudit">
+    <!--@mbg.generated-->
+    update sup_declare_colleges_school_audit
+    set dept_level = #{deptLevel,jdbcType=CHAR},
+      audit_level = #{auditLevel,jdbcType=CHAR},
+      appoint_status = #{appointStatus,jdbcType=CHAR},
+      school_id = #{schoolId,jdbcType=BIGINT},
+      audit_order = #{auditOrder,jdbcType=TINYINT},
+      `type` = #{type,jdbcType=CHAR},
+      source_id = #{sourceId,jdbcType=BIGINT},
+      sup_process_config_id = #{supProcessConfigId,jdbcType=BIGINT},
+      sch_process_config_id = #{schProcessConfigId,jdbcType=BIGINT},
+      part_process_audit_id = #{partProcessAuditId,jdbcType=BIGINT},
+      dept_id = #{deptId,jdbcType=BIGINT},
+      dept_name = #{deptName,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=BIGINT},
+      role_name = #{roleName,jdbcType=VARCHAR},
+      audit_status = #{auditStatus,jdbcType=CHAR},
+      audit_by = #{auditBy,jdbcType=BIGINT},
+      audit_time = #{auditTime,jdbcType=TIMESTAMP},
+      audit_remark = #{auditRemark,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=CHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      show_type = #{showType,jdbcType=CHAR}
+    where audit_id = #{auditId,jdbcType=BIGINT}
+  </update>
+</mapper>

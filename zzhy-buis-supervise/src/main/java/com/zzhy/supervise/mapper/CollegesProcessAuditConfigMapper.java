@@ -2,6 +2,7 @@ package com.zzhy.supervise.mapper;
 
 import java.util.List;
 import com.zzhy.supervise.domain.CollegesProcessAuditConfig;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 院校端申报流程审核配置（默认对应院校的管理员角色）Mapper接口
@@ -58,4 +59,19 @@ public interface CollegesProcessAuditConfigMapper
      * @return 结果
      */
     public int deleteCollegesProcessAuditConfigByDeclareAuditIds(Long[] declareAuditIds);
+
+    /**
+     * 根据申报流程配置id查询审核配置表
+     *
+     * @param id
+     * @return
+     */
+    public List<CollegesProcessAuditConfig> selectCollegesProcessAuditConfigListByConfigId(Long id);
+
+    /**
+     * 根据申报流程配置ID软删
+     * @param id
+     * @return
+     */
+    int deleteBySchConfigId(@Param("id") Integer id, @Param("operator") String operator);
 }

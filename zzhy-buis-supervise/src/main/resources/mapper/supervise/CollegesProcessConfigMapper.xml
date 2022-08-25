@@ -1,115 +1,296 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zzhy.supervise.mapper.CollegesProcessConfigMapper">
-    
     <resultMap type="CollegesProcessConfig" id="CollegesProcessConfigResult">
-        <result property="schConfigId"    column="sch_config_id"    />
-        <result property="supProcessId"    column="sup_process_id"    />
-        <result property="processCode"    column="process_code"    />
-        <result property="processName"    column="process_name"    />
-        <result property="processImg"    column="process_img"    />
-        <result property="auditLevel"    column="audit_level"    />
-        <result property="sort"    column="sort"    />
-        <result property="status"    column="status"    />
-        <result property="createBy"    column="create_by"    />
-        <result property="createTime"    column="create_time"    />
-        <result property="updateBy"    column="update_by"    />
-        <result property="updateTime"    column="update_time"    />
-        <result property="delFlag"    column="del_flag"    />
-        <result property="remark"    column="remark"    />
-        <result property="filePath"    column="file_path"    />
+        <result property="schConfigId" column="sch_config_id"/>
+        <result property="supProcessId" column="sup_process_id"/>
+        <result property="processCode" column="process_code"/>
+        <result property="processName" column="process_name"/>
+        <result property="processImg" column="process_img"/>
+        <result property="auditLevel" column="audit_level"/>
+        <result property="sort" column="sort"/>
+        <result property="status" column="status"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="delFlag" column="del_flag"/>
+        <result property="remark" column="remark"/>
+        <result property="filePath" column="file_path"/>
     </resultMap>
 
     <sql id="selectCollegesProcessConfigVo">
-        select sch_config_id, sup_process_id, process_code, process_name, process_img, audit_level, sort, status, create_by, create_time, update_by, update_time, del_flag, remark, file_path from sch_colleges_process_config
+        select sch_config_id,
+               sup_process_id,
+               process_code,
+               process_name,
+               process_img,
+               audit_level,
+               sort,
+               status,
+               create_by,
+               create_time,
+               update_by,
+               update_time,
+               del_flag,
+               remark,
+               file_path
+        from sch_colleges_process_config
     </sql>
 
-    <select id="selectCollegesProcessConfigList" parameterType="CollegesProcessConfig" resultMap="CollegesProcessConfigResult">
+    <select id="selectCollegesProcessConfigList" parameterType="CollegesProcessConfig"
+            resultMap="CollegesProcessConfigResult">
         <include refid="selectCollegesProcessConfigVo"/>
-        <where>  
-            <if test="supProcessId != null "> and sup_process_id = #{supProcessId}</if>
-            <if test="processCode != null  and processCode != ''"> and process_code = #{processCode}</if>
-            <if test="processName != null  and processName != ''"> and process_name like concat('%', #{processName}, '%')</if>
-            <if test="processImg != null  and processImg != ''"> and process_img = #{processImg}</if>
-            <if test="auditLevel != null "> and audit_level = #{auditLevel}</if>
-            <if test="sort != null "> and sort = #{sort}</if>
-            <if test="status != null  and status != ''"> and status = #{status}</if>
-            <if test="filePath != null  and filePath != ''"> and file_path = #{filePath}</if>
+        <where>
+            <if test="supProcessId != null">
+                and sup_process_id = #{supProcessId}
+            </if>
+            <if test="processCode != null  and processCode != ''">
+                and process_code = #{processCode}
+            </if>
+            <if test="processName != null  and processName != ''">
+                and process_name like concat('%', #{processName}, '%')
+            </if>
+            <if test="processImg != null  and processImg != ''">
+                and process_img = #{processImg}
+            </if>
+            <if test="auditLevel != null">
+                and audit_level = #{auditLevel}
+            </if>
+            <if test="sort != null">
+                and sort = #{sort}
+            </if>
+            <if test="status != null  and status != ''">
+                and status = #{status}
+            </if>
+            <if test="filePath != null  and filePath != ''">
+                and file_path = #{filePath}
+            </if>
         </where>
     </select>
-    
+
     <select id="selectCollegesProcessConfigBySchConfigId" parameterType="Long" resultMap="CollegesProcessConfigResult">
         <include refid="selectCollegesProcessConfigVo"/>
         where sch_config_id = #{schConfigId}
     </select>
-        
-    <insert id="insertCollegesProcessConfig" parameterType="CollegesProcessConfig" useGeneratedKeys="true" keyProperty="schConfigId">
+
+    <insert id="insertCollegesProcessConfig" parameterType="CollegesProcessConfig" useGeneratedKeys="true"
+            keyProperty="schConfigId">
         insert into sch_colleges_process_config
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="supProcessId != null">sup_process_id,</if>
-            <if test="processCode != null">process_code,</if>
-            <if test="processName != null">process_name,</if>
-            <if test="processImg != null">process_img,</if>
-            <if test="auditLevel != null">audit_level,</if>
-            <if test="sort != null">sort,</if>
-            <if test="status != null">status,</if>
-            <if test="createBy != null">create_by,</if>
-            <if test="createTime != null">create_time,</if>
-            <if test="updateBy != null">update_by,</if>
-            <if test="updateTime != null">update_time,</if>
-            <if test="delFlag != null">del_flag,</if>
-            <if test="remark != null">remark,</if>
-            <if test="filePath != null">file_path,</if>
-         </trim>
+            <if test="supProcessId != null">
+                sup_process_id,
+            </if>
+            <if test="processCode != null">
+                process_code,
+            </if>
+            <if test="processName != null">
+                process_name,
+            </if>
+            <if test="processImg != null">
+                process_img,
+            </if>
+            <if test="auditLevel != null">
+                audit_level,
+            </if>
+            <if test="sort != null">
+                sort,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="delFlag != null">
+                del_flag,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="filePath != null">
+                file_path,
+            </if>
+        </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="supProcessId != null">#{supProcessId},</if>
-            <if test="processCode != null">#{processCode},</if>
-            <if test="processName != null">#{processName},</if>
-            <if test="processImg != null">#{processImg},</if>
-            <if test="auditLevel != null">#{auditLevel},</if>
-            <if test="sort != null">#{sort},</if>
-            <if test="status != null">#{status},</if>
-            <if test="createBy != null">#{createBy},</if>
-            <if test="createTime != null">#{createTime},</if>
-            <if test="updateBy != null">#{updateBy},</if>
-            <if test="updateTime != null">#{updateTime},</if>
-            <if test="delFlag != null">#{delFlag},</if>
-            <if test="remark != null">#{remark},</if>
-            <if test="filePath != null">#{filePath},</if>
-         </trim>
+            <if test="supProcessId != null">
+                #{supProcessId},
+            </if>
+            <if test="processCode != null">
+                #{processCode},
+            </if>
+            <if test="processName != null">
+                #{processName},
+            </if>
+            <if test="processImg != null">
+                #{processImg},
+            </if>
+            <if test="auditLevel != null">
+                #{auditLevel},
+            </if>
+            <if test="sort != null">
+                #{sort},
+            </if>
+            <if test="status != null">
+                #{status},
+            </if>
+            <if test="createBy != null">
+                #{createBy},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+            <if test="delFlag != null">
+                #{delFlag},
+            </if>
+            <if test="remark != null">
+                #{remark},
+            </if>
+            <if test="filePath != null">
+                #{filePath},
+            </if>
+        </trim>
     </insert>
 
     <update id="updateCollegesProcessConfig" parameterType="CollegesProcessConfig">
         update sch_colleges_process_config
         <trim prefix="SET" suffixOverrides=",">
-            <if test="supProcessId != null">sup_process_id = #{supProcessId},</if>
-            <if test="processCode != null">process_code = #{processCode},</if>
-            <if test="processName != null">process_name = #{processName},</if>
-            <if test="processImg != null">process_img = #{processImg},</if>
-            <if test="auditLevel != null">audit_level = #{auditLevel},</if>
-            <if test="sort != null">sort = #{sort},</if>
-            <if test="status != null">status = #{status},</if>
-            <if test="createBy != null">create_by = #{createBy},</if>
-            <if test="createTime != null">create_time = #{createTime},</if>
-            <if test="updateBy != null">update_by = #{updateBy},</if>
-            <if test="updateTime != null">update_time = #{updateTime},</if>
-            <if test="delFlag != null">del_flag = #{delFlag},</if>
-            <if test="remark != null">remark = #{remark},</if>
-            <if test="filePath != null">file_path = #{filePath},</if>
+            <if test="supProcessId != null">
+                sup_process_id = #{supProcessId},
+            </if>
+            <if test="processCode != null">
+                process_code = #{processCode},
+            </if>
+            <if test="processName != null">
+                process_name = #{processName},
+            </if>
+            <if test="processImg != null">
+                process_img = #{processImg},
+            </if>
+            <if test="auditLevel != null">
+                audit_level = #{auditLevel},
+            </if>
+            <if test="sort != null">
+                sort = #{sort},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="delFlag != null">
+                del_flag = #{delFlag},
+            </if>
+            <if test="remark != null">
+                remark = #{remark},
+            </if>
+            <if test="filePath != null">
+                file_path = #{filePath},
+            </if>
         </trim>
         where sch_config_id = #{schConfigId}
     </update>
 
     <delete id="deleteCollegesProcessConfigBySchConfigId" parameterType="Long">
-        delete from sch_colleges_process_config where sch_config_id = #{schConfigId}
+        delete
+        from sch_colleges_process_config
+        where sch_config_id = #{schConfigId}
     </delete>
 
     <delete id="deleteCollegesProcessConfigBySchConfigIds" parameterType="String">
-        delete from sch_colleges_process_config where sch_config_id in 
+        delete
+        from sch_colleges_process_config where sch_config_id in
         <foreach item="schConfigId" collection="array" open="(" separator="," close=")">
             #{schConfigId}
         </foreach>
     </delete>
+
+    <resultMap id="baseResultWithAudito" type="CollegesProcessConfigWithAuditConfig" extends="CollegesProcessConfigResult">
+        <collection property="auditConfigList" column="sch_config_id" select="getAudito"  />
+    </resultMap>
+<!--    com.zzhy.supervise.mapper.CollegesProcessAuditConfigMapper.selectCollegesProcessAuditConfigListByConfigId-->
+    <resultMap id="auditConfigMap" type="CollegesProcessAuditConfig">
+        <result property="declareAuditId" column="declare_audit_id"/>
+        <result property="schConfigId" column="sch_config_id"/>
+        <result property="deptId" column="dept_id"/>
+        <result property="schoolId" column="school_id"/>
+        <result property="auditOrder" column="audit_order"/>
+        <result property="roleId" column="role_id"/>
+        <result property="roleName" column="role_name"/>
+        <result property="auditState" column="audit_state"/>
+        <result property="auditBy" column="audit_by"/>
+        <result property="auditTime" column="audit_time"/>
+        <result property="sort" column="sort"/>
+        <result property="status" column="status"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="delFlag" column="del_flag"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+    <select id="getAudito" resultMap="auditConfigMap">
+        select *
+        from sch_colleges_process_audit_config
+        where del_flag = 1
+          and sch_config_id = #{schConfigId}
+    </select>
+
+    <select id="selectCollegesProcessConfigWithAuditList"
+            resultMap="baseResultWithAudito">
+        <include refid="selectCollegesProcessConfigVo"/>
+        <where>
+            <if test="supProcessId != null">
+                and sup_process_id = #{supProcessId}
+            </if>
+            <if test="processCode != null  and processCode != ''">
+                and process_code = #{processCode}
+            </if>
+            <if test="processName != null  and processName != ''">
+                and process_name like concat('%', #{processName}, '%')
+            </if>
+            <if test="processImg != null  and processImg != ''">
+                and process_img = #{processImg}
+            </if>
+            <if test="auditLevel != null">
+                and audit_level = #{auditLevel}
+            </if>
+            <if test="sort != null">
+                and sort = #{sort}
+            </if>
+            <if test="status != null  and status != ''">
+                and status = #{status}
+            </if>
+            <if test="filePath != null  and filePath != ''">
+                and file_path = #{filePath}
+            </if>
+        </where>
+    </select>
 </mapper>

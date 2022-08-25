@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.supervise.mapper.SchCollegesBasicReportingMapper">
+  <resultMap id="BaseResultMap" type="com.zzhy.supervise.domain.SchCollegesBasicReporting">
+    <!--@mbg.generated-->
+    <!--@Table sch_colleges_basic_reporting-->
+    <id column="reporting_id" jdbcType="BIGINT" property="reportingId" />
+    <result column="school_id" jdbcType="BIGINT" property="schoolId" />
+    <result column="sch_process_id" jdbcType="BIGINT" property="schProcessId" />
+    <result column="school_name" jdbcType="VARCHAR" property="schoolName" />
+    <result column="province_area_id" jdbcType="BIGINT" property="provinceAreaId" />
+    <result column="city_area_id" jdbcType="BIGINT" property="cityAreaId" />
+    <result column="country_area_id" jdbcType="BIGINT" property="countryAreaId" />
+    <result column="school_address" jdbcType="VARCHAR" property="schoolAddress" />
+    <result column="school_code" jdbcType="VARCHAR" property="schoolCode" />
+    <result column="approval_no" jdbcType="VARCHAR" property="approvalNo" />
+    <result column="school_type" jdbcType="VARCHAR" property="schoolType" />
+    <result column="school_nature" jdbcType="VARCHAR" property="schoolNature" />
+    <result column="is_nation_important" jdbcType="VARCHAR" property="isNationImportant" />
+    <result column="is_province_important" jdbcType="VARCHAR" property="isProvinceImportant" />
+    <result column="school_unit" jdbcType="VARCHAR" property="schoolUnit" />
+    <result column="school_area" jdbcType="DECIMAL" property="schoolArea" />
+    <result column="building_area" jdbcType="DECIMAL" property="buildingArea" />
+    <result column="established_time" jdbcType="TIMESTAMP" property="establishedTime" />
+    <result column="student_num" jdbcType="INTEGER" property="studentNum" />
+    <result column="teacher_num" jdbcType="INTEGER" property="teacherNum" />
+    <result column="staff_num" jdbcType="INTEGER" property="staffNum" />
+    <result column="training_room_num" jdbcType="INTEGER" property="trainingRoomNum" />
+    <result column="training_money" jdbcType="DECIMAL" property="trainingMoney" />
+    <result column="training_device_num" jdbcType="INTEGER" property="trainingDeviceNum" />
+    <result column="major_num" jdbcType="INTEGER" property="majorNum" />
+    <result column="enterprise_num" jdbcType="INTEGER" property="enterpriseNum" />
+    <result column="teaching_point_num" jdbcType="INTEGER" property="teachingPointNum" />
+    <result column="postal_address" jdbcType="VARCHAR" property="postalAddress" />
+    <result column="postal_code" jdbcType="VARCHAR" property="postalCode" />
+    <result column="school_website" jdbcType="VARCHAR" property="schoolWebsite" />
+    <result column="school_email" jdbcType="VARCHAR" property="schoolEmail" />
+    <result column="school_contacts" jdbcType="VARCHAR" property="schoolContacts" />
+    <result column="school_telephone" jdbcType="VARCHAR" property="schoolTelephone" />
+    <result column="principal" jdbcType="VARCHAR" property="principal" />
+    <result column="principal_email" jdbcType="VARCHAR" property="principalEmail" />
+    <result column="principal_telephone" jdbcType="VARCHAR" property="principalTelephone" />
+    <result column="student_status_manager" jdbcType="VARCHAR" property="studentStatusManager" />
+    <result column="student_status_telephone" jdbcType="VARCHAR" property="studentStatusTelephone" />
+    <result column="free_tuition_contacts" jdbcType="VARCHAR" property="freeTuitionContacts" />
+    <result column="free_tuition_telephone" jdbcType="VARCHAR" property="freeTuitionTelephone" />
+    <result column="stipend_contacts" jdbcType="VARCHAR" property="stipendContacts" />
+    <result column="stipend_telephone" jdbcType="VARCHAR" property="stipendTelephone" />
+    <result column="obtain_employment_contacts" jdbcType="VARCHAR" property="obtainEmploymentContacts" />
+    <result column="obtain_employment_telephone" jdbcType="VARCHAR" property="obtainEmploymentTelephone" />
+    <result column="dept_id" jdbcType="BIGINT" property="deptId" />
+    <result column="attachment_address" jdbcType="VARCHAR" property="attachmentAddress" />
+    <result column="reporting_date" jdbcType="TIMESTAMP" property="reportingDate" />
+    <result column="reporting_information" jdbcType="VARCHAR" property="reportingInformation" />
+    <result column="reporting_year" jdbcType="VARCHAR" property="reportingYear" />
+    <result column="reporting_status" jdbcType="VARCHAR" property="reportingStatus" />
+    <result column="audit_status" jdbcType="VARCHAR" property="auditStatus" />
+    <result column="reporting_by" jdbcType="BIGINT" property="reportingBy" />
+    <result column="reporting_time" jdbcType="TIMESTAMP" property="reportingTime" />
+    <result column="audit_condition" jdbcType="VARCHAR" property="auditCondition" />
+    <result column="reporting_remark" jdbcType="VARCHAR" property="reportingRemark" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="graduate_up_num" jdbcType="INTEGER" property="graduateUpNum" />
+    <result column="major_teacher_num" jdbcType="INTEGER" property="majorTeacherNum" />
+    <result column="undergraduate_up_num" jdbcType="INTEGER" property="undergraduateUpNum" />
+    <result column="double_teacher_num" jdbcType="INTEGER" property="doubleTeacherNum" />
+    <result column="school_main_honor" jdbcType="LONGVARCHAR" property="schoolMainHonor" />
+    <result column="school_feature" jdbcType="LONGVARCHAR" property="schoolFeature" />
+    <result column="instrument_unit_price" jdbcType="DECIMAL" property="instrumentUnitPrice" />
+    <result column="provinces_report_status" jdbcType="BOOLEAN" property="provincesReportStatus" />
+    <result column="provinces_report_time" jdbcType="TIMESTAMP" property="provincesReportTime" />
+    <result column="provinces_report_person" jdbcType="VARCHAR" property="provincesReportPerson" />
+    <result column="send_report_status" jdbcType="CHAR" property="sendReportStatus" />
+    <result column="school_subject" jdbcType="CHAR" property="schoolSubject" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="hierarchy" jdbcType="TINYINT" property="hierarchy" />
+    <result column="branch_school_num" jdbcType="INTEGER" property="branchSchoolNum" />
+    <result column="current_enrollment" jdbcType="INTEGER" property="currentEnrollment" />
+    <result column="declare_status" jdbcType="BOOLEAN" property="declareStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    reporting_id, school_id, sch_process_id, school_name, province_area_id, city_area_id, 
+    country_area_id, school_address, school_code, approval_no, school_type, school_nature, 
+    is_nation_important, is_province_important, school_unit, school_area, building_area, 
+    established_time, student_num, teacher_num, staff_num, training_room_num, training_money, 
+    training_device_num, major_num, enterprise_num, teaching_point_num, postal_address, 
+    postal_code, school_website, school_email, school_contacts, school_telephone, principal, 
+    principal_email, principal_telephone, student_status_manager, student_status_telephone, 
+    free_tuition_contacts, free_tuition_telephone, stipend_contacts, stipend_telephone, 
+    obtain_employment_contacts, obtain_employment_telephone, dept_id, attachment_address, 
+    reporting_date, reporting_information, reporting_year, reporting_status, audit_status, 
+    reporting_by, reporting_time, audit_condition, reporting_remark, `status`, create_by, 
+    create_time, update_by, update_time, del_flag, remark, graduate_up_num, major_teacher_num, 
+    undergraduate_up_num, double_teacher_num, school_main_honor, school_feature, instrument_unit_price, 
+    provinces_report_status, provinces_report_time, provinces_report_person, send_report_status, 
+    school_subject, dept_name, `hierarchy`, branch_school_num, current_enrollment, declare_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sch_colleges_basic_reporting
+    where reporting_id = #{reportingId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from sch_colleges_basic_reporting
+    where reporting_id = #{reportingId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="reporting_id" keyProperty="reportingId" parameterType="com.zzhy.supervise.domain.SchCollegesBasicReporting" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sch_colleges_basic_reporting (school_id, sch_process_id, school_name, 
+      province_area_id, city_area_id, country_area_id, 
+      school_address, school_code, approval_no, 
+      school_type, school_nature, is_nation_important, 
+      is_province_important, school_unit, school_area, 
+      building_area, established_time, student_num, 
+      teacher_num, staff_num, training_room_num, 
+      training_money, training_device_num, major_num, 
+      enterprise_num, teaching_point_num, postal_address, 
+      postal_code, school_website, school_email, 
+      school_contacts, school_telephone, principal, 
+      principal_email, principal_telephone, student_status_manager, 
+      student_status_telephone, free_tuition_contacts, 
+      free_tuition_telephone, stipend_contacts, 
+      stipend_telephone, obtain_employment_contacts, 
+      obtain_employment_telephone, dept_id, attachment_address, 
+      reporting_date, reporting_information, 
+      reporting_year, reporting_status, audit_status, 
+      reporting_by, reporting_time, audit_condition, 
+      reporting_remark, `status`, create_by, 
+      create_time, update_by, update_time, 
+      del_flag, remark, graduate_up_num, 
+      major_teacher_num, undergraduate_up_num, double_teacher_num, 
+      school_main_honor, school_feature, 
+      instrument_unit_price, provinces_report_status, 
+      provinces_report_time, provinces_report_person, 
+      send_report_status, school_subject, dept_name, 
+      `hierarchy`, branch_school_num, current_enrollment, 
+      declare_status)
+    values (#{schoolId,jdbcType=BIGINT}, #{schProcessId,jdbcType=BIGINT}, #{schoolName,jdbcType=VARCHAR}, 
+      #{provinceAreaId,jdbcType=BIGINT}, #{cityAreaId,jdbcType=BIGINT}, #{countryAreaId,jdbcType=BIGINT}, 
+      #{schoolAddress,jdbcType=VARCHAR}, #{schoolCode,jdbcType=VARCHAR}, #{approvalNo,jdbcType=VARCHAR}, 
+      #{schoolType,jdbcType=VARCHAR}, #{schoolNature,jdbcType=VARCHAR}, #{isNationImportant,jdbcType=VARCHAR}, 
+      #{isProvinceImportant,jdbcType=VARCHAR}, #{schoolUnit,jdbcType=VARCHAR}, #{schoolArea,jdbcType=DECIMAL}, 
+      #{buildingArea,jdbcType=DECIMAL}, #{establishedTime,jdbcType=TIMESTAMP}, #{studentNum,jdbcType=INTEGER}, 
+      #{teacherNum,jdbcType=INTEGER}, #{staffNum,jdbcType=INTEGER}, #{trainingRoomNum,jdbcType=INTEGER}, 
+      #{trainingMoney,jdbcType=DECIMAL}, #{trainingDeviceNum,jdbcType=INTEGER}, #{majorNum,jdbcType=INTEGER}, 
+      #{enterpriseNum,jdbcType=INTEGER}, #{teachingPointNum,jdbcType=INTEGER}, #{postalAddress,jdbcType=VARCHAR}, 
+      #{postalCode,jdbcType=VARCHAR}, #{schoolWebsite,jdbcType=VARCHAR}, #{schoolEmail,jdbcType=VARCHAR}, 
+      #{schoolContacts,jdbcType=VARCHAR}, #{schoolTelephone,jdbcType=VARCHAR}, #{principal,jdbcType=VARCHAR}, 
+      #{principalEmail,jdbcType=VARCHAR}, #{principalTelephone,jdbcType=VARCHAR}, #{studentStatusManager,jdbcType=VARCHAR}, 
+      #{studentStatusTelephone,jdbcType=VARCHAR}, #{freeTuitionContacts,jdbcType=VARCHAR}, 
+      #{freeTuitionTelephone,jdbcType=VARCHAR}, #{stipendContacts,jdbcType=VARCHAR}, 
+      #{stipendTelephone,jdbcType=VARCHAR}, #{obtainEmploymentContacts,jdbcType=VARCHAR}, 
+      #{obtainEmploymentTelephone,jdbcType=VARCHAR}, #{deptId,jdbcType=BIGINT}, #{attachmentAddress,jdbcType=VARCHAR}, 
+      #{reportingDate,jdbcType=TIMESTAMP}, #{reportingInformation,jdbcType=VARCHAR}, 
+      #{reportingYear,jdbcType=VARCHAR}, #{reportingStatus,jdbcType=VARCHAR}, #{auditStatus,jdbcType=VARCHAR}, 
+      #{reportingBy,jdbcType=BIGINT}, #{reportingTime,jdbcType=TIMESTAMP}, #{auditCondition,jdbcType=VARCHAR}, 
+      #{reportingRemark,jdbcType=VARCHAR}, #{status,jdbcType=CHAR}, #{createBy,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{delFlag,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{graduateUpNum,jdbcType=INTEGER}, 
+      #{majorTeacherNum,jdbcType=INTEGER}, #{undergraduateUpNum,jdbcType=INTEGER}, #{doubleTeacherNum,jdbcType=INTEGER}, 
+      #{schoolMainHonor,jdbcType=LONGVARCHAR}, #{schoolFeature,jdbcType=LONGVARCHAR}, 
+      #{instrumentUnitPrice,jdbcType=DECIMAL}, #{provincesReportStatus,jdbcType=BOOLEAN}, 
+      #{provincesReportTime,jdbcType=TIMESTAMP}, #{provincesReportPerson,jdbcType=VARCHAR}, 
+      #{sendReportStatus,jdbcType=CHAR}, #{schoolSubject,jdbcType=CHAR}, #{deptName,jdbcType=VARCHAR}, 
+      #{hierarchy,jdbcType=TINYINT}, #{branchSchoolNum,jdbcType=INTEGER}, #{currentEnrollment,jdbcType=INTEGER}, 
+      #{declareStatus,jdbcType=BOOLEAN})
+  </insert>
+  <insert id="insertSelective" keyColumn="reporting_id" keyProperty="reportingId" parameterType="com.zzhy.supervise.domain.SchCollegesBasicReporting" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sch_colleges_basic_reporting
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="schoolId != null">
+        school_id,
+      </if>
+      <if test="schProcessId != null">
+        sch_process_id,
+      </if>
+      <if test="schoolName != null">
+        school_name,
+      </if>
+      <if test="provinceAreaId != null">
+        province_area_id,
+      </if>
+      <if test="cityAreaId != null">
+        city_area_id,
+      </if>
+      <if test="countryAreaId != null">
+        country_area_id,
+      </if>
+      <if test="schoolAddress != null">
+        school_address,
+      </if>
+      <if test="schoolCode != null">
+        school_code,
+      </if>
+      <if test="approvalNo != null">
+        approval_no,
+      </if>
+      <if test="schoolType != null">
+        school_type,
+      </if>
+      <if test="schoolNature != null">
+        school_nature,
+      </if>
+      <if test="isNationImportant != null">
+        is_nation_important,
+      </if>
+      <if test="isProvinceImportant != null">
+        is_province_important,
+      </if>
+      <if test="schoolUnit != null">
+        school_unit,
+      </if>
+      <if test="schoolArea != null">
+        school_area,
+      </if>
+      <if test="buildingArea != null">
+        building_area,
+      </if>
+      <if test="establishedTime != null">
+        established_time,
+      </if>
+      <if test="studentNum != null">
+        student_num,
+      </if>
+      <if test="teacherNum != null">
+        teacher_num,
+      </if>
+      <if test="staffNum != null">
+        staff_num,
+      </if>
+      <if test="trainingRoomNum != null">
+        training_room_num,
+      </if>
+      <if test="trainingMoney != null">
+        training_money,
+      </if>
+      <if test="trainingDeviceNum != null">
+        training_device_num,
+      </if>
+      <if test="majorNum != null">
+        major_num,
+      </if>
+      <if test="enterpriseNum != null">
+        enterprise_num,
+      </if>
+      <if test="teachingPointNum != null">
+        teaching_point_num,
+      </if>
+      <if test="postalAddress != null">
+        postal_address,
+      </if>
+      <if test="postalCode != null">
+        postal_code,
+      </if>
+      <if test="schoolWebsite != null">
+        school_website,
+      </if>
+      <if test="schoolEmail != null">
+        school_email,
+      </if>
+      <if test="schoolContacts != null">
+        school_contacts,
+      </if>
+      <if test="schoolTelephone != null">
+        school_telephone,
+      </if>
+      <if test="principal != null">
+        principal,
+      </if>
+      <if test="principalEmail != null">
+        principal_email,
+      </if>
+      <if test="principalTelephone != null">
+        principal_telephone,
+      </if>
+      <if test="studentStatusManager != null">
+        student_status_manager,
+      </if>
+      <if test="studentStatusTelephone != null">
+        student_status_telephone,
+      </if>
+      <if test="freeTuitionContacts != null">
+        free_tuition_contacts,
+      </if>
+      <if test="freeTuitionTelephone != null">
+        free_tuition_telephone,
+      </if>
+      <if test="stipendContacts != null">
+        stipend_contacts,
+      </if>
+      <if test="stipendTelephone != null">
+        stipend_telephone,
+      </if>
+      <if test="obtainEmploymentContacts != null">
+        obtain_employment_contacts,
+      </if>
+      <if test="obtainEmploymentTelephone != null">
+        obtain_employment_telephone,
+      </if>
+      <if test="deptId != null">
+        dept_id,
+      </if>
+      <if test="attachmentAddress != null">
+        attachment_address,
+      </if>
+      <if test="reportingDate != null">
+        reporting_date,
+      </if>
+      <if test="reportingInformation != null">
+        reporting_information,
+      </if>
+      <if test="reportingYear != null">
+        reporting_year,
+      </if>
+      <if test="reportingStatus != null">
+        reporting_status,
+      </if>
+      <if test="auditStatus != null">
+        audit_status,
+      </if>
+      <if test="reportingBy != null">
+        reporting_by,
+      </if>
+      <if test="reportingTime != null">
+        reporting_time,
+      </if>
+      <if test="auditCondition != null">
+        audit_condition,
+      </if>
+      <if test="reportingRemark != null">
+        reporting_remark,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="graduateUpNum != null">
+        graduate_up_num,
+      </if>
+      <if test="majorTeacherNum != null">
+        major_teacher_num,
+      </if>
+      <if test="undergraduateUpNum != null">
+        undergraduate_up_num,
+      </if>
+      <if test="doubleTeacherNum != null">
+        double_teacher_num,
+      </if>
+      <if test="schoolMainHonor != null">
+        school_main_honor,
+      </if>
+      <if test="schoolFeature != null">
+        school_feature,
+      </if>
+      <if test="instrumentUnitPrice != null">
+        instrument_unit_price,
+      </if>
+      <if test="provincesReportStatus != null">
+        provinces_report_status,
+      </if>
+      <if test="provincesReportTime != null">
+        provinces_report_time,
+      </if>
+      <if test="provincesReportPerson != null">
+        provinces_report_person,
+      </if>
+      <if test="sendReportStatus != null">
+        send_report_status,
+      </if>
+      <if test="schoolSubject != null">
+        school_subject,
+      </if>
+      <if test="deptName != null">
+        dept_name,
+      </if>
+      <if test="hierarchy != null">
+        `hierarchy`,
+      </if>
+      <if test="branchSchoolNum != null">
+        branch_school_num,
+      </if>
+      <if test="currentEnrollment != null">
+        current_enrollment,
+      </if>
+      <if test="declareStatus != null">
+        declare_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="schoolId != null">
+        #{schoolId,jdbcType=BIGINT},
+      </if>
+      <if test="schProcessId != null">
+        #{schProcessId,jdbcType=BIGINT},
+      </if>
+      <if test="schoolName != null">
+        #{schoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceAreaId != null">
+        #{provinceAreaId,jdbcType=BIGINT},
+      </if>
+      <if test="cityAreaId != null">
+        #{cityAreaId,jdbcType=BIGINT},
+      </if>
+      <if test="countryAreaId != null">
+        #{countryAreaId,jdbcType=BIGINT},
+      </if>
+      <if test="schoolAddress != null">
+        #{schoolAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolCode != null">
+        #{schoolCode,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalNo != null">
+        #{approvalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolType != null">
+        #{schoolType,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolNature != null">
+        #{schoolNature,jdbcType=VARCHAR},
+      </if>
+      <if test="isNationImportant != null">
+        #{isNationImportant,jdbcType=VARCHAR},
+      </if>
+      <if test="isProvinceImportant != null">
+        #{isProvinceImportant,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolUnit != null">
+        #{schoolUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolArea != null">
+        #{schoolArea,jdbcType=DECIMAL},
+      </if>
+      <if test="buildingArea != null">
+        #{buildingArea,jdbcType=DECIMAL},
+      </if>
+      <if test="establishedTime != null">
+        #{establishedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentNum != null">
+        #{studentNum,jdbcType=INTEGER},
+      </if>
+      <if test="teacherNum != null">
+        #{teacherNum,jdbcType=INTEGER},
+      </if>
+      <if test="staffNum != null">
+        #{staffNum,jdbcType=INTEGER},
+      </if>
+      <if test="trainingRoomNum != null">
+        #{trainingRoomNum,jdbcType=INTEGER},
+      </if>
+      <if test="trainingMoney != null">
+        #{trainingMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="trainingDeviceNum != null">
+        #{trainingDeviceNum,jdbcType=INTEGER},
+      </if>
+      <if test="majorNum != null">
+        #{majorNum,jdbcType=INTEGER},
+      </if>
+      <if test="enterpriseNum != null">
+        #{enterpriseNum,jdbcType=INTEGER},
+      </if>
+      <if test="teachingPointNum != null">
+        #{teachingPointNum,jdbcType=INTEGER},
+      </if>
+      <if test="postalAddress != null">
+        #{postalAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="postalCode != null">
+        #{postalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolWebsite != null">
+        #{schoolWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolEmail != null">
+        #{schoolEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolContacts != null">
+        #{schoolContacts,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolTelephone != null">
+        #{schoolTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null">
+        #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="principalEmail != null">
+        #{principalEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="principalTelephone != null">
+        #{principalTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="studentStatusManager != null">
+        #{studentStatusManager,jdbcType=VARCHAR},
+      </if>
+      <if test="studentStatusTelephone != null">
+        #{studentStatusTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="freeTuitionContacts != null">
+        #{freeTuitionContacts,jdbcType=VARCHAR},
+      </if>
+      <if test="freeTuitionTelephone != null">
+        #{freeTuitionTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="stipendContacts != null">
+        #{stipendContacts,jdbcType=VARCHAR},
+      </if>
+      <if test="stipendTelephone != null">
+        #{stipendTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="obtainEmploymentContacts != null">
+        #{obtainEmploymentContacts,jdbcType=VARCHAR},
+      </if>
+      <if test="obtainEmploymentTelephone != null">
+        #{obtainEmploymentTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        #{deptId,jdbcType=BIGINT},
+      </if>
+      <if test="attachmentAddress != null">
+        #{attachmentAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="reportingDate != null">
+        #{reportingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportingInformation != null">
+        #{reportingInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="reportingYear != null">
+        #{reportingYear,jdbcType=VARCHAR},
+      </if>
+      <if test="reportingStatus != null">
+        #{reportingStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null">
+        #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="reportingBy != null">
+        #{reportingBy,jdbcType=BIGINT},
+      </if>
+      <if test="reportingTime != null">
+        #{reportingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditCondition != null">
+        #{auditCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="reportingRemark != null">
+        #{reportingRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="graduateUpNum != null">
+        #{graduateUpNum,jdbcType=INTEGER},
+      </if>
+      <if test="majorTeacherNum != null">
+        #{majorTeacherNum,jdbcType=INTEGER},
+      </if>
+      <if test="undergraduateUpNum != null">
+        #{undergraduateUpNum,jdbcType=INTEGER},
+      </if>
+      <if test="doubleTeacherNum != null">
+        #{doubleTeacherNum,jdbcType=INTEGER},
+      </if>
+      <if test="schoolMainHonor != null">
+        #{schoolMainHonor,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="schoolFeature != null">
+        #{schoolFeature,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="instrumentUnitPrice != null">
+        #{instrumentUnitPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="provincesReportStatus != null">
+        #{provincesReportStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="provincesReportTime != null">
+        #{provincesReportTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="provincesReportPerson != null">
+        #{provincesReportPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="sendReportStatus != null">
+        #{sendReportStatus,jdbcType=CHAR},
+      </if>
+      <if test="schoolSubject != null">
+        #{schoolSubject,jdbcType=CHAR},
+      </if>
+      <if test="deptName != null">
+        #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="hierarchy != null">
+        #{hierarchy,jdbcType=TINYINT},
+      </if>
+      <if test="branchSchoolNum != null">
+        #{branchSchoolNum,jdbcType=INTEGER},
+      </if>
+      <if test="currentEnrollment != null">
+        #{currentEnrollment,jdbcType=INTEGER},
+      </if>
+      <if test="declareStatus != null">
+        #{declareStatus,jdbcType=BOOLEAN},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzhy.supervise.domain.SchCollegesBasicReporting">
+    <!--@mbg.generated-->
+    update sch_colleges_basic_reporting
+    <set>
+      <if test="schoolId != null">
+        school_id = #{schoolId,jdbcType=BIGINT},
+      </if>
+      <if test="schProcessId != null">
+        sch_process_id = #{schProcessId,jdbcType=BIGINT},
+      </if>
+      <if test="schoolName != null">
+        school_name = #{schoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceAreaId != null">
+        province_area_id = #{provinceAreaId,jdbcType=BIGINT},
+      </if>
+      <if test="cityAreaId != null">
+        city_area_id = #{cityAreaId,jdbcType=BIGINT},
+      </if>
+      <if test="countryAreaId != null">
+        country_area_id = #{countryAreaId,jdbcType=BIGINT},
+      </if>
+      <if test="schoolAddress != null">
+        school_address = #{schoolAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolCode != null">
+        school_code = #{schoolCode,jdbcType=VARCHAR},
+      </if>
+      <if test="approvalNo != null">
+        approval_no = #{approvalNo,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolType != null">
+        school_type = #{schoolType,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolNature != null">
+        school_nature = #{schoolNature,jdbcType=VARCHAR},
+      </if>
+      <if test="isNationImportant != null">
+        is_nation_important = #{isNationImportant,jdbcType=VARCHAR},
+      </if>
+      <if test="isProvinceImportant != null">
+        is_province_important = #{isProvinceImportant,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolUnit != null">
+        school_unit = #{schoolUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolArea != null">
+        school_area = #{schoolArea,jdbcType=DECIMAL},
+      </if>
+      <if test="buildingArea != null">
+        building_area = #{buildingArea,jdbcType=DECIMAL},
+      </if>
+      <if test="establishedTime != null">
+        established_time = #{establishedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentNum != null">
+        student_num = #{studentNum,jdbcType=INTEGER},
+      </if>
+      <if test="teacherNum != null">
+        teacher_num = #{teacherNum,jdbcType=INTEGER},
+      </if>
+      <if test="staffNum != null">
+        staff_num = #{staffNum,jdbcType=INTEGER},
+      </if>
+      <if test="trainingRoomNum != null">
+        training_room_num = #{trainingRoomNum,jdbcType=INTEGER},
+      </if>
+      <if test="trainingMoney != null">
+        training_money = #{trainingMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="trainingDeviceNum != null">
+        training_device_num = #{trainingDeviceNum,jdbcType=INTEGER},
+      </if>
+      <if test="majorNum != null">
+        major_num = #{majorNum,jdbcType=INTEGER},
+      </if>
+      <if test="enterpriseNum != null">
+        enterprise_num = #{enterpriseNum,jdbcType=INTEGER},
+      </if>
+      <if test="teachingPointNum != null">
+        teaching_point_num = #{teachingPointNum,jdbcType=INTEGER},
+      </if>
+      <if test="postalAddress != null">
+        postal_address = #{postalAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="postalCode != null">
+        postal_code = #{postalCode,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolWebsite != null">
+        school_website = #{schoolWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolEmail != null">
+        school_email = #{schoolEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolContacts != null">
+        school_contacts = #{schoolContacts,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolTelephone != null">
+        school_telephone = #{schoolTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="principal != null">
+        principal = #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="principalEmail != null">
+        principal_email = #{principalEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="principalTelephone != null">
+        principal_telephone = #{principalTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="studentStatusManager != null">
+        student_status_manager = #{studentStatusManager,jdbcType=VARCHAR},
+      </if>
+      <if test="studentStatusTelephone != null">
+        student_status_telephone = #{studentStatusTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="freeTuitionContacts != null">
+        free_tuition_contacts = #{freeTuitionContacts,jdbcType=VARCHAR},
+      </if>
+      <if test="freeTuitionTelephone != null">
+        free_tuition_telephone = #{freeTuitionTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="stipendContacts != null">
+        stipend_contacts = #{stipendContacts,jdbcType=VARCHAR},
+      </if>
+      <if test="stipendTelephone != null">
+        stipend_telephone = #{stipendTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="obtainEmploymentContacts != null">
+        obtain_employment_contacts = #{obtainEmploymentContacts,jdbcType=VARCHAR},
+      </if>
+      <if test="obtainEmploymentTelephone != null">
+        obtain_employment_telephone = #{obtainEmploymentTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null">
+        dept_id = #{deptId,jdbcType=BIGINT},
+      </if>
+      <if test="attachmentAddress != null">
+        attachment_address = #{attachmentAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="reportingDate != null">
+        reporting_date = #{reportingDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportingInformation != null">
+        reporting_information = #{reportingInformation,jdbcType=VARCHAR},
+      </if>
+      <if test="reportingYear != null">
+        reporting_year = #{reportingYear,jdbcType=VARCHAR},
+      </if>
+      <if test="reportingStatus != null">
+        reporting_status = #{reportingStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="auditStatus != null">
+        audit_status = #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="reportingBy != null">
+        reporting_by = #{reportingBy,jdbcType=BIGINT},
+      </if>
+      <if test="reportingTime != null">
+        reporting_time = #{reportingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditCondition != null">
+        audit_condition = #{auditCondition,jdbcType=VARCHAR},
+      </if>
+      <if test="reportingRemark != null">
+        reporting_remark = #{reportingRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="graduateUpNum != null">
+        graduate_up_num = #{graduateUpNum,jdbcType=INTEGER},
+      </if>
+      <if test="majorTeacherNum != null">
+        major_teacher_num = #{majorTeacherNum,jdbcType=INTEGER},
+      </if>
+      <if test="undergraduateUpNum != null">
+        undergraduate_up_num = #{undergraduateUpNum,jdbcType=INTEGER},
+      </if>
+      <if test="doubleTeacherNum != null">
+        double_teacher_num = #{doubleTeacherNum,jdbcType=INTEGER},
+      </if>
+      <if test="schoolMainHonor != null">
+        school_main_honor = #{schoolMainHonor,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="schoolFeature != null">
+        school_feature = #{schoolFeature,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="instrumentUnitPrice != null">
+        instrument_unit_price = #{instrumentUnitPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="provincesReportStatus != null">
+        provinces_report_status = #{provincesReportStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="provincesReportTime != null">
+        provinces_report_time = #{provincesReportTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="provincesReportPerson != null">
+        provinces_report_person = #{provincesReportPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="sendReportStatus != null">
+        send_report_status = #{sendReportStatus,jdbcType=CHAR},
+      </if>
+      <if test="schoolSubject != null">
+        school_subject = #{schoolSubject,jdbcType=CHAR},
+      </if>
+      <if test="deptName != null">
+        dept_name = #{deptName,jdbcType=VARCHAR},
+      </if>
+      <if test="hierarchy != null">
+        `hierarchy` = #{hierarchy,jdbcType=TINYINT},
+      </if>
+      <if test="branchSchoolNum != null">
+        branch_school_num = #{branchSchoolNum,jdbcType=INTEGER},
+      </if>
+      <if test="currentEnrollment != null">
+        current_enrollment = #{currentEnrollment,jdbcType=INTEGER},
+      </if>
+      <if test="declareStatus != null">
+        declare_status = #{declareStatus,jdbcType=BOOLEAN},
+      </if>
+    </set>
+    where reporting_id = #{reportingId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzhy.supervise.domain.SchCollegesBasicReporting">
+    <!--@mbg.generated-->
+    update sch_colleges_basic_reporting
+    set school_id = #{schoolId,jdbcType=BIGINT},
+      sch_process_id = #{schProcessId,jdbcType=BIGINT},
+      school_name = #{schoolName,jdbcType=VARCHAR},
+      province_area_id = #{provinceAreaId,jdbcType=BIGINT},
+      city_area_id = #{cityAreaId,jdbcType=BIGINT},
+      country_area_id = #{countryAreaId,jdbcType=BIGINT},
+      school_address = #{schoolAddress,jdbcType=VARCHAR},
+      school_code = #{schoolCode,jdbcType=VARCHAR},
+      approval_no = #{approvalNo,jdbcType=VARCHAR},
+      school_type = #{schoolType,jdbcType=VARCHAR},
+      school_nature = #{schoolNature,jdbcType=VARCHAR},
+      is_nation_important = #{isNationImportant,jdbcType=VARCHAR},
+      is_province_important = #{isProvinceImportant,jdbcType=VARCHAR},
+      school_unit = #{schoolUnit,jdbcType=VARCHAR},
+      school_area = #{schoolArea,jdbcType=DECIMAL},
+      building_area = #{buildingArea,jdbcType=DECIMAL},
+      established_time = #{establishedTime,jdbcType=TIMESTAMP},
+      student_num = #{studentNum,jdbcType=INTEGER},
+      teacher_num = #{teacherNum,jdbcType=INTEGER},
+      staff_num = #{staffNum,jdbcType=INTEGER},
+      training_room_num = #{trainingRoomNum,jdbcType=INTEGER},
+      training_money = #{trainingMoney,jdbcType=DECIMAL},
+      training_device_num = #{trainingDeviceNum,jdbcType=INTEGER},
+      major_num = #{majorNum,jdbcType=INTEGER},
+      enterprise_num = #{enterpriseNum,jdbcType=INTEGER},
+      teaching_point_num = #{teachingPointNum,jdbcType=INTEGER},
+      postal_address = #{postalAddress,jdbcType=VARCHAR},
+      postal_code = #{postalCode,jdbcType=VARCHAR},
+      school_website = #{schoolWebsite,jdbcType=VARCHAR},
+      school_email = #{schoolEmail,jdbcType=VARCHAR},
+      school_contacts = #{schoolContacts,jdbcType=VARCHAR},
+      school_telephone = #{schoolTelephone,jdbcType=VARCHAR},
+      principal = #{principal,jdbcType=VARCHAR},
+      principal_email = #{principalEmail,jdbcType=VARCHAR},
+      principal_telephone = #{principalTelephone,jdbcType=VARCHAR},
+      student_status_manager = #{studentStatusManager,jdbcType=VARCHAR},
+      student_status_telephone = #{studentStatusTelephone,jdbcType=VARCHAR},
+      free_tuition_contacts = #{freeTuitionContacts,jdbcType=VARCHAR},
+      free_tuition_telephone = #{freeTuitionTelephone,jdbcType=VARCHAR},
+      stipend_contacts = #{stipendContacts,jdbcType=VARCHAR},
+      stipend_telephone = #{stipendTelephone,jdbcType=VARCHAR},
+      obtain_employment_contacts = #{obtainEmploymentContacts,jdbcType=VARCHAR},
+      obtain_employment_telephone = #{obtainEmploymentTelephone,jdbcType=VARCHAR},
+      dept_id = #{deptId,jdbcType=BIGINT},
+      attachment_address = #{attachmentAddress,jdbcType=VARCHAR},
+      reporting_date = #{reportingDate,jdbcType=TIMESTAMP},
+      reporting_information = #{reportingInformation,jdbcType=VARCHAR},
+      reporting_year = #{reportingYear,jdbcType=VARCHAR},
+      reporting_status = #{reportingStatus,jdbcType=VARCHAR},
+      audit_status = #{auditStatus,jdbcType=VARCHAR},
+      reporting_by = #{reportingBy,jdbcType=BIGINT},
+      reporting_time = #{reportingTime,jdbcType=TIMESTAMP},
+      audit_condition = #{auditCondition,jdbcType=VARCHAR},
+      reporting_remark = #{reportingRemark,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=CHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      graduate_up_num = #{graduateUpNum,jdbcType=INTEGER},
+      major_teacher_num = #{majorTeacherNum,jdbcType=INTEGER},
+      undergraduate_up_num = #{undergraduateUpNum,jdbcType=INTEGER},
+      double_teacher_num = #{doubleTeacherNum,jdbcType=INTEGER},
+      school_main_honor = #{schoolMainHonor,jdbcType=LONGVARCHAR},
+      school_feature = #{schoolFeature,jdbcType=LONGVARCHAR},
+      instrument_unit_price = #{instrumentUnitPrice,jdbcType=DECIMAL},
+      provinces_report_status = #{provincesReportStatus,jdbcType=BOOLEAN},
+      provinces_report_time = #{provincesReportTime,jdbcType=TIMESTAMP},
+      provinces_report_person = #{provincesReportPerson,jdbcType=VARCHAR},
+      send_report_status = #{sendReportStatus,jdbcType=CHAR},
+      school_subject = #{schoolSubject,jdbcType=CHAR},
+      dept_name = #{deptName,jdbcType=VARCHAR},
+      `hierarchy` = #{hierarchy,jdbcType=TINYINT},
+      branch_school_num = #{branchSchoolNum,jdbcType=INTEGER},
+      current_enrollment = #{currentEnrollment,jdbcType=INTEGER},
+      declare_status = #{declareStatus,jdbcType=BOOLEAN}
+    where reporting_id = #{reportingId,jdbcType=BIGINT}
+  </update>
+</mapper>

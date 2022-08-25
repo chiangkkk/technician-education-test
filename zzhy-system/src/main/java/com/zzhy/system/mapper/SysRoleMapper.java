@@ -120,6 +120,6 @@ public interface SysRoleMapper
      */
     List<SysRole> selectSchAdminBySchoolId(Long schoolId);
 
-
+    List<SysRole> selectRolesBySchoolId(Long schoolId);
 
 }

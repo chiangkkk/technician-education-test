@@ -198,6 +198,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 	</select>
 
+	<select id="selectRolesBySchoolId" parameterType="Long" resultMap="SysRoleResult">
+		SELECT * FROM sys_role  WHERE del_flag = 0 and status = 0
+		<if test="schoolId != null">
+			AND  (role_id in (4) or school_id = #{schoolId})
+		</if>
+		<if test="schoolId == null">
+			<![CDATA[ AND  role_id <=6 ]]>
+		</if>
+	</select>
+
+
+
+
+
 
  	
 </mapper> 

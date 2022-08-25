@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.supervise.mapper.SchCollegesTimelimitMapper">
+  <resultMap id="BaseResultMap" type="com.zzhy.supervise.domain.SchCollegesTimelimit">
+    <!--@mbg.generated-->
+    <!--@Table sch_colleges_timelimit-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="timelimit_name" jdbcType="VARCHAR" property="timelimitName" />
+    <result column="foster_type" jdbcType="TINYINT" property="fosterType" />
+    <result column="attend_end_time" jdbcType="TIMESTAMP" property="attendEndTime" />
+    <result column="attend_start_time" jdbcType="TIMESTAMP" property="attendStartTime" />
+    <result column="admission_end_time" jdbcType="TIMESTAMP" property="admissionEndTime" />
+    <result column="admission_start_time" jdbcType="TIMESTAMP" property="admissionStartTime" />
+    <result column="enroll_end_time" jdbcType="TIMESTAMP" property="enrollEndTime" />
+    <result column="enroll_start_time" jdbcType="TIMESTAMP" property="enrollStartTime" />
+    <result column="enroll_quota" jdbcType="VARCHAR" property="enrollQuota" />
+    <result column="timelimit_type" jdbcType="TINYINT" property="timelimitType" />
+    <result column="year_time" jdbcType="INTEGER" property="yearTime" />
+    <result column="season" jdbcType="TINYINT" property="season" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, timelimit_name, foster_type, attend_end_time, attend_start_time, admission_end_time,
+    admission_start_time, enroll_end_time, enroll_start_time, enroll_quota, timelimit_type,
+    year_time, season, `status`, create_by, create_time, update_by, update_time, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from sch_colleges_timelimit
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from sch_colleges_timelimit
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zzhy.supervise.domain.SchCollegesTimelimit" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sch_colleges_timelimit (timelimit_name, foster_type, attend_end_time,
+      attend_start_time, admission_end_time,
+      admission_start_time, enroll_end_time,
+      enroll_start_time, enroll_quota, timelimit_type,
+      year_time, season, `status`,
+      create_by, create_time, update_by,
+      update_time, remark)
+    values (#{timelimitName,jdbcType=VARCHAR}, #{fosterType,jdbcType=TINYINT}, #{attendEndTime,jdbcType=TIMESTAMP},
+      #{attendStartTime,jdbcType=TIMESTAMP}, #{admissionEndTime,jdbcType=TIMESTAMP},
+      #{admissionStartTime,jdbcType=TIMESTAMP}, #{enrollEndTime,jdbcType=TIMESTAMP},
+      #{enrollStartTime,jdbcType=TIMESTAMP}, #{enrollQuota,jdbcType=VARCHAR}, #{timelimitType,jdbcType=TINYINT},
+      #{yearTime,jdbcType=INTEGER}, #{season,jdbcType=TINYINT}, #{status,jdbcType=TINYINT},
+      #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR},
+      #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zzhy.supervise.domain.SchCollegesTimelimit" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sch_colleges_timelimit
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="timelimitName != null">
+        timelimit_name,
+      </if>
+      <if test="fosterType != null">
+        foster_type,
+      </if>
+      <if test="attendEndTime != null">
+        attend_end_time,
+      </if>
+      <if test="attendStartTime != null">
+        attend_start_time,
+      </if>
+      <if test="admissionEndTime != null">
+        admission_end_time,
+      </if>
+      <if test="admissionStartTime != null">
+        admission_start_time,
+      </if>
+      <if test="enrollEndTime != null">
+        enroll_end_time,
+      </if>
+      <if test="enrollStartTime != null">
+        enroll_start_time,
+      </if>
+      <if test="enrollQuota != null">
+        enroll_quota,
+      </if>
+      <if test="timelimitType != null">
+        timelimit_type,
+      </if>
+      <if test="yearTime != null">
+        year_time,
+      </if>
+      <if test="season != null">
+        season,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="timelimitName != null">
+        #{timelimitName,jdbcType=VARCHAR},
+      </if>
+      <if test="fosterType != null">
+        #{fosterType,jdbcType=TINYINT},
+      </if>
+      <if test="attendEndTime != null">
+        #{attendEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attendStartTime != null">
+        #{attendStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="admissionEndTime != null">
+        #{admissionEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="admissionStartTime != null">
+        #{admissionStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enrollEndTime != null">
+        #{enrollEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enrollStartTime != null">
+        #{enrollStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enrollQuota != null">
+        #{enrollQuota,jdbcType=VARCHAR},
+      </if>
+      <if test="timelimitType != null">
+        #{timelimitType,jdbcType=TINYINT},
+      </if>
+      <if test="yearTime != null">
+        #{yearTime,jdbcType=INTEGER},
+      </if>
+      <if test="season != null">
+        #{season,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    ON DUPLICATE KEY UPDATE
+
+
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzhy.supervise.domain.SchCollegesTimelimit">
+    <!--@mbg.generated-->
+    update sch_colleges_timelimit
+    <set>
+      <if test="timelimitName != null">
+        timelimit_name = #{timelimitName,jdbcType=VARCHAR},
+      </if>
+      <if test="fosterType != null">
+        foster_type = #{fosterType,jdbcType=TINYINT},
+      </if>
+      <if test="attendEndTime != null">
+        attend_end_time = #{attendEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="attendStartTime != null">
+        attend_start_time = #{attendStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="admissionEndTime != null">
+        admission_end_time = #{admissionEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="admissionStartTime != null">
+        admission_start_time = #{admissionStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enrollEndTime != null">
+        enroll_end_time = #{enrollEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enrollStartTime != null">
+        enroll_start_time = #{enrollStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enrollQuota != null">
+        enroll_quota = #{enrollQuota,jdbcType=VARCHAR},
+      </if>
+      <if test="timelimitType != null">
+        timelimit_type = #{timelimitType,jdbcType=TINYINT},
+      </if>
+      <if test="yearTime != null">
+        year_time = #{yearTime,jdbcType=INTEGER},
+      </if>
+      <if test="season != null">
+        season = #{season,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzhy.supervise.domain.SchCollegesTimelimit">
+    <!--@mbg.generated-->
+    update sch_colleges_timelimit
+    set timelimit_name = #{timelimitName,jdbcType=VARCHAR},
+      foster_type = #{fosterType,jdbcType=TINYINT},
+      attend_end_time = #{attendEndTime,jdbcType=TIMESTAMP},
+      attend_start_time = #{attendStartTime,jdbcType=TIMESTAMP},
+      admission_end_time = #{admissionEndTime,jdbcType=TIMESTAMP},
+      admission_start_time = #{admissionStartTime,jdbcType=TIMESTAMP},
+      enroll_end_time = #{enrollEndTime,jdbcType=TIMESTAMP},
+      enroll_start_time = #{enrollStartTime,jdbcType=TIMESTAMP},
+      enroll_quota = #{enrollQuota,jdbcType=VARCHAR},
+      timelimit_type = #{timelimitType,jdbcType=TINYINT},
+      year_time = #{yearTime,jdbcType=INTEGER},
+      season = #{season,jdbcType=TINYINT},
+      `status` = #{status,jdbcType=TINYINT},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="select" resultMap="BaseResultMap">
+    select  <include refid="Base_Column_List" />
+    from sch_colleges_timelimit
+      <where>
+        <if test="timelimitName != null and timelimitName != ''">
+            AND timelimit_name LIKE concat('%',#{timelimitName},'%')
+        </if>
+
+        <if test="yearTime != null and yearTime != ''">
+          AND year_time = #{yearTime}
+        </if>
+
+        <if test="timelimitType != null and timelimitType != ''">
+          AND timelimit_type = #{timelimitType}
+        </if>
+        <if test="season != null and season != ''">
+          AND season = #{season}
+        </if>
+
+      </where>
+
+  </select>
+</mapper>

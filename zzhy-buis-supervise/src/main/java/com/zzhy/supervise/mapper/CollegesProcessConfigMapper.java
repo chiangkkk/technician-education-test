@@ -2,6 +2,7 @@ package com.zzhy.supervise.mapper;
 
 import java.util.List;
 import com.zzhy.supervise.domain.CollegesProcessConfig;
+import com.zzhy.supervise.domain.CollegesProcessConfigWithAuditConfig;
 
 /**
  * 院校端申报流程配置Mapper接口
@@ -58,4 +59,7 @@ public interface CollegesProcessConfigMapper
      * @return 结果
      */
     public int deleteCollegesProcessConfigBySchConfigIds(Long[] schConfigIds);
+
+
+    List<CollegesProcessConfigWithAuditConfig> selectCollegesProcessConfigWithAuditList(CollegesProcessConfig collegesProcessConfig);
 }
