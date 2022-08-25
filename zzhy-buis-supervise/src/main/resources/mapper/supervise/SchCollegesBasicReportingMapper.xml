@@ -175,7 +175,7 @@
       #{hierarchy,jdbcType=TINYINT}, #{branchSchoolNum,jdbcType=INTEGER}, #{currentEnrollment,jdbcType=INTEGER}, 
       #{declareStatus,jdbcType=BOOLEAN})
   </insert>
-  <insert id="insertSelective" keyColumn="reporting_id" keyProperty="reportingId" parameterType="com.zzhy.supervise.domain.SchCollegesBasicReporting" useGeneratedKeys="true">
+  <insert id="insertSelective"  keyColumn="reporting_id" keyProperty="reportingId" parameterType="com.zzhy.supervise.domain.SchCollegesBasicReporting" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into sch_colleges_basic_reporting
     <trim prefix="(" suffix=")" suffixOverrides=",">

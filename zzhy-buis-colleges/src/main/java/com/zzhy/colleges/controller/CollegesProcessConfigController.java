@@ -103,9 +103,13 @@ public class CollegesProcessConfigController extends BaseController {
         return AjaxResult.success(processAuditConfigDTO);
     }
 
+    @RequestMapping("/template")
+    public AjaxResult tempplate(@RequestParam("declareConfigId") Integer declareConfigId) {
+        return toAjax(1);
+    }
 
     @PutMapping("/editProcessAudioRole")
     public AjaxResult editProcessAudioRole(@RequestBody SaveProcessAudioRolesDTO saveProcessAudioRolesDTO) {
-        return toAjax(collegesProcessConfigService.ProcessAuditConfig(saveProcessAudioRolesDTO.getConfigList(), saveProcessAudioRolesDTO.getSchConfigId(),getLoginUser().getUsername(),getLoginUser().getUser().getSchoolId()));
+        return toAjax(collegesProcessConfigService.ProcessAuditConfig(saveProcessAudioRolesDTO.getConfigList(), saveProcessAudioRolesDTO.getSchConfigId(), getLoginUser().getUsername(), getLoginUser().getUser().getSchoolId()));
     }
 }

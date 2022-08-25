@@ -83,6 +83,9 @@
             <if test="status != null  and status != ''">
                 and status = #{status}
             </if>
+            <if test="delFlag != null and delFlag != ''">
+                and del_flag = #{delFlag}
+            </if>
         </where>
     </select>
 

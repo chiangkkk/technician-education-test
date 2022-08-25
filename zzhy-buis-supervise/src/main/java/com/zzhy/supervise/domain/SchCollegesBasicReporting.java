@@ -1,381 +1,384 @@
 package com.zzhy.supervise.domain;
 
 import com.zzhy.common.core.domain.BaseEntity;
+import lombok.ToString;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
-    * 院校基本情况报备表
-    */
+ * 院校基本情况报备表
+ */
+@ToString
 public class SchCollegesBasicReporting extends BaseEntity {
     /**
-    * 主键
-    */
+     * 主键
+     */
     private Long reportingId;
 
     /**
-    * 学校ID
-    */
+     * 学校ID
+     */
     private Long schoolId;
 
     /**
-    * 院校流程配置ID
-    */
+     * 院校流程配置ID
+     */
     private Long schProcessId;
 
     /**
-    * 院校名称
-    */
+     * 院校名称
+     */
     private String schoolName;
 
     /**
-    * 省区划
-    */
+     * 省区划
+     */
     private Long provinceAreaId;
 
     /**
-    * 市区划
-    */
+     * 市区划
+     */
     private Long cityAreaId;
 
     /**
-    * 区县区划
-    */
+     * 区县区划
+     */
     private Long countryAreaId;
 
     /**
-    * 院校地址
-    */
+     * 院校地址
+     */
     private String schoolAddress;
 
     /**
-    * 院校代码
-    */
+     * 院校代码
+     */
     private String schoolCode;
 
     /**
-    * 审批文号
-    */
+     * 审批文号
+     */
     private String approvalNo;
 
     /**
-    * 院校类别,1技工学院,2技工学校,3高级技工学校
-    */
+     * 院校类别,1技工学院,2技工学校,3高级技工学校
+     */
     private String schoolType;
 
     /**
-    * 院校性质 1行业办，2企业办，3中外（港澳台）合作办学，4民办，5地方人社部门办
-    */
+     * 院校性质 1行业办，2企业办，3中外（港澳台）合作办学，4民办，5地方人社部门办
+     */
     private String schoolNature;
 
     /**
-    * 国家重点 1是，2不是
-    */
+     * 国家重点 1是，2不是
+     */
     private String isNationImportant;
 
     /**
-    * 省、直辖市重点 1是，2不是
-    */
+     * 省、直辖市重点 1是，2不是
+     */
     private String isProvinceImportant;
 
     /**
-    * 办学单位
-    */
+     * 办学单位
+     */
     private String schoolUnit;
 
     /**
-    * 占地面积
-    */
+     * 占地面积
+     */
     private BigDecimal schoolArea;
 
     /**
-    * 建筑面积
-    */
+     * 建筑面积
+     */
     private BigDecimal buildingArea;
 
     /**
-    * 成立时间
-    */
+     * 成立时间
+     */
     private Date establishedTime;
 
     /**
-    * 在校生总数（人）
-    */
+     * 在校生总数（人）
+     */
     private Integer studentNum;
 
     /**
-    * 教师总数（人）
-    */
+     * 教师总数（人）
+     */
     private Integer teacherNum;
 
     /**
-    * 教职工总数（人）
-    */
+     * 教职工总数（人）
+     */
     private Integer staffNum;
 
     /**
-    * 实训室总数（间）
-    */
+     * 实训室总数（间）
+     */
     private Integer trainingRoomNum;
 
     /**
-    * 实训资金（元）
-    */
+     * 实训资金（元）
+     */
     private BigDecimal trainingMoney;
 
     /**
-    * 实训设备总数（台）
-    */
+     * 实训设备总数（台）
+     */
     private Integer trainingDeviceNum;
 
     /**
-    * 专业设置总数（门）
-    */
+     * 专业设置总数（门）
+     */
     private Integer majorNum;
 
     /**
-    * 校企合作总数（家）
-    */
+     * 校企合作总数（家）
+     */
     private Integer enterpriseNum;
 
     /**
-    * 教学点总数（个）
-    */
+     * 教学点总数（个）
+     */
     private Integer teachingPointNum;
 
     /**
-    * 通讯地址
-    */
+     * 通讯地址
+     */
     private String postalAddress;
 
     /**
-    * 通讯号码
-    */
+     * 通讯号码
+     */
     private String postalCode;
 
     /**
-    * 院校网站
-    */
+     * 院校网站
+     */
     private String schoolWebsite;
 
     /**
-    * 院校邮箱
-    */
+     * 院校邮箱
+     */
     private String schoolEmail;
 
     /**
-    * 院校联系人
-    */
+     * 院校联系人
+     */
     private String schoolContacts;
 
     /**
-    * 院校电话
-    */
+     * 院校电话
+     */
     private String schoolTelephone;
 
     /**
-    * 校长姓名
-    */
+     * 校长姓名
+     */
     private String principal;
 
     /**
-    * 校长邮箱
-    */
+     * 校长邮箱
+     */
     private String principalEmail;
 
     /**
-    * 校长电话
-    */
+     * 校长电话
+     */
     private String principalTelephone;
 
     /**
-    * 学籍负责人
-    */
+     * 学籍负责人
+     */
     private String studentStatusManager;
 
     /**
-    * 学籍联系电话
-    */
+     * 学籍联系电话
+     */
     private String studentStatusTelephone;
 
     /**
-    * 免学费联系人
-    */
+     * 免学费联系人
+     */
     private String freeTuitionContacts;
 
     /**
-    * 免学费联系电话
-    */
+     * 免学费联系电话
+     */
     private String freeTuitionTelephone;
 
     /**
-    * 助学金联系人
-    */
+     * 助学金联系人
+     */
     private String stipendContacts;
 
     /**
-    * 助学金联系电话
-    */
+     * 助学金联系电话
+     */
     private String stipendTelephone;
 
     /**
-    * 就业负责人
-    */
+     * 就业负责人
+     */
     private String obtainEmploymentContacts;
 
     /**
-    * 就业联系电话
-    */
+     * 就业联系电话
+     */
     private String obtainEmploymentTelephone;
 
     /**
-    * 所属机构组织对应的组织机构表ID
-    */
+     * 所属机构组织对应的组织机构表ID
+     */
     private Long deptId;
 
     /**
-    * 附件地址
-    */
+     * 附件地址
+     */
     private String attachmentAddress;
 
     /**
-    * 报备日期
-    */
+     * 报备日期
+     */
     private Date reportingDate;
 
     /**
-    * 报备信息 
-    */
+     * 报备信息
+     */
     private String reportingInformation;
 
     /**
-    * 报备年份
-    */
+     * 报备年份
+     */
     private String reportingYear;
 
     /**
-    * 报备状态：1草稿,2已提交报备审核
-    */
+     * 报备状态：1草稿,2已提交报备审核
+     */
     private String reportingStatus;
 
     /**
-    * 审核状态 1待审核，2审核中，3审核通过，4审核驳回
-    */
+     * 审核状态 1待审核，2审核中，3审核通过，4审核驳回
+     */
     private String auditStatus;
 
     /**
-    * 最后审核人
-    */
+     * 最后审核人
+     */
     private Long reportingBy;
 
     /**
-    * 最后审核时间'
-    */
+     * 最后审核时间'
+     */
     private Date reportingTime;
 
     /**
-    * 审核情况
-    */
+     * 审核情况
+     */
     private String auditCondition;
 
     /**
-    * 最后审核备注
-    */
+     * 最后审核备注
+     */
     private String reportingRemark;
 
     /**
-    * 状态（1正常 2停用）
-    */
+     * 状态（1正常 2停用）
+     */
     private String status;
 
     /**
-    * 删除标志（1代表存在 1代表删除）
-    */
+     * 删除标志（1代表存在 1代表删除）
+     */
     private String delFlag;
 
     /**
-    * 具有研究生学历或硕士学位教师数
-    */
+     * 具有研究生学历或硕士学位教师数
+     */
     private Integer graduateUpNum;
 
     /**
-    * 专业教师数
-    */
+     * 专业教师数
+     */
     private Integer majorTeacherNum;
 
     /**
-    * 本科毕业及以上学历教师数
-    */
+     * 本科毕业及以上学历教师数
+     */
     private Integer undergraduateUpNum;
 
     /**
-    * “双师型”教师数
-    */
+     * “双师型”教师数
+     */
     private Integer doubleTeacherNum;
 
     /**
-    * 近五年获得主要荣誉
-    */
+     * 近五年获得主要荣誉
+     */
     private String schoolMainHonor;
 
     /**
-    * 办学特色
-    */
+     * 办学特色
+     */
     private String schoolFeature;
 
     /**
-    * 教学仪器设备总价值
-    */
+     * 教学仪器设备总价值
+     */
     private BigDecimal instrumentUnitPrice;
 
     /**
-    * 省报备状态 1已报备确认  2已提交报备
-    */
+     * 省报备状态 1已报备确认  2已提交报备
+     */
     private Boolean provincesReportStatus;
 
     /**
-    * 省报备确认时间
-    */
+     * 省报备确认时间
+     */
     private Date provincesReportTime;
 
     /**
-    * 省报备确认人
-    */
+     * 省报备确认人
+     */
     private String provincesReportPerson;
 
     /**
-    *  是否向省技工中心发送报备 1-是，2-否（主要用于判断省技工中心能不能显示确认报备的按钮）
-    */
+     * 是否向省技工中心发送报备 1-是，2-否（主要用于判断省技工中心能不能显示确认报备的按钮）
+     */
     private String sendReportStatus;
 
     /**
-    * 办学主体 1行业办，2企业办，3中外（港澳台）合作办学，4民办，5地方人社部门办
-    */
+     * 办学主体 1行业办，2企业办，3中外（港澳台）合作办学，4民办，5地方人社部门办
+     */
     private String schoolSubject;
 
     /**
-    * 审核机构名称
-    */
+     * 审核机构名称
+     */
     private String deptName;
 
     /**
-    * 层级 1省属，2市属，3区/县属
-    */
+     * 层级 1省属，2市属，3区/县属
+     */
     private Byte hierarchy;
 
     /**
-    * 分校数
-    */
+     * 分校数
+     */
     private Integer branchSchoolNum;
 
     /**
-    * 本年招人数
-    */
+     * 本年招人数
+     */
     private Integer currentEnrollment;
 
     /**
-    * 申报状态 供查询使用区分监管端和院校端 1-草稿 2-待审核 3-审核驳回 4-审核通过（无需监管中心审批时，显示审核通过的状态） 5-待审批 6-审批通过 7-审批驳回 8-退回（此处省局和市局退回都是同一个退回状态） 9-撤回（院校自行撤回审批流）
-    */
+     * 申报状态 供查询使用区分监管端和院校端 1-草稿 2-待审核 3-审核驳回 4-审核通过（无需监管中心审批时，显示审核通过的状态） 5-待审批 6-审批通过 7-审批驳回 8-退回（此处省局和市局退回都是同一个退回状态） 9-撤回（院校自行撤回审批流）
+     */
     private Boolean declareStatus;
 
     public Long getReportingId() {
