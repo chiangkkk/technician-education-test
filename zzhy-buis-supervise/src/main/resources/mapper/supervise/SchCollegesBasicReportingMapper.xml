@@ -975,4 +975,18 @@
       declare_status = #{declareStatus,jdbcType=BOOLEAN}
     where reporting_id = #{reportingId,jdbcType=BIGINT}
   </update>
+
+  <select id="selectList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sch_colleges_basic_reporting
+  </select>
+  <resultMap id="withAuditoMap" type="com.zzhy.supervise.domain.vo.ReportingVO" extends="BaseResultMap">
+    <collection property="declareCollegesSchoolAudits" column="{sourceId=reporting_id}" select="com.zzhy.supervise.mapper.SupDeclareCollegesSchoolAuditMapper.selectBySourceId" />
+  </resultMap>
+  <select id="selectWithAuditoList" resultMap="withAuditoMap">
+    select
+    <include refid="Base_Column_List" />
+    from sch_colleges_basic_reporting order by reporting_id desc
+  </select>
 </mapper>

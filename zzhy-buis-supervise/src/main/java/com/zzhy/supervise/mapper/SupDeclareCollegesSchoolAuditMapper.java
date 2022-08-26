@@ -2,6 +2,8 @@ package com.zzhy.supervise.mapper;
 
 import com.zzhy.supervise.domain.SupDeclareCollegesSchoolAudit;
 
+import java.util.List;
+
 public interface SupDeclareCollegesSchoolAuditMapper {
     int deleteByPrimaryKey(Long auditId);
 
@@ -14,4 +16,8 @@ public interface SupDeclareCollegesSchoolAuditMapper {
     int updateByPrimaryKeySelective(SupDeclareCollegesSchoolAudit record);
 
     int updateByPrimaryKey(SupDeclareCollegesSchoolAudit record);
+
+    List<SupDeclareCollegesSchoolAudit> selectBySourceId(Long sourceId);
+
+
 }

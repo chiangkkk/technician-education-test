@@ -1,6 +1,10 @@
 package com.zzhy.supervise.service;
 
 import com.zzhy.supervise.domain.SchCollegesBasicReporting;
+import com.zzhy.supervise.domain.vo.AuditInfoVO;
+import com.zzhy.supervise.domain.vo.ReportingVO;
+
+import java.util.List;
 
 /**
  * @author ChiangKai
@@ -14,4 +18,12 @@ public interface CollegesReportingService {
      * @return
      */
     int addReport(SchCollegesBasicReporting SchCollegesBasicReporting);
+
+    int editReport(SchCollegesBasicReporting SchCollegesBasicReporting);
+
+    List<ReportingVO> getList(String schoolCode, String schoolName, Long reportingYear, Integer declareStatus, Integer waitingAudit,Long[] roleIds);
+
+    SchCollegesBasicReporting getById(Integer reportingId);
+
+    int audit(AuditInfoVO auditInfoVO, List<Long> roleIds);
 }

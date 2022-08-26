@@ -174,7 +174,7 @@
         #{remark,jdbcType=VARCHAR},
       </if>
     </trim>
-    ON DUPLICATE KEY UPDATE
+
 
 
   </insert>

@@ -352,4 +352,11 @@
       show_type = #{showType,jdbcType=CHAR}
     where audit_id = #{auditId,jdbcType=BIGINT}
   </update>
+
+  <select id="selectBySourceId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sup_declare_colleges_school_audit
+    where source_id = #{sourceId,jdbcType=BIGINT} and del_flag = 1 and status = 1;
+    </select>
 </mapper>
