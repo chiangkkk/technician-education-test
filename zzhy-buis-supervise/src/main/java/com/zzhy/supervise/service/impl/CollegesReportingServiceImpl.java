@@ -1,5 +1,6 @@
 package com.zzhy.supervise.service.impl;
 
+import com.sun.jna.platform.win32.User32Util;
 import com.zzhy.common.exception.WebException;
 import com.zzhy.common.utils.DateUtils;
 import com.zzhy.common.utils.bean.BeanUtils;
@@ -131,6 +132,15 @@ public class CollegesReportingServiceImpl implements CollegesReportingService {
             schCollegesBasicReporting.setUpdateTime(DateUtils.getNowDate());
             reportingMapper.updateByPrimaryKeySelective(schCollegesBasicReporting);
         }
+        if (auditStatus == 3 && supDeclareCollegesSchoolAuditDo.getAuditOrder().intValue() == 1){
+            schCollegesBasicReporting.setAuditStatus("3");
+            schCollegesBasicReporting.setUpdateTime(DateUtils.getNowDate());
+            reportingMapper.updateByPrimaryKeySelective(schCollegesBasicReporting);
+        }
+        supDeclareCollegesSchoolAuditDo.setAuditRemark(auditRemark);
+        supDeclareCollegesSchoolAuditDo.setAuditStatus(auditStatus+"");
+        supDeclareCollegesSchoolAuditDo.setUpdateTime(new Date());
+        supDeclareCollegesSchoolAuditMapper.updateByPrimaryKey(supDeclareCollegesSchoolAuditDo);
         return  1;
 
     }
