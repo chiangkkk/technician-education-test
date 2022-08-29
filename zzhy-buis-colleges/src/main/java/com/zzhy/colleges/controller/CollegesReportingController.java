@@ -5,9 +5,14 @@ import com.zzhy.common.core.domain.AjaxResult;
 import com.zzhy.common.core.domain.entity.SysRole;
 import com.zzhy.common.core.page.TableDataInfo;
 import com.zzhy.supervise.domain.SchCollegesBasicReporting;
+import com.zzhy.supervise.domain.SupDeclareCollegesSchoolAudit;
 import com.zzhy.supervise.domain.vo.AuditInfoVO;
+import com.zzhy.supervise.mapper.SupDeclareCollegesSchoolAuditMapper;
 import com.zzhy.supervise.service.CollegesReportingService;
+import com.zzhy.supervise.service.SupDeclareCollegesSchoolAuditService;
 import org.aspectj.weaver.loadtime.Aj;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +31,9 @@ public class CollegesReportingController extends BaseController {
 
     @Resource
     private CollegesReportingService reportingService;
+
+    @Autowired
+    private SupDeclareCollegesSchoolAuditService supDeclareCollegesSchoolAuditService;
 
     @RequestMapping("/findhave")
     public AjaxResult findHave() {
@@ -70,4 +78,13 @@ public class CollegesReportingController extends BaseController {
         List<Long> roleIds = getLoginUser().getUser().getRoles().stream().map(SysRole::getRoleId).collect(Collectors.toList());
         return toAjax(reportingService.audit(vo,roleIds));
     }
+
+
+
+    @GetMapping(value = "/queryhistory")
+    public AjaxResult queryHistory(@RequestParam Long reportingId){
+        List<SupDeclareCollegesSchoolAudit> list = supDeclareCollegesSchoolAuditService.getBySourceId(reportingId);
+        return AjaxResult.success(list);
+    }
+
 }
