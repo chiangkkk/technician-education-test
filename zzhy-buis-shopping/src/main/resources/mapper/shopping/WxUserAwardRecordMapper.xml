@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.shopping.mapper.WxUserAwardRecordMapper">
+  <resultMap id="BaseResultMap" type="com.zzhy.shopping.domain.WxUserAwardRecord">
+    <!--@mbg.generated-->
+    <!--@Table wx_user_award_record-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="award_name" jdbcType="VARCHAR" property="awardName" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="coupon_id" jdbcType="BIGINT" property="couponId" />
+    <result column="sku_type" jdbcType="TINYINT" property="skuType" />
+    <result column="goods_id" jdbcType="BIGINT" property="goodsId" />
+    <result column="order_detail" jdbcType="VARCHAR" property="orderDetail" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="create_name" jdbcType="VARCHAR" property="createName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modify_name" jdbcType="VARCHAR" property="modifyName" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="rec_status" jdbcType="BOOLEAN" property="recStatus" />
+    <result column="award_id" jdbcType="BIGINT" property="awardId" />
+    <result column="award_type" jdbcType="BIGINT" property="awardType" />
+    <result column="integral_val" jdbcType="DECIMAL" property="integralVal" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, award_name, order_id, coupon_id, sku_type, goods_id, order_detail, pic, 
+    remark, creator, create_name, create_time, modifier, modify_name, modify_time, `status`, 
+    rec_status, award_id, award_type, integral_val
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from wx_user_award_record
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from wx_user_award_record
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.WxUserAwardRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into wx_user_award_record (user_id, award_name, order_id, 
+      coupon_id, sku_type, goods_id, 
+      order_detail, pic, remark, 
+      creator, create_name, create_time, 
+      modifier, modify_name, modify_time, 
+      `status`, rec_status, award_id, 
+      award_type, integral_val)
+    values (#{userId,jdbcType=BIGINT}, #{awardName,jdbcType=VARCHAR}, #{orderId,jdbcType=BIGINT}, 
+      #{couponId,jdbcType=BIGINT}, #{skuType,jdbcType=TINYINT}, #{goodsId,jdbcType=BIGINT}, 
+      #{orderDetail,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{modifier,jdbcType=VARCHAR}, #{modifyName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=BOOLEAN}, #{recStatus,jdbcType=BOOLEAN}, #{awardId,jdbcType=BIGINT}, 
+      #{awardType,jdbcType=BIGINT}, #{integralVal,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.WxUserAwardRecord" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into wx_user_award_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="awardName != null">
+        award_name,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="couponId != null">
+        coupon_id,
+      </if>
+      <if test="skuType != null">
+        sku_type,
+      </if>
+      <if test="goodsId != null">
+        goods_id,
+      </if>
+      <if test="orderDetail != null">
+        order_detail,
+      </if>
+      <if test="pic != null">
+        pic,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createName != null">
+        create_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifier != null">
+        modifier,
+      </if>
+      <if test="modifyName != null">
+        modify_name,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="recStatus != null">
+        rec_status,
+      </if>
+      <if test="awardId != null">
+        award_id,
+      </if>
+      <if test="awardType != null">
+        award_type,
+      </if>
+      <if test="integralVal != null">
+        integral_val,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="awardName != null">
+        #{awardName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="couponId != null">
+        #{couponId,jdbcType=BIGINT},
+      </if>
+      <if test="skuType != null">
+        #{skuType,jdbcType=TINYINT},
+      </if>
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="orderDetail != null">
+        #{orderDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null">
+        #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BOOLEAN},
+      </if>
+      <if test="recStatus != null">
+        #{recStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="awardId != null">
+        #{awardId,jdbcType=BIGINT},
+      </if>
+      <if test="awardType != null">
+        #{awardType,jdbcType=BIGINT},
+      </if>
+      <if test="integralVal != null">
+        #{integralVal,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzhy.shopping.domain.WxUserAwardRecord">
+    <!--@mbg.generated-->
+    update wx_user_award_record
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="awardName != null">
+        award_name = #{awardName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="couponId != null">
+        coupon_id = #{couponId,jdbcType=BIGINT},
+      </if>
+      <if test="skuType != null">
+        sku_type = #{skuType,jdbcType=TINYINT},
+      </if>
+      <if test="goodsId != null">
+        goods_id = #{goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="orderDetail != null">
+        order_detail = #{orderDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null">
+        create_name = #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null">
+        modify_name = #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=BOOLEAN},
+      </if>
+      <if test="recStatus != null">
+        rec_status = #{recStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="awardId != null">
+        award_id = #{awardId,jdbcType=BIGINT},
+      </if>
+      <if test="awardType != null">
+        award_type = #{awardType,jdbcType=BIGINT},
+      </if>
+      <if test="integralVal != null">
+        integral_val = #{integralVal,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzhy.shopping.domain.WxUserAwardRecord">
+    <!--@mbg.generated-->
+    update wx_user_award_record
+    set user_id = #{userId,jdbcType=BIGINT},
+      award_name = #{awardName,jdbcType=VARCHAR},
+      order_id = #{orderId,jdbcType=BIGINT},
+      coupon_id = #{couponId,jdbcType=BIGINT},
+      sku_type = #{skuType,jdbcType=TINYINT},
+      goods_id = #{goodsId,jdbcType=BIGINT},
+      order_detail = #{orderDetail,jdbcType=VARCHAR},
+      pic = #{pic,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      create_name = #{createName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      modify_name = #{modifyName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      `status` = #{status,jdbcType=BOOLEAN},
+      rec_status = #{recStatus,jdbcType=BOOLEAN},
+      award_id = #{awardId,jdbcType=BIGINT},
+      award_type = #{awardType,jdbcType=BIGINT},
+      integral_val = #{integralVal,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

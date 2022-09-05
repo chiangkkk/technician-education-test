@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "4.1.4",
   "createdTime": "2022-8-29 14:14:26",
-  "updatedTime": "2022-9-5 20:14:03",
+  "updatedTime": "2022-9-5 15:31:45",
   "dbConns": [],
   "profile": {
     "default": {
@@ -1442,7 +1442,7 @@
         }
       },
       "defKey": "turntable_draw",
-      "defName": "转盘抽奖",
+      "defName": "",
       "comment": "",
       "properties": {
         "partitioned by": "(date string)",
@@ -1456,151 +1456,67 @@
       "headers": [
         {
           "refKey": "hideInGraph",
-          "hideInGraph": true,
-          "code": "relationNoShow",
-          "value": "关系图",
-          "newCode": "hideInGraph",
-          "com": "Icon",
-          "relationNoShow": true
+          "hideInGraph": true
         },
         {
           "refKey": "defKey",
-          "hideInGraph": false,
-          "code": "name",
-          "value": "字段代码",
-          "newCode": "defKey",
-          "com": "Input",
-          "relationNoShow": false
+          "hideInGraph": false
         },
         {
           "refKey": "defName",
-          "hideInGraph": false,
-          "code": "chnname",
-          "value": "显示名称",
-          "newCode": "defName",
-          "com": "Input",
-          "relationNoShow": false
+          "hideInGraph": false
         },
         {
           "refKey": "primaryKey",
-          "hideInGraph": false,
-          "code": "pk",
-          "value": "主键",
-          "newCode": "primaryKey",
-          "com": "Checkbox",
-          "relationNoShow": false
+          "hideInGraph": false
         },
         {
           "refKey": "notNull",
-          "hideInGraph": true,
-          "code": "notNull",
-          "value": "不为空",
-          "newCode": "notNull",
-          "com": "Checkbox",
-          "relationNoShow": true
+          "hideInGraph": true
         },
         {
           "refKey": "autoIncrement",
-          "hideInGraph": true,
-          "code": "autoIncrement",
-          "value": "自增",
-          "newCode": "autoIncrement",
-          "com": "Checkbox",
-          "relationNoShow": true
+          "hideInGraph": true
         },
         {
           "refKey": "domain",
-          "hideInGraph": true,
-          "code": "type",
-          "value": "数据域",
-          "newCode": "domain",
-          "com": "Select",
-          "relationNoShow": true
+          "hideInGraph": true
         },
         {
           "refKey": "type",
-          "hideInGraph": false,
-          "code": "dataType",
-          "value": "数据类型",
-          "newCode": "type",
-          "com": "Text",
-          "relationNoShow": false
+          "hideInGraph": false
         },
         {
           "refKey": "len",
-          "hideInGraph": false,
-          "code": "len",
-          "value": "长度",
-          "newCode": "len",
-          "com": "Input",
-          "relationNoShow": false
+          "hideInGraph": false
         },
         {
           "refKey": "scale",
-          "hideInGraph": false,
-          "code": "scale",
-          "value": "小数位数",
-          "newCode": "scale",
-          "com": "Input",
-          "relationNoShow": false
+          "hideInGraph": false
         },
         {
           "refKey": "comment",
-          "hideInGraph": true,
-          "code": "remark",
-          "value": "说明",
-          "newCode": "comment",
-          "com": "Input",
-          "relationNoShow": true
+          "hideInGraph": true
         },
         {
           "refKey": "refDict",
-          "hideInGraph": true,
-          "code": "refDict",
-          "value": "数据字典",
-          "newCode": "refDict",
-          "com": "SearchSelect",
-          "relationNoShow": true
+          "hideInGraph": true
         },
         {
           "refKey": "defaultValue",
-          "freeze": false,
-          "hideInGraph": true,
-          "code": "defaultValue",
-          "value": "默认值",
-          "newCode": "defaultValue",
-          "com": "Input",
-          "relationNoShow": true
+          "hideInGraph": true
         },
         {
           "refKey": "isStandard",
-          "freeze": false,
-          "hideInGraph": false,
-          "code": "isStandard",
-          "value": "标准字段",
-          "newCode": "isStandard",
-          "com": "label",
-          "relationNoShow": false
+          "hideInGraph": false
         },
         {
           "refKey": "uiHint",
-          "freeze": false,
-          "hideInGraph": true,
-          "code": "uiHint",
-          "value": "UI建议",
-          "newCode": "uiHint",
-          "com": "Select",
-          "relationNoShow": true
+          "hideInGraph": true
         },
         {
           "refKey": "extProps",
-          "freeze": false,
-          "hideInGraph": true,
-          "code": "extProps",
-          "value": "拓展属性",
-          "newCode": "extProps",
-          "com": "linkButton",
-          "relationNoShow": true
+          "hideInGraph": true
         }
       ],
       "fields": [
@@ -1608,137 +1524,18 @@
           "defKey": "ID",
           "defName": "主键ID",
           "comment": "",
-          "type": "INT",
-          "len": 20,
+          "type": "",
+          "len": "",
           "scale": "",
           "primaryKey": true,
           "notNull": true,
           "autoIncrement": true,
           "defaultValue": "",
           "hideInGraph": true,
-          "domain": "",
+          "domain": "6BC8F04B-6CFA-4995-98D3-318F5CDD774E",
           "refDict": "",
           "uiHint": "",
           "id": "99E498A0-13AB-4E9E-A02B-F5C01D43EED8"
-        },
-        {
-          "defKey": "award_name",
-          "defName": "奖项名称",
-          "comment": "",
-          "type": "",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": true,
-          "autoIncrement": false,
-          "defaultValue": "''",
-          "hideInGraph": false,
-          "refDict": "",
-          "extProps": {},
-          "domain": "9092C4E0-1A54-4859-ABBB-5B62DBC27573",
-          "id": "FE88181D-A2BF-48FE-A778-8A847A246F39"
-        },
-        {
-          "defKey": "award_type",
-          "defName": "奖项类型 1 谢谢参与 2 商品",
-          "comment": "",
-          "type": "INT",
-          "len": 4,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": true,
-          "autoIncrement": false,
-          "defaultValue": "1",
-          "hideInGraph": false,
-          "refDict": "",
-          "extProps": {},
-          "domain": "",
-          "id": "ED46E171-8CC1-4800-A7A2-DCBAFDB69EA4"
-        },
-        {
-          "defKey": "sku_id",
-          "defName": "规格id 0 无规格",
-          "comment": "",
-          "type": "INT",
-          "len": 20,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": true,
-          "autoIncrement": false,
-          "defaultValue": "0",
-          "hideInGraph": false,
-          "refDict": "",
-          "extProps": {},
-          "domain": "",
-          "id": "820FD7EA-2832-48CA-A8D8-E9CD193CC22C"
-        },
-        {
-          "defKey": "turntable_config_id",
-          "defName": "转盘配置id",
-          "comment": "",
-          "type": "INT",
-          "len": 20,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "extProps": {},
-          "domain": "",
-          "id": "B91CA0FF-214C-498D-ADDF-601D7D3D6BE8"
-        },
-        {
-          "defKey": "aword_sort",
-          "defName": "奖品排序",
-          "comment": "",
-          "type": "",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": true,
-          "autoIncrement": false,
-          "defaultValue": "0",
-          "hideInGraph": false,
-          "refDict": "",
-          "extProps": {},
-          "domain": "6BC8F04B-6CFA-4995-98D3-318F5CDD774E",
-          "id": "2D9EE65D-F87E-4471-883E-025E36536A26"
-        },
-        {
-          "defKey": "`status`",
-          "defName": "状态 1 上架 2 下架",
-          "comment": "",
-          "type": "",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": true,
-          "autoIncrement": false,
-          "defaultValue": "1",
-          "hideInGraph": false,
-          "refDict": "",
-          "extProps": {},
-          "domain": "9092C4E0-1A54-4859-ABBB-5B62DBC27573",
-          "id": "1FCC277C-9E6E-4EC1-9C8A-D3871093368F"
-        },
-        {
-          "defKey": "award_rate",
-          "defName": "中奖几率",
-          "comment": "",
-          "type": "",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": true,
-          "autoIncrement": false,
-          "defaultValue": "0",
-          "hideInGraph": false,
-          "refDict": "",
-          "extProps": {},
-          "domain": "6BC8F04B-6CFA-4995-98D3-318F5CDD774E",
-          "id": "B018A930-BDE7-43CA-971A-064AD4BC0375"
         },
         {
           "defKey": "DEL_FLAG",
@@ -1802,7 +1599,7 @@
           "primaryKey": false,
           "notNull": true,
           "autoIncrement": false,
-          "defaultValue": "current_timestamp()",
+          "defaultValue": "CURRENT_TIMESTAMP()",
           "hideInGraph": true,
           "refDict": "",
           "uiHint": "",
@@ -1836,7 +1633,7 @@
           "primaryKey": false,
           "notNull": true,
           "autoIncrement": false,
-          "defaultValue": "current_timestamp()",
+          "defaultValue": "CURRENT_TIMESTAMP()",
           "hideInGraph": true,
           "refDict": "",
           "uiHint": "",

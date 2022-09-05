@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.shopping.mapper.NideshopUserMapper">
+  <resultMap id="BaseResultMap" type="com.zzhy.shopping.domain.NideshopUser">
+    <!--@mbg.generated-->
+    <!--@Table nideshop_user-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="pay_password" jdbcType="VARCHAR" property="payPassword" />
+    <result column="gender" jdbcType="BOOLEAN" property="gender" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="last_login_ip" jdbcType="VARCHAR" property="lastLoginIp" />
+    <result column="user_level_id" jdbcType="TINYINT" property="userLevelId" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="register_ip" jdbcType="VARCHAR" property="registerIp" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="weixin_openid" jdbcType="VARCHAR" property="weixinOpenid" />
+    <result column="contact_address" jdbcType="VARCHAR" property="contactAddress" />
+    <result column="statistics_status" jdbcType="BOOLEAN" property="statisticsStatus" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="create_name" jdbcType="VARCHAR" property="createName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modify_name" jdbcType="VARCHAR" property="modifyName" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="rec_status" jdbcType="BOOLEAN" property="recStatus" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="referrer_id" jdbcType="BIGINT" property="referrerId" />
+    <result column="partner_id" jdbcType="BIGINT" property="partnerId" />
+    <result column="sup_agent_id" jdbcType="BIGINT" property="supAgentId" />
+    <result column="first_order" jdbcType="BOOLEAN" property="firstOrder" />
+    <result column="is_manager" jdbcType="BOOLEAN" property="isManager" />
+    <result column="session_key" jdbcType="VARCHAR" property="sessionKey" />
+    <result column="user_type" jdbcType="BOOLEAN" property="userType" />
+    <result column="alipay_user_id" jdbcType="VARCHAR" property="alipayUserId" />
+    <result column="unionid" jdbcType="VARCHAR" property="unionid" />
+    <result column="byte_avatar" jdbcType="VARCHAR" property="byteAvatar" />
+    <result column="byte_nickname" jdbcType="VARCHAR" property="byteNickname" />
+    <result column="byte_openid" jdbcType="VARCHAR" property="byteOpenid" />
+    <result column="byte_session_key" jdbcType="VARCHAR" property="byteSessionKey" />
+    <result column="store_id" jdbcType="INTEGER" property="storeId" />
+    <result column="qq_openid" jdbcType="VARCHAR" property="qqOpenid" />
+    <result column="qq_session_key" jdbcType="VARCHAR" property="qqSessionKey" />
+    <result column="qq_unionid" jdbcType="VARCHAR" property="qqUnionid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, username, `password`, pay_password, gender, birthday, register_time, last_login_time, 
+    last_login_ip, user_level_id, nickname, mobile, register_ip, avatar, weixin_openid, 
+    contact_address, statistics_status, creator, create_name, create_time, modifier, 
+    modify_name, modify_time, `status`, rec_status, remark, referrer_id, partner_id, 
+    sup_agent_id, first_order, is_manager, session_key, user_type, alipay_user_id, unionid, 
+    byte_avatar, byte_nickname, byte_openid, byte_session_key, store_id, qq_openid, qq_session_key, 
+    qq_unionid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from nideshop_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from nideshop_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.NideshopUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into nideshop_user (username, `password`, pay_password, 
+      gender, birthday, register_time, 
+      last_login_time, last_login_ip, user_level_id, 
+      nickname, mobile, register_ip, 
+      avatar, weixin_openid, contact_address, 
+      statistics_status, creator, create_name, 
+      create_time, modifier, modify_name, 
+      modify_time, `status`, rec_status, 
+      remark, referrer_id, partner_id, 
+      sup_agent_id, first_order, is_manager, 
+      session_key, user_type, alipay_user_id, 
+      unionid, byte_avatar, byte_nickname, 
+      byte_openid, byte_session_key, store_id, 
+      qq_openid, qq_session_key, qq_unionid
+      )
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{payPassword,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=BOOLEAN}, #{birthday,jdbcType=TIMESTAMP}, #{registerTime,jdbcType=TIMESTAMP}, 
+      #{lastLoginTime,jdbcType=TIMESTAMP}, #{lastLoginIp,jdbcType=VARCHAR}, #{userLevelId,jdbcType=TINYINT}, 
+      #{nickname,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{registerIp,jdbcType=VARCHAR}, 
+      #{avatar,jdbcType=VARCHAR}, #{weixinOpenid,jdbcType=VARCHAR}, #{contactAddress,jdbcType=VARCHAR}, 
+      #{statisticsStatus,jdbcType=BOOLEAN}, #{creator,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, #{modifyName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{status,jdbcType=BOOLEAN}, #{recStatus,jdbcType=BOOLEAN}, 
+      #{remark,jdbcType=VARCHAR}, #{referrerId,jdbcType=BIGINT}, #{partnerId,jdbcType=BIGINT}, 
+      #{supAgentId,jdbcType=BIGINT}, #{firstOrder,jdbcType=BOOLEAN}, #{isManager,jdbcType=BOOLEAN}, 
+      #{sessionKey,jdbcType=VARCHAR}, #{userType,jdbcType=BOOLEAN}, #{alipayUserId,jdbcType=VARCHAR}, 
+      #{unionid,jdbcType=VARCHAR}, #{byteAvatar,jdbcType=VARCHAR}, #{byteNickname,jdbcType=VARCHAR}, 
+      #{byteOpenid,jdbcType=VARCHAR}, #{byteSessionKey,jdbcType=VARCHAR}, #{storeId,jdbcType=INTEGER}, 
+      #{qqOpenid,jdbcType=VARCHAR}, #{qqSessionKey,jdbcType=VARCHAR}, #{qqUnionid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.NideshopUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into nideshop_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="payPassword != null">
+        pay_password,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="registerTime != null">
+        register_time,
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time,
+      </if>
+      <if test="lastLoginIp != null">
+        last_login_ip,
+      </if>
+      <if test="userLevelId != null">
+        user_level_id,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="registerIp != null">
+        register_ip,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="weixinOpenid != null">
+        weixin_openid,
+      </if>
+      <if test="contactAddress != null">
+        contact_address,
+      </if>
+      <if test="statisticsStatus != null">
+        statistics_status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createName != null">
+        create_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifier != null">
+        modifier,
+      </if>
+      <if test="modifyName != null">
+        modify_name,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="recStatus != null">
+        rec_status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="referrerId != null">
+        referrer_id,
+      </if>
+      <if test="partnerId != null">
+        partner_id,
+      </if>
+      <if test="supAgentId != null">
+        sup_agent_id,
+      </if>
+      <if test="firstOrder != null">
+        first_order,
+      </if>
+      <if test="isManager != null">
+        is_manager,
+      </if>
+      <if test="sessionKey != null">
+        session_key,
+      </if>
+      <if test="userType != null">
+        user_type,
+      </if>
+      <if test="alipayUserId != null">
+        alipay_user_id,
+      </if>
+      <if test="unionid != null">
+        unionid,
+      </if>
+      <if test="byteAvatar != null">
+        byte_avatar,
+      </if>
+      <if test="byteNickname != null">
+        byte_nickname,
+      </if>
+      <if test="byteOpenid != null">
+        byte_openid,
+      </if>
+      <if test="byteSessionKey != null">
+        byte_session_key,
+      </if>
+      <if test="storeId != null">
+        store_id,
+      </if>
+      <if test="qqOpenid != null">
+        qq_openid,
+      </if>
+      <if test="qqSessionKey != null">
+        qq_session_key,
+      </if>
+      <if test="qqUnionid != null">
+        qq_unionid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="payPassword != null">
+        #{payPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=BOOLEAN},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registerTime != null">
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginIp != null">
+        #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevelId != null">
+        #{userLevelId,jdbcType=TINYINT},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="registerIp != null">
+        #{registerIp,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinOpenid != null">
+        #{weixinOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddress != null">
+        #{contactAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticsStatus != null">
+        #{statisticsStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null">
+        #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BOOLEAN},
+      </if>
+      <if test="recStatus != null">
+        #{recStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="referrerId != null">
+        #{referrerId,jdbcType=BIGINT},
+      </if>
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=BIGINT},
+      </if>
+      <if test="supAgentId != null">
+        #{supAgentId,jdbcType=BIGINT},
+      </if>
+      <if test="firstOrder != null">
+        #{firstOrder,jdbcType=BOOLEAN},
+      </if>
+      <if test="isManager != null">
+        #{isManager,jdbcType=BOOLEAN},
+      </if>
+      <if test="sessionKey != null">
+        #{sessionKey,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=BOOLEAN},
+      </if>
+      <if test="alipayUserId != null">
+        #{alipayUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="unionid != null">
+        #{unionid,jdbcType=VARCHAR},
+      </if>
+      <if test="byteAvatar != null">
+        #{byteAvatar,jdbcType=VARCHAR},
+      </if>
+      <if test="byteNickname != null">
+        #{byteNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="byteOpenid != null">
+        #{byteOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="byteSessionKey != null">
+        #{byteSessionKey,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="qqOpenid != null">
+        #{qqOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="qqSessionKey != null">
+        #{qqSessionKey,jdbcType=VARCHAR},
+      </if>
+      <if test="qqUnionid != null">
+        #{qqUnionid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzhy.shopping.domain.NideshopUser">
+    <!--@mbg.generated-->
+    update nideshop_user
+    <set>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="payPassword != null">
+        pay_password = #{payPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=BOOLEAN},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registerTime != null">
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLoginIp != null">
+        last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevelId != null">
+        user_level_id = #{userLevelId,jdbcType=TINYINT},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="registerIp != null">
+        register_ip = #{registerIp,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinOpenid != null">
+        weixin_openid = #{weixinOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="contactAddress != null">
+        contact_address = #{contactAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticsStatus != null">
+        statistics_status = #{statisticsStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null">
+        create_name = #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null">
+        modify_name = #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=BOOLEAN},
+      </if>
+      <if test="recStatus != null">
+        rec_status = #{recStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="referrerId != null">
+        referrer_id = #{referrerId,jdbcType=BIGINT},
+      </if>
+      <if test="partnerId != null">
+        partner_id = #{partnerId,jdbcType=BIGINT},
+      </if>
+      <if test="supAgentId != null">
+        sup_agent_id = #{supAgentId,jdbcType=BIGINT},
+      </if>
+      <if test="firstOrder != null">
+        first_order = #{firstOrder,jdbcType=BOOLEAN},
+      </if>
+      <if test="isManager != null">
+        is_manager = #{isManager,jdbcType=BOOLEAN},
+      </if>
+      <if test="sessionKey != null">
+        session_key = #{sessionKey,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        user_type = #{userType,jdbcType=BOOLEAN},
+      </if>
+      <if test="alipayUserId != null">
+        alipay_user_id = #{alipayUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="unionid != null">
+        unionid = #{unionid,jdbcType=VARCHAR},
+      </if>
+      <if test="byteAvatar != null">
+        byte_avatar = #{byteAvatar,jdbcType=VARCHAR},
+      </if>
+      <if test="byteNickname != null">
+        byte_nickname = #{byteNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="byteOpenid != null">
+        byte_openid = #{byteOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="byteSessionKey != null">
+        byte_session_key = #{byteSessionKey,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null">
+        store_id = #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="qqOpenid != null">
+        qq_openid = #{qqOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="qqSessionKey != null">
+        qq_session_key = #{qqSessionKey,jdbcType=VARCHAR},
+      </if>
+      <if test="qqUnionid != null">
+        qq_unionid = #{qqUnionid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzhy.shopping.domain.NideshopUser">
+    <!--@mbg.generated-->
+    update nideshop_user
+    set username = #{username,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      pay_password = #{payPassword,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=BOOLEAN},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      register_time = #{registerTime,jdbcType=TIMESTAMP},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+      user_level_id = #{userLevelId,jdbcType=TINYINT},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      register_ip = #{registerIp,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      weixin_openid = #{weixinOpenid,jdbcType=VARCHAR},
+      contact_address = #{contactAddress,jdbcType=VARCHAR},
+      statistics_status = #{statisticsStatus,jdbcType=BOOLEAN},
+      creator = #{creator,jdbcType=VARCHAR},
+      create_name = #{createName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      modify_name = #{modifyName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      `status` = #{status,jdbcType=BOOLEAN},
+      rec_status = #{recStatus,jdbcType=BOOLEAN},
+      remark = #{remark,jdbcType=VARCHAR},
+      referrer_id = #{referrerId,jdbcType=BIGINT},
+      partner_id = #{partnerId,jdbcType=BIGINT},
+      sup_agent_id = #{supAgentId,jdbcType=BIGINT},
+      first_order = #{firstOrder,jdbcType=BOOLEAN},
+      is_manager = #{isManager,jdbcType=BOOLEAN},
+      session_key = #{sessionKey,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=BOOLEAN},
+      alipay_user_id = #{alipayUserId,jdbcType=VARCHAR},
+      unionid = #{unionid,jdbcType=VARCHAR},
+      byte_avatar = #{byteAvatar,jdbcType=VARCHAR},
+      byte_nickname = #{byteNickname,jdbcType=VARCHAR},
+      byte_openid = #{byteOpenid,jdbcType=VARCHAR},
+      byte_session_key = #{byteSessionKey,jdbcType=VARCHAR},
+      store_id = #{storeId,jdbcType=INTEGER},
+      qq_openid = #{qqOpenid,jdbcType=VARCHAR},
+      qq_session_key = #{qqSessionKey,jdbcType=VARCHAR},
+      qq_unionid = #{qqUnionid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

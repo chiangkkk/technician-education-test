@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.shopping.mapper.WxSkuSpecAttrMapper">
+  <resultMap id="BaseResultMap" type="com.zzhy.shopping.domain.WxSkuSpecAttr">
+    <!--@mbg.generated-->
+    <!--@Table wx_sku_spec_attr-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="goods_code" jdbcType="VARCHAR" property="goodsCode" />
+    <result column="spec_id" jdbcType="BIGINT" property="specId" />
+    <result column="item_value" jdbcType="VARCHAR" property="itemValue" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="rec_status" jdbcType="BOOLEAN" property="recStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, goods_code, spec_id, item_value, creator, create_time, modifier, modify_time, 
+    rec_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from wx_sku_spec_attr
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from wx_sku_spec_attr
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.WxSkuSpecAttr" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into wx_sku_spec_attr (goods_code, spec_id, item_value, 
+      creator, create_time, modifier, 
+      modify_time, rec_status)
+    values (#{goodsCode,jdbcType=VARCHAR}, #{specId,jdbcType=BIGINT}, #{itemValue,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{recStatus,jdbcType=BOOLEAN})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.WxSkuSpecAttr" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into wx_sku_spec_attr
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodsCode != null">
+        goods_code,
+      </if>
+      <if test="specId != null">
+        spec_id,
+      </if>
+      <if test="itemValue != null">
+        item_value,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifier != null">
+        modifier,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="recStatus != null">
+        rec_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="goodsCode != null">
+        #{goodsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="specId != null">
+        #{specId,jdbcType=BIGINT},
+      </if>
+      <if test="itemValue != null">
+        #{itemValue,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recStatus != null">
+        #{recStatus,jdbcType=BOOLEAN},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzhy.shopping.domain.WxSkuSpecAttr">
+    <!--@mbg.generated-->
+    update wx_sku_spec_attr
+    <set>
+      <if test="goodsCode != null">
+        goods_code = #{goodsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="specId != null">
+        spec_id = #{specId,jdbcType=BIGINT},
+      </if>
+      <if test="itemValue != null">
+        item_value = #{itemValue,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recStatus != null">
+        rec_status = #{recStatus,jdbcType=BOOLEAN},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzhy.shopping.domain.WxSkuSpecAttr">
+    <!--@mbg.generated-->
+    update wx_sku_spec_attr
+    set goods_code = #{goodsCode,jdbcType=VARCHAR},
+      spec_id = #{specId,jdbcType=BIGINT},
+      item_value = #{itemValue,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      rec_status = #{recStatus,jdbcType=BOOLEAN}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.shopping.mapper.NideshopBrandMapper">
+  <resultMap id="BaseResultMap" type="com.zzhy.shopping.domain.NideshopBrand">
+    <!--@mbg.generated-->
+    <!--@Table nideshop_brand-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="list_pic_url" jdbcType="VARCHAR" property="listPicUrl" />
+    <result column="simple_desc" jdbcType="VARCHAR" property="simpleDesc" />
+    <result column="pic_url" jdbcType="VARCHAR" property="picUrl" />
+    <result column="sort_order" jdbcType="TINYINT" property="sortOrder" />
+    <result column="is_show" jdbcType="TINYINT" property="isShow" />
+    <result column="floor_price" jdbcType="DECIMAL" property="floorPrice" />
+    <result column="app_list_pic_url" jdbcType="VARCHAR" property="appListPicUrl" />
+    <result column="is_new" jdbcType="TINYINT" property="isNew" />
+    <result column="new_pic_url" jdbcType="VARCHAR" property="newPicUrl" />
+    <result column="new_sort_order" jdbcType="TINYINT" property="newSortOrder" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="create_name" jdbcType="VARCHAR" property="createName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modify_name" jdbcType="VARCHAR" property="modifyName" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="rec_status" jdbcType="BOOLEAN" property="recStatus" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="merchant_id" jdbcType="BIGINT" property="merchantId" />
+    <result column="store_id" jdbcType="BIGINT" property="storeId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, list_pic_url, simple_desc, pic_url, sort_order, is_show, floor_price, 
+    app_list_pic_url, is_new, new_pic_url, new_sort_order, creator, create_name, create_time, 
+    modifier, modify_name, modify_time, `status`, rec_status, remark, merchant_id, store_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from nideshop_brand
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from nideshop_brand
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.NideshopBrand" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into nideshop_brand (`name`, list_pic_url, simple_desc, 
+      pic_url, sort_order, is_show, 
+      floor_price, app_list_pic_url, is_new, 
+      new_pic_url, new_sort_order, creator, 
+      create_name, create_time, modifier, 
+      modify_name, modify_time, `status`, 
+      rec_status, remark, merchant_id, 
+      store_id)
+    values (#{name,jdbcType=VARCHAR}, #{listPicUrl,jdbcType=VARCHAR}, #{simpleDesc,jdbcType=VARCHAR}, 
+      #{picUrl,jdbcType=VARCHAR}, #{sortOrder,jdbcType=TINYINT}, #{isShow,jdbcType=TINYINT}, 
+      #{floorPrice,jdbcType=DECIMAL}, #{appListPicUrl,jdbcType=VARCHAR}, #{isNew,jdbcType=TINYINT}, 
+      #{newPicUrl,jdbcType=VARCHAR}, #{newSortOrder,jdbcType=TINYINT}, #{creator,jdbcType=VARCHAR}, 
+      #{createName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, 
+      #{modifyName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{status,jdbcType=BOOLEAN}, 
+      #{recStatus,jdbcType=BOOLEAN}, #{remark,jdbcType=VARCHAR}, #{merchantId,jdbcType=BIGINT}, 
+      #{storeId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.NideshopBrand" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into nideshop_brand
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="listPicUrl != null">
+        list_pic_url,
+      </if>
+      <if test="simpleDesc != null">
+        simple_desc,
+      </if>
+      <if test="picUrl != null">
+        pic_url,
+      </if>
+      <if test="sortOrder != null">
+        sort_order,
+      </if>
+      <if test="isShow != null">
+        is_show,
+      </if>
+      <if test="floorPrice != null">
+        floor_price,
+      </if>
+      <if test="appListPicUrl != null">
+        app_list_pic_url,
+      </if>
+      <if test="isNew != null">
+        is_new,
+      </if>
+      <if test="newPicUrl != null">
+        new_pic_url,
+      </if>
+      <if test="newSortOrder != null">
+        new_sort_order,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createName != null">
+        create_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifier != null">
+        modifier,
+      </if>
+      <if test="modifyName != null">
+        modify_name,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="recStatus != null">
+        rec_status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="merchantId != null">
+        merchant_id,
+      </if>
+      <if test="storeId != null">
+        store_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="listPicUrl != null">
+        #{listPicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="simpleDesc != null">
+        #{simpleDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="picUrl != null">
+        #{picUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sortOrder != null">
+        #{sortOrder,jdbcType=TINYINT},
+      </if>
+      <if test="isShow != null">
+        #{isShow,jdbcType=TINYINT},
+      </if>
+      <if test="floorPrice != null">
+        #{floorPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="appListPicUrl != null">
+        #{appListPicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isNew != null">
+        #{isNew,jdbcType=TINYINT},
+      </if>
+      <if test="newPicUrl != null">
+        #{newPicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="newSortOrder != null">
+        #{newSortOrder,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null">
+        #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BOOLEAN},
+      </if>
+      <if test="recStatus != null">
+        #{recStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        #{merchantId,jdbcType=BIGINT},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzhy.shopping.domain.NideshopBrand">
+    <!--@mbg.generated-->
+    update nideshop_brand
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="listPicUrl != null">
+        list_pic_url = #{listPicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="simpleDesc != null">
+        simple_desc = #{simpleDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="picUrl != null">
+        pic_url = #{picUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sortOrder != null">
+        sort_order = #{sortOrder,jdbcType=TINYINT},
+      </if>
+      <if test="isShow != null">
+        is_show = #{isShow,jdbcType=TINYINT},
+      </if>
+      <if test="floorPrice != null">
+        floor_price = #{floorPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="appListPicUrl != null">
+        app_list_pic_url = #{appListPicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isNew != null">
+        is_new = #{isNew,jdbcType=TINYINT},
+      </if>
+      <if test="newPicUrl != null">
+        new_pic_url = #{newPicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="newSortOrder != null">
+        new_sort_order = #{newSortOrder,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null">
+        create_name = #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null">
+        modify_name = #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=BOOLEAN},
+      </if>
+      <if test="recStatus != null">
+        rec_status = #{recStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        merchant_id = #{merchantId,jdbcType=BIGINT},
+      </if>
+      <if test="storeId != null">
+        store_id = #{storeId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzhy.shopping.domain.NideshopBrand">
+    <!--@mbg.generated-->
+    update nideshop_brand
+    set `name` = #{name,jdbcType=VARCHAR},
+      list_pic_url = #{listPicUrl,jdbcType=VARCHAR},
+      simple_desc = #{simpleDesc,jdbcType=VARCHAR},
+      pic_url = #{picUrl,jdbcType=VARCHAR},
+      sort_order = #{sortOrder,jdbcType=TINYINT},
+      is_show = #{isShow,jdbcType=TINYINT},
+      floor_price = #{floorPrice,jdbcType=DECIMAL},
+      app_list_pic_url = #{appListPicUrl,jdbcType=VARCHAR},
+      is_new = #{isNew,jdbcType=TINYINT},
+      new_pic_url = #{newPicUrl,jdbcType=VARCHAR},
+      new_sort_order = #{newSortOrder,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      create_name = #{createName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      modify_name = #{modifyName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      `status` = #{status,jdbcType=BOOLEAN},
+      rec_status = #{recStatus,jdbcType=BOOLEAN},
+      remark = #{remark,jdbcType=VARCHAR},
+      merchant_id = #{merchantId,jdbcType=BIGINT},
+      store_id = #{storeId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

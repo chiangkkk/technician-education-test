@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.shopping.mapper.WxSpecAttrRefMapper">
+  <resultMap id="BaseResultMap" type="com.zzhy.shopping.domain.WxSpecAttrRef">
+    <!--@mbg.generated-->
+    <!--@Table wx_spec_attr_ref-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="goods_id" jdbcType="BIGINT" property="goodsId" />
+    <result column="spec_id" jdbcType="BIGINT" property="specId" />
+    <result column="item_id" jdbcType="BIGINT" property="itemId" />
+    <result column="item_value" jdbcType="VARCHAR" property="itemValue" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="rec_status" jdbcType="BOOLEAN" property="recStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, goods_id, spec_id, item_id, item_value, create_time, rec_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from wx_spec_attr_ref
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from wx_spec_attr_ref
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.WxSpecAttrRef" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into wx_spec_attr_ref (goods_id, spec_id, item_id, 
+      item_value, create_time, rec_status
+      )
+    values (#{goodsId,jdbcType=BIGINT}, #{specId,jdbcType=BIGINT}, #{itemId,jdbcType=BIGINT}, 
+      #{itemValue,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{recStatus,jdbcType=BOOLEAN}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.WxSpecAttrRef" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into wx_spec_attr_ref
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null">
+        goods_id,
+      </if>
+      <if test="specId != null">
+        spec_id,
+      </if>
+      <if test="itemId != null">
+        item_id,
+      </if>
+      <if test="itemValue != null">
+        item_value,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="recStatus != null">
+        rec_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="specId != null">
+        #{specId,jdbcType=BIGINT},
+      </if>
+      <if test="itemId != null">
+        #{itemId,jdbcType=BIGINT},
+      </if>
+      <if test="itemValue != null">
+        #{itemValue,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recStatus != null">
+        #{recStatus,jdbcType=BOOLEAN},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzhy.shopping.domain.WxSpecAttrRef">
+    <!--@mbg.generated-->
+    update wx_spec_attr_ref
+    <set>
+      <if test="goodsId != null">
+        goods_id = #{goodsId,jdbcType=BIGINT},
+      </if>
+      <if test="specId != null">
+        spec_id = #{specId,jdbcType=BIGINT},
+      </if>
+      <if test="itemId != null">
+        item_id = #{itemId,jdbcType=BIGINT},
+      </if>
+      <if test="itemValue != null">
+        item_value = #{itemValue,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recStatus != null">
+        rec_status = #{recStatus,jdbcType=BOOLEAN},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzhy.shopping.domain.WxSpecAttrRef">
+    <!--@mbg.generated-->
+    update wx_spec_attr_ref
+    set goods_id = #{goodsId,jdbcType=BIGINT},
+      spec_id = #{specId,jdbcType=BIGINT},
+      item_id = #{itemId,jdbcType=BIGINT},
+      item_value = #{itemValue,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      rec_status = #{recStatus,jdbcType=BOOLEAN}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

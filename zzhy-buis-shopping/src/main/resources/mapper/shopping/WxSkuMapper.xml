@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.shopping.mapper.WxSkuMapper">
+  <resultMap id="BaseResultMap" type="com.zzhy.shopping.domain.WxSku">
+    <!--@mbg.generated-->
+    <!--@Table wx_sku-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="sku_name" jdbcType="VARCHAR" property="skuName" />
+    <result column="sku_code" jdbcType="VARCHAR" property="skuCode" />
+    <result column="goods_code" jdbcType="VARCHAR" property="goodsCode" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="primary_pic_url" jdbcType="VARCHAR" property="primaryPicUrl" />
+    <result column="original_price" jdbcType="DECIMAL" property="originalPrice" />
+    <result column="selling_price" jdbcType="DECIMAL" property="sellingPrice" />
+    <result column="integral_price" jdbcType="DECIMAL" property="integralPrice" />
+    <result column="sku_number" jdbcType="INTEGER" property="skuNumber" />
+    <result column="sku_type" jdbcType="VARCHAR" property="skuType" />
+    <result column="spec_atrr_ids" jdbcType="VARCHAR" property="specAtrrIds" />
+    <result column="spec_atrr_val" jdbcType="VARCHAR" property="specAtrrVal" />
+    <result column="sku_desc" jdbcType="LONGVARCHAR" property="skuDesc" />
+    <result column="status_date" jdbcType="TIMESTAMP" property="statusDate" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="create_name" jdbcType="VARCHAR" property="createName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modify_name" jdbcType="VARCHAR" property="modifyName" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="rec_status" jdbcType="BOOLEAN" property="recStatus" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="agent_price" jdbcType="DECIMAL" property="agentPrice" />
+    <result column="supply_price" jdbcType="DECIMAL" property="supplyPrice" />
+    <result column="weight_num" jdbcType="BIGINT" property="weightNum" />
+    <result column="brand_id" jdbcType="BIGINT" property="brandId" />
+    <result column="is_use_integral" jdbcType="BOOLEAN" property="isUseIntegral" />
+    <result column="deduction_money" jdbcType="DECIMAL" property="deductionMoney" />
+    <result column="deduction_proportion" jdbcType="DECIMAL" property="deductionProportion" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, sku_name, sku_code, goods_code, goods_id, primary_pic_url, original_price, selling_price, 
+    integral_price, sku_number, sku_type, spec_atrr_ids, spec_atrr_val, sku_desc, status_date, 
+    creator, create_name, create_time, modifier, modify_name, modify_time, `status`, 
+    rec_status, remark, agent_price, supply_price, weight_num, brand_id, is_use_integral, 
+    deduction_money, deduction_proportion
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from wx_sku
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from wx_sku
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.WxSku" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into wx_sku (sku_name, sku_code, goods_code, 
+      goods_id, primary_pic_url, original_price, 
+      selling_price, integral_price, sku_number, 
+      sku_type, spec_atrr_ids, spec_atrr_val, 
+      sku_desc, status_date, creator, 
+      create_name, create_time, modifier, 
+      modify_name, modify_time, `status`, 
+      rec_status, remark, agent_price, 
+      supply_price, weight_num, brand_id, 
+      is_use_integral, deduction_money, deduction_proportion
+      )
+    values (#{skuName,jdbcType=VARCHAR}, #{skuCode,jdbcType=VARCHAR}, #{goodsCode,jdbcType=VARCHAR}, 
+      #{goodsId,jdbcType=INTEGER}, #{primaryPicUrl,jdbcType=VARCHAR}, #{originalPrice,jdbcType=DECIMAL}, 
+      #{sellingPrice,jdbcType=DECIMAL}, #{integralPrice,jdbcType=DECIMAL}, #{skuNumber,jdbcType=INTEGER}, 
+      #{skuType,jdbcType=VARCHAR}, #{specAtrrIds,jdbcType=VARCHAR}, #{specAtrrVal,jdbcType=VARCHAR}, 
+      #{skuDesc,jdbcType=LONGVARCHAR}, #{statusDate,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
+      #{createName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, 
+      #{modifyName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{status,jdbcType=BOOLEAN}, 
+      #{recStatus,jdbcType=BOOLEAN}, #{remark,jdbcType=VARCHAR}, #{agentPrice,jdbcType=DECIMAL}, 
+      #{supplyPrice,jdbcType=DECIMAL}, #{weightNum,jdbcType=BIGINT}, #{brandId,jdbcType=BIGINT}, 
+      #{isUseIntegral,jdbcType=BOOLEAN}, #{deductionMoney,jdbcType=DECIMAL}, #{deductionProportion,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.WxSku" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into wx_sku
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="skuName != null">
+        sku_name,
+      </if>
+      <if test="skuCode != null">
+        sku_code,
+      </if>
+      <if test="goodsCode != null">
+        goods_code,
+      </if>
+      <if test="goodsId != null">
+        goods_id,
+      </if>
+      <if test="primaryPicUrl != null">
+        primary_pic_url,
+      </if>
+      <if test="originalPrice != null">
+        original_price,
+      </if>
+      <if test="sellingPrice != null">
+        selling_price,
+      </if>
+      <if test="integralPrice != null">
+        integral_price,
+      </if>
+      <if test="skuNumber != null">
+        sku_number,
+      </if>
+      <if test="skuType != null">
+        sku_type,
+      </if>
+      <if test="specAtrrIds != null">
+        spec_atrr_ids,
+      </if>
+      <if test="specAtrrVal != null">
+        spec_atrr_val,
+      </if>
+      <if test="skuDesc != null">
+        sku_desc,
+      </if>
+      <if test="statusDate != null">
+        status_date,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createName != null">
+        create_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifier != null">
+        modifier,
+      </if>
+      <if test="modifyName != null">
+        modify_name,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="recStatus != null">
+        rec_status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="agentPrice != null">
+        agent_price,
+      </if>
+      <if test="supplyPrice != null">
+        supply_price,
+      </if>
+      <if test="weightNum != null">
+        weight_num,
+      </if>
+      <if test="brandId != null">
+        brand_id,
+      </if>
+      <if test="isUseIntegral != null">
+        is_use_integral,
+      </if>
+      <if test="deductionMoney != null">
+        deduction_money,
+      </if>
+      <if test="deductionProportion != null">
+        deduction_proportion,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="skuName != null">
+        #{skuName,jdbcType=VARCHAR},
+      </if>
+      <if test="skuCode != null">
+        #{skuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsCode != null">
+        #{goodsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="primaryPicUrl != null">
+        #{primaryPicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPrice != null">
+        #{originalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="sellingPrice != null">
+        #{sellingPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="integralPrice != null">
+        #{integralPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="skuNumber != null">
+        #{skuNumber,jdbcType=INTEGER},
+      </if>
+      <if test="skuType != null">
+        #{skuType,jdbcType=VARCHAR},
+      </if>
+      <if test="specAtrrIds != null">
+        #{specAtrrIds,jdbcType=VARCHAR},
+      </if>
+      <if test="specAtrrVal != null">
+        #{specAtrrVal,jdbcType=VARCHAR},
+      </if>
+      <if test="skuDesc != null">
+        #{skuDesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="statusDate != null">
+        #{statusDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null">
+        #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BOOLEAN},
+      </if>
+      <if test="recStatus != null">
+        #{recStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="agentPrice != null">
+        #{agentPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="supplyPrice != null">
+        #{supplyPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="weightNum != null">
+        #{weightNum,jdbcType=BIGINT},
+      </if>
+      <if test="brandId != null">
+        #{brandId,jdbcType=BIGINT},
+      </if>
+      <if test="isUseIntegral != null">
+        #{isUseIntegral,jdbcType=BOOLEAN},
+      </if>
+      <if test="deductionMoney != null">
+        #{deductionMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="deductionProportion != null">
+        #{deductionProportion,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzhy.shopping.domain.WxSku">
+    <!--@mbg.generated-->
+    update wx_sku
+    <set>
+      <if test="skuName != null">
+        sku_name = #{skuName,jdbcType=VARCHAR},
+      </if>
+      <if test="skuCode != null">
+        sku_code = #{skuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsCode != null">
+        goods_code = #{goodsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsId != null">
+        goods_id = #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="primaryPicUrl != null">
+        primary_pic_url = #{primaryPicUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPrice != null">
+        original_price = #{originalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="sellingPrice != null">
+        selling_price = #{sellingPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="integralPrice != null">
+        integral_price = #{integralPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="skuNumber != null">
+        sku_number = #{skuNumber,jdbcType=INTEGER},
+      </if>
+      <if test="skuType != null">
+        sku_type = #{skuType,jdbcType=VARCHAR},
+      </if>
+      <if test="specAtrrIds != null">
+        spec_atrr_ids = #{specAtrrIds,jdbcType=VARCHAR},
+      </if>
+      <if test="specAtrrVal != null">
+        spec_atrr_val = #{specAtrrVal,jdbcType=VARCHAR},
+      </if>
+      <if test="skuDesc != null">
+        sku_desc = #{skuDesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="statusDate != null">
+        status_date = #{statusDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null">
+        create_name = #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null">
+        modify_name = #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=BOOLEAN},
+      </if>
+      <if test="recStatus != null">
+        rec_status = #{recStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="agentPrice != null">
+        agent_price = #{agentPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="supplyPrice != null">
+        supply_price = #{supplyPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="weightNum != null">
+        weight_num = #{weightNum,jdbcType=BIGINT},
+      </if>
+      <if test="brandId != null">
+        brand_id = #{brandId,jdbcType=BIGINT},
+      </if>
+      <if test="isUseIntegral != null">
+        is_use_integral = #{isUseIntegral,jdbcType=BOOLEAN},
+      </if>
+      <if test="deductionMoney != null">
+        deduction_money = #{deductionMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="deductionProportion != null">
+        deduction_proportion = #{deductionProportion,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzhy.shopping.domain.WxSku">
+    <!--@mbg.generated-->
+    update wx_sku
+    set sku_name = #{skuName,jdbcType=VARCHAR},
+      sku_code = #{skuCode,jdbcType=VARCHAR},
+      goods_code = #{goodsCode,jdbcType=VARCHAR},
+      goods_id = #{goodsId,jdbcType=INTEGER},
+      primary_pic_url = #{primaryPicUrl,jdbcType=VARCHAR},
+      original_price = #{originalPrice,jdbcType=DECIMAL},
+      selling_price = #{sellingPrice,jdbcType=DECIMAL},
+      integral_price = #{integralPrice,jdbcType=DECIMAL},
+      sku_number = #{skuNumber,jdbcType=INTEGER},
+      sku_type = #{skuType,jdbcType=VARCHAR},
+      spec_atrr_ids = #{specAtrrIds,jdbcType=VARCHAR},
+      spec_atrr_val = #{specAtrrVal,jdbcType=VARCHAR},
+      sku_desc = #{skuDesc,jdbcType=LONGVARCHAR},
+      status_date = #{statusDate,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      create_name = #{createName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      modify_name = #{modifyName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      `status` = #{status,jdbcType=BOOLEAN},
+      rec_status = #{recStatus,jdbcType=BOOLEAN},
+      remark = #{remark,jdbcType=VARCHAR},
+      agent_price = #{agentPrice,jdbcType=DECIMAL},
+      supply_price = #{supplyPrice,jdbcType=DECIMAL},
+      weight_num = #{weightNum,jdbcType=BIGINT},
+      brand_id = #{brandId,jdbcType=BIGINT},
+      is_use_integral = #{isUseIntegral,jdbcType=BOOLEAN},
+      deduction_money = #{deductionMoney,jdbcType=DECIMAL},
+      deduction_proportion = #{deductionProportion,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
