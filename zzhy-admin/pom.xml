@@ -80,6 +80,11 @@
             <artifactId>zzhy-buis-colleges</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.zzhy</groupId>
+            <artifactId>zzhy-buis-shopping</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

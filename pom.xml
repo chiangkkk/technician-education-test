@@ -246,7 +246,11 @@
                 <artifactId>zzhy-buis-colleges</artifactId>
                 <version>${zzhy.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.zzhy</groupId>
+                <artifactId>zzhy-buis-shopping</artifactId>
+                <version>${zzhy.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -259,6 +263,7 @@
         <module>zzhy-common</module>
         <module>zzhy-buis-supervise</module>
         <module>zzhy-buis-colleges</module>
+        <module>zzhy-buis-shopping</module>
     </modules>
     <packaging>pom</packaging>
 

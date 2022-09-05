@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.shopping.mapper.TurntableConfigurationMapper">
+
+    <resultMap type="TurntableConfiguration" id="TurntableConfigurationResult">
+        <result property="turntableId"    column="turntable_id"    />
+        <result property="turntableName"    column="turntable_name"    />
+        <result property="cusomerIntegral"    column="cusomer_integral"    />
+        <result property="status"    column="status"    />
+        <result property="delFlag"    column="DEL_FLAG"    />
+        <result property="remark"    column="REMARK"    />
+        <result property="createBy"    column="CREATE_BY"    />
+        <result property="createTime"    column="CREATE_TIME"    />
+        <result property="updateBy"    column="UPDATE_BY"    />
+        <result property="updateTime"    column="UPDATE_TIME"    />
+        <result property="lotteryNumber" column="lottery_number" />
+    </resultMap>
+
+    <sql id="selectTurntableConfigurationVo">
+        select turntable_id, turntable_name, cusomer_integral, status, DEL_FLAG, REMARK, CREATE_BY, CREATE_TIME, UPDATE_BY, UPDATE_TIME, lottery_number from turntable_configuration
+    </sql>
+
+    <select id="selectTurntableConfigurationList" parameterType="TurntableConfiguration" resultMap="TurntableConfigurationResult">
+        <include refid="selectTurntableConfigurationVo"/>
+        <where>
+            <if test="turntableName != null  and turntableName != ''"> and turntable_name like concat('%', #{turntableName}, '%')</if>
+            <if test="cusomerIntegral != null "> and cusomer_integral = #{cusomerIntegral}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="delFlag != null  and delFlag != ''"> and DEL_FLAG = #{delFlag}</if>
+            <if test="remark != null  and remark != ''"> and REMARK = #{remark}</if>
+            <if test="createBy != null  and createBy != ''"> and CREATE_BY = #{createBy}</if>
+            <if test="createTime != null "> and CREATE_TIME = #{createTime}</if>
+            <if test="updateBy != null  and updateBy != ''"> and UPDATE_BY = #{updateBy}</if>
+            <if test="updateTime != null "> and UPDATE_TIME = #{updateTime}</if>
+            <if test="lotteryNumber != null  and lotteryNumber != ''"> and lottery_number = #{lotteryNumber}</if>
+        </where>
+    </select>
+
+    <select id="selectTurntableConfigurationByTurntableId" parameterType="Long" resultMap="TurntableConfigurationResult">
+        <include refid="selectTurntableConfigurationVo"/>
+        where turntable_id = #{turntableId}
+    </select>
+
+    <insert id="insertTurntableConfiguration" parameterType="TurntableConfiguration" useGeneratedKeys="true" keyProperty="turntableId">
+        insert into turntable_configuration
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="turntableName != null and turntableName != ''">turntable_name,</if>
+            <if test="cusomerIntegral != null">cusomer_integral,</if>
+            <if test="status != null">status,</if>
+            <if test="delFlag != null and delFlag != ''">DEL_FLAG,</if>
+            <if test="remark != null and remark != ''">REMARK,</if>
+            <if test="createBy != null and createBy != ''">CREATE_BY,</if>
+            <if test="createTime != null">CREATE_TIME,</if>
+            <if test="updateBy != null and updateBy != ''">UPDATE_BY,</if>
+            <if test="updateTime != null">UPDATE_TIME,</if>
+            <if test="lotteryNumber != null" >lottery_number</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="turntableName != null and turntableName != ''">#{turntableName},</if>
+            <if test="cusomerIntegral != null">#{cusomerIntegral},</if>
+            <if test="status != null">#{status},</if>
+            <if test="delFlag != null and delFlag != ''">#{delFlag},</if>
+            <if test="remark != null and remark != ''">#{remark},</if>
+            <if test="createBy != null and createBy != ''">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="lotteryNumber != null">#{lotteryNumber}</if>
+         </trim>
+    </insert>
+
+    <update id="updateTurntableConfiguration" parameterType="TurntableConfiguration">
+        update turntable_configuration
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="turntableName != null and turntableName != ''">turntable_name = #{turntableName},</if>
+            <if test="cusomerIntegral != null">cusomer_integral = #{cusomerIntegral},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="delFlag != null and delFlag != ''">DEL_FLAG = #{delFlag},</if>
+            <if test="remark != null and remark != ''">REMARK = #{remark},</if>
+            <if test="createBy != null and createBy != ''">CREATE_BY = #{createBy},</if>
+            <if test="createTime != null">CREATE_TIME = #{createTime},</if>
+            <if test="updateBy != null and updateBy != ''">UPDATE_BY = #{updateBy},</if>
+            <if test="updateTime != null">UPDATE_TIME = #{updateTime},</if>
+            <if test="lotteryNumber != null"> lottery_number = #{lotteryNumber}</if>
+        </trim>
+        where turntable_id = #{turntableId}
+    </update>
+
+    <update id="deleteTurntableConfigurationByTurntableId" parameterType="Long">
+        update turntable_configuration set DEL_FLAG = 0 where turntable_id = #{turntableId}
+    </update>
+
+    <update id="deleteTurntableConfigurationByTurntableIds" parameterType="String">
+        update turntable_configuration set DEL_FLAG = 0 where turntable_id in
+        <foreach item="turntableId" collection="array" open="(" separator="," close=")">
+            #{turntableId}
+        </foreach>
+    </update>
+</mapper>
