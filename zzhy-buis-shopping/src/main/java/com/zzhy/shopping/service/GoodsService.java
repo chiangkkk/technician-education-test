@@ -6,9 +6,10 @@ package com.zzhy.shopping.service;
  */
 
 import com.zzhy.shopping.domain.WxGoods;
+import com.zzhy.shopping.dto.GoodsDTO;
 
 import java.util.List;
 
 public interface GoodsService {
-    List<WxGoods> getGoods(WxGoods wxGoods);
+    List<GoodsDTO> getGoodsWithSku(WxGoods wxGoods);
 }

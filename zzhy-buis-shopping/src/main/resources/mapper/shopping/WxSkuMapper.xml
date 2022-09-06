@@ -401,4 +401,11 @@
       deduction_proportion = #{deductionProportion,jdbcType=DECIMAL}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="selectByGoodsId" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List" />
+        from wx_sku
+        where goods_id=#{goodsId,jdbcType=INTEGER} and `status` = 0 and `rec_status` = 0
+    </select>
 </mapper>

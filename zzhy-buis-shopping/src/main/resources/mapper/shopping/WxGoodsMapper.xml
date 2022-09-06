@@ -1,497 +1,786 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zzhy.shopping.mapper.WxGoodsMapper">
-  <resultMap id="BaseResultMap" type="com.zzhy.shopping.domain.WxGoods">
-    <!--@mbg.generated-->
-    <!--@Table wx_goods-->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="goods_code" jdbcType="VARCHAR" property="goodsCode" />
-    <result column="primary_pic_url" jdbcType="VARCHAR" property="primaryPicUrl" />
-    <result column="merchant_id" jdbcType="BIGINT" property="merchantId" />
-    <result column="goods_type" jdbcType="VARCHAR" property="goodsType" />
-    <result column="is_home_page" jdbcType="BOOLEAN" property="isHomePage" />
-    <result column="original_price" jdbcType="DECIMAL" property="originalPrice" />
-    <result column="selling_price" jdbcType="DECIMAL" property="sellingPrice" />
-    <result column="integral_price" jdbcType="DECIMAL" property="integralPrice" />
-    <result column="goods_number" jdbcType="INTEGER" property="goodsNumber" />
-    <result column="goods_desc" jdbcType="LONGVARCHAR" property="goodsDesc" />
-    <result column="status_date" jdbcType="TIMESTAMP" property="statusDate" />
-    <result column="creator" jdbcType="VARCHAR" property="creator" />
-    <result column="create_name" jdbcType="VARCHAR" property="createName" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
-    <result column="modify_name" jdbcType="VARCHAR" property="modifyName" />
-    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
-    <result column="status" jdbcType="BOOLEAN" property="status" />
-    <result column="audit_status" jdbcType="BOOLEAN" property="auditStatus" />
-    <result column="rec_status" jdbcType="BOOLEAN" property="recStatus" />
-    <result column="remark" jdbcType="VARCHAR" property="remark" />
-    <result column="category" jdbcType="BIGINT" property="category" />
-    <result column="category_id" jdbcType="BIGINT" property="categoryId" />
-    <result column="is_home_category" jdbcType="BOOLEAN" property="isHomeCategory" />
-    <result column="is_new_only" jdbcType="BOOLEAN" property="isNewOnly" />
-    <result column="freight_charge" jdbcType="DECIMAL" property="freightCharge" />
-    <result column="sell_times" jdbcType="INTEGER" property="sellTimes" />
-    <result column="agent_price" jdbcType="DECIMAL" property="agentPrice" />
-    <result column="supply_price" jdbcType="DECIMAL" property="supplyPrice" />
-    <result column="store_id" jdbcType="INTEGER" property="storeId" />
-    <result column="qr_code_url" jdbcType="VARCHAR" property="qrCodeUrl" />
-    <result column="weight_num" jdbcType="DECIMAL" property="weightNum" />
-    <result column="brand_id" jdbcType="BIGINT" property="brandId" />
-    <result column="is_use_integral" jdbcType="BOOLEAN" property="isUseIntegral" />
-    <result column="deduction_money" jdbcType="DECIMAL" property="deductionMoney" />
-    <result column="deduction_proportion" jdbcType="DECIMAL" property="deductionProportion" />
-    <result column="is_integral" jdbcType="BOOLEAN" property="isIntegral" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    id, `name`, goods_code, primary_pic_url, merchant_id, goods_type, is_home_page, original_price, 
-    selling_price, integral_price, goods_number, goods_desc, status_date, creator, create_name, 
-    create_time, modifier, modify_name, modify_time, `status`, audit_status, rec_status, 
-    remark, category, category_id, is_home_category, is_new_only, freight_charge, sell_times, 
-    agent_price, supply_price, store_id, qr_code_url, weight_num, brand_id, is_use_integral, 
-    deduction_money, deduction_proportion, is_integral
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from wx_goods
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    <!--@mbg.generated-->
-    delete from wx_goods
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.WxGoods" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into wx_goods (`name`, goods_code, primary_pic_url, 
-      merchant_id, goods_type, is_home_page, 
-      original_price, selling_price, integral_price, 
-      goods_number, goods_desc, status_date, 
-      creator, create_name, create_time, 
-      modifier, modify_name, modify_time, 
-      `status`, audit_status, rec_status, 
-      remark, category, category_id, 
-      is_home_category, is_new_only, freight_charge, 
-      sell_times, agent_price, supply_price, 
-      store_id, qr_code_url, weight_num, 
-      brand_id, is_use_integral, deduction_money, 
-      deduction_proportion, is_integral)
-    values (#{name,jdbcType=VARCHAR}, #{goodsCode,jdbcType=VARCHAR}, #{primaryPicUrl,jdbcType=VARCHAR}, 
-      #{merchantId,jdbcType=BIGINT}, #{goodsType,jdbcType=VARCHAR}, #{isHomePage,jdbcType=BOOLEAN}, 
-      #{originalPrice,jdbcType=DECIMAL}, #{sellingPrice,jdbcType=DECIMAL}, #{integralPrice,jdbcType=DECIMAL}, 
-      #{goodsNumber,jdbcType=INTEGER}, #{goodsDesc,jdbcType=LONGVARCHAR}, #{statusDate,jdbcType=TIMESTAMP}, 
-      #{creator,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{modifier,jdbcType=VARCHAR}, #{modifyName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
-      #{status,jdbcType=BOOLEAN}, #{auditStatus,jdbcType=BOOLEAN}, #{recStatus,jdbcType=BOOLEAN}, 
-      #{remark,jdbcType=VARCHAR}, #{category,jdbcType=BIGINT}, #{categoryId,jdbcType=BIGINT}, 
-      #{isHomeCategory,jdbcType=BOOLEAN}, #{isNewOnly,jdbcType=BOOLEAN}, #{freightCharge,jdbcType=DECIMAL}, 
-      #{sellTimes,jdbcType=INTEGER}, #{agentPrice,jdbcType=DECIMAL}, #{supplyPrice,jdbcType=DECIMAL}, 
-      #{storeId,jdbcType=INTEGER}, #{qrCodeUrl,jdbcType=VARCHAR}, #{weightNum,jdbcType=DECIMAL}, 
-      #{brandId,jdbcType=BIGINT}, #{isUseIntegral,jdbcType=BOOLEAN}, #{deductionMoney,jdbcType=DECIMAL}, 
-      #{deductionProportion,jdbcType=DECIMAL}, #{isIntegral,jdbcType=BOOLEAN})
-  </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.WxGoods" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into wx_goods
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="name != null">
+    <resultMap id="BaseResultMap" type="com.zzhy.shopping.domain.WxGoods">
+        <!--@mbg.generated-->
+        <!--@Table wx_goods-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="goods_code" jdbcType="VARCHAR" property="goodsCode"/>
+        <result column="primary_pic_url" jdbcType="VARCHAR" property="primaryPicUrl"/>
+        <result column="merchant_id" jdbcType="BIGINT" property="merchantId"/>
+        <result column="goods_type" jdbcType="VARCHAR" property="goodsType"/>
+        <result column="is_home_page" jdbcType="BOOLEAN" property="isHomePage"/>
+        <result column="original_price" jdbcType="DECIMAL" property="originalPrice"/>
+        <result column="selling_price" jdbcType="DECIMAL" property="sellingPrice"/>
+        <result column="integral_price" jdbcType="DECIMAL" property="integralPrice"/>
+        <result column="goods_number" jdbcType="INTEGER" property="goodsNumber"/>
+        <result column="goods_desc" jdbcType="LONGVARCHAR" property="goodsDesc"/>
+        <result column="status_date" jdbcType="TIMESTAMP" property="statusDate"/>
+        <result column="creator" jdbcType="VARCHAR" property="creator"/>
+        <result column="create_name" jdbcType="VARCHAR" property="createName"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modifier" jdbcType="VARCHAR" property="modifier"/>
+        <result column="modify_name" jdbcType="VARCHAR" property="modifyName"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="status" jdbcType="BOOLEAN" property="status"/>
+        <result column="audit_status" jdbcType="BOOLEAN" property="auditStatus"/>
+        <result column="rec_status" jdbcType="BOOLEAN" property="recStatus"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="category" jdbcType="BIGINT" property="category"/>
+        <result column="category_id" jdbcType="BIGINT" property="categoryId"/>
+        <result column="is_home_category" jdbcType="BOOLEAN" property="isHomeCategory"/>
+        <result column="is_new_only" jdbcType="BOOLEAN" property="isNewOnly"/>
+        <result column="freight_charge" jdbcType="DECIMAL" property="freightCharge"/>
+        <result column="sell_times" jdbcType="INTEGER" property="sellTimes"/>
+        <result column="agent_price" jdbcType="DECIMAL" property="agentPrice"/>
+        <result column="supply_price" jdbcType="DECIMAL" property="supplyPrice"/>
+        <result column="store_id" jdbcType="INTEGER" property="storeId"/>
+        <result column="qr_code_url" jdbcType="VARCHAR" property="qrCodeUrl"/>
+        <result column="weight_num" jdbcType="DECIMAL" property="weightNum"/>
+        <result column="brand_id" jdbcType="BIGINT" property="brandId"/>
+        <result column="is_use_integral" jdbcType="BOOLEAN" property="isUseIntegral"/>
+        <result column="deduction_money" jdbcType="DECIMAL" property="deductionMoney"/>
+        <result column="deduction_proportion" jdbcType="DECIMAL" property="deductionProportion"/>
+        <result column="is_integral" jdbcType="BOOLEAN" property="isIntegral"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id,
         `name`,
-      </if>
-      <if test="goodsCode != null">
         goods_code,
-      </if>
-      <if test="primaryPicUrl != null">
         primary_pic_url,
-      </if>
-      <if test="merchantId != null">
         merchant_id,
-      </if>
-      <if test="goodsType != null">
         goods_type,
-      </if>
-      <if test="isHomePage != null">
         is_home_page,
-      </if>
-      <if test="originalPrice != null">
         original_price,
-      </if>
-      <if test="sellingPrice != null">
         selling_price,
-      </if>
-      <if test="integralPrice != null">
         integral_price,
-      </if>
-      <if test="goodsNumber != null">
         goods_number,
-      </if>
-      <if test="goodsDesc != null">
         goods_desc,
-      </if>
-      <if test="statusDate != null">
         status_date,
-      </if>
-      <if test="creator != null">
         creator,
-      </if>
-      <if test="createName != null">
         create_name,
-      </if>
-      <if test="createTime != null">
         create_time,
-      </if>
-      <if test="modifier != null">
         modifier,
-      </if>
-      <if test="modifyName != null">
         modify_name,
-      </if>
-      <if test="modifyTime != null">
         modify_time,
-      </if>
-      <if test="status != null">
         `status`,
-      </if>
-      <if test="auditStatus != null">
         audit_status,
-      </if>
-      <if test="recStatus != null">
         rec_status,
-      </if>
-      <if test="remark != null">
         remark,
-      </if>
-      <if test="category != null">
         category,
-      </if>
-      <if test="categoryId != null">
         category_id,
-      </if>
-      <if test="isHomeCategory != null">
         is_home_category,
-      </if>
-      <if test="isNewOnly != null">
         is_new_only,
-      </if>
-      <if test="freightCharge != null">
         freight_charge,
-      </if>
-      <if test="sellTimes != null">
         sell_times,
-      </if>
-      <if test="agentPrice != null">
         agent_price,
-      </if>
-      <if test="supplyPrice != null">
         supply_price,
-      </if>
-      <if test="storeId != null">
         store_id,
-      </if>
-      <if test="qrCodeUrl != null">
         qr_code_url,
-      </if>
-      <if test="weightNum != null">
         weight_num,
-      </if>
-      <if test="brandId != null">
         brand_id,
-      </if>
-      <if test="isUseIntegral != null">
         is_use_integral,
-      </if>
-      <if test="deductionMoney != null">
         deduction_money,
-      </if>
-      <if test="deductionProportion != null">
         deduction_proportion,
-      </if>
-      <if test="isIntegral != null">
-        is_integral,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="goodsCode != null">
-        #{goodsCode,jdbcType=VARCHAR},
-      </if>
-      <if test="primaryPicUrl != null">
-        #{primaryPicUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="merchantId != null">
-        #{merchantId,jdbcType=BIGINT},
-      </if>
-      <if test="goodsType != null">
-        #{goodsType,jdbcType=VARCHAR},
-      </if>
-      <if test="isHomePage != null">
-        #{isHomePage,jdbcType=BOOLEAN},
-      </if>
-      <if test="originalPrice != null">
-        #{originalPrice,jdbcType=DECIMAL},
-      </if>
-      <if test="sellingPrice != null">
-        #{sellingPrice,jdbcType=DECIMAL},
-      </if>
-      <if test="integralPrice != null">
-        #{integralPrice,jdbcType=DECIMAL},
-      </if>
-      <if test="goodsNumber != null">
-        #{goodsNumber,jdbcType=INTEGER},
-      </if>
-      <if test="goodsDesc != null">
-        #{goodsDesc,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="statusDate != null">
-        #{statusDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="creator != null">
-        #{creator,jdbcType=VARCHAR},
-      </if>
-      <if test="createName != null">
-        #{createName,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="modifier != null">
-        #{modifier,jdbcType=VARCHAR},
-      </if>
-      <if test="modifyName != null">
-        #{modifyName,jdbcType=VARCHAR},
-      </if>
-      <if test="modifyTime != null">
-        #{modifyTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=BOOLEAN},
-      </if>
-      <if test="auditStatus != null">
-        #{auditStatus,jdbcType=BOOLEAN},
-      </if>
-      <if test="recStatus != null">
-        #{recStatus,jdbcType=BOOLEAN},
-      </if>
-      <if test="remark != null">
-        #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="category != null">
-        #{category,jdbcType=BIGINT},
-      </if>
-      <if test="categoryId != null">
-        #{categoryId,jdbcType=BIGINT},
-      </if>
-      <if test="isHomeCategory != null">
-        #{isHomeCategory,jdbcType=BOOLEAN},
-      </if>
-      <if test="isNewOnly != null">
-        #{isNewOnly,jdbcType=BOOLEAN},
-      </if>
-      <if test="freightCharge != null">
-        #{freightCharge,jdbcType=DECIMAL},
-      </if>
-      <if test="sellTimes != null">
-        #{sellTimes,jdbcType=INTEGER},
-      </if>
-      <if test="agentPrice != null">
-        #{agentPrice,jdbcType=DECIMAL},
-      </if>
-      <if test="supplyPrice != null">
-        #{supplyPrice,jdbcType=DECIMAL},
-      </if>
-      <if test="storeId != null">
-        #{storeId,jdbcType=INTEGER},
-      </if>
-      <if test="qrCodeUrl != null">
-        #{qrCodeUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="weightNum != null">
-        #{weightNum,jdbcType=DECIMAL},
-      </if>
-      <if test="brandId != null">
-        #{brandId,jdbcType=BIGINT},
-      </if>
-      <if test="isUseIntegral != null">
-        #{isUseIntegral,jdbcType=BOOLEAN},
-      </if>
-      <if test="deductionMoney != null">
-        #{deductionMoney,jdbcType=DECIMAL},
-      </if>
-      <if test="deductionProportion != null">
-        #{deductionProportion,jdbcType=DECIMAL},
-      </if>
-      <if test="isIntegral != null">
-        #{isIntegral,jdbcType=BOOLEAN},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zzhy.shopping.domain.WxGoods">
-    <!--@mbg.generated-->
-    update wx_goods
-    <set>
-      <if test="name != null">
-        `name` = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="goodsCode != null">
-        goods_code = #{goodsCode,jdbcType=VARCHAR},
-      </if>
-      <if test="primaryPicUrl != null">
-        primary_pic_url = #{primaryPicUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="merchantId != null">
-        merchant_id = #{merchantId,jdbcType=BIGINT},
-      </if>
-      <if test="goodsType != null">
-        goods_type = #{goodsType,jdbcType=VARCHAR},
-      </if>
-      <if test="isHomePage != null">
-        is_home_page = #{isHomePage,jdbcType=BOOLEAN},
-      </if>
-      <if test="originalPrice != null">
-        original_price = #{originalPrice,jdbcType=DECIMAL},
-      </if>
-      <if test="sellingPrice != null">
-        selling_price = #{sellingPrice,jdbcType=DECIMAL},
-      </if>
-      <if test="integralPrice != null">
-        integral_price = #{integralPrice,jdbcType=DECIMAL},
-      </if>
-      <if test="goodsNumber != null">
-        goods_number = #{goodsNumber,jdbcType=INTEGER},
-      </if>
-      <if test="goodsDesc != null">
-        goods_desc = #{goodsDesc,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="statusDate != null">
-        status_date = #{statusDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="creator != null">
-        creator = #{creator,jdbcType=VARCHAR},
-      </if>
-      <if test="createName != null">
-        create_name = #{createName,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="modifier != null">
-        modifier = #{modifier,jdbcType=VARCHAR},
-      </if>
-      <if test="modifyName != null">
-        modify_name = #{modifyName,jdbcType=VARCHAR},
-      </if>
-      <if test="modifyTime != null">
-        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="status != null">
-        `status` = #{status,jdbcType=BOOLEAN},
-      </if>
-      <if test="auditStatus != null">
-        audit_status = #{auditStatus,jdbcType=BOOLEAN},
-      </if>
-      <if test="recStatus != null">
-        rec_status = #{recStatus,jdbcType=BOOLEAN},
-      </if>
-      <if test="remark != null">
-        remark = #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="category != null">
-        category = #{category,jdbcType=BIGINT},
-      </if>
-      <if test="categoryId != null">
-        category_id = #{categoryId,jdbcType=BIGINT},
-      </if>
-      <if test="isHomeCategory != null">
-        is_home_category = #{isHomeCategory,jdbcType=BOOLEAN},
-      </if>
-      <if test="isNewOnly != null">
-        is_new_only = #{isNewOnly,jdbcType=BOOLEAN},
-      </if>
-      <if test="freightCharge != null">
-        freight_charge = #{freightCharge,jdbcType=DECIMAL},
-      </if>
-      <if test="sellTimes != null">
-        sell_times = #{sellTimes,jdbcType=INTEGER},
-      </if>
-      <if test="agentPrice != null">
-        agent_price = #{agentPrice,jdbcType=DECIMAL},
-      </if>
-      <if test="supplyPrice != null">
-        supply_price = #{supplyPrice,jdbcType=DECIMAL},
-      </if>
-      <if test="storeId != null">
-        store_id = #{storeId,jdbcType=INTEGER},
-      </if>
-      <if test="qrCodeUrl != null">
-        qr_code_url = #{qrCodeUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="weightNum != null">
-        weight_num = #{weightNum,jdbcType=DECIMAL},
-      </if>
-      <if test="brandId != null">
-        brand_id = #{brandId,jdbcType=BIGINT},
-      </if>
-      <if test="isUseIntegral != null">
-        is_use_integral = #{isUseIntegral,jdbcType=BOOLEAN},
-      </if>
-      <if test="deductionMoney != null">
-        deduction_money = #{deductionMoney,jdbcType=DECIMAL},
-      </if>
-      <if test="deductionProportion != null">
-        deduction_proportion = #{deductionProportion,jdbcType=DECIMAL},
-      </if>
-      <if test="isIntegral != null">
-        is_integral = #{isIntegral,jdbcType=BOOLEAN},
-      </if>
-    </set>
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.zzhy.shopping.domain.WxGoods">
-    <!--@mbg.generated-->
-    update wx_goods
-    set `name` = #{name,jdbcType=VARCHAR},
-      goods_code = #{goodsCode,jdbcType=VARCHAR},
-      primary_pic_url = #{primaryPicUrl,jdbcType=VARCHAR},
-      merchant_id = #{merchantId,jdbcType=BIGINT},
-      goods_type = #{goodsType,jdbcType=VARCHAR},
-      is_home_page = #{isHomePage,jdbcType=BOOLEAN},
-      original_price = #{originalPrice,jdbcType=DECIMAL},
-      selling_price = #{sellingPrice,jdbcType=DECIMAL},
-      integral_price = #{integralPrice,jdbcType=DECIMAL},
-      goods_number = #{goodsNumber,jdbcType=INTEGER},
-      goods_desc = #{goodsDesc,jdbcType=LONGVARCHAR},
-      status_date = #{statusDate,jdbcType=TIMESTAMP},
-      creator = #{creator,jdbcType=VARCHAR},
-      create_name = #{createName,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      modifier = #{modifier,jdbcType=VARCHAR},
-      modify_name = #{modifyName,jdbcType=VARCHAR},
-      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
-      `status` = #{status,jdbcType=BOOLEAN},
-      audit_status = #{auditStatus,jdbcType=BOOLEAN},
-      rec_status = #{recStatus,jdbcType=BOOLEAN},
-      remark = #{remark,jdbcType=VARCHAR},
-      category = #{category,jdbcType=BIGINT},
-      category_id = #{categoryId,jdbcType=BIGINT},
-      is_home_category = #{isHomeCategory,jdbcType=BOOLEAN},
-      is_new_only = #{isNewOnly,jdbcType=BOOLEAN},
-      freight_charge = #{freightCharge,jdbcType=DECIMAL},
-      sell_times = #{sellTimes,jdbcType=INTEGER},
-      agent_price = #{agentPrice,jdbcType=DECIMAL},
-      supply_price = #{supplyPrice,jdbcType=DECIMAL},
-      store_id = #{storeId,jdbcType=INTEGER},
-      qr_code_url = #{qrCodeUrl,jdbcType=VARCHAR},
-      weight_num = #{weightNum,jdbcType=DECIMAL},
-      brand_id = #{brandId,jdbcType=BIGINT},
-      is_use_integral = #{isUseIntegral,jdbcType=BOOLEAN},
-      deduction_money = #{deductionMoney,jdbcType=DECIMAL},
-      deduction_proportion = #{deductionProportion,jdbcType=DECIMAL},
-      is_integral = #{isIntegral,jdbcType=BOOLEAN}
-    where id = #{id,jdbcType=BIGINT}
-  </update>
+        is_integral
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from wx_goods
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        <!--@mbg.generated-->
+        delete
+        from wx_goods
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.WxGoods"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into wx_goods (`name`, goods_code, primary_pic_url,
+                              merchant_id, goods_type, is_home_page,
+                              original_price, selling_price, integral_price,
+                              goods_number, goods_desc, status_date,
+                              creator, create_name, create_time,
+                              modifier, modify_name, modify_time,
+                              `status`, audit_status, rec_status,
+                              remark, category, category_id,
+                              is_home_category, is_new_only, freight_charge,
+                              sell_times, agent_price, supply_price,
+                              store_id, qr_code_url, weight_num,
+                              brand_id, is_use_integral, deduction_money,
+                              deduction_proportion, is_integral)
+        values (#{name,jdbcType=VARCHAR}, #{goodsCode,jdbcType=VARCHAR}, #{primaryPicUrl,jdbcType=VARCHAR},
+                #{merchantId,jdbcType=BIGINT}, #{goodsType,jdbcType=VARCHAR}, #{isHomePage,jdbcType=BOOLEAN},
+                #{originalPrice,jdbcType=DECIMAL}, #{sellingPrice,jdbcType=DECIMAL}, #{integralPrice,jdbcType=DECIMAL},
+                #{goodsNumber,jdbcType=INTEGER}, #{goodsDesc,jdbcType=LONGVARCHAR}, #{statusDate,jdbcType=TIMESTAMP},
+                #{creator,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+                #{modifier,jdbcType=VARCHAR}, #{modifyName,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP},
+                #{status,jdbcType=BOOLEAN}, #{auditStatus,jdbcType=BOOLEAN}, #{recStatus,jdbcType=BOOLEAN},
+                #{remark,jdbcType=VARCHAR}, #{category,jdbcType=BIGINT}, #{categoryId,jdbcType=BIGINT},
+                #{isHomeCategory,jdbcType=BOOLEAN}, #{isNewOnly,jdbcType=BOOLEAN}, #{freightCharge,jdbcType=DECIMAL},
+                #{sellTimes,jdbcType=INTEGER}, #{agentPrice,jdbcType=DECIMAL}, #{supplyPrice,jdbcType=DECIMAL},
+                #{storeId,jdbcType=INTEGER}, #{qrCodeUrl,jdbcType=VARCHAR}, #{weightNum,jdbcType=DECIMAL},
+                #{brandId,jdbcType=BIGINT}, #{isUseIntegral,jdbcType=BOOLEAN}, #{deductionMoney,jdbcType=DECIMAL},
+                #{deductionProportion,jdbcType=DECIMAL}, #{isIntegral,jdbcType=BOOLEAN})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.WxGoods"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into wx_goods
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="goodsCode != null">
+                goods_code,
+            </if>
+            <if test="primaryPicUrl != null">
+                primary_pic_url,
+            </if>
+            <if test="merchantId != null">
+                merchant_id,
+            </if>
+            <if test="goodsType != null">
+                goods_type,
+            </if>
+            <if test="isHomePage != null">
+                is_home_page,
+            </if>
+            <if test="originalPrice != null">
+                original_price,
+            </if>
+            <if test="sellingPrice != null">
+                selling_price,
+            </if>
+            <if test="integralPrice != null">
+                integral_price,
+            </if>
+            <if test="goodsNumber != null">
+                goods_number,
+            </if>
+            <if test="goodsDesc != null">
+                goods_desc,
+            </if>
+            <if test="statusDate != null">
+                status_date,
+            </if>
+            <if test="creator != null">
+                creator,
+            </if>
+            <if test="createName != null">
+                create_name,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="modifier != null">
+                modifier,
+            </if>
+            <if test="modifyName != null">
+                modify_name,
+            </if>
+            <if test="modifyTime != null">
+                modify_time,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="auditStatus != null">
+                audit_status,
+            </if>
+            <if test="recStatus != null">
+                rec_status,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="category != null">
+                category,
+            </if>
+            <if test="categoryId != null">
+                category_id,
+            </if>
+            <if test="isHomeCategory != null">
+                is_home_category,
+            </if>
+            <if test="isNewOnly != null">
+                is_new_only,
+            </if>
+            <if test="freightCharge != null">
+                freight_charge,
+            </if>
+            <if test="sellTimes != null">
+                sell_times,
+            </if>
+            <if test="agentPrice != null">
+                agent_price,
+            </if>
+            <if test="supplyPrice != null">
+                supply_price,
+            </if>
+            <if test="storeId != null">
+                store_id,
+            </if>
+            <if test="qrCodeUrl != null">
+                qr_code_url,
+            </if>
+            <if test="weightNum != null">
+                weight_num,
+            </if>
+            <if test="brandId != null">
+                brand_id,
+            </if>
+            <if test="isUseIntegral != null">
+                is_use_integral,
+            </if>
+            <if test="deductionMoney != null">
+                deduction_money,
+            </if>
+            <if test="deductionProportion != null">
+                deduction_proportion,
+            </if>
+            <if test="isIntegral != null">
+                is_integral,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsCode != null">
+                #{goodsCode,jdbcType=VARCHAR},
+            </if>
+            <if test="primaryPicUrl != null">
+                #{primaryPicUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="merchantId != null">
+                #{merchantId,jdbcType=BIGINT},
+            </if>
+            <if test="goodsType != null">
+                #{goodsType,jdbcType=VARCHAR},
+            </if>
+            <if test="isHomePage != null">
+                #{isHomePage,jdbcType=BOOLEAN},
+            </if>
+            <if test="originalPrice != null">
+                #{originalPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="sellingPrice != null">
+                #{sellingPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="integralPrice != null">
+                #{integralPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="goodsNumber != null">
+                #{goodsNumber,jdbcType=INTEGER},
+            </if>
+            <if test="goodsDesc != null">
+                #{goodsDesc,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="statusDate != null">
+                #{statusDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="creator != null">
+                #{creator,jdbcType=VARCHAR},
+            </if>
+            <if test="createName != null">
+                #{createName,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifier != null">
+                #{modifier,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyName != null">
+                #{modifyName,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyTime != null">
+                #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=BOOLEAN},
+            </if>
+            <if test="auditStatus != null">
+                #{auditStatus,jdbcType=BOOLEAN},
+            </if>
+            <if test="recStatus != null">
+                #{recStatus,jdbcType=BOOLEAN},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="category != null">
+                #{category,jdbcType=BIGINT},
+            </if>
+            <if test="categoryId != null">
+                #{categoryId,jdbcType=BIGINT},
+            </if>
+            <if test="isHomeCategory != null">
+                #{isHomeCategory,jdbcType=BOOLEAN},
+            </if>
+            <if test="isNewOnly != null">
+                #{isNewOnly,jdbcType=BOOLEAN},
+            </if>
+            <if test="freightCharge != null">
+                #{freightCharge,jdbcType=DECIMAL},
+            </if>
+            <if test="sellTimes != null">
+                #{sellTimes,jdbcType=INTEGER},
+            </if>
+            <if test="agentPrice != null">
+                #{agentPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="supplyPrice != null">
+                #{supplyPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="storeId != null">
+                #{storeId,jdbcType=INTEGER},
+            </if>
+            <if test="qrCodeUrl != null">
+                #{qrCodeUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="weightNum != null">
+                #{weightNum,jdbcType=DECIMAL},
+            </if>
+            <if test="brandId != null">
+                #{brandId,jdbcType=BIGINT},
+            </if>
+            <if test="isUseIntegral != null">
+                #{isUseIntegral,jdbcType=BOOLEAN},
+            </if>
+            <if test="deductionMoney != null">
+                #{deductionMoney,jdbcType=DECIMAL},
+            </if>
+            <if test="deductionProportion != null">
+                #{deductionProportion,jdbcType=DECIMAL},
+            </if>
+            <if test="isIntegral != null">
+                #{isIntegral,jdbcType=BOOLEAN},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.zzhy.shopping.domain.WxGoods">
+        <!--@mbg.generated-->
+        update wx_goods
+        <set>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="goodsCode != null">
+                goods_code = #{goodsCode,jdbcType=VARCHAR},
+            </if>
+            <if test="primaryPicUrl != null">
+                primary_pic_url = #{primaryPicUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="merchantId != null">
+                merchant_id = #{merchantId,jdbcType=BIGINT},
+            </if>
+            <if test="goodsType != null">
+                goods_type = #{goodsType,jdbcType=VARCHAR},
+            </if>
+            <if test="isHomePage != null">
+                is_home_page = #{isHomePage,jdbcType=BOOLEAN},
+            </if>
+            <if test="originalPrice != null">
+                original_price = #{originalPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="sellingPrice != null">
+                selling_price = #{sellingPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="integralPrice != null">
+                integral_price = #{integralPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="goodsNumber != null">
+                goods_number = #{goodsNumber,jdbcType=INTEGER},
+            </if>
+            <if test="goodsDesc != null">
+                goods_desc = #{goodsDesc,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="statusDate != null">
+                status_date = #{statusDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="creator != null">
+                creator = #{creator,jdbcType=VARCHAR},
+            </if>
+            <if test="createName != null">
+                create_name = #{createName,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifier != null">
+                modifier = #{modifier,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyName != null">
+                modify_name = #{modifyName,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyTime != null">
+                modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=BOOLEAN},
+            </if>
+            <if test="auditStatus != null">
+                audit_status = #{auditStatus,jdbcType=BOOLEAN},
+            </if>
+            <if test="recStatus != null">
+                rec_status = #{recStatus,jdbcType=BOOLEAN},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="category != null">
+                category = #{category,jdbcType=BIGINT},
+            </if>
+            <if test="categoryId != null">
+                category_id = #{categoryId,jdbcType=BIGINT},
+            </if>
+            <if test="isHomeCategory != null">
+                is_home_category = #{isHomeCategory,jdbcType=BOOLEAN},
+            </if>
+            <if test="isNewOnly != null">
+                is_new_only = #{isNewOnly,jdbcType=BOOLEAN},
+            </if>
+            <if test="freightCharge != null">
+                freight_charge = #{freightCharge,jdbcType=DECIMAL},
+            </if>
+            <if test="sellTimes != null">
+                sell_times = #{sellTimes,jdbcType=INTEGER},
+            </if>
+            <if test="agentPrice != null">
+                agent_price = #{agentPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="supplyPrice != null">
+                supply_price = #{supplyPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="storeId != null">
+                store_id = #{storeId,jdbcType=INTEGER},
+            </if>
+            <if test="qrCodeUrl != null">
+                qr_code_url = #{qrCodeUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="weightNum != null">
+                weight_num = #{weightNum,jdbcType=DECIMAL},
+            </if>
+            <if test="brandId != null">
+                brand_id = #{brandId,jdbcType=BIGINT},
+            </if>
+            <if test="isUseIntegral != null">
+                is_use_integral = #{isUseIntegral,jdbcType=BOOLEAN},
+            </if>
+            <if test="deductionMoney != null">
+                deduction_money = #{deductionMoney,jdbcType=DECIMAL},
+            </if>
+            <if test="deductionProportion != null">
+                deduction_proportion = #{deductionProportion,jdbcType=DECIMAL},
+            </if>
+            <if test="isIntegral != null">
+                is_integral = #{isIntegral,jdbcType=BOOLEAN},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.zzhy.shopping.domain.WxGoods">
+        <!--@mbg.generated-->
+        update wx_goods
+        set `name`               = #{name,jdbcType=VARCHAR},
+            goods_code           = #{goodsCode,jdbcType=VARCHAR},
+            primary_pic_url      = #{primaryPicUrl,jdbcType=VARCHAR},
+            merchant_id          = #{merchantId,jdbcType=BIGINT},
+            goods_type           = #{goodsType,jdbcType=VARCHAR},
+            is_home_page         = #{isHomePage,jdbcType=BOOLEAN},
+            original_price       = #{originalPrice,jdbcType=DECIMAL},
+            selling_price        = #{sellingPrice,jdbcType=DECIMAL},
+            integral_price       = #{integralPrice,jdbcType=DECIMAL},
+            goods_number         = #{goodsNumber,jdbcType=INTEGER},
+            goods_desc           = #{goodsDesc,jdbcType=LONGVARCHAR},
+            status_date          = #{statusDate,jdbcType=TIMESTAMP},
+            creator              = #{creator,jdbcType=VARCHAR},
+            create_name          = #{createName,jdbcType=VARCHAR},
+            create_time          = #{createTime,jdbcType=TIMESTAMP},
+            modifier             = #{modifier,jdbcType=VARCHAR},
+            modify_name          = #{modifyName,jdbcType=VARCHAR},
+            modify_time          = #{modifyTime,jdbcType=TIMESTAMP},
+            `status`             = #{status,jdbcType=BOOLEAN},
+            audit_status         = #{auditStatus,jdbcType=BOOLEAN},
+            rec_status           = #{recStatus,jdbcType=BOOLEAN},
+            remark               = #{remark,jdbcType=VARCHAR},
+            category             = #{category,jdbcType=BIGINT},
+            category_id          = #{categoryId,jdbcType=BIGINT},
+            is_home_category     = #{isHomeCategory,jdbcType=BOOLEAN},
+            is_new_only          = #{isNewOnly,jdbcType=BOOLEAN},
+            freight_charge       = #{freightCharge,jdbcType=DECIMAL},
+            sell_times           = #{sellTimes,jdbcType=INTEGER},
+            agent_price          = #{agentPrice,jdbcType=DECIMAL},
+            supply_price         = #{supplyPrice,jdbcType=DECIMAL},
+            store_id             = #{storeId,jdbcType=INTEGER},
+            qr_code_url          = #{qrCodeUrl,jdbcType=VARCHAR},
+            weight_num           = #{weightNum,jdbcType=DECIMAL},
+            brand_id             = #{brandId,jdbcType=BIGINT},
+            is_use_integral      = #{isUseIntegral,jdbcType=BOOLEAN},
+            deduction_money      = #{deductionMoney,jdbcType=DECIMAL},
+            deduction_proportion = #{deductionProportion,jdbcType=DECIMAL},
+            is_integral          = #{isIntegral,jdbcType=BOOLEAN}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="selectByAll" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from wx_goods
+        <where>
+            <if test="id != null">
+                and id = #{id,jdbcType=BIGINT}
+            </if>
+            <if test="name != null">
+                and `name` = #{name,jdbcType=VARCHAR}
+            </if>
+            <if test="goodsCode != null">
+                and goods_code = #{goodsCode,jdbcType=VARCHAR}
+            </if>
+            <if test="primaryPicUrl != null">
+                and primary_pic_url = #{primaryPicUrl,jdbcType=VARCHAR}
+            </if>
+            <if test="merchantId != null">
+                and merchant_id = #{merchantId,jdbcType=BIGINT}
+            </if>
+            <if test="goodsType != null">
+                and goods_type = #{goodsType,jdbcType=VARCHAR}
+            </if>
+            <if test="isHomePage != null">
+                and is_home_page = #{isHomePage,jdbcType=BOOLEAN}
+            </if>
+            <if test="originalPrice != null">
+                and original_price = #{originalPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="sellingPrice != null">
+                and selling_price = #{sellingPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="integralPrice != null">
+                and integral_price = #{integralPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="goodsNumber != null">
+                and goods_number = #{goodsNumber,jdbcType=INTEGER}
+            </if>
+            <if test="goodsDesc != null">
+                and goods_desc = #{goodsDesc,jdbcType=LONGVARCHAR}
+            </if>
+            <if test="statusDate != null">
+                and status_date = #{statusDate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="creator != null">
+                and creator = #{creator,jdbcType=VARCHAR}
+            </if>
+            <if test="createName != null">
+                and create_name = #{createName,jdbcType=VARCHAR}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="modifier != null">
+                and modifier = #{modifier,jdbcType=VARCHAR}
+            </if>
+            <if test="modifyName != null">
+                and modify_name = #{modifyName,jdbcType=VARCHAR}
+            </if>
+            <if test="modifyTime != null">
+                and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="status != null">
+                and `status` = #{status,jdbcType=BOOLEAN}
+            </if>
+            <if test="auditStatus != null">
+                and audit_status = #{auditStatus,jdbcType=BOOLEAN}
+            </if>
+            <if test="recStatus != null">
+                and rec_status = #{recStatus,jdbcType=BOOLEAN}
+            </if>
+            <if test="remark != null">
+                and remark = #{remark,jdbcType=VARCHAR}
+            </if>
+            <if test="category != null">
+                and category = #{category,jdbcType=BIGINT}
+            </if>
+            <if test="categoryId != null">
+                and category_id = #{categoryId,jdbcType=BIGINT}
+            </if>
+            <if test="isHomeCategory != null">
+                and is_home_category = #{isHomeCategory,jdbcType=BOOLEAN}
+            </if>
+            <if test="isNewOnly != null">
+                and is_new_only = #{isNewOnly,jdbcType=BOOLEAN}
+            </if>
+            <if test="freightCharge != null">
+                and freight_charge = #{freightCharge,jdbcType=DECIMAL}
+            </if>
+            <if test="sellTimes != null">
+                and sell_times = #{sellTimes,jdbcType=INTEGER}
+            </if>
+            <if test="agentPrice != null">
+                and agent_price = #{agentPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="supplyPrice != null">
+                and supply_price = #{supplyPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="storeId != null">
+                and store_id = #{storeId,jdbcType=INTEGER}
+            </if>
+            <if test="qrCodeUrl != null">
+                and qr_code_url = #{qrCodeUrl,jdbcType=VARCHAR}
+            </if>
+            <if test="weightNum != null">
+                and weight_num = #{weightNum,jdbcType=DECIMAL}
+            </if>
+            <if test="brandId != null">
+                and brand_id = #{brandId,jdbcType=BIGINT}
+            </if>
+            <if test="isUseIntegral != null">
+                and is_use_integral = #{isUseIntegral,jdbcType=BOOLEAN}
+            </if>
+            <if test="deductionMoney != null">
+                and deduction_money = #{deductionMoney,jdbcType=DECIMAL}
+            </if>
+            <if test="deductionProportion != null">
+                and deduction_proportion = #{deductionProportion,jdbcType=DECIMAL}
+            </if>
+            <if test="isIntegral != null">
+                and is_integral = #{isIntegral,jdbcType=BOOLEAN}
+            </if>
+        </where>
+    </select>
+    <resultMap id="goodDTO" type="com.zzhy.shopping.dto.GoodsDTO" extends="BaseResultMap">
+        <collection property="spec" column="{goodsId=id}" select="com.zzhy.shopping.mapper.WxSkuSpecMapper.selectByGoodsId" />
+        <collection property="skuList" column="{goodsId=id}" select="com.zzhy.shopping.mapper.WxSkuMapper.selectByGoodsId" />
+    </resultMap>
+    <select id="selectByGood" resultMap="goodDTO">
+        select
+        <include refid="Base_Column_List"/>
+        from wx_goods
+        <where>
+            <if test="id != null">
+                and id = #{id,jdbcType=BIGINT}
+            </if>
+            <if test="name != null">
+                and `name` = #{name,jdbcType=VARCHAR}
+            </if>
+            <if test="goodsCode != null">
+                and goods_code = #{goodsCode,jdbcType=VARCHAR}
+            </if>
+            <if test="primaryPicUrl != null">
+                and primary_pic_url = #{primaryPicUrl,jdbcType=VARCHAR}
+            </if>
+            <if test="merchantId != null">
+                and merchant_id = #{merchantId,jdbcType=BIGINT}
+            </if>
+            <if test="goodsType != null">
+                and goods_type = #{goodsType,jdbcType=VARCHAR}
+            </if>
+            <if test="isHomePage != null">
+                and is_home_page = #{isHomePage,jdbcType=BOOLEAN}
+            </if>
+            <if test="originalPrice != null">
+                and original_price = #{originalPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="sellingPrice != null">
+                and selling_price = #{sellingPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="integralPrice != null">
+                and integral_price = #{integralPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="goodsNumber != null">
+                and goods_number = #{goodsNumber,jdbcType=INTEGER}
+            </if>
+            <if test="goodsDesc != null">
+                and goods_desc = #{goodsDesc,jdbcType=LONGVARCHAR}
+            </if>
+            <if test="statusDate != null">
+                and status_date = #{statusDate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="creator != null">
+                and creator = #{creator,jdbcType=VARCHAR}
+            </if>
+            <if test="createName != null">
+                and create_name = #{createName,jdbcType=VARCHAR}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="modifier != null">
+                and modifier = #{modifier,jdbcType=VARCHAR}
+            </if>
+            <if test="modifyName != null">
+                and modify_name = #{modifyName,jdbcType=VARCHAR}
+            </if>
+            <if test="modifyTime != null">
+                and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="status != null">
+                and `status` = #{status,jdbcType=BOOLEAN}
+            </if>
+            <if test="auditStatus != null">
+                and audit_status = #{auditStatus,jdbcType=BOOLEAN}
+            </if>
+            <if test="recStatus != null">
+                and rec_status = #{recStatus,jdbcType=BOOLEAN}
+            </if>
+            <if test="remark != null">
+                and remark = #{remark,jdbcType=VARCHAR}
+            </if>
+            <if test="category != null">
+                and category = #{category,jdbcType=BIGINT}
+            </if>
+            <if test="categoryId != null">
+                and category_id = #{categoryId,jdbcType=BIGINT}
+            </if>
+            <if test="isHomeCategory != null">
+                and is_home_category = #{isHomeCategory,jdbcType=BOOLEAN}
+            </if>
+            <if test="isNewOnly != null">
+                and is_new_only = #{isNewOnly,jdbcType=BOOLEAN}
+            </if>
+            <if test="freightCharge != null">
+                and freight_charge = #{freightCharge,jdbcType=DECIMAL}
+            </if>
+            <if test="sellTimes != null">
+                and sell_times = #{sellTimes,jdbcType=INTEGER}
+            </if>
+            <if test="agentPrice != null">
+                and agent_price = #{agentPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="supplyPrice != null">
+                and supply_price = #{supplyPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="storeId != null">
+                and store_id = #{storeId,jdbcType=INTEGER}
+            </if>
+            <if test="qrCodeUrl != null">
+                and qr_code_url = #{qrCodeUrl,jdbcType=VARCHAR}
+            </if>
+            <if test="weightNum != null">
+                and weight_num = #{weightNum,jdbcType=DECIMAL}
+            </if>
+            <if test="brandId != null">
+                and brand_id = #{brandId,jdbcType=BIGINT}
+            </if>
+            <if test="isUseIntegral != null">
+                and is_use_integral = #{isUseIntegral,jdbcType=BOOLEAN}
+            </if>
+            <if test="deductionMoney != null">
+                and deduction_money = #{deductionMoney,jdbcType=DECIMAL}
+            </if>
+            <if test="deductionProportion != null">
+                and deduction_proportion = #{deductionProportion,jdbcType=DECIMAL}
+            </if>
+            <if test="isIntegral != null">
+                and is_integral = #{isIntegral,jdbcType=BOOLEAN}
+            </if>
+        </where>
+    </select>
 </mapper>

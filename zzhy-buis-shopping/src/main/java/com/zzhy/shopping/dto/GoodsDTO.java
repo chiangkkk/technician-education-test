@@ -13,6 +13,13 @@ import java.util.List;
  */
 @Data
 public class GoodsDTO extends WxGoods {
-    private List<WxSkuSpec> skuSpecs;
-    private List<WxSku> skus;
+    /**
+     * 商品规格包含属性
+     */
+    private List<SpecWithAttr> spec;
+
+    /**
+     * SkuList
+     */
+    private List<WxSku> skuList;
 }

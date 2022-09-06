@@ -1,17 +1,16 @@
-package com.zzhy.shopping.domain;
+package generator.domain;
 
-import com.zzhy.common.core.domain.BaseEntity;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * 商品
+ * @TableName wx_goods
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
-public class WxGoods extends BaseEntity {
+public class WxGoods implements Serializable {
     /**
      * 主键
      */
@@ -45,7 +44,7 @@ public class WxGoods extends BaseEntity {
     /**
      * 是否首页显示：0 是，1否。
      */
-    private Boolean isHomePage;
+    private Integer isHomePage;
 
     /**
      * 原价
@@ -88,6 +87,11 @@ public class WxGoods extends BaseEntity {
     private String createName;
 
     /**
+     * 创建时间
+     */
+    private Date createTime;
+
+    /**
      * 修改人账号
      */
     private String modifier;
@@ -105,17 +109,22 @@ public class WxGoods extends BaseEntity {
     /**
      * 状态: 0生效，1失效。2待审核
      */
-    private Boolean status;
+    private Integer status;
 
     /**
      * 审核状态：0待审核，1已审核，1已驳回
      */
-    private Boolean auditStatus;
+    private Integer auditStatus;
 
     /**
      * 逻辑删除：0正常，1删除
      */
-    private Boolean recStatus;
+    private Integer recStatus;
+
+    /**
+     * 备注
+     */
+    private String remark;
 
     /**
      * 商品分类(一级)
@@ -130,12 +139,12 @@ public class WxGoods extends BaseEntity {
     /**
      * 分类商品推荐：0 是，1否。
      */
-    private Boolean isHomeCategory;
+    private Integer isHomeCategory;
 
     /**
      * 新人专享：0 是，1否。
      */
-    private Boolean isNewOnly;
+    private Integer isNewOnly;
 
     /**
      * 运费
@@ -180,7 +189,7 @@ public class WxGoods extends BaseEntity {
     /**
      * 是否使用积分抵扣标识: 0不使用，1使用抵扣比例，2是用固定金额   3全抵扣（只能用积分兑换）
      */
-    private Boolean isUseIntegral;
+    private Integer isUseIntegral;
 
     /**
      * 积分抵扣金额
@@ -195,5 +204,7 @@ public class WxGoods extends BaseEntity {
     /**
      * 默认普通商品0 1为积分商品
      */
-    private Boolean isIntegral;
+    private Integer isIntegral;
+
+    private static final long serialVersionUID = 1L;
 }
