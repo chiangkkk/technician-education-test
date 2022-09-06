@@ -1,5 +1,6 @@
 package com.zzhy.shopping.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.zzhy.common.annotation.Excel;
@@ -39,18 +40,36 @@ public class TurntableDraw extends BaseEntity
     private Long awordSort;
 
     /** 状态 1 上架 2 下架 */
-    @Excel(name = "状态 1 上架 2 下架")
-    private String status;
+    @Excel(name = "状态 1 上架 0 下架")
+    private Integer status;
 
     /** 中奖几率 */
     @Excel(name = "中奖几率")
     private Long awardRate;
 
-    /** 删除标志 1 正常 2 删除 */
-    @Excel(name = "删除标志 1 正常 2 删除")
+    /** 删除标志 0 正常 1 删除 */
+    @JsonIgnore
+    @Excel(name = "删除标志 0 正常 1 删除")
     private Integer delFlag;
 
-    public void setId(Long id) 
+    /**
+     * 商品id
+     */
+    private Long goodsId;
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Long getGoodsId() {
+        return goodsId;
+    }
+
+    public void setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
+    }
+
+    public void setId(Long id)
     {
         this.id = id;
     }
@@ -104,16 +123,12 @@ public class TurntableDraw extends BaseEntity
     {
         return awordSort;
     }
-    public void setStatus(String status) 
-    {
-        this.status = status;
-    }
 
-    public String getStatus() 
-    {
+    public Integer getStatus() {
         return status;
     }
-    public void setAwardRate(Long awardRate) 
+
+    public void setAwardRate(Long awardRate)
     {
         this.awardRate = awardRate;
     }

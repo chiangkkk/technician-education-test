@@ -1,6 +1,7 @@
 package com.zzhy.shopping.controller;
 
 import java.util.List;
+import javax.annotation.security.PermitAll;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,7 +67,7 @@ public class TurntableDrawController extends BaseController
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") Long id)
     {
-        return AjaxResult.success(turntableDrawService.selectTurntableDrawById(id));
+        return AjaxResult.success(turntableDrawService.getInfo(id));
     }
 
     /**
@@ -101,4 +102,12 @@ public class TurntableDrawController extends BaseController
     {
         return toAjax(turntableDrawService.deleteTurntableDrawByIds(ids));
     }
+
+    @Log(title = "转盘抽奖状态修改", businessType = BusinessType.UPDATE)
+    @GetMapping("/changeStatus/{id}")
+    public AjaxResult changeStatus(@PathVariable Long id){
+        return toAjax(turntableDrawService.changeStatus(id));
+    }
+
+
 }

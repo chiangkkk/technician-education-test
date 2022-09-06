@@ -2,6 +2,7 @@ package com.zzhy.shopping.service;
 
 import java.util.List;
 import com.zzhy.shopping.domain.TurntableDraw;
+import com.zzhy.shopping.dto.DrawDTO;
 
 /**
  * 转盘抽奖Service接口
@@ -58,4 +59,8 @@ public interface ITurntableDrawService
      * @return 结果
      */
     public int deleteTurntableDrawById(Long id);
+
+    int changeStatus(Long id);
+
+    DrawDTO getInfo(Long id);
 }
