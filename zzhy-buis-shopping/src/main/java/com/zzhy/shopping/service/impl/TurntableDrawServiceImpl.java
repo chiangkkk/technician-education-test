@@ -1,20 +1,19 @@
 package com.zzhy.shopping.service.impl;
 
-import java.util.Date;
-import java.util.List;
-
 import com.zzhy.common.utils.DateUtils;
+import com.zzhy.shopping.domain.TurntableDraw;
 import com.zzhy.shopping.domain.WxGoods;
 import com.zzhy.shopping.domain.WxSku;
 import com.zzhy.shopping.dto.DrawDTO;
+import com.zzhy.shopping.mapper.TurntableDrawMapper;
 import com.zzhy.shopping.mapper.WxGoodsMapper;
 import com.zzhy.shopping.mapper.WxSkuMapper;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import com.zzhy.shopping.mapper.TurntableDrawMapper;
-import com.zzhy.shopping.domain.TurntableDraw;
 import com.zzhy.shopping.service.ITurntableDrawService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * 转盘抽奖Service业务层处理

@@ -1,8 +1,9 @@
 package com.zzhy.shopping.mapper;
 
 import com.zzhy.shopping.domain.WxSku;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface WxSkuMapper {
     int deleteByPrimaryKey(Long id);
