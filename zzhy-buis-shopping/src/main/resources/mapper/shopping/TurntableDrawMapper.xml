@@ -3,7 +3,44 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zzhy.shopping.mapper.TurntableDrawMapper">
-    
+    <sql id="Base_Column_List">
+        id,
+        award_name,
+        award_type,
+        sku_id,
+        turntable_config_id,
+        aword_sort,
+        `status`,
+        award_rate,
+        del_flag,
+        goods_id,
+
+        create_by,
+        create_time,
+        update_by,
+        update_time,
+        remark
+
+    </sql>
+    <resultMap id="BaseResultMap" type="com.zzhy.shopping.domain.TurntableDraw">
+        <result column="id" property="id"/>
+        <result column="award_name" property="awardName"/>
+        <result column="award_type" property="awardType"/>
+        <result column="sku_id" property="skuId"/>
+        <result column="turntable_config_id" property="turntableConfigId"/>
+        <result column="aword_sort" property="awordSort"/>
+        <result column="status" property="status"/>
+        <result column="award_rate" property="awardRate"/>
+        <result column="del_flag" property="delFlag"/>
+        <result column="goods_id" property="goodsId"/>
+
+        <result column="create_by" property="createBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="remark" property="remark"/>
+
+    </resultMap>
     <resultMap type="TurntableDraw" id="TurntableDrawResult">
         <result property="id"    column="ID"    />
         <result property="awardName"    column="award_name"    />
@@ -118,4 +155,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </update>
+
+    <select id="selectByTurntableConfigId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from turntable_draw
+        where turntable_config_id=#{tcid} and del_flag = 0
+        order by aword_sort asc
+    </select>
 </mapper>

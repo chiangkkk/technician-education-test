@@ -1,8 +1,9 @@
 package com.zzhy.shopping.service;
 
-import java.util.List;
 import com.zzhy.shopping.domain.TurntableDraw;
 import com.zzhy.shopping.dto.DrawDTO;
+
+import java.util.List;
 
 /**
  * 转盘抽奖Service接口
@@ -63,4 +64,6 @@ public interface ITurntableDrawService
     int changeStatus(Long id);
 
     DrawDTO getInfo(Long id);
+
+    List<TurntableDraw> getByTurnTableConfigId(Long tid);
 }

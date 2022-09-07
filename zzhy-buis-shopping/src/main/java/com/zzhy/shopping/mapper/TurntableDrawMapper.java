@@ -1,7 +1,8 @@
 package com.zzhy.shopping.mapper;
 
-import java.util.List;
 import com.zzhy.shopping.domain.TurntableDraw;
+
+import java.util.List;
 
 /**
  * 转盘抽奖Mapper接口
@@ -58,4 +59,8 @@ public interface TurntableDrawMapper
      * @return 结果
      */
     public int deleteTurntableDrawByIds(Long[] ids);
+
+    List<TurntableDraw> selectByTurntableConfigId(Long tcid);
+
+
 }

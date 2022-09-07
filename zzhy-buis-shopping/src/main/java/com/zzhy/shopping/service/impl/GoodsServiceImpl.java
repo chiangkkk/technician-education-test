@@ -21,6 +21,7 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public List<GoodsDTO> getGoodsWithSku(WxGoods wxGoods) {
+        wxGoods.setRecStatus(false);
         return wxGoodsMapper.selectByGood(wxGoods);
     }
 }

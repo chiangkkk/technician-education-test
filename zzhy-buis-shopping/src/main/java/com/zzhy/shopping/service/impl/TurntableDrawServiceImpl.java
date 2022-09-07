@@ -91,6 +91,11 @@ public class TurntableDrawServiceImpl implements ITurntableDrawService {
     }
 
     @Override
+    public List<TurntableDraw> getByTurnTableConfigId(Long tid) {
+        return turntableDrawMapper.selectByTurntableConfigId(tid);
+    }
+
+    @Override
     public DrawDTO getInfo(Long id) {
         TurntableDraw turntableDraw = turntableDrawMapper.selectTurntableDrawById(id);
         DrawDTO drawDTO = convertToDrawDTO(turntableDraw);
