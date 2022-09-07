@@ -1,11 +1,13 @@
-package com.zzhy.shopping.mapper;
+package com.zzhy.shopping.service;
 
 import com.zzhy.shopping.domain.WxUserAwardRecord;
 import com.zzhy.shopping.dto.AwardRecordDTO;
 
 import java.util.List;
 
-public interface WxUserAwardRecordMapper {
+public interface WxUserAwardRecordService {
+
+
     int deleteByPrimaryKey(Long id);
 
     int insert(WxUserAwardRecord record);
@@ -18,7 +20,6 @@ public interface WxUserAwardRecordMapper {
 
     int updateByPrimaryKey(WxUserAwardRecord record);
 
-    List<AwardRecordDTO> selectByAll(WxUserAwardRecord wxUserAwardRecord);
-
-
+    List<AwardRecordDTO> getAwardList(WxUserAwardRecord record);
 }
+

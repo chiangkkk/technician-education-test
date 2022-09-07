@@ -58,51 +58,13 @@
     byte_avatar, byte_nickname, byte_openid, byte_session_key, store_id, qq_openid, qq_session_key, 
     qq_unionid
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey"  resultMap="BaseResultMap">
     <!--@mbg.generated-->
     select 
     <include refid="Base_Column_List" />
     from nideshop_user
     where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    <!--@mbg.generated-->
-    delete from nideshop_user
-    where id = #{id,jdbcType=BIGINT}
-  </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.NideshopUser" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into nideshop_user (username, `password`, pay_password, 
-      gender, birthday, register_time, 
-      last_login_time, last_login_ip, user_level_id, 
-      nickname, mobile, register_ip, 
-      avatar, weixin_openid, contact_address, 
-      statistics_status, creator, create_name, 
-      create_time, modifier, modify_name, 
-      modify_time, `status`, rec_status, 
-      remark, referrer_id, partner_id, 
-      sup_agent_id, first_order, is_manager, 
-      session_key, user_type, alipay_user_id, 
-      unionid, byte_avatar, byte_nickname, 
-      byte_openid, byte_session_key, store_id, 
-      qq_openid, qq_session_key, qq_unionid
-      )
-    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{payPassword,jdbcType=VARCHAR}, 
-      #{gender,jdbcType=BOOLEAN}, #{birthday,jdbcType=TIMESTAMP}, #{registerTime,jdbcType=TIMESTAMP}, 
-      #{lastLoginTime,jdbcType=TIMESTAMP}, #{lastLoginIp,jdbcType=VARCHAR}, #{userLevelId,jdbcType=TINYINT}, 
-      #{nickname,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{registerIp,jdbcType=VARCHAR}, 
-      #{avatar,jdbcType=VARCHAR}, #{weixinOpenid,jdbcType=VARCHAR}, #{contactAddress,jdbcType=VARCHAR}, 
-      #{statisticsStatus,jdbcType=BOOLEAN}, #{creator,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, #{modifyName,jdbcType=VARCHAR}, 
-      #{modifyTime,jdbcType=TIMESTAMP}, #{status,jdbcType=BOOLEAN}, #{recStatus,jdbcType=BOOLEAN}, 
-      #{remark,jdbcType=VARCHAR}, #{referrerId,jdbcType=BIGINT}, #{partnerId,jdbcType=BIGINT}, 
-      #{supAgentId,jdbcType=BIGINT}, #{firstOrder,jdbcType=BOOLEAN}, #{isManager,jdbcType=BOOLEAN}, 
-      #{sessionKey,jdbcType=VARCHAR}, #{userType,jdbcType=BOOLEAN}, #{alipayUserId,jdbcType=VARCHAR}, 
-      #{unionid,jdbcType=VARCHAR}, #{byteAvatar,jdbcType=VARCHAR}, #{byteNickname,jdbcType=VARCHAR}, 
-      #{byteOpenid,jdbcType=VARCHAR}, #{byteSessionKey,jdbcType=VARCHAR}, #{storeId,jdbcType=INTEGER}, 
-      #{qqOpenid,jdbcType=VARCHAR}, #{qqSessionKey,jdbcType=VARCHAR}, #{qqUnionid,jdbcType=VARCHAR}
-      )
-  </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.NideshopUser" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into nideshop_user

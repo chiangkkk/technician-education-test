@@ -1,8 +1,9 @@
-package com.zzhy.shopping.mapper;
+package com.zzhy.shopping.service;
 
 import com.zzhy.shopping.domain.NideshopUser;
+public interface NideshopUserService{
 
-public interface NideshopUserMapper {
+
     int insertSelective(NideshopUser record);
 
     NideshopUser selectByPrimaryKey(Long id);

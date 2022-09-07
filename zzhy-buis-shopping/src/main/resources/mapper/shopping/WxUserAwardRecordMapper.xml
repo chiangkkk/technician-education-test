@@ -281,4 +281,87 @@
       integral_val = #{integralVal,jdbcType=DECIMAL}
     where id = #{id,jdbcType=BIGINT}
   </update>
+    <resultMap id="awardDTO" type="com.zzhy.shopping.dto.AwardRecordDTO" extends="BaseResultMap">
+        <association property="user" column="{id=user_id}" select="com.zzhy.shopping.mapper.NideshopUserMapper.selectByPrimaryKey" />
+    </resultMap>
+
+  <select id="selectByAll" resultMap="awardDTO">
+        select
+        <include refid="Base_Column_List"/>
+        from wx_user_award_record
+        <where>
+            <if test="id != null">
+                and id=#{id,jdbcType=BIGINT}
+            </if>
+            <if test="userId != null">
+                and user_id=#{userId,jdbcType=BIGINT}
+            </if>
+            <if test="awardName != null">
+                and award_name=#{awardName,jdbcType=VARCHAR}
+            </if>
+            <if test="orderId != null">
+                and order_id=#{orderId,jdbcType=BIGINT}
+            </if>
+            <if test="couponId != null">
+                and coupon_id=#{couponId,jdbcType=BIGINT}
+            </if>
+            <if test="skuType != null">
+                and sku_type=#{skuType,jdbcType=TINYINT}
+            </if>
+            <if test="goodsId != null">
+                and goods_id=#{goodsId,jdbcType=BIGINT}
+            </if>
+            <if test="orderDetail != null">
+                and order_detail=#{orderDetail,jdbcType=VARCHAR}
+            </if>
+            <if test="pic != null">
+                and pic=#{pic,jdbcType=VARCHAR}
+            </if>
+            <if test="creator != null">
+                and creator=#{creator,jdbcType=VARCHAR}
+            </if>
+            <if test="createName != null">
+                and create_name=#{createName,jdbcType=VARCHAR}
+            </if>
+            <if test="modifier != null">
+                and modifier=#{modifier,jdbcType=VARCHAR}
+            </if>
+            <if test="modifyName != null">
+                and modify_name=#{modifyName,jdbcType=VARCHAR}
+            </if>
+            <if test="modifyTime != null">
+                and modify_time=#{modifyTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="status != null">
+                and `status`=#{status,jdbcType=BOOLEAN}
+            </if>
+            <if test="recStatus != null">
+                and rec_status=#{recStatus,jdbcType=BOOLEAN}
+            </if>
+            <if test="awardId != null">
+                and award_id=#{awardId,jdbcType=BIGINT}
+            </if>
+            <if test="awardType != null">
+                and award_type=#{awardType,jdbcType=BIGINT}
+            </if>
+            <if test="integralVal != null">
+                and integral_val=#{integralVal,jdbcType=DECIMAL}
+            </if>
+            <if test="createBy != null">
+                and null=#{createBy}
+            </if>
+            <if test="createTime != null">
+                and create_time=#{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateBy != null">
+                and null=#{updateBy}
+            </if>
+            <if test="updateTime != null">
+                and null=#{updateTime}
+            </if>
+            <if test="remark != null">
+                and remark=#{remark,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
 </mapper>
