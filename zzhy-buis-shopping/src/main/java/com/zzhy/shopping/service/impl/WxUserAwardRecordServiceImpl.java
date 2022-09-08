@@ -49,5 +49,10 @@ public class WxUserAwardRecordServiceImpl implements WxUserAwardRecordService {
     public List<AwardRecordDTO> getAwardList(WxUserAwardRecord record) {
         return wxUserAwardRecordMapper.selectByAll(record);
     }
+
+    @Override
+    public int delete(Long id) {
+        return wxUserAwardRecordMapper.deleteRecStatusById(id);
+    }
 }
 

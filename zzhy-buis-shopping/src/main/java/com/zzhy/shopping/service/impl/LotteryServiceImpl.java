@@ -85,6 +85,7 @@ public class LotteryServiceImpl implements LotteryService {
         record.setIntegralVal(new BigDecimal(turntableConfiguration.getCusomerIntegral()));
         record.setUserId(nideshopUser.getId());
         record.setStatus(false);
+        record.setRecStatus(false);
         // 谢谢参与 或 未中奖 场景
         if (1 == award.getAwardType()) {
             record.setStatus(true);

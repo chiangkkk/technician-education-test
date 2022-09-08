@@ -22,6 +22,12 @@ public class LotteryController {
 
     final LotteryService lotteryService;
 
+    /**
+     * 抽奖接口
+     * @param uid 用户uid
+     * @param turnTableId 轮盘配置id
+     * @return
+     */
     @GetMapping("/{uid}")
     public AjaxResult lottery(@PathVariable Long uid, @RequestParam("turnTableId") Long turnTableId) {
         WxUserAwardRecord record = lotteryService.lottery(uid, turnTableId);

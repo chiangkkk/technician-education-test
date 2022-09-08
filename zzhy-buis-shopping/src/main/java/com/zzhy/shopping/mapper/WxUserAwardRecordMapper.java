@@ -1,4 +1,5 @@
 package com.zzhy.shopping.mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.zzhy.shopping.domain.WxUserAwardRecord;
 import com.zzhy.shopping.dto.AwardRecordDTO;
@@ -19,6 +20,8 @@ public interface WxUserAwardRecordMapper {
     int updateByPrimaryKey(WxUserAwardRecord record);
 
     List<AwardRecordDTO> selectByAll(WxUserAwardRecord wxUserAwardRecord);
+
+    int deleteRecStatusById(@Param("id")Long id);
 
 
 }

@@ -21,5 +21,7 @@ public interface WxUserAwardRecordService {
     int updateByPrimaryKey(WxUserAwardRecord record);
 
     List<AwardRecordDTO> getAwardList(WxUserAwardRecord record);
+
+    int delete(Long id);
 }
 
