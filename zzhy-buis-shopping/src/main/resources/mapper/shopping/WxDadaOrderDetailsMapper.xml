@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.shopping.mapper.WxDadaOrderDetailsMapper">
+  <resultMap id="BaseResultMap" type="com.zzhy.shopping.domain.WxDadaOrderDetails">
+    <!--@mbg.generated-->
+    <!--@Table wx_dada_order_details-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="order_sn" jdbcType="VARCHAR" property="orderSn" />
+    <result column="status_code" jdbcType="INTEGER" property="statusCode" />
+    <result column="status_msg" jdbcType="VARCHAR" property="statusMsg" />
+    <result column="transporter_name" jdbcType="VARCHAR" property="transporterName" />
+    <result column="transporter_phone" jdbcType="VARCHAR" property="transporterPhone" />
+    <result column="transporter_lng" jdbcType="VARCHAR" property="transporterLng" />
+    <result column="transporter_lat" jdbcType="VARCHAR" property="transporterLat" />
+    <result column="delivery_fee" jdbcType="DECIMAL" property="deliveryFee" />
+    <result column="tips" jdbcType="DECIMAL" property="tips" />
+    <result column="coupon_fee" jdbcType="DECIMAL" property="couponFee" />
+    <result column="insurance_fee" jdbcType="DECIMAL" property="insuranceFee" />
+    <result column="actual_fee" jdbcType="DECIMAL" property="actualFee" />
+    <result column="distance" jdbcType="DECIMAL" property="distance" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="accept_time" jdbcType="VARCHAR" property="acceptTime" />
+    <result column="fetch_time" jdbcType="VARCHAR" property="fetchTime" />
+    <result column="finish_time" jdbcType="VARCHAR" property="finishTime" />
+    <result column="cancel_time" jdbcType="VARCHAR" property="cancelTime" />
+    <result column="order_finish_code" jdbcType="VARCHAR" property="orderFinishCode" />
+    <result column="deduct_fee" jdbcType="DECIMAL" property="deductFee" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, order_id, order_sn, status_code, status_msg, transporter_name, transporter_phone, 
+    transporter_lng, transporter_lat, delivery_fee, tips, coupon_fee, insurance_fee, 
+    actual_fee, distance, create_time, accept_time, fetch_time, finish_time, cancel_time, 
+    order_finish_code, deduct_fee
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from wx_dada_order_details
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from wx_dada_order_details
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.WxDadaOrderDetails" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into wx_dada_order_details (order_id, order_sn, status_code, 
+      status_msg, transporter_name, transporter_phone, 
+      transporter_lng, transporter_lat, delivery_fee, 
+      tips, coupon_fee, insurance_fee, 
+      actual_fee, distance, create_time, 
+      accept_time, fetch_time, finish_time, 
+      cancel_time, order_finish_code, deduct_fee
+      )
+    values (#{orderId,jdbcType=BIGINT}, #{orderSn,jdbcType=VARCHAR}, #{statusCode,jdbcType=INTEGER}, 
+      #{statusMsg,jdbcType=VARCHAR}, #{transporterName,jdbcType=VARCHAR}, #{transporterPhone,jdbcType=VARCHAR}, 
+      #{transporterLng,jdbcType=VARCHAR}, #{transporterLat,jdbcType=VARCHAR}, #{deliveryFee,jdbcType=DECIMAL}, 
+      #{tips,jdbcType=DECIMAL}, #{couponFee,jdbcType=DECIMAL}, #{insuranceFee,jdbcType=DECIMAL}, 
+      #{actualFee,jdbcType=DECIMAL}, #{distance,jdbcType=DECIMAL}, #{createTime,jdbcType=VARCHAR}, 
+      #{acceptTime,jdbcType=VARCHAR}, #{fetchTime,jdbcType=VARCHAR}, #{finishTime,jdbcType=VARCHAR}, 
+      #{cancelTime,jdbcType=VARCHAR}, #{orderFinishCode,jdbcType=VARCHAR}, #{deductFee,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.WxDadaOrderDetails" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into wx_dada_order_details
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="orderSn != null">
+        order_sn,
+      </if>
+      <if test="statusCode != null">
+        status_code,
+      </if>
+      <if test="statusMsg != null">
+        status_msg,
+      </if>
+      <if test="transporterName != null">
+        transporter_name,
+      </if>
+      <if test="transporterPhone != null">
+        transporter_phone,
+      </if>
+      <if test="transporterLng != null">
+        transporter_lng,
+      </if>
+      <if test="transporterLat != null">
+        transporter_lat,
+      </if>
+      <if test="deliveryFee != null">
+        delivery_fee,
+      </if>
+      <if test="tips != null">
+        tips,
+      </if>
+      <if test="couponFee != null">
+        coupon_fee,
+      </if>
+      <if test="insuranceFee != null">
+        insurance_fee,
+      </if>
+      <if test="actualFee != null">
+        actual_fee,
+      </if>
+      <if test="distance != null">
+        distance,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="acceptTime != null">
+        accept_time,
+      </if>
+      <if test="fetchTime != null">
+        fetch_time,
+      </if>
+      <if test="finishTime != null">
+        finish_time,
+      </if>
+      <if test="cancelTime != null">
+        cancel_time,
+      </if>
+      <if test="orderFinishCode != null">
+        order_finish_code,
+      </if>
+      <if test="deductFee != null">
+        deduct_fee,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="orderSn != null">
+        #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="statusCode != null">
+        #{statusCode,jdbcType=INTEGER},
+      </if>
+      <if test="statusMsg != null">
+        #{statusMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="transporterName != null">
+        #{transporterName,jdbcType=VARCHAR},
+      </if>
+      <if test="transporterPhone != null">
+        #{transporterPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="transporterLng != null">
+        #{transporterLng,jdbcType=VARCHAR},
+      </if>
+      <if test="transporterLat != null">
+        #{transporterLat,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryFee != null">
+        #{deliveryFee,jdbcType=DECIMAL},
+      </if>
+      <if test="tips != null">
+        #{tips,jdbcType=DECIMAL},
+      </if>
+      <if test="couponFee != null">
+        #{couponFee,jdbcType=DECIMAL},
+      </if>
+      <if test="insuranceFee != null">
+        #{insuranceFee,jdbcType=DECIMAL},
+      </if>
+      <if test="actualFee != null">
+        #{actualFee,jdbcType=DECIMAL},
+      </if>
+      <if test="distance != null">
+        #{distance,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTime != null">
+        #{acceptTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fetchTime != null">
+        #{fetchTime,jdbcType=VARCHAR},
+      </if>
+      <if test="finishTime != null">
+        #{finishTime,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelTime != null">
+        #{cancelTime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderFinishCode != null">
+        #{orderFinishCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deductFee != null">
+        #{deductFee,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzhy.shopping.domain.WxDadaOrderDetails">
+    <!--@mbg.generated-->
+    update wx_dada_order_details
+    <set>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="orderSn != null">
+        order_sn = #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="statusCode != null">
+        status_code = #{statusCode,jdbcType=INTEGER},
+      </if>
+      <if test="statusMsg != null">
+        status_msg = #{statusMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="transporterName != null">
+        transporter_name = #{transporterName,jdbcType=VARCHAR},
+      </if>
+      <if test="transporterPhone != null">
+        transporter_phone = #{transporterPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="transporterLng != null">
+        transporter_lng = #{transporterLng,jdbcType=VARCHAR},
+      </if>
+      <if test="transporterLat != null">
+        transporter_lat = #{transporterLat,jdbcType=VARCHAR},
+      </if>
+      <if test="deliveryFee != null">
+        delivery_fee = #{deliveryFee,jdbcType=DECIMAL},
+      </if>
+      <if test="tips != null">
+        tips = #{tips,jdbcType=DECIMAL},
+      </if>
+      <if test="couponFee != null">
+        coupon_fee = #{couponFee,jdbcType=DECIMAL},
+      </if>
+      <if test="insuranceFee != null">
+        insurance_fee = #{insuranceFee,jdbcType=DECIMAL},
+      </if>
+      <if test="actualFee != null">
+        actual_fee = #{actualFee,jdbcType=DECIMAL},
+      </if>
+      <if test="distance != null">
+        distance = #{distance,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTime != null">
+        accept_time = #{acceptTime,jdbcType=VARCHAR},
+      </if>
+      <if test="fetchTime != null">
+        fetch_time = #{fetchTime,jdbcType=VARCHAR},
+      </if>
+      <if test="finishTime != null">
+        finish_time = #{finishTime,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelTime != null">
+        cancel_time = #{cancelTime,jdbcType=VARCHAR},
+      </if>
+      <if test="orderFinishCode != null">
+        order_finish_code = #{orderFinishCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deductFee != null">
+        deduct_fee = #{deductFee,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzhy.shopping.domain.WxDadaOrderDetails">
+    <!--@mbg.generated-->
+    update wx_dada_order_details
+    set order_id = #{orderId,jdbcType=BIGINT},
+      order_sn = #{orderSn,jdbcType=VARCHAR},
+      status_code = #{statusCode,jdbcType=INTEGER},
+      status_msg = #{statusMsg,jdbcType=VARCHAR},
+      transporter_name = #{transporterName,jdbcType=VARCHAR},
+      transporter_phone = #{transporterPhone,jdbcType=VARCHAR},
+      transporter_lng = #{transporterLng,jdbcType=VARCHAR},
+      transporter_lat = #{transporterLat,jdbcType=VARCHAR},
+      delivery_fee = #{deliveryFee,jdbcType=DECIMAL},
+      tips = #{tips,jdbcType=DECIMAL},
+      coupon_fee = #{couponFee,jdbcType=DECIMAL},
+      insurance_fee = #{insuranceFee,jdbcType=DECIMAL},
+      actual_fee = #{actualFee,jdbcType=DECIMAL},
+      distance = #{distance,jdbcType=DECIMAL},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      accept_time = #{acceptTime,jdbcType=VARCHAR},
+      fetch_time = #{fetchTime,jdbcType=VARCHAR},
+      finish_time = #{finishTime,jdbcType=VARCHAR},
+      cancel_time = #{cancelTime,jdbcType=VARCHAR},
+      order_finish_code = #{orderFinishCode,jdbcType=VARCHAR},
+      deduct_fee = #{deductFee,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,12 +1,5 @@
 package com.zzhy.framework.web.service;
 
-import javax.annotation.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.stereotype.Component;
 import com.zzhy.common.constant.Constants;
 import com.zzhy.common.core.domain.entity.SysUser;
 import com.zzhy.common.core.domain.model.LoginUser;
@@ -23,6 +16,14 @@ import com.zzhy.framework.manager.AsyncManager;
 import com.zzhy.framework.manager.factory.AsyncFactory;
 import com.zzhy.system.service.ISysConfigService;
 import com.zzhy.system.service.ISysUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 /**
  * 登录校验方法
@@ -68,7 +69,7 @@ public class SysLoginService
         Authentication authentication = null;
         try
         {
-            // 该方法会去调用UserDetailsServiceImpl.loadUserByUsername
+            // 该方法会去调用 UserDetailsServiceImpl.loadUserByUsername
             authentication = authenticationManager
                     .authenticate(new UsernamePasswordAuthenticationToken(username, password));
         }

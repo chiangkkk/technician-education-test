@@ -40,6 +40,21 @@
             <artifactId>junit5</artifactId>
             <version>1.26.147</version>
         </dependency>
+        <dependency>
+            <groupId>com.local</groupId>
+            <artifactId>yly_sdk</artifactId>
+            <version>1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.7</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

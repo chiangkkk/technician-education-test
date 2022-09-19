@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.shopping.mapper.NideshopOrderPayMapper">
+  <resultMap id="BaseResultMap" type="com.zzhy.shopping.domain.NideshopOrderPay">
+    <!--@mbg.generated-->
+    <!--@Table nideshop_order_pay-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="out_trade_no" jdbcType="VARCHAR" property="outTradeNo" />
+    <result column="pay_id" jdbcType="VARCHAR" property="payId" />
+    <result column="pay_amount" jdbcType="DECIMAL" property="payAmount" />
+    <result column="pay_type" jdbcType="VARCHAR" property="payType" />
+    <result column="pay_type_name" jdbcType="VARCHAR" property="payTypeName" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="create_name" jdbcType="VARCHAR" property="createName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modify_name" jdbcType="VARCHAR" property="modifyName" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="status" jdbcType="BOOLEAN" property="status" />
+    <result column="rec_status" jdbcType="BOOLEAN" property="recStatus" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="transaction_id" jdbcType="VARCHAR" property="transactionId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, order_id, out_trade_no, pay_id, pay_amount, pay_type, pay_type_name, pay_time, 
+    creator, create_name, create_time, modifier, modify_name, modify_time, `status`, 
+    rec_status, remark, transaction_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from nideshop_order_pay
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from nideshop_order_pay
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.NideshopOrderPay" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into nideshop_order_pay (order_id, out_trade_no, pay_id, 
+      pay_amount, pay_type, pay_type_name, 
+      pay_time, creator, create_name, 
+      create_time, modifier, modify_name, 
+      modify_time, `status`, rec_status, 
+      remark, transaction_id)
+    values (#{orderId,jdbcType=BIGINT}, #{outTradeNo,jdbcType=VARCHAR}, #{payId,jdbcType=VARCHAR}, 
+      #{payAmount,jdbcType=DECIMAL}, #{payType,jdbcType=VARCHAR}, #{payTypeName,jdbcType=VARCHAR}, 
+      #{payTime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, #{modifyName,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{status,jdbcType=BOOLEAN}, #{recStatus,jdbcType=BOOLEAN}, 
+      #{remark,jdbcType=VARCHAR}, #{transactionId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.NideshopOrderPay" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into nideshop_order_pay
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="outTradeNo != null">
+        out_trade_no,
+      </if>
+      <if test="payId != null">
+        pay_id,
+      </if>
+      <if test="payAmount != null">
+        pay_amount,
+      </if>
+      <if test="payType != null">
+        pay_type,
+      </if>
+      <if test="payTypeName != null">
+        pay_type_name,
+      </if>
+      <if test="payTime != null">
+        pay_time,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="createName != null">
+        create_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifier != null">
+        modifier,
+      </if>
+      <if test="modifyName != null">
+        modify_name,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="recStatus != null">
+        rec_status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="transactionId != null">
+        transaction_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="outTradeNo != null">
+        #{outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payId != null">
+        #{payId,jdbcType=VARCHAR},
+      </if>
+      <if test="payAmount != null">
+        #{payAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="payTypeName != null">
+        #{payTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null">
+        #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BOOLEAN},
+      </if>
+      <if test="recStatus != null">
+        #{recStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionId != null">
+        #{transactionId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzhy.shopping.domain.NideshopOrderPay">
+    <!--@mbg.generated-->
+    update nideshop_order_pay
+    <set>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="outTradeNo != null">
+        out_trade_no = #{outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="payId != null">
+        pay_id = #{payId,jdbcType=VARCHAR},
+      </if>
+      <if test="payAmount != null">
+        pay_amount = #{payAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="payType != null">
+        pay_type = #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="payTypeName != null">
+        pay_type_name = #{payTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null">
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createName != null">
+        create_name = #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null">
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyName != null">
+        modify_name = #{modifyName,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=BOOLEAN},
+      </if>
+      <if test="recStatus != null">
+        rec_status = #{recStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionId != null">
+        transaction_id = #{transactionId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzhy.shopping.domain.NideshopOrderPay">
+    <!--@mbg.generated-->
+    update nideshop_order_pay
+    set order_id = #{orderId,jdbcType=BIGINT},
+      out_trade_no = #{outTradeNo,jdbcType=VARCHAR},
+      pay_id = #{payId,jdbcType=VARCHAR},
+      pay_amount = #{payAmount,jdbcType=DECIMAL},
+      pay_type = #{payType,jdbcType=VARCHAR},
+      pay_type_name = #{payTypeName,jdbcType=VARCHAR},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      create_name = #{createName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      modify_name = #{modifyName,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      `status` = #{status,jdbcType=BOOLEAN},
+      rec_status = #{recStatus,jdbcType=BOOLEAN},
+      remark = #{remark,jdbcType=VARCHAR},
+      transaction_id = #{transactionId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+<!--auto generated by MybatisCodeHelper on 2022-09-16-->
+  <select id="getOneByOrderId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from nideshop_order_pay
+        where order_id=#{orderId,jdbcType=BIGINT} and status = 1 limit 1;
+    </select>
+</mapper>

@@ -1,12 +1,20 @@
 package com.zzhy.common.utils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
-
-import org.springframework.util.AntPathMatcher;
 import com.zzhy.common.constant.Constants;
 import com.zzhy.common.core.text.StrFormatter;
+import org.springframework.util.AntPathMatcher;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
 
 /**
  * 字符串工具类
@@ -548,6 +556,21 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils
             return false;
         }
 
+    }
+
+    /**
+     * 生成随机字母A-Z a-z 0-9 组合字符串
+     * @param place 字符长度
+     * @return 随机字符串
+     */
+    public static String randomGen(int place) {
+        String base = "wqetryuioplkjhgfdsazxcvbmnABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        StringBuffer sb = new StringBuffer();
+        Random rd = new Random();
+        for(int i=0;i<place;i++) {
+            sb.append(base.charAt(rd.nextInt(base.length())));
+        }
+        return sb.toString();
     }
 
 

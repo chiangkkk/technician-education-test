@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzhy.shopping.mapper.NideshopOrderMapper">
+    <resultMap id="BaseResultMap" type="com.zzhy.shopping.domain.NideshopOrder">
+        <!--@mbg.generated-->
+        <!--@Table nideshop_order-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="order_sn" jdbcType="VARCHAR" property="orderSn"/>
+        <result column="user_id" jdbcType="BIGINT" property="userId"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="order_status" jdbcType="INTEGER" property="orderStatus"/>
+        <result column="shipping_status" jdbcType="BOOLEAN" property="shippingStatus"/>
+        <result column="pay_status" jdbcType="BOOLEAN" property="payStatus"/>
+        <result column="consignee" jdbcType="VARCHAR" property="consignee"/>
+        <result column="country" jdbcType="VARCHAR" property="country"/>
+        <result column="province" jdbcType="VARCHAR" property="province"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="district" jdbcType="VARCHAR" property="district"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="lng_lat" jdbcType="VARCHAR" property="lngLat"/>
+        <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
+        <result column="postscript" jdbcType="VARCHAR" property="postscript"/>
+        <result column="shipping_id" jdbcType="BIGINT" property="shippingId"/>
+        <result column="shipping_name" jdbcType="VARCHAR" property="shippingName"/>
+        <result column="pay_id" jdbcType="VARCHAR" property="payId"/>
+        <result column="pay_name" jdbcType="VARCHAR" property="payName"/>
+        <result column="shipping_fee" jdbcType="DECIMAL" property="shippingFee"/>
+        <result column="actual_price" jdbcType="DECIMAL" property="actualPrice"/>
+        <result column="integral" jdbcType="BIGINT" property="integral"/>
+        <result column="integral_money" jdbcType="BIGINT" property="integralMoney"/>
+        <result column="order_price" jdbcType="DECIMAL" property="orderPrice"/>
+        <result column="goods_price" jdbcType="DECIMAL" property="goodsPrice"/>
+        <result column="agent_price" jdbcType="DECIMAL" property="agentPrice"/>
+        <result column="add_time" jdbcType="TIMESTAMP" property="addTime"/>
+        <result column="confirm_time" jdbcType="TIMESTAMP" property="confirmTime"/>
+        <result column="pay_time" jdbcType="TIMESTAMP" property="payTime"/>
+        <result column="pay_type" jdbcType="VARCHAR" property="payType"/>
+        <result column="freight_price" jdbcType="DECIMAL" property="freightPrice"/>
+        <result column="user_coupon_id" jdbcType="BIGINT" property="userCouponId"/>
+        <result column="coupon_name" jdbcType="VARCHAR" property="couponName"/>
+        <result column="parent_id" jdbcType="BIGINT" property="parentId"/>
+        <result column="coupon_price" jdbcType="DECIMAL" property="couponPrice"/>
+        <result column="callback_status" jdbcType="OTHER" property="callbackStatus"/>
+        <result column="shipping_no" jdbcType="VARCHAR" property="shippingNo"/>
+        <result column="full_cut_price" jdbcType="DECIMAL" property="fullCutPrice"/>
+        <result column="order_type" jdbcType="VARCHAR" property="orderType"/>
+        <result column="shipping_type" jdbcType="VARCHAR" property="shippingType"/>
+        <result column="pick_up_code" jdbcType="VARCHAR" property="pickUpCode"/>
+        <result column="pick_up_code_used" jdbcType="VARCHAR" property="pickUpCodeUsed"/>
+        <result column="print_ticket_flag" jdbcType="BOOLEAN" property="printTicketFlag"/>
+        <result column="creator" jdbcType="VARCHAR" property="creator"/>
+        <result column="create_name" jdbcType="VARCHAR" property="createName"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modifier" jdbcType="VARCHAR" property="modifier"/>
+        <result column="modify_name" jdbcType="VARCHAR" property="modifyName"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="status" jdbcType="BOOLEAN" property="status"/>
+        <result column="rec_status" jdbcType="BOOLEAN" property="recStatus"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="statistics_status" jdbcType="BOOLEAN" property="statisticsStatus"/>
+        <result column="store_id" jdbcType="INTEGER" property="storeId"/>
+        <result column="pick_up_code_url" jdbcType="VARCHAR" property="pickUpCodeUrl"/>
+        <result column="weight_num" jdbcType="BIGINT" property="weightNum"/>
+        <result column="print_status" jdbcType="BOOLEAN" property="printStatus"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id,
+        order_sn,
+        user_id,
+        username,
+        order_status,
+        shipping_status,
+        pay_status,
+        consignee,
+        country,
+        province,
+        city,
+        district,
+        address,
+        lng_lat,
+        mobile,
+        postscript,
+        shipping_id,
+        shipping_name,
+        pay_id,
+        pay_name,
+        shipping_fee,
+        actual_price,
+        integral,
+        integral_money,
+        order_price,
+        goods_price,
+        agent_price,
+        add_time,
+        confirm_time,
+        pay_time,
+        pay_type,
+        freight_price,
+        user_coupon_id,
+        coupon_name,
+        parent_id,
+        coupon_price,
+        callback_status,
+        shipping_no,
+        full_cut_price,
+        order_type,
+        shipping_type,
+        pick_up_code,
+        pick_up_code_used,
+        print_ticket_flag,
+        creator,
+        create_name,
+        create_time,
+        modifier,
+        modify_name,
+        modify_time,
+        `status`,
+        rec_status,
+        remark,
+        statistics_status,
+        store_id,
+        pick_up_code_url,
+        weight_num,
+        print_status
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from nideshop_order
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        <!--@mbg.generated-->
+        delete
+        from nideshop_order
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.NideshopOrder"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into nideshop_order (order_sn, user_id, username,
+                                    order_status, shipping_status, pay_status,
+                                    consignee, country, province,
+                                    city, district, address,
+                                    lng_lat, mobile, postscript,
+                                    shipping_id, shipping_name, pay_id,
+                                    pay_name, shipping_fee, actual_price,
+                                    integral, integral_money, order_price,
+                                    goods_price, agent_price, add_time,
+                                    confirm_time, pay_time, pay_type,
+                                    freight_price, user_coupon_id, coupon_name,
+                                    parent_id, coupon_price, callback_status,
+                                    shipping_no, full_cut_price, order_type,
+                                    shipping_type, pick_up_code, pick_up_code_used,
+                                    print_ticket_flag, creator, create_name,
+                                    create_time, modifier, modify_name,
+                                    modify_time, `status`, rec_status,
+                                    remark, statistics_status, store_id,
+                                    pick_up_code_url, weight_num, print_status)
+        values (#{orderSn,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR},
+                #{orderStatus,jdbcType=INTEGER}, #{shippingStatus,jdbcType=BOOLEAN}, #{payStatus,jdbcType=BOOLEAN},
+                #{consignee,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR},
+                #{city,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
+                #{lngLat,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{postscript,jdbcType=VARCHAR},
+                #{shippingId,jdbcType=BIGINT}, #{shippingName,jdbcType=VARCHAR}, #{payId,jdbcType=VARCHAR},
+                #{payName,jdbcType=VARCHAR}, #{shippingFee,jdbcType=DECIMAL}, #{actualPrice,jdbcType=DECIMAL},
+                #{integral,jdbcType=BIGINT}, #{integralMoney,jdbcType=BIGINT}, #{orderPrice,jdbcType=DECIMAL},
+                #{goodsPrice,jdbcType=DECIMAL}, #{agentPrice,jdbcType=DECIMAL}, #{addTime,jdbcType=TIMESTAMP},
+                #{confirmTime,jdbcType=TIMESTAMP}, #{payTime,jdbcType=TIMESTAMP}, #{payType,jdbcType=VARCHAR},
+                #{freightPrice,jdbcType=DECIMAL}, #{userCouponId,jdbcType=BIGINT}, #{couponName,jdbcType=VARCHAR},
+                #{parentId,jdbcType=BIGINT}, #{couponPrice,jdbcType=DECIMAL}, #{callbackStatus,jdbcType=OTHER},
+                #{shippingNo,jdbcType=VARCHAR}, #{fullCutPrice,jdbcType=DECIMAL}, #{orderType,jdbcType=VARCHAR},
+                #{shippingType,jdbcType=VARCHAR}, #{pickUpCode,jdbcType=VARCHAR}, #{pickUpCodeUsed,jdbcType=VARCHAR},
+                #{printTicketFlag,jdbcType=BOOLEAN}, #{creator,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR},
+                #{createTime,jdbcType=TIMESTAMP}, #{modifier,jdbcType=VARCHAR}, #{modifyName,jdbcType=VARCHAR},
+                #{modifyTime,jdbcType=TIMESTAMP}, #{status,jdbcType=BOOLEAN}, #{recStatus,jdbcType=BOOLEAN},
+                #{remark,jdbcType=VARCHAR}, #{statisticsStatus,jdbcType=BOOLEAN}, #{storeId,jdbcType=INTEGER},
+                #{pickUpCodeUrl,jdbcType=VARCHAR}, #{weightNum,jdbcType=BIGINT}, #{printStatus,jdbcType=BOOLEAN})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.zzhy.shopping.domain.NideshopOrder"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into nideshop_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderSn != null">
+                order_sn,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="username != null">
+                username,
+            </if>
+            <if test="orderStatus != null">
+                order_status,
+            </if>
+            <if test="shippingStatus != null">
+                shipping_status,
+            </if>
+            <if test="payStatus != null">
+                pay_status,
+            </if>
+            <if test="consignee != null">
+                consignee,
+            </if>
+            <if test="country != null">
+                country,
+            </if>
+            <if test="province != null">
+                province,
+            </if>
+            <if test="city != null">
+                city,
+            </if>
+            <if test="district != null">
+                district,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="lngLat != null">
+                lng_lat,
+            </if>
+            <if test="mobile != null">
+                mobile,
+            </if>
+            <if test="postscript != null">
+                postscript,
+            </if>
+            <if test="shippingId != null">
+                shipping_id,
+            </if>
+            <if test="shippingName != null">
+                shipping_name,
+            </if>
+            <if test="payId != null">
+                pay_id,
+            </if>
+            <if test="payName != null">
+                pay_name,
+            </if>
+            <if test="shippingFee != null">
+                shipping_fee,
+            </if>
+            <if test="actualPrice != null">
+                actual_price,
+            </if>
+            <if test="integral != null">
+                integral,
+            </if>
+            <if test="integralMoney != null">
+                integral_money,
+            </if>
+            <if test="orderPrice != null">
+                order_price,
+            </if>
+            <if test="goodsPrice != null">
+                goods_price,
+            </if>
+            <if test="agentPrice != null">
+                agent_price,
+            </if>
+            <if test="addTime != null">
+                add_time,
+            </if>
+            <if test="confirmTime != null">
+                confirm_time,
+            </if>
+            <if test="payTime != null">
+                pay_time,
+            </if>
+            <if test="payType != null">
+                pay_type,
+            </if>
+            <if test="freightPrice != null">
+                freight_price,
+            </if>
+            <if test="userCouponId != null">
+                user_coupon_id,
+            </if>
+            <if test="couponName != null">
+                coupon_name,
+            </if>
+            <if test="parentId != null">
+                parent_id,
+            </if>
+            <if test="couponPrice != null">
+                coupon_price,
+            </if>
+            <if test="callbackStatus != null">
+                callback_status,
+            </if>
+            <if test="shippingNo != null">
+                shipping_no,
+            </if>
+            <if test="fullCutPrice != null">
+                full_cut_price,
+            </if>
+            <if test="orderType != null">
+                order_type,
+            </if>
+            <if test="shippingType != null">
+                shipping_type,
+            </if>
+            <if test="pickUpCode != null">
+                pick_up_code,
+            </if>
+            <if test="pickUpCodeUsed != null">
+                pick_up_code_used,
+            </if>
+            <if test="printTicketFlag != null">
+                print_ticket_flag,
+            </if>
+            <if test="creator != null">
+                creator,
+            </if>
+            <if test="createName != null">
+                create_name,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="modifier != null">
+                modifier,
+            </if>
+            <if test="modifyName != null">
+                modify_name,
+            </if>
+            <if test="modifyTime != null">
+                modify_time,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="recStatus != null">
+                rec_status,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="statisticsStatus != null">
+                statistics_status,
+            </if>
+            <if test="storeId != null">
+                store_id,
+            </if>
+            <if test="pickUpCodeUrl != null">
+                pick_up_code_url,
+            </if>
+            <if test="weightNum != null">
+                weight_num,
+            </if>
+            <if test="printStatus != null">
+                print_status,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderSn != null">
+                #{orderSn,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="orderStatus != null">
+                #{orderStatus,jdbcType=INTEGER},
+            </if>
+            <if test="shippingStatus != null">
+                #{shippingStatus,jdbcType=BOOLEAN},
+            </if>
+            <if test="payStatus != null">
+                #{payStatus,jdbcType=BOOLEAN},
+            </if>
+            <if test="consignee != null">
+                #{consignee,jdbcType=VARCHAR},
+            </if>
+            <if test="country != null">
+                #{country,jdbcType=VARCHAR},
+            </if>
+            <if test="province != null">
+                #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="district != null">
+                #{district,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="lngLat != null">
+                #{lngLat,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile != null">
+                #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="postscript != null">
+                #{postscript,jdbcType=VARCHAR},
+            </if>
+            <if test="shippingId != null">
+                #{shippingId,jdbcType=BIGINT},
+            </if>
+            <if test="shippingName != null">
+                #{shippingName,jdbcType=VARCHAR},
+            </if>
+            <if test="payId != null">
+                #{payId,jdbcType=VARCHAR},
+            </if>
+            <if test="payName != null">
+                #{payName,jdbcType=VARCHAR},
+            </if>
+            <if test="shippingFee != null">
+                #{shippingFee,jdbcType=DECIMAL},
+            </if>
+            <if test="actualPrice != null">
+                #{actualPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="integral != null">
+                #{integral,jdbcType=BIGINT},
+            </if>
+            <if test="integralMoney != null">
+                #{integralMoney,jdbcType=BIGINT},
+            </if>
+            <if test="orderPrice != null">
+                #{orderPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="goodsPrice != null">
+                #{goodsPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="agentPrice != null">
+                #{agentPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="addTime != null">
+                #{addTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="confirmTime != null">
+                #{confirmTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="payTime != null">
+                #{payTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="payType != null">
+                #{payType,jdbcType=VARCHAR},
+            </if>
+            <if test="freightPrice != null">
+                #{freightPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="userCouponId != null">
+                #{userCouponId,jdbcType=BIGINT},
+            </if>
+            <if test="couponName != null">
+                #{couponName,jdbcType=VARCHAR},
+            </if>
+            <if test="parentId != null">
+                #{parentId,jdbcType=BIGINT},
+            </if>
+            <if test="couponPrice != null">
+                #{couponPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="callbackStatus != null">
+                #{callbackStatus,jdbcType=OTHER},
+            </if>
+            <if test="shippingNo != null">
+                #{shippingNo,jdbcType=VARCHAR},
+            </if>
+            <if test="fullCutPrice != null">
+                #{fullCutPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="orderType != null">
+                #{orderType,jdbcType=VARCHAR},
+            </if>
+            <if test="shippingType != null">
+                #{shippingType,jdbcType=VARCHAR},
+            </if>
+            <if test="pickUpCode != null">
+                #{pickUpCode,jdbcType=VARCHAR},
+            </if>
+            <if test="pickUpCodeUsed != null">
+                #{pickUpCodeUsed,jdbcType=VARCHAR},
+            </if>
+            <if test="printTicketFlag != null">
+                #{printTicketFlag,jdbcType=BOOLEAN},
+            </if>
+            <if test="creator != null">
+                #{creator,jdbcType=VARCHAR},
+            </if>
+            <if test="createName != null">
+                #{createName,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifier != null">
+                #{modifier,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyName != null">
+                #{modifyName,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyTime != null">
+                #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=BOOLEAN},
+            </if>
+            <if test="recStatus != null">
+                #{recStatus,jdbcType=BOOLEAN},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="statisticsStatus != null">
+                #{statisticsStatus,jdbcType=BOOLEAN},
+            </if>
+            <if test="storeId != null">
+                #{storeId,jdbcType=INTEGER},
+            </if>
+            <if test="pickUpCodeUrl != null">
+                #{pickUpCodeUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="weightNum != null">
+                #{weightNum,jdbcType=BIGINT},
+            </if>
+            <if test="printStatus != null">
+                #{printStatus,jdbcType=BOOLEAN},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.zzhy.shopping.domain.NideshopOrder">
+        <!--@mbg.generated-->
+        update nideshop_order
+        <set>
+            <if test="orderSn != null">
+                order_sn = #{orderSn,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="orderStatus != null">
+                order_status = #{orderStatus,jdbcType=INTEGER},
+            </if>
+            <if test="shippingStatus != null">
+                shipping_status = #{shippingStatus,jdbcType=BOOLEAN},
+            </if>
+            <if test="payStatus != null">
+                pay_status = #{payStatus,jdbcType=BOOLEAN},
+            </if>
+            <if test="consignee != null">
+                consignee = #{consignee,jdbcType=VARCHAR},
+            </if>
+            <if test="country != null">
+                country = #{country,jdbcType=VARCHAR},
+            </if>
+            <if test="province != null">
+                province = #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                city = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="district != null">
+                district = #{district,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="lngLat != null">
+                lng_lat = #{lngLat,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile != null">
+                mobile = #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="postscript != null">
+                postscript = #{postscript,jdbcType=VARCHAR},
+            </if>
+            <if test="shippingId != null">
+                shipping_id = #{shippingId,jdbcType=BIGINT},
+            </if>
+            <if test="shippingName != null">
+                shipping_name = #{shippingName,jdbcType=VARCHAR},
+            </if>
+            <if test="payId != null">
+                pay_id = #{payId,jdbcType=VARCHAR},
+            </if>
+            <if test="payName != null">
+                pay_name = #{payName,jdbcType=VARCHAR},
+            </if>
+            <if test="shippingFee != null">
+                shipping_fee = #{shippingFee,jdbcType=DECIMAL},
+            </if>
+            <if test="actualPrice != null">
+                actual_price = #{actualPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="integral != null">
+                integral = #{integral,jdbcType=BIGINT},
+            </if>
+            <if test="integralMoney != null">
+                integral_money = #{integralMoney,jdbcType=BIGINT},
+            </if>
+            <if test="orderPrice != null">
+                order_price = #{orderPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="goodsPrice != null">
+                goods_price = #{goodsPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="agentPrice != null">
+                agent_price = #{agentPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="confirmTime != null">
+                confirm_time = #{confirmTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="payTime != null">
+                pay_time = #{payTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="payType != null">
+                pay_type = #{payType,jdbcType=VARCHAR},
+            </if>
+            <if test="freightPrice != null">
+                freight_price = #{freightPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="userCouponId != null">
+                user_coupon_id = #{userCouponId,jdbcType=BIGINT},
+            </if>
+            <if test="couponName != null">
+                coupon_name = #{couponName,jdbcType=VARCHAR},
+            </if>
+            <if test="parentId != null">
+                parent_id = #{parentId,jdbcType=BIGINT},
+            </if>
+            <if test="couponPrice != null">
+                coupon_price = #{couponPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="callbackStatus != null">
+                callback_status = #{callbackStatus,jdbcType=OTHER},
+            </if>
+            <if test="shippingNo != null">
+                shipping_no = #{shippingNo,jdbcType=VARCHAR},
+            </if>
+            <if test="fullCutPrice != null">
+                full_cut_price = #{fullCutPrice,jdbcType=DECIMAL},
+            </if>
+            <if test="orderType != null">
+                order_type = #{orderType,jdbcType=VARCHAR},
+            </if>
+            <if test="shippingType != null">
+                shipping_type = #{shippingType,jdbcType=VARCHAR},
+            </if>
+            <if test="pickUpCode != null">
+                pick_up_code = #{pickUpCode,jdbcType=VARCHAR},
+            </if>
+            <if test="pickUpCodeUsed != null">
+                pick_up_code_used = #{pickUpCodeUsed,jdbcType=VARCHAR},
+            </if>
+            <if test="printTicketFlag != null">
+                print_ticket_flag = #{printTicketFlag,jdbcType=BOOLEAN},
+            </if>
+            <if test="creator != null">
+                creator = #{creator,jdbcType=VARCHAR},
+            </if>
+            <if test="createName != null">
+                create_name = #{createName,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifier != null">
+                modifier = #{modifier,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyName != null">
+                modify_name = #{modifyName,jdbcType=VARCHAR},
+            </if>
+            <if test="modifyTime != null">
+                modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=BOOLEAN},
+            </if>
+            <if test="recStatus != null">
+                rec_status = #{recStatus,jdbcType=BOOLEAN},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="statisticsStatus != null">
+                statistics_status = #{statisticsStatus,jdbcType=BOOLEAN},
+            </if>
+            <if test="storeId != null">
+                store_id = #{storeId,jdbcType=INTEGER},
+            </if>
+            <if test="pickUpCodeUrl != null">
+                pick_up_code_url = #{pickUpCodeUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="weightNum != null">
+                weight_num = #{weightNum,jdbcType=BIGINT},
+            </if>
+            <if test="printStatus != null">
+                print_status = #{printStatus,jdbcType=BOOLEAN},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.zzhy.shopping.domain.NideshopOrder">
+        <!--@mbg.generated-->
+        update nideshop_order
+        set order_sn          = #{orderSn,jdbcType=VARCHAR},
+            user_id           = #{userId,jdbcType=BIGINT},
+            username          = #{username,jdbcType=VARCHAR},
+            order_status      = #{orderStatus,jdbcType=INTEGER},
+            shipping_status   = #{shippingStatus,jdbcType=BOOLEAN},
+            pay_status        = #{payStatus,jdbcType=BOOLEAN},
+            consignee         = #{consignee,jdbcType=VARCHAR},
+            country           = #{country,jdbcType=VARCHAR},
+            province          = #{province,jdbcType=VARCHAR},
+            city              = #{city,jdbcType=VARCHAR},
+            district          = #{district,jdbcType=VARCHAR},
+            address           = #{address,jdbcType=VARCHAR},
+            lng_lat           = #{lngLat,jdbcType=VARCHAR},
+            mobile            = #{mobile,jdbcType=VARCHAR},
+            postscript        = #{postscript,jdbcType=VARCHAR},
+            shipping_id       = #{shippingId,jdbcType=BIGINT},
+            shipping_name     = #{shippingName,jdbcType=VARCHAR},
+            pay_id            = #{payId,jdbcType=VARCHAR},
+            pay_name          = #{payName,jdbcType=VARCHAR},
+            shipping_fee      = #{shippingFee,jdbcType=DECIMAL},
+            actual_price      = #{actualPrice,jdbcType=DECIMAL},
+            integral          = #{integral,jdbcType=BIGINT},
+            integral_money    = #{integralMoney,jdbcType=BIGINT},
+            order_price       = #{orderPrice,jdbcType=DECIMAL},
+            goods_price       = #{goodsPrice,jdbcType=DECIMAL},
+            agent_price       = #{agentPrice,jdbcType=DECIMAL},
+            add_time          = #{addTime,jdbcType=TIMESTAMP},
+            confirm_time      = #{confirmTime,jdbcType=TIMESTAMP},
+            pay_time          = #{payTime,jdbcType=TIMESTAMP},
+            pay_type          = #{payType,jdbcType=VARCHAR},
+            freight_price     = #{freightPrice,jdbcType=DECIMAL},
+            user_coupon_id    = #{userCouponId,jdbcType=BIGINT},
+            coupon_name       = #{couponName,jdbcType=VARCHAR},
+            parent_id         = #{parentId,jdbcType=BIGINT},
+            coupon_price      = #{couponPrice,jdbcType=DECIMAL},
+            callback_status   = #{callbackStatus,jdbcType=OTHER},
+            shipping_no       = #{shippingNo,jdbcType=VARCHAR},
+            full_cut_price    = #{fullCutPrice,jdbcType=DECIMAL},
+            order_type        = #{orderType,jdbcType=VARCHAR},
+            shipping_type     = #{shippingType,jdbcType=VARCHAR},
+            pick_up_code      = #{pickUpCode,jdbcType=VARCHAR},
+            pick_up_code_used = #{pickUpCodeUsed,jdbcType=VARCHAR},
+            print_ticket_flag = #{printTicketFlag,jdbcType=BOOLEAN},
+            creator           = #{creator,jdbcType=VARCHAR},
+            create_name       = #{createName,jdbcType=VARCHAR},
+            create_time       = #{createTime,jdbcType=TIMESTAMP},
+            modifier          = #{modifier,jdbcType=VARCHAR},
+            modify_name       = #{modifyName,jdbcType=VARCHAR},
+            modify_time       = #{modifyTime,jdbcType=TIMESTAMP},
+            `status`          = #{status,jdbcType=BOOLEAN},
+            rec_status        = #{recStatus,jdbcType=BOOLEAN},
+            remark            = #{remark,jdbcType=VARCHAR},
+            statistics_status = #{statisticsStatus,jdbcType=BOOLEAN},
+            store_id          = #{storeId,jdbcType=INTEGER},
+            pick_up_code_url  = #{pickUpCodeUrl,jdbcType=VARCHAR},
+            weight_num        = #{weightNum,jdbcType=BIGINT},
+            print_status      = #{printStatus,jdbcType=BOOLEAN}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <resultMap id="orderDTOMap" type="com.zzhy.shopping.dto.OrderDTO" extends="BaseResultMap">
+        <association property="pay" column="{orderId=id}" select="com.zzhy.shopping.mapper.NideshopOrderPayMapper.getOneByOrderId" />
+        <collection property="goodsList" column="{orderId=id}" select="com.zzhy.shopping.mapper.NideshopOrderGoodsMapper.selectOneByOrderId"/>
+    </resultMap>
+    <resultMap id="orderDTOMap2" type="com.zzhy.shopping.dto.OrderDTO" extends="orderDTOMap" >
+        <association property="user" column="{id=user_id}" select="com.zzhy.shopping.mapper.NideshopUserMapper.selectByPrimaryKey" />
+    </resultMap>
+    <select id="selectOneToGetDTOById" resultMap="orderDTOMap2">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from nideshop_order
+        where id = #{oid,jdbcType=BIGINT}
+    </select>
+
+    <select id="selectByAll" resultMap="orderDTOMap">
+        select
+        <include refid="Base_Column_List"/>
+        from nideshop_order
+        <where>
+            <if test="id != null">
+                and id = #{id,jdbcType=BIGINT}
+            </if>
+            <if test="orderSn != null">
+                and order_sn = #{orderSn,jdbcType=VARCHAR}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId,jdbcType=BIGINT}
+            </if>
+            <if test="username != null">
+                and username = #{username,jdbcType=VARCHAR}
+            </if>
+            <if test="orderStatus != null">
+                and order_status = #{orderStatus,jdbcType=INTEGER}
+            </if>
+            <if test="shippingStatus != null">
+                and shipping_status = #{shippingStatus,jdbcType=BOOLEAN}
+            </if>
+            <if test="payStatus != null">
+                and pay_status = #{payStatus,jdbcType=BOOLEAN}
+            </if>
+            <if test="consignee != null">
+                and consignee = #{consignee,jdbcType=VARCHAR}
+            </if>
+            <if test="country != null">
+                and country = #{country,jdbcType=VARCHAR}
+            </if>
+            <if test="province != null">
+                and province = #{province,jdbcType=VARCHAR}
+            </if>
+            <if test="city != null">
+                and city = #{city,jdbcType=VARCHAR}
+            </if>
+            <if test="district != null">
+                and district = #{district,jdbcType=VARCHAR}
+            </if>
+            <if test="address != null">
+                and address = #{address,jdbcType=VARCHAR}
+            </if>
+            <if test="lngLat != null">
+                and lng_lat = #{lngLat,jdbcType=VARCHAR}
+            </if>
+            <if test="mobile != null">
+                and mobile = #{mobile,jdbcType=VARCHAR}
+            </if>
+            <if test="postscript != null">
+                and postscript = #{postscript,jdbcType=VARCHAR}
+            </if>
+            <if test="shippingId != null">
+                and shipping_id = #{shippingId,jdbcType=BIGINT}
+            </if>
+            <if test="shippingName != null">
+                and shipping_name = #{shippingName,jdbcType=VARCHAR}
+            </if>
+            <if test="payId != null">
+                and pay_id = #{payId,jdbcType=VARCHAR}
+            </if>
+            <if test="payName != null">
+                and pay_name = #{payName,jdbcType=VARCHAR}
+            </if>
+            <if test="shippingFee != null">
+                and shipping_fee = #{shippingFee,jdbcType=DECIMAL}
+            </if>
+            <if test="actualPrice != null">
+                and actual_price = #{actualPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="integral != null">
+                and integral = #{integral,jdbcType=BIGINT}
+            </if>
+            <if test="integralMoney != null">
+                and integral_money = #{integralMoney,jdbcType=BIGINT}
+            </if>
+            <if test="orderPrice != null">
+                and order_price = #{orderPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="goodsPrice != null">
+                and goods_price = #{goodsPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="agentPrice != null">
+                and agent_price = #{agentPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="confirmTime != null">
+                and confirm_time = #{confirmTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="payTime != null">
+                and pay_time = #{payTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="payType != null">
+                and pay_type = #{payType,jdbcType=VARCHAR}
+            </if>
+            <if test="freightPrice != null">
+                and freight_price = #{freightPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="userCouponId != null">
+                and user_coupon_id = #{userCouponId,jdbcType=BIGINT}
+            </if>
+            <if test="couponName != null">
+                and coupon_name = #{couponName,jdbcType=VARCHAR}
+            </if>
+            <if test="parentId != null">
+                and parent_id = #{parentId,jdbcType=BIGINT}
+            </if>
+            <if test="couponPrice != null">
+                and coupon_price = #{couponPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="callbackStatus != null">
+                and callback_status = #{callbackStatus,jdbcType=OTHER}
+            </if>
+            <if test="shippingNo != null">
+                and shipping_no = #{shippingNo,jdbcType=VARCHAR}
+            </if>
+            <if test="fullCutPrice != null">
+                and full_cut_price = #{fullCutPrice,jdbcType=DECIMAL}
+            </if>
+            <if test="orderType != null">
+                and order_type = #{orderType,jdbcType=VARCHAR}
+            </if>
+            <if test="shippingType != null">
+                and shipping_type = #{shippingType,jdbcType=VARCHAR}
+            </if>
+            <if test="pickUpCode != null">
+                and pick_up_code = #{pickUpCode,jdbcType=VARCHAR}
+            </if>
+            <if test="pickUpCodeUsed != null">
+                and pick_up_code_used = #{pickUpCodeUsed,jdbcType=VARCHAR}
+            </if>
+            <if test="printTicketFlag != null">
+                and print_ticket_flag = #{printTicketFlag,jdbcType=BOOLEAN}
+            </if>
+            <if test="creator != null">
+                and creator = #{creator,jdbcType=VARCHAR}
+            </if>
+            <if test="createName != null">
+                and create_name = #{createName,jdbcType=VARCHAR}
+            </if>
+            <if test="modifier != null">
+                and modifier = #{modifier,jdbcType=VARCHAR}
+            </if>
+            <if test="modifyName != null">
+                and modify_name = #{modifyName,jdbcType=VARCHAR}
+            </if>
+            <if test="modifyTime != null">
+                and modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="status != null">
+                and `status` = #{status,jdbcType=BOOLEAN}
+            </if>
+            <if test="recStatus != null">
+                and rec_status = #{recStatus,jdbcType=BOOLEAN}
+            </if>
+            <if test="statisticsStatus != null">
+                and statistics_status = #{statisticsStatus,jdbcType=BOOLEAN}
+            </if>
+            <if test="storeId != null">
+                and store_id = #{storeId,jdbcType=INTEGER}
+            </if>
+            <if test="pickUpCodeUrl != null">
+                and pick_up_code_url = #{pickUpCodeUrl,jdbcType=VARCHAR}
+            </if>
+            <if test="weightNum != null">
+                and weight_num = #{weightNum,jdbcType=BIGINT}
+            </if>
+            <if test="printStatus != null">
+                and print_status = #{printStatus,jdbcType=BOOLEAN}
+            </if>
+
+
+            <if test="createBy != null">
+                and null = #{createBy}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateBy != null">
+                and null = #{updateBy}
+            </if>
+            <if test="updateTime != null">
+                and null = #{updateTime}
+            </if>
+            <if test="remark != null">
+                and remark = #{remark,jdbcType=VARCHAR}
+            </if>
+
+
+        </where>
+    </select>
+</mapper>
